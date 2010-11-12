@@ -1,0 +1,9 @@
+Package: org.tomcool.eventcatcher
+Name: EventCatcher
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Thomas Cool
+Author: Thomas Cool
+Section: Tweaks

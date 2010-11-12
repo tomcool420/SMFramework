@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		875A8234126FFBA400ECADC2 /* thePlugin */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 875A823D126FFBC200ECADC2 /* Build configuration list for PBXAggregateTarget "thePlugin" */;
+			buildPhases = (
+				875A8233126FFBA400ECADC2 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = thePlugin;
+			productName = thePlugin;
+		};
+		DDDC81991273B9B800192ADD /* Install */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DDDC819C1273B9D600192ADD /* Build configuration list for PBXAggregateTarget "Install" */;
+			buildPhases = (
+				DDDC81981273B9B800192ADD /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Install;
+			productName = Install;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		875A8424126FFF5300ECADC2 /* BackRow in Resources */ = {isa = PBXBuildFile; fileRef = 875A8253126FFF5300ECADC2 /* BackRow */; };
+		875A8426126FFF6500ECADC2 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 875A8425126FFF6500ECADC2 /* build.sh */; };
+		875A8428126FFF6D00ECADC2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 875A8427126FFF6D00ECADC2 /* Makefile */; };
+		875A873412704ACC00ECADC2 /* theos in Resources */ = {isa = PBXBuildFile; fileRef = 875A86EB12704ACC00ECADC2 /* theos */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
+		DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */; };
+		DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */; };
+		DDDC81001273909900192ADD /* SMFMediaPreview.mm in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */; };
+		DDDC81711273A66600192ADD /* SMFPasscodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC81701273A66600192ADD /* SMFPasscodeController.m */; };
+		DDDC81741273A67000192ADD /* SMFController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC81731273A67000192ADD /* SMFController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atvTwo_Prefix.pch; sourceTree = "<group>"; };
+		875A8249126FFF1F00ECADC2 /* BackRowExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackRowExtras.h; path = Classes/BackRowExtras.h; sourceTree = "<group>"; };
+		875A8253126FFF5300ECADC2 /* BackRow */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackRow; path = theos/include/BackRow; sourceTree = "<group>"; };
+		875A8425126FFF6500ECADC2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		875A8427126FFF6D00ECADC2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		875A86EB12704ACC00ECADC2 /* theos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = theos; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* atvTwo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atvTwo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFFolderDelegate.h; sourceTree = "<group>"; };
+		DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFFolderDelegate.m; sourceTree = "<group>"; };
+		DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFThemeInfo.h; sourceTree = "<group>"; };
+		DD0F80B9127CF99A00277D06 /* SMFThemeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFThemeInfo.m; sourceTree = "<group>"; };
+		DD0F80C5127CF9F400277D06 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		DD3136CB1277CFFC00042510 /* SMFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuItem.h; sourceTree = "<group>"; };
+		DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuItem.m; sourceTree = "<group>"; };
+		DDA302A61274EF8900B0AE9C /* SMFDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDefines.h; sourceTree = "<group>"; };
+		DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMenuItem_SMF.h; sourceTree = "<group>"; };
+		DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuItem_SMF.m; sourceTree = "<group>"; };
+		DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFInvocationCenteredMenuController.h; sourceTree = "<group>"; };
+		DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFInvocationCenteredMenuController.m; sourceTree = "<group>"; };
+		DDABC41A127877B3001F026B /* SMFScreenCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFScreenCapture.h; sourceTree = "<group>"; };
+		DDABC41B127877B3001F026B /* SMFScreenCapture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFScreenCapture.m; sourceTree = "<group>"; };
+		DDABC43312787C85001F026B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DDABC43612787C91001F026B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DDAE5B9F127DB3580038574E /* SMFClockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFClockController.h; sourceTree = "<group>"; };
+		DDAE5BA0127DB3580038574E /* SMFClockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFClockController.m; sourceTree = "<group>"; };
+		DDAE5BD2127E0DE00038574E /* SMFEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFEventManager.h; sourceTree = "<group>"; };
+		DDAE5BD3127E0DE00038574E /* SMFEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFEventManager.m; sourceTree = "<group>"; };
+		DDAE5BD4127E19570038574E /* SMFEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFEvent.h; sourceTree = "<group>"; };
+		DDAE5BD5127E19570038574E /* SMFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFEvent.m; sourceTree = "<group>"; };
+		DDAE5BD8127E2DBF0038574E /* SMFPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPhotos.h; sourceTree = "<group>"; };
+		DDAE5BD9127E2DBF0038574E /* SMFPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPhotos.m; sourceTree = "<group>"; };
+		DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPhotoMethods.h; sourceTree = "<group>"; };
+		DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPhotoMethods.mm; sourceTree = "<group>"; };
+		DDAE5E0A12838A980038574E /* SMFCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFCommonTools.h; sourceTree = "<group>"; };
+		DDAE5E0B12838A980038574E /* SMFCommonTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFCommonTools.m; sourceTree = "<group>"; };
+		DDAE5E0E12839A9A0038574E /* SMFEventConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFEventConfiguration.h; sourceTree = "<group>"; };
+		DDAE5E0F12839A9A0038574E /* SMFEventConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFEventConfiguration.m; sourceTree = "<group>"; };
+		DDAE5F271284EED30038574E /* SMFQueryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFQueryMenu.h; sourceTree = "<group>"; };
+		DDAE5F281284EED30038574E /* SMFQueryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFQueryMenu.m; sourceTree = "<group>"; };
+		DDAE5F291284EF280038574E /* SMFMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuController.h; sourceTree = "<group>"; };
+		DDAE5F2A1284EF280038574E /* SMFMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuController.m; sourceTree = "<group>"; };
+		DDCB54C9128CA1EC0045529A /* NSTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
+		DDCB54CA128CA2010045529A /* SMFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFTask.h; sourceTree = "<group>"; };
+		DDCB54CB128CA2010045529A /* SMFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFTask.m; sourceTree = "<group>"; };
+		DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMediaMenuController.h; sourceTree = "<group>"; };
+		DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMediaMenuController.m; sourceTree = "<group>"; };
+		DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFCenteredMenuController.h; sourceTree = "<group>"; };
+		DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFCenteredMenuController.m; sourceTree = "<group>"; };
+		DDDC80F91273784800192ADD /* SMFFolderBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFFolderBrowser.h; sourceTree = "<group>"; };
+		DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFFolderBrowser.m; sourceTree = "<group>"; };
+		DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFBaseAsset.h; sourceTree = "<group>"; };
+		DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFBaseAsset.m; sourceTree = "<group>"; };
+		DDDC80FE1273909900192ADD /* SMFMediaPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMediaPreview.h; sourceTree = "<group>"; };
+		DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFMediaPreview.mm; sourceTree = "<group>"; };
+		DDDC816F1273A66600192ADD /* SMFPasscodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPasscodeController.h; sourceTree = "<group>"; };
+		DDDC81701273A66600192ADD /* SMFPasscodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPasscodeController.m; sourceTree = "<group>"; };
+		DDDC81721273A67000192ADD /* SMFController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFController.h; sourceTree = "<group>"; };
+		DDDC81731273A67000192ADD /* SMFController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFController.m; sourceTree = "<group>"; };
+		DDDC818F1273B8C000192ADD /* SMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFramework.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* atvTwo */ = {
+			isa = PBXGroup;
+			children = (
+				875A8427126FFF6D00ECADC2 /* Makefile */,
+				875A8425126FFF6500ECADC2 /* build.sh */,
+				875A86EB12704ACC00ECADC2 /* theos */,
+				875A8253126FFF5300ECADC2 /* BackRow */,
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = atvTwo;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DDCB54C9128CA1EC0045529A /* NSTask.h */,
+				DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */,
+				DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */,
+				DDDC81721273A67000192ADD /* SMFController.h */,
+				DDDC81731273A67000192ADD /* SMFController.m */,
+				DDDC816F1273A66600192ADD /* SMFPasscodeController.h */,
+				DDDC81701273A66600192ADD /* SMFPasscodeController.m */,
+				DDDC80FE1273909900192ADD /* SMFMediaPreview.h */,
+				DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */,
+				DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */,
+				DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */,
+				DDDC80F91273784800192ADD /* SMFFolderBrowser.h */,
+				DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */,
+				DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */,
+				DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */,
+				DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */,
+				DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */,
+				DDAE5F291284EF280038574E /* SMFMenuController.h */,
+				DDAE5F2A1284EF280038574E /* SMFMenuController.m */,
+				875A8249126FFF1F00ECADC2 /* BackRowExtras.h */,
+				DDDC818F1273B8C000192ADD /* SMFramework.h */,
+				DDA302A61274EF8900B0AE9C /* SMFDefines.h */,
+				DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */,
+				DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */,
+				DD3136CB1277CFFC00042510 /* SMFMenuItem.h */,
+				DD3136CC1277CFFC00042510 /* SMFMenuItem.m */,
+				DDABC41A127877B3001F026B /* SMFScreenCapture.h */,
+				DDABC41B127877B3001F026B /* SMFScreenCapture.m */,
+				DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */,
+				DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */,
+				DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */,
+				DD0F80B9127CF99A00277D06 /* SMFThemeInfo.m */,
+				DD0F80C5127CF9F400277D06 /* SynthesizeSingleton.h */,
+				DDAE5B9F127DB3580038574E /* SMFClockController.h */,
+				DDAE5BA0127DB3580038574E /* SMFClockController.m */,
+				DDAE5BD2127E0DE00038574E /* SMFEventManager.h */,
+				DDAE5BD3127E0DE00038574E /* SMFEventManager.m */,
+				DDAE5BD4127E19570038574E /* SMFEvent.h */,
+				DDAE5BD5127E19570038574E /* SMFEvent.m */,
+				DDAE5BD8127E2DBF0038574E /* SMFPhotos.h */,
+				DDAE5BD9127E2DBF0038574E /* SMFPhotos.m */,
+				DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */,
+				DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */,
+				DDAE5E0A12838A980038574E /* SMFCommonTools.h */,
+				DDAE5E0B12838A980038574E /* SMFCommonTools.m */,
+				DDAE5E0E12839A9A0038574E /* SMFEventConfiguration.h */,
+				DDAE5E0F12839A9A0038574E /* SMFEventConfiguration.m */,
+				DDAE5F271284EED30038574E /* SMFQueryMenu.h */,
+				DDAE5F281284EED30038574E /* SMFQueryMenu.m */,
+				DDCB54CA128CA2010045529A /* SMFTask.h */,
+				DDCB54CB128CA2010045529A /* SMFTask.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				DDABC43312787C85001F026B /* MobileCoreServices.framework */,
+				DDABC43612787C91001F026B /* UIKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* atvTwo.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* atvTwo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "atvTwo" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = atvTwo;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = atvTwo;
+			productReference = 8D5B49B6048680CD000E48DA /* atvTwo.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SMFramework" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* atvTwo */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* atvTwo */,
+				875A8234126FFBA400ECADC2 /* thePlugin */,
+				DDDC81991273B9B800192ADD /* Install */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				875A8424126FFF5300ECADC2 /* BackRow in Resources */,
+				875A8426126FFF6500ECADC2 /* build.sh in Resources */,
+				875A873412704ACC00ECADC2 /* theos in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		875A8233126FFBA400ECADC2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make clean\nmake stage\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+		};
+		DDDC81981273B9B800192ADD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nmake clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				875A8428126FFF6D00ECADC2 /* Makefile in Sources */,
+				DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */,
+				DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */,
+				DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */,
+				DDDC81001273909900192ADD /* SMFMediaPreview.mm in Sources */,
+				DDDC81711273A66600192ADD /* SMFPasscodeController.m in Sources */,
+				DDDC81741273A67000192ADD /* SMFController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = atvTwo_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = atvTwo;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = atvTwo_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				PRODUCT_NAME = atvTwo;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+		875A8235126FFBA400ECADC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = thePlugin;
+			};
+			name = Debug;
+		};
+		875A8236126FFBA400ECADC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = thePlugin;
+				SDKROOT = iphoneos4.0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DDDC819A1273B9B800192ADD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Install;
+			};
+			name = Debug;
+		};
+		DDDC819B1273B9B800192ADD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Install;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "atvTwo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "SMFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		875A823D126FFBC200ECADC2 /* Build configuration list for PBXAggregateTarget "thePlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				875A8235126FFBA400ECADC2 /* Debug */,
+				875A8236126FFBA400ECADC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDDC819C1273B9D600192ADD /* Build configuration list for PBXAggregateTarget "Install" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDDC819A1273B9B800192ADD /* Debug */,
+				DDDC819B1273B9B800192ADD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
