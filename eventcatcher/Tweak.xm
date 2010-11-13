@@ -40,7 +40,6 @@ the generation of a class list and an automatic constructor.
 #import "../SMFramework.h"
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event { 
-NSLog(@"event: %@",event);
     if([[SMFEventManager sharedManager]actionDefinedForAction:[event remoteAction]])
     {
         return [[SMFEventManager sharedManager]callEventForRemoteAction:[event remoteAction]];
@@ -49,35 +48,33 @@ NSLog(@"event: %@",event);
         return %orig;
 }
 %end
-%hook BRMainMenuController
--(void)_loadAppliances
-{
-%orig;
-    %log;
-    NSArray *info = MSHookIvar<NSArray *>(self, "_applianceInfos");
-    NSMutableArray *c = [[NSMutableArray alloc]init];
-    for(BRApplianceInfo *i in info)
-    {
-        NSLog(@"%@ %@ %@ %lf %d",i.name, i.key, i.principalClassName,i.preferredOrder,i.primaryAppliance);
-        if([i.key isEqualToString:@"com.apple.frontrow.appliance.settings"])
-        {
-        NSLog(@"changing settings");
-            
-            i.preferredOrder=1.000000;
-            i.primaryAppliance=NO;
-        }
-        else
-        {
-            [c addObject:i];
-        }
-    }
-    //[info release];
-//    info=[c retain];
-//    [self reloadMainMenu];
-    NSLog(@"Appliance Info: %@ %@",info,c);
-    
-}
-%end
+//%hook BRMainMenuController
+//-(void)_loadAppliances
+//{
+//%orig;
+//    %log;
+//    NSArray *info = MSHookIvar<NSArray *>(self, "_applianceInfos");
+//    NSMutableArray *c = [[NSMutableArray alloc]init];
+//    for(BRApplianceInfo *i in info)
+//    {
+//        if([i.key isEqualToString:@"com.apple.frontrow.appliance.settings"])
+//        {
+//        NSLog(@"changing settings");
+//            
+//            i.preferredOrder=1.000000;
+//            i.primaryAppliance=NO;
+//        }
+//        else
+//        {
+//            [c addObject:i];
+//        }
+//    }
+//    //[info release];
+////    info=[c retain];
+////    [self reloadMainMenu];
+//    
+//}
+//%end
 %hook BRMainMenuControl
 
 %end
