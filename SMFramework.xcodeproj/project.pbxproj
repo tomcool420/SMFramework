@@ -97,6 +97,8 @@
 		DDCB54C9128CA1EC0045529A /* NSTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
 		DDCB54CA128CA2010045529A /* SMFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFTask.h; sourceTree = "<group>"; };
 		DDCB54CB128CA2010045529A /* SMFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFTask.m; sourceTree = "<group>"; };
+		DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFProgressBarControl.h; sourceTree = "<group>"; };
+		DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFProgressBarControl.m; sourceTree = "<group>"; };
 		DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMediaMenuController.h; sourceTree = "<group>"; };
 		DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMediaMenuController.m; sourceTree = "<group>"; };
 		DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFCenteredMenuController.h; sourceTree = "<group>"; };
@@ -191,6 +193,8 @@
 				DD3136CC1277CFFC00042510 /* SMFMenuItem.m */,
 				DDABC41A127877B3001F026B /* SMFScreenCapture.h */,
 				DDABC41B127877B3001F026B /* SMFScreenCapture.m */,
+				DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */,
+				DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */,
 				DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */,
 				DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */,
 				DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */,

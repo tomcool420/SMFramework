@@ -278,13 +278,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>33</integer>
-									<integer>5</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 153}, {254, 768}}</string>
+							<string>{{0, 0}, {254, 768}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -321,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SMFScreenCapture.m</string>
+								<string>Mii.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,16 +328,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SMFScreenCapture.m</string>
+										<string>Mii.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DDD6224D128ED9AA00FC2CE5</string>
+										<string>DDD623321290B1E600FC2CE5</string>
 										<key>history</key>
 										<array>
 											<string>DDDC81E11273C03700192ADD</string>
 											<string>DDDC81E61273C0A300192ADD</string>
-											<string>DD049B8F1276457F00087D45</string>
 											<string>DDABC5291278EEF2001F026B</string>
 											<string>DDABC52B1278EEF2001F026B</string>
 											<string>DDABC52D1278EEF2001F026B</string>
@@ -399,7 +397,6 @@
 											<string>DDCB54E0128CA75E0045529A</string>
 											<string>DDCB54E8128CAB130045529A</string>
 											<string>DDCB5501128CF2CC0045529A</string>
-											<string>DDCB5502128CF2CC0045529A</string>
 											<string>DDCB5505128CF2CC0045529A</string>
 											<string>DDCB5509128CF31E0045529A</string>
 											<string>DDCB550E128CF4140045529A</string>
@@ -411,21 +408,34 @@
 											<string>DDCB5536128D75910045529A</string>
 											<string>DDCB5537128D75910045529A</string>
 											<string>DDCB5538128D75910045529A</string>
-											<string>DDCB5539128D75910045529A</string>
 											<string>DDCB553B128D75910045529A</string>
 											<string>DDCB553C128D75910045529A</string>
 											<string>DDCB553D128D75910045529A</string>
 											<string>DDCB553E128D75910045529A</string>
 											<string>DDCB5547128D7A7D0045529A</string>
 											<string>DDCB5561128D99770045529A</string>
-											<string>DDCB5562128D99770045529A</string>
 											<string>DDCB556F128DB8D30045529A</string>
 											<string>DDCB5572128DB8D30045529A</string>
 											<string>DDCB5576128DB9B00045529A</string>
-											<string>DDCB5577128DB9B00045529A</string>
 											<string>DDCB5578128DB9B00045529A</string>
-											<string>DDD621E3128E3A0D00FC2CE5</string>
-											<string>DDD621E4128E3A0D00FC2CE5</string>
+											<string>DDD622A912908E5E00FC2CE5</string>
+											<string>DDD622AA12908E5E00FC2CE5</string>
+											<string>DDD622AB12908E5E00FC2CE5</string>
+											<string>DDD622AD12908E5E00FC2CE5</string>
+											<string>DDD622AF12908E5E00FC2CE5</string>
+											<string>DDD622B012908E5E00FC2CE5</string>
+											<string>DDD622B212908E5E00FC2CE5</string>
+											<string>DDD622B412908E5E00FC2CE5</string>
+											<string>DDD622B612908E5E00FC2CE5</string>
+											<string>DDD622E812908F9700FC2CE5</string>
+											<string>DDD623271290B1E600FC2CE5</string>
+											<string>DDD623281290B1E600FC2CE5</string>
+											<string>DDD623291290B1E600FC2CE5</string>
+											<string>DDD6232A1290B1E600FC2CE5</string>
+											<string>DDD6232B1290B1E600FC2CE5</string>
+											<string>DDD6232C1290B1E600FC2CE5</string>
+											<string>DDD6232E1290B1E600FC2CE5</string>
+											<string>DDD623301290B1E600FC2CE5</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -437,14 +447,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1164, 631}}</string>
+								<string>{{0, 0}, {1164, 548}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 51 1440 827 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>631pt</string>
+							<string>548pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -457,14 +467,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 636}, {1164, 150}}</string>
+								<string>{{0, 553}, {1164, 233}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 51 1440 827 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>150pt</string>
+							<string>233pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -483,9 +493,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DDD6224E128ED9AA00FC2CE5</string>
+				<string>DDD622EA12908F9700FC2CE5</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DDD6224F128ED9AA00FC2CE5</string>
+				<string>DDD622EB12908F9700FC2CE5</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -704,7 +714,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DDE49962127145AF00BAC606</string>
-				<string>DDD62250128ED9AA00FC2CE5</string>
+				<string>DDD622EC12908F9700FC2CE5</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

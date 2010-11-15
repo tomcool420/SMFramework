@@ -132,15 +132,15 @@ static NSSet *coverArtExtentions = nil;
 
 - (void)setAsset:(id)a
 {
-    //NSLog(@"assetMeta: %@",asset);
+    NSLog(@"assetMeta: %@",a);
     MetaDataType=kMetaTypeAsset;
     [super setAsset:a];
-    BRReflectionControl *c = MSHookIvar<BRReflectionControl *>(self, "_reflectionLayer");
-    [c setImage:[a coverArt]];
-    [c setReflectionAmount:0.337531];
-    
-    [[self coverArtLayer] setImage:[a coverArt]];
-    
+//    BRReflectionControl *c = MSHookIvar<BRReflectionControl *>(self, "_reflectionLayer");
+//    [c setImage:[a coverArt]];
+//    [c setReflectionAmount:0.337531];
+//    
+//    [[self coverArtLayer] setImage:[a coverArt]];
+//    
     //[_coverArtLayer setImage:[asset coverArt]];
     //NSLog(@"_asset: %@",_asset);
     
@@ -184,7 +184,7 @@ static NSSet *coverArtExtentions = nil;
 
 - (void)_populateMetadata
 {
-    //NSLog(@"_populate");
+    NSLog(@"_populate");
 	[super _populateMetadata];
 	[self doPopulation];
 }
@@ -192,19 +192,21 @@ static NSSet *coverArtExtentions = nil;
 
 - (void)_updateMetadataLayer
 {
-    //NSLog(@"update");
+    NSLog(@"update");
 	[super _updateMetadataLayer];
 	[self doPopulation];
 }
 
 - (void)doPopulation
 {
-    //NSLog(@"doPopulation");
+    NSLog(@"doPopulation");
     BRMetadataControl *metaLayer = [self gimmieMetadataLayer];
+    NSLog(@"meta Layer: %@",metaLayer);
     switch (MetaDataType) {
         case kMetaTypeAsset:
         {
             id a = [self asset];
+            NSLog(@"asset: %@",a);
             if ([a respondsToSelector:@selector(orderedDictionary)]) {
                 NSDictionary *assetDict=[a orderedDictionary];
                 if([[assetDict allKeys] containsObject:METADATA_TITLE])
