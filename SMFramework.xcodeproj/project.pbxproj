@@ -75,6 +75,7 @@
 		DD96C3331298AF01002C5144 /* SMFInfoControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFInfoControl.mm; sourceTree = "<group>"; };
 		DD96C3401298B8EA002C5144 /* SMFPopup.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SMFPopup.xm; sourceTree = "<group>"; };
 		DD96C3411298B9A0002C5144 /* SMFPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPopup.h; sourceTree = "<group>"; };
+		DD96C3DB129971A2002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DDA302A61274EF8900B0AE9C /* SMFDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDefines.h; sourceTree = "<group>"; };
 		DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMenuItem_SMF.h; sourceTree = "<group>"; };
 		DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuItem_SMF.m; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		089C166AFE841209C02AAC07 /* atvTwo */ = {
 			isa = PBXGroup;
 			children = (
+				DD96C3DB129971A2002C5144 /* control */,
 				875A8427126FFF6D00ECADC2 /* Makefile */,
 				875A8425126FFF6500ECADC2 /* build.sh */,
 				875A86EB12704ACC00ECADC2 /* theos */,

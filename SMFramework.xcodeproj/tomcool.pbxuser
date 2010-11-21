@@ -133,6 +133,10 @@
 			DD96C3BA1298CCBA002C5144 /* PBXTextBookmark */ = DD96C3BA1298CCBA002C5144 /* PBXTextBookmark */;
 			DD96C3BB1298CCBA002C5144 /* PBXTextBookmark */ = DD96C3BB1298CCBA002C5144 /* PBXTextBookmark */;
 			DD96C3BC1298CD0A002C5144 /* PBXTextBookmark */ = DD96C3BC1298CD0A002C5144 /* PBXTextBookmark */;
+			DD96C3CF129962B1002C5144 /* PBXTextBookmark */ = DD96C3CF129962B1002C5144 /* PBXTextBookmark */;
+			DD96C3D0129962B1002C5144 /* PBXTextBookmark */ = DD96C3D0129962B1002C5144 /* PBXTextBookmark */;
+			DD96C3D2129962B1002C5144 /* PBXBookmark */ = DD96C3D2129962B1002C5144 /* PBXBookmark */;
+			DD96C3D3129962B1002C5144 /* PBXTextBookmark */ = DD96C3D3129962B1002C5144 /* PBXTextBookmark */;
 			DDABC5291278EEF2001F026B = DDABC5291278EEF2001F026B /* PBXTextBookmark */;
 			DDABC52B1278EEF2001F026B = DDABC52B1278EEF2001F026B /* PBXTextBookmark */;
 			DDABC52D1278EEF2001F026B = DDABC52D1278EEF2001F026B /* PBXTextBookmark */;
@@ -323,9 +327,15 @@
 			sepNavVisRange = "{690, 1055}";
 		};
 	};
+	DD96BDDC1295C626002C5144 /* BRControl.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		path = BRControl.h;
+		sourceTree = "<group>";
+	};
 	DD96C0471295D949002C5144 /* control */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1103, 510}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1103, 485}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 227}";
 		};
@@ -921,9 +931,15 @@
 	};
 	DD96C3991298C491002C5144 /* BRControl.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRControl.h;
 		path = /Users/tomcool/DVLP/ATV2/MainMenuWeather/theos/include/BackRow/BRControl.h;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1103, 2717}}";
+			sepNavSelRange = "{1461, 45}";
+			sepNavVisRange = "{206, 2145}";
+		};
 	};
 	DD96C39A1298C491002C5144 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1164,6 +1180,46 @@
 		rType = 0;
 		vrLen = 959;
 		vrLoc = 3;
+	};
+	DD96C3CF129962B1002C5144 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD96C3401298B8EA002C5144 /* SMFPopup.xm */;
+		name = "SMFPopup.xm: 18";
+		rLen = 0;
+		rLoc = 285;
+		rType = 0;
+		vrLen = 959;
+		vrLoc = 3;
+	};
+	DD96C3D0129962B1002C5144 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD96C3D1129962B1002C5144 /* BRController.h */;
+		name = "BRController.h: 31";
+		rLen = 0;
+		rLoc = 1199;
+		rType = 0;
+		vrLen = 1529;
+		vrLoc = 0;
+	};
+	DD96C3D1129962B1002C5144 /* BRController.h */ = {
+		isa = PBXFileReference;
+		name = BRController.h;
+		path = /Users/tomcool/DVLP/ATV2/MainMenuWeather/theos/include/BackRow/BRController.h;
+		sourceTree = "<absolute>";
+	};
+	DD96C3D2129962B1002C5144 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = DD96BDDC1295C626002C5144 /* BRControl.h */;
+	};
+	DD96C3D3129962B1002C5144 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD96C3991298C491002C5144 /* BRControl.h */;
+		name = "BRControl.h: 36";
+		rLen = 45;
+		rLoc = 1461;
+		rType = 0;
+		vrLen = 2145;
+		vrLoc = 206;
 	};
 	DDA302A61274EF8900B0AE9C /* SMFDefines.h */ = {
 		uiCtxt = {

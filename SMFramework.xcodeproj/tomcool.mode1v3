@@ -279,13 +279,12 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>67</integer>
-									<integer>10</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 550}, {254, 768}}</string>
+							<string>{{0, 0}, {254, 768}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -322,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SMFPopup.xm</string>
+								<string>BRControl.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SMFPopup.xm</string>
+										<string>BRControl.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DD96C3BC1298CD0A002C5144</string>
+										<string>DD96C3D3129962B1002C5144</string>
 										<key>history</key>
 										<array>
 											<string>DDDC81E11273C03700192ADD</string>
@@ -401,7 +400,6 @@
 											<string>DDD623281290B1E600FC2CE5</string>
 											<string>DDD623291290B1E600FC2CE5</string>
 											<string>DDD6232C1290B1E600FC2CE5</string>
-											<string>DDD6232E1290B1E600FC2CE5</string>
 											<string>DD96C3491298BB5C002C5144</string>
 											<string>DD96C34A1298BB5C002C5144</string>
 											<string>DD96C34B1298BB5C002C5144</string>
@@ -417,7 +415,6 @@
 											<string>DD96C3571298BB5C002C5144</string>
 											<string>DD96C3581298BB5C002C5144</string>
 											<string>DD96C3591298BB5C002C5144</string>
-											<string>DD96C35A1298BB5C002C5144</string>
 											<string>DD96C35C1298BB5C002C5144</string>
 											<string>DD96C35D1298BB5C002C5144</string>
 											<string>DD96C35E1298BB5C002C5144</string>
@@ -426,16 +423,11 @@
 											<string>DD96C3611298BB5C002C5144</string>
 											<string>DD96C3621298BB5C002C5144</string>
 											<string>DD96C3631298BB5C002C5144</string>
-											<string>DD96C3641298BB5C002C5144</string>
 											<string>DD96C3661298BB5C002C5144</string>
 											<string>DD96C3691298BB5C002C5144</string>
-											<string>DD96C36D1298BB5C002C5144</string>
 											<string>DD96C3711298BB5C002C5144</string>
 											<string>DD96C3741298BB5C002C5144</string>
 											<string>DD96C3771298BB5C002C5144</string>
-											<string>DD96C3961298C491002C5144</string>
-											<string>DD96C3971298C491002C5144</string>
-											<string>DD96C3981298C491002C5144</string>
 											<string>DD96C3A01298C64D002C5144</string>
 											<string>DD96C3A11298C64D002C5144</string>
 											<string>DD96C3A61298C701002C5144</string>
@@ -449,7 +441,9 @@
 											<string>DD96C3B71298CCBA002C5144</string>
 											<string>DD96C3B81298CCBA002C5144</string>
 											<string>DD96C3B91298CCBA002C5144</string>
-											<string>DD96C3BA1298CCBA002C5144</string>
+											<string>DD96C3CF129962B1002C5144</string>
+											<string>DD96C3D0129962B1002C5144</string>
+											<string>DD96C3D2129962B1002C5144</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
