@@ -19,3 +19,6 @@
 #import "SMFEventManager.h"
 #import "SMFEvent.h"
 #import "SMFPhotoMethods.h"
+#import "SMFCommonTools.h"
+#import "SMFPhotoMethods.h"
+#import "SMFQueryMenu.h"

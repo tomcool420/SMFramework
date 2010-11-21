@@ -17,16 +17,22 @@
 - (void)_updateTrackInfo
 {
     id l = MSHookIvar<BRTrackInfoLayer *>(self, "_layer");
-        NSLog(@"object: %@",[self object]);
     id obj=[self object];
-    if(obj!=nil && [obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"Image"] && [obj objectForKey:@"Lines"])
+    if(obj!=nil && [obj isKindOfClass:[NSDictionary class]])
     {
-        NSLog(@"all good");
-        [l setLines:[obj objectForKey:@"Lines"] withImage:[obj objectForKey:@"Image"]];
+        if([obj objectForKey:@"Image"])
+        {
+            if([obj objectForKey:@"Lines"])
+                [l setLines:[obj objectForKey:@"Lines"] withImage:[obj objectForKey:@"Image"]];
+            else
+                [l setImage:[obj objectForKey:@"Image"]];
+        }
+        else
+            [l setLines:[NSArray arrayWithObjects:@"error",nil] withImage:[self _fetchCoverArt]];
+        
     }
     else
-        [l setLines:[NSArray arrayWithObjects:@"one",@"two",nil] withImage:[self _fetchCoverArt]];
-    NSLog(@"layer: %@",l);
+        [l setLines:[NSArray arrayWithObjects:@"error",nil] withImage:[self _fetchCoverArt]];
 
     //%orig;
 }
