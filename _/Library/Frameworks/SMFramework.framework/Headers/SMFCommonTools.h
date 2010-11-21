@@ -6,11 +6,11 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 
 
 @interface SMFCommonTools : NSObject {
 
 }
-+(SMFCommonTools *)sharedManager
++(id)popupControlWithLines:(NSArray *)array andImage:(BRImage *)image;
++(void)showPopup:(id)popup;
 @end

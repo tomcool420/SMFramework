@@ -32,6 +32,12 @@
     [self setCurrentlocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
     return self;
 }
+-(void)setColor:(UIColor *)c
+{
+    [color release];
+    color=c;
+    [color retain];
+}
 -(void)setCurrentlocale:(NSLocale *)l
 {
     [_currentlocale release];

@@ -7,7 +7,7 @@
 //
 
 #import "SMFMediaMenuController.h"
-
+#import "SMFPopup.h"
 
 @implementation SMFMediaMenuController
 - (float)heightForRow:(long)row				{ return 0.0f;}
@@ -133,6 +133,7 @@
 
 -(void)controlWasActivated
 {
+
     if([self respondsToSelector:@selector(everyLoad)])
         [self everyLoad];
     [super controlWasActivated];

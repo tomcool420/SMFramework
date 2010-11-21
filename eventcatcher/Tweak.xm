@@ -38,6 +38,16 @@ the generation of a class list and an automatic constructor.
 
 #import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
+%hook BRMainMenuSelectionHandler
+-(BOOL)handleSelectionForControl:(id)ctrl
+{
+    %log;
+    BOOL r = %orig;
+    NSLog(@"control: %@, handle: %d",ctrl,r);
+    return r;
+}
+%end
+
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event { 
     if([[SMFEventManager sharedManager]actionDefinedForAction:[event remoteAction]])

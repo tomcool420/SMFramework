@@ -8,7 +8,6 @@
 
 #import "SMFMenuController.h"
 
-
 @implementation SMFMenuController
 - (float)heightForRow:(long)row				{ return 0.0f;}
 - (BOOL)rowSelectable:(long)row				{ return YES;}
@@ -127,6 +126,7 @@
 
 -(void)controlWasActivated
 {
+
     if([self respondsToSelector:@selector(everyLoad)])
         [self everyLoad];
     [super controlWasActivated];

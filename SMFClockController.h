@@ -7,7 +7,7 @@
 //
 
 
-
+#import <UIKit/UIColor.h>
 
 @interface SMFClockController : BRTextControl {
     NSTimer *_timer;
@@ -15,11 +15,13 @@
     NSDictionary *textAttributes;
     NSTimeZone  *timeZone;
     NSLocale    *_currentlocale;
+    UIColor     *color;
 }
 -(void)timerRun;
 -(NSLocale *)currentlocale;
 -(void)setCurrentlocale:(NSLocale *)l;
 -(void)setTimeZone:(NSTimeZone*)tz;
 -(NSTimeZone *)timeZone;
+-(void)setColor:(UIColor *)c;
 @property (retain) NSDictionary *textAttributes;
 @end
