@@ -55,6 +55,12 @@
         if ([[f pathExtension] localizedCaseInsensitiveCompare:@"deb"]==NSOrderedSame) {
             NSLog(@"***###***");
             SMFDebAsset *asset = [[SMFDebAsset alloc] initWithPath:f];
+            if (asset!=nil) {
+                SMFMediaPreview *p = [[SMFMediaPreview alloc]init];
+                [p setAsset:asset];
+                [asset release];
+                return [p autorelease];
+            }
         }
     }
     return [super previewControlForItem:row];

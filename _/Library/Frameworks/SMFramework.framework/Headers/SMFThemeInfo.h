@@ -16,4 +16,5 @@
 -(BRImage *)colorAppleTVNameImage;
 -(BRImage *)keyboardIcon;
 -(BRImage *)btstackIcon;
+-(BRImage *)packageImage;
 @end

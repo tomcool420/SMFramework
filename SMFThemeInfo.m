@@ -27,4 +27,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFThemeInfo,sharedTheme)
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"btstack" ofType:@"png"]];
 }
+-(BRImage *)packageImage
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"package" ofType:@"png"]];
+}
 @end

@@ -12,5 +12,6 @@
 @interface SMFDebAsset : SMFBaseAsset {
     NSString *_path;
 }
-
+-(id)initWithPath:(NSString *)path;
+-(void)parseDebResult:(NSArray *)info;
 @end
