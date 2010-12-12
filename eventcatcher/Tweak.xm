@@ -38,12 +38,44 @@ the generation of a class list and an automatic constructor.
 
 #import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
+#import "../SMFCommonTools.h"
+%hook BRAccount
+- (id)initWithAccountName:(id)accountName
+{
+    NSLog(@"Seatbelt status: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+    if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
+    {
+        NSLog(@"Seatbelt is disabled ... stopping account from starting");
+        return nil;
+    }
+    return %orig;
+}
+-(id)initWithCoder:(id)coder
+{
+     NSLog(@"Seatbelt status coder: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+    if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
+    {
+        NSLog(@"Seatbelt is disabled ... stopping account from starting");
+        return nil;
+    }
+    return %orig;
+}
+-(id)init
+{
+     NSLog(@"Seatbelt status init: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+    if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
+    {
+        NSLog(@"Seatbelt is disabled ... stopping account from starting");
+        return nil;
+    }
+    return %orig;
+}
+%end
 %hook BRMainMenuSelectionHandler
 -(BOOL)handleSelectionForControl:(id)ctrl
 {
     %log;
     BOOL r = %orig;
-    NSLog(@"control: %@, handle: %d",ctrl,r);
     return r;
 }
 %end
@@ -61,9 +93,9 @@ the generation of a class list and an automatic constructor.
 static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef cfData, void *info) {
 	const char *data = (const char *) CFDataGetBytePtr(cfData);
 	UInt16 dataLen = CFDataGetLength(cfData);
-	NSString * text=nil;
-	BREvent *event = nil;
-    int value = 1;
+//	NSString * text=nil;
+//	BREvent *event = nil;
+//    int value = 1;
     if (dataLen > 0 && data)
     {
         NSDictionary *dd = (NSDictionary *)[NSPropertyListSerialization propertyListFromData:(NSData *)cfData 
@@ -107,8 +139,21 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
 //    
 //}
 //%end
-%hook BRMainMenuControl
 
+%hook BRMainMenuControl
+-(void)_reload
+{
+    %orig;
+    if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
+    {
+        BRImageControl *img = MSHookIvar<BRImageControl *>(self,"_logo");
+        //[img removeFromParent];
+        [img setImage:[[SMFThemeInfo sharedTheme]seatbeltLogoImage]];
+        //[self addControl:img];
+    }
+    
+    
+}
 %end
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
@@ -119,6 +164,7 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     [SMFEventManager sharedManager];
     [pool release]; 
     %orig;
+    NSLog(@"root files: %@",[[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/mobile" error:nil]);
     // %orig does not return
 }
 %end

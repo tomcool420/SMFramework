@@ -13,7 +13,7 @@ SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow
 SMFramework_CFLAGS = -std=c99
-SUBPROJECTS = eventcatcher
+SUBPROJECTS = eventcatcher SMFHelper
 
 
 

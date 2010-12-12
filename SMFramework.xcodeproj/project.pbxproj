@@ -38,6 +38,8 @@
 		875A873412704ACC00ECADC2 /* theos in Resources */ = {isa = PBXBuildFile; fileRef = 875A86EB12704ACC00ECADC2 /* theos */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		DD14630312B53B6C00FA8984 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = DD1462FC12B53B6C00FA8984 /* Makefile */; };
+		DD14630812B53B6C00FA8984 /* smfHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DD14630212B53B6C00FA8984 /* smfHelper.m */; };
 		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
 		DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */; };
@@ -70,6 +72,8 @@
 		DD145D9812B48F6500FA8984 /* SMFImageAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFImageAsset.m; sourceTree = "<group>"; };
 		DD14618C12B50A5000FA8984 /* SMFDebAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDebAsset.h; sourceTree = "<group>"; };
 		DD14618D12B50A5000FA8984 /* SMFDebAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFDebAsset.m; sourceTree = "<group>"; };
+		DD1462FC12B53B6C00FA8984 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DD14630212B53B6C00FA8984 /* smfHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smfHelper.m; sourceTree = "<group>"; };
 		DD1DCBC912A3384800907459 /* SMFMovieAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMovieAsset.h; sourceTree = "<group>"; };
 		DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMovieAsset.m; sourceTree = "<group>"; };
 		DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPreferences.h; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				875A86EB12704ACC00ECADC2 /* theos */,
 				875A8253126FFF5300ECADC2 /* BackRow */,
 				DD96C0411295D949002C5144 /* eventcatcher */,
+				DD1462FB12B53B6C00FA8984 /* SMFHelper */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -327,6 +332,15 @@
 			name = MenuItems;
 			sourceTree = "<group>";
 		};
+		DD1462FB12B53B6C00FA8984 /* SMFHelper */ = {
+			isa = PBXGroup;
+			children = (
+				DD1462FC12B53B6C00FA8984 /* Makefile */,
+				DD14630212B53B6C00FA8984 /* smfHelper.m */,
+			);
+			path = SMFHelper;
+			sourceTree = "<group>";
+		};
 		DD96C0411295D949002C5144 /* eventcatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +454,8 @@
 				DDDC81001273909900192ADD /* SMFMediaPreview.mm in Sources */,
 				DDDC81711273A66600192ADD /* SMFPasscodeController.m in Sources */,
 				DDDC81741273A67000192ADD /* SMFController.m in Sources */,
+				DD14630312B53B6C00FA8984 /* Makefile in Sources */,
+				DD14630812B53B6C00FA8984 /* smfHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

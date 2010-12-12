@@ -31,4 +31,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFThemeInfo,sharedTheme)
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"package" ofType:@"png"]];
 }
+-(BRImage *)seatbeltImage
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"seatbelt" ofType:@"png"]];
+}
+-(BRImage *)seatbeltLogoImage
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"seatbeltLogo" ofType:@"png"]];
+}
 @end

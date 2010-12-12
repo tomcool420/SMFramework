@@ -208,21 +208,7 @@
 }
 -(void)rightActionForRow:(long)row
 {
-    NSString *p=nil;
-    BOOL dir=NO;
-    if (separate && row<[_folders count]) 
-    {
-        p=[_folders objectAtIndex:row];
-    }
-    else if(separate && (row-[_folders count])<[_files count])
-    {
-        p=[_files objectAtIndex:row];
-    }
-    else if(!separate)
-    {
-        p=[_files objectAtIndex:row];
-    }
-
+    NSString *p=[self pathAtRow:row];
     if (p) 
     {
         if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {

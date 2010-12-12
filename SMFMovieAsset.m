@@ -21,7 +21,7 @@
 	[self setObject:urlString forKey:@"mediaURL"];
     [self setObject:@"." forKey:@"mediaSummary"];
     [self setObject:[filename lastPathComponent] forKey:@"title"];
-    _image=[[BRThemeInfo sharedTheme]tvShowFeaturedPlaceholderImage];
+    _image=[[BRThemeInfo sharedTheme]appleTVIcon];
     NSLog(@"url: %@",[self mediaURL]);
     [_image retain];
 	return self;
@@ -75,7 +75,7 @@
 - (unsigned int)bookmarkTimeInSeconds
 {
 	/*Check for resume time and if none, return bookmark time*/
-	if(time == 0)
+	if(resumeTime == 0)
 		return [super bookmarkTimeInSeconds];
 	/*return resume time*/
 	return resumeTime;

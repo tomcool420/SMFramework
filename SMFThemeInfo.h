@@ -17,4 +17,6 @@
 -(BRImage *)keyboardIcon;
 -(BRImage *)btstackIcon;
 -(BRImage *)packageImage;
+-(BRImage *)seatbeltImage;
+-(BRImage *)seatbeltLogoImage;
 @end

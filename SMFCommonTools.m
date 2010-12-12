@@ -60,7 +60,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     {
         while (fgets(line, sizeof line, fp))
         {
-            NSString *s = [NSString stringWithCString:line];
+            NSString *s = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
             [lines addObject:s];
         }
     }
@@ -82,5 +82,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
         }
     }
     return -1;
+}
+-(int)disableSeatbelt
+{
+    return system("SMFHelper security.mac.vnode_enforce 0");
+}
+-(int)enableSeatbelt
+{
+    return system("SMFHelper security.mac.vnode_enforce 1");
 }
 @end

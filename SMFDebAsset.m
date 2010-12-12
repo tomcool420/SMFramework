@@ -27,7 +27,7 @@
         {
             while (fgets(line, sizeof line, fp))
             {
-                NSString *s = [NSString stringWithCString:line];
+                NSString *s = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
                 [lines addObject:s];
             }
         }
