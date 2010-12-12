@@ -1,16 +1,18 @@
 GO_EASY_ON_ME=1
-FW_DEVICE_IP=10.0.1.5
+FW_DEVICE_IP=appletv.local
 first: clean package install
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 FRAMEWORK_NAME = SMFramework
 SMFramework_FILES = SMFMediaMenuController.m SMFCenteredMenuController.m SMFFolderBrowser.m SMFMediaPreview.mm SMFBaseAsset.m SMFPasscodeController.m SMFMenuController.m
 SMFramework_FILES += BRMenuItem_SMF.m SMFInvocationCenteredMenuController.m SMFMenuItem.m SMFScreenCapture.m SMFThemeInfo.m SMFClockController.m
-SMFramework_FILES += SMFEventManager.m SMFEvent.m SMFEventConfiguration.m
-SMFramework_FILES += SMFPhotoMethods.mm SMFQueryMenu.m SMFProgressBarControl.m SMFPopup.xm SMFCommonTools.m #SMFInfoControl.mm 
+SMFramework_FILES += SMFEventManager.m SMFEvent.m SMFEventConfiguration.m SMFMovieAsset.m
+SMFramework_FILES += SMFPhotoMethods.mm SMFQueryMenu.m SMFProgressBarControl.m SMFPopup.xm SMFCommonTools.m SMFColorSelectionMenu.m 
+SMFramework_FILES += SMFPreferences.m SMFProgressBarMenuItem.m SMFImageAsset.m SMFDebAsset.m
 SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow
+SMFramework_CFLAGS = -std=c99
 SUBPROJECTS = eventcatcher
 
 
@@ -26,3 +28,4 @@ after-SMFramework-stage::
 	cp *.h "Headers/"
 	mkdir "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers"
 	cp *.h "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/"
+	cp -rf Headers/ ../ATV2Includes/SMFramework/

@@ -58,6 +58,28 @@ the generation of a class list and an automatic constructor.
         return %orig;
 }
 %end
+static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef cfData, void *info) {
+	const char *data = (const char *) CFDataGetBytePtr(cfData);
+	UInt16 dataLen = CFDataGetLength(cfData);
+	NSString * text=nil;
+	BREvent *event = nil;
+    int value = 1;
+    if (dataLen > 0 && data)
+    {
+        NSDictionary *dd = (NSDictionary *)[NSPropertyListSerialization propertyListFromData:(NSData *)cfData 
+                                            mutabilityOption:0 
+                                            format:NULL 
+                                            errorDescription:nil];
+        NSArray *lines = [dd objectForKey:@"info" ];
+        BRImage *img=[[SMFThemeInfo sharedTheme] colorAppleTVNameImage];
+        if(msgid==1)
+            img=[[SMFThemeInfo sharedTheme] keyboardIcon];
+        id popup=[SMFCommonTools popupControlWithLines:lines andImage:img];
+        [SMFCommonTools showPopup:popup];
+        }
+        return NULL;  // as stated in header, both data and returnData will be released for us after callback returns
+    }
+
 //%hook BRMainMenuController
 //-(void)_loadAppliances
 //{
@@ -91,6 +113,9 @@ the generation of a class list and an automatic constructor.
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    CFMessagePortRef local = CFMessagePortCreateLocal(NULL, CFSTR("org.tomcool.lowtide.popup"), popupCallback, NULL, false);
+	CFRunLoopSourceRef source = CFMessagePortCreateRunLoopSource(NULL, local, 0);
+	CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
     [SMFEventManager sharedManager];
     [pool release]; 
     %orig;

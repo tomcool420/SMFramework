@@ -38,6 +38,7 @@
 		875A873412704ACC00ECADC2 /* theos in Resources */ = {isa = PBXBuildFile; fileRef = 875A86EB12704ACC00ECADC2 /* theos */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
 		DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */; };
 		DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */; };
@@ -65,17 +66,27 @@
 		DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFThemeInfo.h; sourceTree = "<group>"; };
 		DD0F80B9127CF99A00277D06 /* SMFThemeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFThemeInfo.m; sourceTree = "<group>"; };
 		DD0F80C5127CF9F400277D06 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		DD145D9712B48F6500FA8984 /* SMFImageAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFImageAsset.h; sourceTree = "<group>"; };
+		DD145D9812B48F6500FA8984 /* SMFImageAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFImageAsset.m; sourceTree = "<group>"; };
+		DD14618C12B50A5000FA8984 /* SMFDebAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDebAsset.h; sourceTree = "<group>"; };
+		DD14618D12B50A5000FA8984 /* SMFDebAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFDebAsset.m; sourceTree = "<group>"; };
+		DD1DCBC912A3384800907459 /* SMFMovieAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMovieAsset.h; sourceTree = "<group>"; };
+		DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMovieAsset.m; sourceTree = "<group>"; };
+		DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPreferences.h; sourceTree = "<group>"; };
+		DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPreferences.m; sourceTree = "<group>"; };
+		DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFProgressBarMenuItem.h; sourceTree = "<group>"; };
+		DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFProgressBarMenuItem.m; sourceTree = "<group>"; };
 		DD3136CB1277CFFC00042510 /* SMFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuItem.h; sourceTree = "<group>"; };
 		DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuItem.m; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
 		DD96C0491295D949002C5144 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		DD96C29A1295D94A002C5144 /* Tweak.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tweak.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		DD96C3321298AF01002C5144 /* SMFInfoControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFInfoControl.h; sourceTree = "<group>"; };
-		DD96C3331298AF01002C5144 /* SMFInfoControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFInfoControl.mm; sourceTree = "<group>"; };
 		DD96C3401298B8EA002C5144 /* SMFPopup.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SMFPopup.xm; sourceTree = "<group>"; };
 		DD96C3411298B9A0002C5144 /* SMFPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPopup.h; sourceTree = "<group>"; };
 		DD96C3DB129971A2002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		DD96C83A129B5C99002C5144 /* SMFColorSelectionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFColorSelectionMenu.h; sourceTree = "<group>"; };
+		DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFColorSelectionMenu.m; sourceTree = "<group>"; };
 		DDA302A61274EF8900B0AE9C /* SMFDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDefines.h; sourceTree = "<group>"; };
 		DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMenuItem_SMF.h; sourceTree = "<group>"; };
 		DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRMenuItem_SMF.m; sourceTree = "<group>"; };
@@ -91,8 +102,6 @@
 		DDAE5BD3127E0DE00038574E /* SMFEventManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFEventManager.m; sourceTree = "<group>"; };
 		DDAE5BD4127E19570038574E /* SMFEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFEvent.h; sourceTree = "<group>"; };
 		DDAE5BD5127E19570038574E /* SMFEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFEvent.m; sourceTree = "<group>"; };
-		DDAE5BD8127E2DBF0038574E /* SMFPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPhotos.h; sourceTree = "<group>"; };
-		DDAE5BD9127E2DBF0038574E /* SMFPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPhotos.m; sourceTree = "<group>"; };
 		DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPhotoMethods.h; sourceTree = "<group>"; };
 		DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPhotoMethods.mm; sourceTree = "<group>"; };
 		DDAE5E0A12838A980038574E /* SMFCommonTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFCommonTools.h; sourceTree = "<group>"; };
@@ -104,8 +113,6 @@
 		DDAE5F291284EF280038574E /* SMFMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuController.h; sourceTree = "<group>"; };
 		DDAE5F2A1284EF280038574E /* SMFMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuController.m; sourceTree = "<group>"; };
 		DDCB54C9128CA1EC0045529A /* NSTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTask.h; sourceTree = "<group>"; };
-		DDCB54CA128CA2010045529A /* SMFTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFTask.h; sourceTree = "<group>"; };
-		DDCB54CB128CA2010045529A /* SMFTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFTask.m; sourceTree = "<group>"; };
 		DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFProgressBarControl.h; sourceTree = "<group>"; };
 		DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFProgressBarControl.m; sourceTree = "<group>"; };
 		DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMediaMenuController.h; sourceTree = "<group>"; };
@@ -131,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,63 +184,38 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DD145D9F12B4A5AB00FA8984 /* MenuItems */,
+				DD145D9E12B4A58B00FA8984 /* Events */,
+				DD145D9D12B4A56B00FA8984 /* Controls */,
+				DD145D9C12B4A52900FA8984 /* MenuControllers */,
+				DD145D9912B48F8100FA8984 /* Assets */,
 				DDCB54C9128CA1EC0045529A /* NSTask.h */,
-				DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */,
-				DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */,
-				DDDC81721273A67000192ADD /* SMFController.h */,
-				DDDC81731273A67000192ADD /* SMFController.m */,
-				DDDC816F1273A66600192ADD /* SMFPasscodeController.h */,
-				DDDC81701273A66600192ADD /* SMFPasscodeController.m */,
 				DDDC80FE1273909900192ADD /* SMFMediaPreview.h */,
 				DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */,
-				DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */,
-				DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */,
 				DDDC80F91273784800192ADD /* SMFFolderBrowser.h */,
 				DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */,
-				DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */,
-				DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */,
-				DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */,
-				DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */,
-				DDAE5F291284EF280038574E /* SMFMenuController.h */,
-				DDAE5F2A1284EF280038574E /* SMFMenuController.m */,
 				875A8249126FFF1F00ECADC2 /* BackRowExtras.h */,
 				DDDC818F1273B8C000192ADD /* SMFramework.h */,
 				DDA302A61274EF8900B0AE9C /* SMFDefines.h */,
-				DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */,
-				DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */,
-				DD3136CB1277CFFC00042510 /* SMFMenuItem.h */,
-				DD3136CC1277CFFC00042510 /* SMFMenuItem.m */,
 				DDABC41A127877B3001F026B /* SMFScreenCapture.h */,
 				DDABC41B127877B3001F026B /* SMFScreenCapture.m */,
-				DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */,
-				DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */,
 				DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */,
 				DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */,
 				DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */,
 				DD0F80B9127CF99A00277D06 /* SMFThemeInfo.m */,
 				DD0F80C5127CF9F400277D06 /* SynthesizeSingleton.h */,
-				DDAE5B9F127DB3580038574E /* SMFClockController.h */,
-				DDAE5BA0127DB3580038574E /* SMFClockController.m */,
-				DDAE5BD2127E0DE00038574E /* SMFEventManager.h */,
-				DDAE5BD3127E0DE00038574E /* SMFEventManager.m */,
-				DDAE5BD4127E19570038574E /* SMFEvent.h */,
-				DDAE5BD5127E19570038574E /* SMFEvent.m */,
-				DDAE5BD8127E2DBF0038574E /* SMFPhotos.h */,
-				DDAE5BD9127E2DBF0038574E /* SMFPhotos.m */,
 				DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */,
 				DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */,
 				DDAE5E0A12838A980038574E /* SMFCommonTools.h */,
 				DDAE5E0B12838A980038574E /* SMFCommonTools.m */,
-				DDAE5E0E12839A9A0038574E /* SMFEventConfiguration.h */,
-				DDAE5E0F12839A9A0038574E /* SMFEventConfiguration.m */,
 				DDAE5F271284EED30038574E /* SMFQueryMenu.h */,
 				DDAE5F281284EED30038574E /* SMFQueryMenu.m */,
-				DDCB54CA128CA2010045529A /* SMFTask.h */,
-				DDCB54CB128CA2010045529A /* SMFTask.m */,
-				DD96C3321298AF01002C5144 /* SMFInfoControl.h */,
-				DD96C3331298AF01002C5144 /* SMFInfoControl.mm */,
 				DD96C3411298B9A0002C5144 /* SMFPopup.h */,
 				DD96C3401298B8EA002C5144 /* SMFPopup.xm */,
+				DD96C83A129B5C99002C5144 /* SMFColorSelectionMenu.h */,
+				DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */,
+				DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */,
+				DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -271,6 +254,77 @@
 				32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		DD145D9912B48F8100FA8984 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */,
+				DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */,
+				DD14618C12B50A5000FA8984 /* SMFDebAsset.h */,
+				DD14618D12B50A5000FA8984 /* SMFDebAsset.m */,
+				DD145D9712B48F6500FA8984 /* SMFImageAsset.h */,
+				DD145D9812B48F6500FA8984 /* SMFImageAsset.m */,
+				DD1DCBC912A3384800907459 /* SMFMovieAsset.h */,
+				DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		DD145D9C12B4A52900FA8984 /* MenuControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */,
+				DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */,
+				DDDC81721273A67000192ADD /* SMFController.h */,
+				DDDC81731273A67000192ADD /* SMFController.m */,
+				DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */,
+				DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */,
+				DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */,
+				DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */,
+				DDAE5F291284EF280038574E /* SMFMenuController.h */,
+				DDAE5F2A1284EF280038574E /* SMFMenuController.m */,
+				DDDC816F1273A66600192ADD /* SMFPasscodeController.h */,
+				DDDC81701273A66600192ADD /* SMFPasscodeController.m */,
+			);
+			name = MenuControllers;
+			sourceTree = "<group>";
+		};
+		DD145D9D12B4A56B00FA8984 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE5B9F127DB3580038574E /* SMFClockController.h */,
+				DDAE5BA0127DB3580038574E /* SMFClockController.m */,
+				DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */,
+				DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		DD145D9E12B4A58B00FA8984 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				DDAE5E0E12839A9A0038574E /* SMFEventConfiguration.h */,
+				DDAE5E0F12839A9A0038574E /* SMFEventConfiguration.m */,
+				DDAE5BD2127E0DE00038574E /* SMFEventManager.h */,
+				DDAE5BD3127E0DE00038574E /* SMFEventManager.m */,
+				DDAE5BD4127E19570038574E /* SMFEvent.h */,
+				DDAE5BD5127E19570038574E /* SMFEvent.m */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		DD145D9F12B4A5AB00FA8984 /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */,
+				DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */,
+				DD3136CB1277CFFC00042510 /* SMFMenuItem.h */,
+				DD3136CC1277CFFC00042510 /* SMFMenuItem.m */,
+				DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */,
+				DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */,
+			);
+			name = MenuItems;
 			sourceTree = "<group>";
 		};
 		DD96C0411295D949002C5144 /* eventcatcher */ = {

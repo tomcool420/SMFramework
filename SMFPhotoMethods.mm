@@ -22,6 +22,12 @@ static NSArray *coverArtExtention=nil;
                        @"gif",
                        nil];
 }
++(BOOL)isImageAtPath:(NSString *)path
+{
+    if([coverArtExtention containsObject:[[path pathExtension] lowercaseString]])
+        return YES;
+    return NO;
+}
 +(NSArray *)photoPathsForPath:(id)path
 {
 //    NSArray *contents = [[NSFileManager defaultManager]directoryContentsAtPath:path];
@@ -38,6 +44,21 @@ static NSArray *coverArtExtention=nil;
         }
     }
     return files;
+}
++(int)imagesCountForPath:(NSString *)path
+{
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+	long i, count = [contents count];
+    int returnCount=0;
+	for ( i = 0; i < count; i++ )
+	{
+		NSString *idStr = [contents objectAtIndex:i];
+		if([coverArtExtention containsObject:[[idStr pathExtension] lowercaseString]])
+		{
+            returnCount++;
+		}
+	}
+	return returnCount;
 }
 +(NSArray *)mediaAssetsForPath:(id)path
 {
@@ -94,7 +115,7 @@ static NSArray *coverArtExtention=nil;
     return imagePaths;
 }
 
-+(id)firstPhotoForPath:(NSString *)path
++(BRImage *)firstPhotoForPath:(NSString *)path
 {
 //    NSArray *contents = [[NSFileManager defaultManager] directoryContentsAtPath:path];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];

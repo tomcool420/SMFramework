@@ -7,22 +7,28 @@
 //
 
 #import "SMFMediaMenuController.h"
+#import "SMFPreferences.h"
+#import "SMFPhotoMethods.h"
+@protocol SMFFolderBrowserDelegate
+-(BOOL)hasActionForFile:(NSString *)path;
+-(void)executeActionForFile:(NSString *)path;
+@end
 
 @interface SMFFolderBrowser : SMFMediaMenuController 
 	{
 
-		NSString *	path;
-		NSMutableArray *	_paths;
-		NSFileManager   *	_man;
-        NSMutableArray *    _files;
-        NSMutableArray *    _folders;
-        BOOL separate;
-        BOOL showHidden;
-        BOOL showOnlyFolders;
-        NSString        *plistPath;
-        NSString        *plistKey;
-        id              delegate;
-        NSString        *fpath;
+		NSString *                          path;
+		NSMutableArray *                    _paths;
+		NSFileManager   *                   _man;
+        NSMutableArray *                    _files;
+        NSMutableArray *                    _folders;
+        BOOL                                separate;
+        BOOL                                showHidden;
+        BOOL                                showOnlyFolders;
+
+        NSObject<SMFFolderBrowserDelegate>* delegate;
+        NSString        *                   fpath;
+
 		
 	}
 
@@ -34,8 +40,9 @@
 @property (assign) BOOL separate;
 @property (assign) BOOL showHidden;
 @property (assign) BOOL showOnlyFolders;
-@property (retain) NSString *plistKey;
-@property (retain) NSString *plistPath;
-@property (retain) id delegate;
+
+
+@property (retain) NSObject<SMFFolderBrowserDelegate>* delegate;
 @property (retain) NSString *fpath;
+
 @end

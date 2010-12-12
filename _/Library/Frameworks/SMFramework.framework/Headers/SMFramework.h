@@ -22,3 +22,7 @@
 #import "SMFCommonTools.h"
 #import "SMFPhotoMethods.h"
 #import "SMFQueryMenu.h"
+#import "SMFThemeInfo.h"
+#import "SMFMenuItem.h"
+#import "SMFPreferences.h"
+#import "SMFImageAsset.h"
