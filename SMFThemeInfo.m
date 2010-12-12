@@ -15,4 +15,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFThemeInfo,sharedTheme)
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"selsettings" ofType:@"png"]];
 }
+-(BRImage *)colorAppleTVNameImage
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"colorAppleTVNameImage" ofType:@"png"]];
+}
+-(BRImage *)keyboardIcon
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"Keyboard" ofType:@"png"]];
+}
+-(BRImage *)btstackIcon
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"btstack" ofType:@"png"]];
+}
 @end

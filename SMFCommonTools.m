@@ -19,12 +19,12 @@
     NSDictionary *dict;
     if (array==nil) {
         dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                              [[BRThemeInfo sharedTheme]geniusIcon],@"Image",
+                              image,@"Image",
                               nil];
     }
     else {
         dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                [[BRThemeInfo sharedTheme]geniusIcon],@"Image",
+                image,@"Image",
                 array,@"Lines",nil];
         
     }

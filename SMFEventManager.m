@@ -10,7 +10,8 @@
 #import "SMFScreenCapture.h"
 #import "SMFEventConfiguration.h"
 #import "SMFPhotoMethods.h"
-#define eventsPlist (CFStringRef)@"org.tomcool.eventManager"
+#define eventsPlist (CFStringRef)@"org.tomcool.SMFramework.eventManager"
+#define eventString @"org.tomcool.SMFramework.eventManager"
 #define remoteActionDict (CFStringRef)@"remoteActions"
 #define keyDict     (CFStringRef)@"keyboardKeys"
 
@@ -159,7 +160,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFEventManager,sharedManager)
     }
     else if([event value]==0x01)
     {
-        return [self actionDefinedForKey:[event remoteAction]];
+        return [self actionDefinedForAction:[event remoteAction]];
     }
     return NO;
 }
@@ -211,8 +212,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFDefaultEvents,sharedDefaults)
 }
 -(void)actionForEvent:(SMFEvent *)event
 {
-    NSLog(@"%@ %@ %@ %@",kSMFEventDefaultScreenshot,kSMFEventDefaultRestartLowtide,kSMFEventDefaultSetup,kSMFEventDefaultSlideshow);
-    NSLog(@"event: %@ %@",event,[event name]);
+//    NSLog(@"%@ %@ %@ %@",kSMFEventDefaultScreenshot,kSMFEventDefaultRestartLowtide,kSMFEventDefaultSetup,kSMFEventDefaultSlideshow);
+//    NSLog(@"event: %@ %@",event,[event name]);
     
     if ([[event name] isEqualToString:kSMFEventDefaultScreenshot])
         [self takeScreenshot];

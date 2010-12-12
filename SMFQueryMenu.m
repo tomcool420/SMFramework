@@ -97,7 +97,6 @@
 }
 - (id)titleForRow:(long)row					
 { 
-    
     return [_filteredArray objectAtIndex:row];
 }
 -(void)itemSelected:(long)selected

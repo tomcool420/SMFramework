@@ -13,15 +13,52 @@
 #import "SMFMediaPreview.h"
 #import "SMFMenuItem.h"
 #import "SMFThemeInfo.h"
-
+#import "SMFImageAsset.h"
+#import "SMFDebAsset.h"
 @implementation SMFFolderBrowser
 @synthesize separate;
 @synthesize showHidden;
 @synthesize showOnlyFolders;
 @synthesize delegate;
-@synthesize plistKey;
-@synthesize plistPath;
+
 @synthesize fpath;
+
+-(id)previewControlForItem:(long)row
+{
+    if (separate && row <[_folders count]) {
+        int count = [SMFPhotoMethods imagesCountForPath:[_folders objectAtIndex:row]];
+        if (count>1) {
+            NSArray *proxies = [SMFPhotoMethods imageProxiesForPath:[_folders objectAtIndex:row]];
+            BRMediaParadeControl *ctrl = [[BRMediaParadeControl alloc] init];
+            [ctrl setImageProxies:proxies];
+            return [ctrl autorelease];
+        }
+        BRImage *img = [SMFPhotoMethods firstPhotoForPath:[_folders objectAtIndex:row]];
+        BRImageAndSyncingPreviewController *p = [[BRImageAndSyncingPreviewController alloc] init];
+        [p setImage:img];
+        return [p autorelease];
+        
+    }
+    if (separate && (row-[_folders count])<([_files count])) {
+        NSString *f = [_files objectAtIndex:(row-[_folders count])];
+        if ([SMFPhotoMethods isImageAtPath:f]) {
+            SMFImageAsset *a = [[SMFImageAsset alloc] initWithPath:f];
+            SMFMediaPreview *p = [[SMFMediaPreview alloc]init];
+            [p setAsset:a];
+            [a release];
+            return [p autorelease];
+//            BRImage *img = [BRImage imageWithPath:[_files objectAtIndex:(row-[_folders count])]];
+//            BRImageAndSyncingPreviewController *p = [[BRImageAndSyncingPreviewController alloc] init];
+//            [p setImage:img];
+//            return [p autorelease];
+        }
+        if ([[f pathExtension] localizedCaseInsensitiveCompare:@"deb"]==NSOrderedSame) {
+            NSLog(@"***###***");
+            SMFDebAsset *asset = [[SMFDebAsset alloc] initWithPath:f];
+        }
+    }
+    return [super previewControlForItem:row];
+}
 
 //- (id) previewControlForItem: (long) item
 //{
@@ -91,9 +128,7 @@
     [_paths removeAllObjects];
     [_items removeAllObjects];
     [_folders removeAllObjects];
-    if (plistKey!=nil && plistPath!=nil ) {
-        [self setFpath:[SMFFolderBrowser stringForKey:plistKey inDomain:plistPath]];
-    }
+
     
     [[self list] removeDividers];
     NSFileManager *man = [NSFileManager defaultManager];
@@ -140,23 +175,36 @@
     {
         p=[_folders objectAtIndex:row];
     }
-    else if(!separate && 
-            [[NSFileManager defaultManager] fileExistsAtPath:[_folders objectAtIndex:row] isDirectory:&dir]
-            && dir)
+    else if(separate && (row-[_folders count])<[_files count])
     {
         p=[_files objectAtIndex:row];
     }
-    NSLog(@"p: %@",p);
-    NSLog(@"plistKey: %@",plistKey);
-    NSLog(@"plistPath: %@",plistPath);
+    else if(!separate)
+    {
+        p=[_files objectAtIndex:row];
+    }
+
     if (p) 
     {
-        
-        if (plistKey!=nil && plistPath!=nil) {
-            [SMFFolderBrowser setString:p forKey:plistKey inDomain:plistPath];
-            NSLog(@"plistKey and Path is good");
+        if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {
+            NSLog(@"delegate: %@ conforms to protocol",delegate);
+            if ([delegate hasActionForFile:p]) {
+                NSLog(@"delegate can use %@",p);
+                [delegate executeActionForFile:p];
+            }
         }
-        NSLog(@"p is good");
+//        if (prefs!=nil && prefKey!=nil) {
+//            [prefs setObject:p forKey:prefKey];
+//            NSLog(@"writing %@ to %@ in %@",p,prefKey,prefs);
+//            if(popToController!=nil)
+//            {
+//                NSLog(@"popping to %@",popToController);
+//                [[self stack] popToController:popToController];
+//            }
+//        }
+//        else if (plistKey!=nil && plistPath!=nil) {
+//            [SMFFolderBrowser setString:p forKey:plistKey inDomain:plistPath];
+//        }
     }
     [self reloadFiles];
     [[self list] reload];
@@ -169,8 +217,9 @@
     {
         if (row<[_folders count]) 
         {
-            NSString *newPath = [path stringByAppendingPathComponent:[_folders objectAtIndex:row]];
+            NSString *newPath = [_folders objectAtIndex:row];
             SMFFolderBrowser *p = [[SMFFolderBrowser alloc]initWithPath:newPath];
+            p.delegate=self.delegate;
             [[self stack]pushController:p];
             [p release];
         }
@@ -178,6 +227,7 @@
     else
     {
         NSString *newPath = [_files objectAtIndex:row];//[path stringByAppendingPathComponent:[_files objectAtIndex:row]];
+        
         BOOL isDir;
         if([man fileExistsAtPath:newPath isDirectory:&isDir] && isDir)
         {
@@ -257,8 +307,13 @@
     [_man release];
     [_folders release];
     [_files release];
+    self.delegate=nil;
     [super dealloc];
     
 }
-
+-(void)wasExhumed
+{
+    [self reloadFiles];
+    [[self list] reload];
+}
 @end

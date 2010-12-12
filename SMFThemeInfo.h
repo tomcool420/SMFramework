@@ -13,4 +13,7 @@
 }
 +(SMFThemeInfo *)sharedTheme;
 -(BRImage *)selectedImage;
+-(BRImage *)colorAppleTVNameImage;
+-(BRImage *)keyboardIcon;
+-(BRImage *)btstackIcon;
 @end
