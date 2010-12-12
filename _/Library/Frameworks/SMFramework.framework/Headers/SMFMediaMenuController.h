@@ -33,5 +33,8 @@
  */
 -(void)rightActionForRow:(long)row;
 
-
+/*
+ *  Action Called Every Time someone Presses on play pause button on new remote
+ */
+-(void)playPauseActionForRow:(long)row;
 @end

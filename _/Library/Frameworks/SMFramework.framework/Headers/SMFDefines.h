@@ -15,6 +15,8 @@ typedef enum {
 	kBREventRemoteActionLeft,
 	kBREventRemoteActionRight,
     
+    kBREventRemoteActionPlayPause=10,
+    
 	kBREventRemoteActionPlayHold = 20,
     
 	// Gestures, for originator kBREventOriginatorGesture

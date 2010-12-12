@@ -7,10 +7,10 @@
 //
 
 #import "SMFCommonTools.h"
-
+#import "SynthesizeSingleton.h"
 
 @implementation SMFCommonTools
-
+SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 +(id)popupControlWithLines:(NSArray *)array andImage:(BRImage *)image
 {
     id ctrl =[[NSClassFromString(@"SMFPopupInfo") alloc] init];
@@ -46,5 +46,41 @@
                                                      size:CGSizeMake(0.9, 0.15)
                                                   options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1],@"BRPopUpPostImmediately",
                                                            [NSNumber numberWithInt:8],@"BRPopUpTimeoutValueKey",nil]];
+}
+
+-(NSArray *)returnForProcess:(NSString *)call
+{
+    if (call==nil) 
+        return 0;
+    char line[200];
+    
+    FILE* fp = popen([call UTF8String], "r");
+    NSMutableArray *lines = [[NSMutableArray alloc]init];
+    if (fp)
+    {
+        while (fgets(line, sizeof line, fp))
+        {
+            NSString *s = [NSString stringWithCString:line];
+            [lines addObject:s];
+        }
+    }
+    pclose(fp);
+    return [lines autorelease];
+}
+-(int)syscallSeatbeltEnabled
+{
+    NSArray *lines = [self returnForProcess:@"sysctl security.mac.vnode_enforce"];
+    if ([lines count]>0) {
+        for (NSString *line in lines) {
+            NSArray *parts = [line componentsSeparatedByString:@": "];
+            if ([parts count]>1) {
+                if ([(NSString *)[parts objectAtIndex:0] isEqualToString:@"security.mac.vnode_enforce"]) {
+                    int r = [(NSString *)[parts objectAtIndex:1] intValue];
+                    return r;
+                }
+            }
+        }
+    }
+    return -1;
 }
 @end

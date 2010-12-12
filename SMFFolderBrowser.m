@@ -169,6 +169,39 @@
     NSLog(@"folders count: %i",[_folders count]);
     //[[self list] reload];
 }
+-(NSString *)pathAtRow:(long)row
+{
+    NSString *p=nil;
+    if (separate && row<[_folders count]) 
+    {
+        p=[_folders objectAtIndex:row];
+    }
+    else if(separate && (row-[_folders count])<[_files count])
+    {
+        p=[_files objectAtIndex:row];
+    }
+    else if(!separate && row<[_files count])
+    {
+        p=[_files objectAtIndex:row];
+    }
+    
+    return p; 
+}
+-(void)playPauseActionForRow:(long)row
+{
+    NSString *p=[self pathAtRow:row];
+    if (p) {
+        if (delegate!=nil && 
+            [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)] &&
+            [delegate respondsToSelector:@selector(executePlayPauseActionForFile:)]) {
+            NSLog(@"delegate: %@ conforms to protocol",delegate);
+            if ([delegate hasActionForFile:p]) {
+                NSLog(@"delegate can use %@",p);
+                [delegate executePlayPauseActionForFile:p];
+            }
+        }
+    }
+}
 -(void)leftActionForRow:(long)row
 {
     [self rightActionForRow:row];

@@ -72,6 +72,10 @@
 {
     
 }
+-(void)playPauseActionForRow:(long)row
+{
+    
+}
 -(BOOL)brEventAction:(BREvent *)event
 {
 	int remoteAction = [event remoteAction];
@@ -91,6 +95,11 @@
         case kBREventRemoteActionRight:
             if([event value] == 1)
                 [self rightActionForRow:[self getSelection]];
+            return YES;
+            break;
+        case kBREventRemoteActionPlayPause:
+            if([event value] == 1)
+                [self playPauseActionForRow:[self getSelection]];
             return YES;
             break;
 		case kBREventRemoteActionUp:

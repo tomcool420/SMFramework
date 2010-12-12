@@ -23,4 +23,8 @@
  *  @arg1: a popup created using popupControlwithLines:andImage:
  */
 +(void)showPopup:(id)popup;
+
+-(SMFCommonTools *)sharedInstance;
+-(NSArray *)returnForProcess:(NSString *)call;
+-(int)syscallSeatbeltEnabled;
 @end

@@ -12,6 +12,8 @@
 @protocol SMFFolderBrowserDelegate
 -(BOOL)hasActionForFile:(NSString *)path;
 -(void)executeActionForFile:(NSString *)path;
+@optional
+-(void)executePlayPauseActionForFile:(NSString *)path;
 @end
 
 @interface SMFFolderBrowser : SMFMediaMenuController 
