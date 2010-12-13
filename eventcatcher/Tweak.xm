@@ -34,11 +34,85 @@ the generation of a class list and an automatic constructor.
 */
 #import <objc/runtime.h>
 
-
-
+@interface ATVSettingsFacade
+@end
+@interface ATVScreenSaverPrefetchTask
+@end
+@interface ATVScreenSaverArchiver
+@end
 #import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
 #import "../SMFCommonTools.h"
+/*%hook NSFileManager
+-(NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
+{
+    %log;
+    NSLog(@"path: %@",path);
+    return %orig;
+}
+- (NSArray *)contentsOfDirectoryAtURL:(NSURL *)url includingPropertiesForKeys:(NSArray *)keys options:(NSDirectoryEnumerationOptions)mask error:(NSError **)error
+{
+    %log;
+    NSLog(@"url: %@",url);
+    return %orig;
+}
+- (NSArray *)directoryContentsAtPath:(NSString *)path
+{
+    %log;
+    NSLog(@"dpath: %@",path);
+    if([path isEqualToString:@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultAnimalPhotos"] ||
+        [path isEqualToString:@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultFlowerPhotos"])
+    {
+        NSArray *f = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/root/pieter" error:nil];
+        NSLog(@"returning special %@",f);
+        return f;
+    }
+    return %orig;
+}
+%end
+%hook ATVScreenSaverArchiver
++ (id)_providerForCollection:(id)collection
+{
+    %log;
+    //id r = %orig;
+    //NSLog(@"collection: %@, r: %@",collection,r);
+    id col= [SMFPhotoMethods photoCollectionForPath:@"/var/root/pf"];
+    NSLog(@"archive: %@",[ATVScreenSaverArchiver archiveForCollection:col]);
+            BRDataStore *store = [SMFPhotoMethods dataStoreForPath:@"/var/root/pf"];
+        BRPhotoControlFactory* controlFactory = [BRPhotoControlFactory standardFactory];
+        SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:store controlFactory:controlFactory];//[[ATVSettingsFacade sharedInstance] providerForScreenSaver];//[collection provider];
+        
+    return provider;
+}
++ (id)archiveForCollection:(id)collection
+{
+    %log;
+    id r = %orig;
+    NSLog(@"collection: %@, archive: %@",collection,r);
+    return r;
+}
+//+ (id)screenSaverCollectionIDFromArchive:(id)archive	// 0x31a312f9
+//{
+//    %log;
+//    return nil;
+//}
+//+ (id)screenSaverCollectionNameFromArchive:(id)archive	// 0x31a31351
+//{
+//    %log;
+//    return @"Hehe";
+//}
+//+ (id)screenSaverServerIDFromArchive:(id)archive	// 0x31a31295
+//{
+//    %log;
+//    return nil;
+//}
+//+ (id)screenSaverTypeFromArchive:(id)archive
+//{
+//    %log;
+//    return nil;
+//}
+%end*/
+
 %hook BRAccount
 - (id)initWithAccountName:(id)accountName
 {
@@ -79,7 +153,25 @@ the generation of a class list and an automatic constructor.
     return r;
 }
 %end
-
+/*%hook BRMediaPlayer
+- (BOOL)setMediaAtIndex:(long)index inCollection:(id)collection error:(id *)error
+{
+    %log;
+    return %orig;
+}
+- (BOOL)setMediaAtIndex:(long)index inTrackList:(id)trackList error:(id *)error
+{
+    %log;
+    return %orig;
+}
+%end
+%hook ATVScreenSaverPrefetchTask
+-(BOOL)perform
+{
+    %log;
+    return %orig;
+}
+%end*/
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event { 
     if([[SMFEventManager sharedManager]actionDefinedForAction:[event remoteAction]])
@@ -139,7 +231,23 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
 //    
 //}
 //%end
+/*%hook ATVSettingsFacade
+//-(id)screenSaverCollectionArchive
+//{
+//    %log;
+//    //id r = %orig;
+//    //NSLog(@"orig: %@",r);
+//    return nil;
+//}
+-(id)screenSaverInvocation
+{
+    %log;
+    id r = %orig;
+    NSLog(@"invocation orig: %@",r);
+    return r;
 
+}
+%end*/
 %hook BRMainMenuControl
 -(void)_reload
 {

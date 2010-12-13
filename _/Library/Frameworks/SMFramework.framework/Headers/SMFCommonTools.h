@@ -27,4 +27,8 @@
 +(SMFCommonTools *)sharedInstance;
 -(NSArray *)returnForProcess:(NSString *)call;
 -(int)syscallSeatbeltEnabled;
+-(int)disableSeatbelt;
+-(int)enableSeatbelt;
+-(void)test;
+-(void)restartLowtide;
 @end

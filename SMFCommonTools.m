@@ -7,10 +7,17 @@
 //
 
 #import "SMFCommonTools.h"
+#import "SMFPhotoMethods.h"
 #import "SynthesizeSingleton.h"
+
 
 @implementation SMFCommonTools
 SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
+-(void)test
+{
+//    NSLog(@"facade singleton: %@",[ATVSettingsFacade singleton]);
+//    [[ATVSettingsFacade singleton] setScreenSaverPhotoCollection:[SMFPhotoMethods photoCollectionForPath:@"/var/root/pf"]];
+}
 +(id)popupControlWithLines:(NSArray *)array andImage:(BRImage *)image
 {
     id ctrl =[[NSClassFromString(@"SMFPopupInfo") alloc] init];
@@ -83,6 +90,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     }
     return -1;
 }
+
 -(int)disableSeatbelt
 {
     return system("SMFHelper security.mac.vnode_enforce 0");
@@ -90,5 +98,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 -(int)enableSeatbelt
 {
     return system("SMFHelper security.mac.vnode_enforce 1");
+}
+
+-(void)restartLowtide
+{
+    [[BRApplication sharedApplication]terminate];
 }
 @end
