@@ -319,6 +319,9 @@
 			DD537A7B12BEA6060022849E /* PBXTextBookmark */ = DD537A7B12BEA6060022849E /* PBXTextBookmark */;
 			DD537A7C12BEA6060022849E /* PBXTextBookmark */ = DD537A7C12BEA6060022849E /* PBXTextBookmark */;
 			DD537A7D12BEA6060022849E /* PBXTextBookmark */ = DD537A7D12BEA6060022849E /* PBXTextBookmark */;
+			DD537A7E12BEA6BC0022849E /* PBXTextBookmark */ = DD537A7E12BEA6BC0022849E /* PBXTextBookmark */;
+			DD537A7F12BEA6BC0022849E /* PBXTextBookmark */ = DD537A7F12BEA6BC0022849E /* PBXTextBookmark */;
+			DD537A8012BEA6BC0022849E /* PBXTextBookmark */ = DD537A8012BEA6BC0022849E /* PBXTextBookmark */;
 			DD96C3491298BB5C002C5144 = DD96C3491298BB5C002C5144 /* PBXTextBookmark */;
 			DD96C34C1298BB5C002C5144 = DD96C34C1298BB5C002C5144 /* PBXTextBookmark */;
 			DD96C3561298BB5C002C5144 = DD96C3561298BB5C002C5144 /* PBXTextBookmark */;
@@ -1081,7 +1084,7 @@
 		fRef = DDDC818F1273B8C000192ADD /* SMFramework.h */;
 		name = "SMFramework.h: 28";
 		rLen = 0;
-		rLoc = 771;
+		rLoc = 798;
 		rType = 0;
 		vrLen = 693;
 		vrLoc = 0;
@@ -3219,7 +3222,7 @@
 		fRef = DDDC818F1273B8C000192ADD /* SMFramework.h */;
 		name = "SMFramework.h: 16";
 		rLen = 0;
-		rLoc = 210;
+		rLoc = 237;
 		rType = 0;
 		vrLen = 771;
 		vrLoc = 0;
@@ -3744,6 +3747,36 @@
 		rLoc = 174;
 		rType = 0;
 		vrLen = 356;
+		vrLoc = 0;
+	};
+	DD537A7E12BEA6BC0022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD5379E912BE78930022849E /* SMFSettingPreferences.h */;
+		name = "SMFSettingPreferences.h: 9";
+		rLen = 0;
+		rLoc = 174;
+		rType = 0;
+		vrLen = 356;
+		vrLoc = 0;
+	};
+	DD537A7F12BEA6BC0022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DDDC818F1273B8C000192ADD /* SMFramework.h */;
+		name = "SMFramework.h: 16";
+		rLen = 0;
+		rLoc = 237;
+		rType = 0;
+		vrLen = 771;
+		vrLoc = 0;
+	};
+	DD537A8012BEA6BC0022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DDDC818F1273B8C000192ADD /* SMFramework.h */;
+		name = "SMFramework.h: 8";
+		rLen = 0;
+		rLoc = 163;
+		rType = 0;
+		vrLen = 798;
 		vrLoc = 0;
 	};
 	DD96C0471295D949002C5144 /* control */ = {
@@ -5011,9 +5044,9 @@
 	};
 	DDDC818F1273B8C000192ADD /* SMFramework.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 612}}";
-			sepNavSelRange = "{210, 0}";
-			sepNavVisRange = "{0, 771}";
+			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
+			sepNavSelRange = "{163, 0}";
+			sepNavVisRange = "{0, 798}";
 		};
 	};
 	DDDC81991273B9B800192ADD /* Install */ = {
