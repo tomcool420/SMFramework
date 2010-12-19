@@ -76,8 +76,8 @@
 {
     if (b) {
         self.image=[[BRThemeInfo sharedTheme]selectedSettingImage];
-        self.imageInset=-5.0f;
-        self.textPadding=-10.0f;
+        self.imageInset=-0.0f;
+        self.textPadding=-0.0f;
         self.imageHeight=30.0f;
     }
     else {

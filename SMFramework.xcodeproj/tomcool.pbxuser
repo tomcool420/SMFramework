@@ -253,6 +253,9 @@
 			DD53795612BDBCB10022849E /* PBXTextBookmark */ = DD53795612BDBCB10022849E /* PBXTextBookmark */;
 			DD53795712BDBCBC0022849E /* PBXTextBookmark */ = DD53795712BDBCBC0022849E /* PBXTextBookmark */;
 			DD53795812BDC1350022849E /* PBXTextBookmark */ = DD53795812BDC1350022849E /* PBXTextBookmark */;
+			DD53795912BDC4390022849E /* PBXTextBookmark */ = DD53795912BDC4390022849E /* PBXTextBookmark */;
+			DD53795A12BDC4AE0022849E /* PBXTextBookmark */ = DD53795A12BDC4AE0022849E /* PBXTextBookmark */;
+			DD53795B12BDC4DC0022849E /* PBXTextBookmark */ = DD53795B12BDC4DC0022849E /* PBXTextBookmark */;
 			DD96C3491298BB5C002C5144 = DD96C3491298BB5C002C5144 /* PBXTextBookmark */;
 			DD96C34C1298BB5C002C5144 = DD96C34C1298BB5C002C5144 /* PBXTextBookmark */;
 			DD96C3561298BB5C002C5144 = DD96C3561298BB5C002C5144 /* PBXTextBookmark */;
@@ -2417,8 +2420,8 @@
 	DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1034, 1157}}";
-			sepNavSelRange = "{1951, 0}";
-			sepNavVisRange = "{835, 1176}";
+			sepNavSelRange = "{1918, 0}";
+			sepNavVisRange = "{835, 1175}";
 		};
 	};
 	DD53791112BDA9F20022849E /* SMFPasscodeController.h:18 */ = {
@@ -2976,7 +2979,7 @@
 		fRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */;
 		name = "SMFMenuItem.m: 81";
 		rLen = 0;
-		rLoc = 1936;
+		rLoc = 1935;
 		rType = 0;
 		vrLen = 1177;
 		vrLoc = 835;
@@ -2986,9 +2989,39 @@
 		fRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */;
 		name = "SMFMenuItem.m: 81";
 		rLen = 0;
-		rLoc = 1951;
+		rLoc = 1950;
 		rType = 0;
 		vrLen = 1176;
+		vrLoc = 835;
+	};
+	DD53795912BDC4390022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */;
+		name = "SMFMenuItem.m: 79";
+		rLen = 0;
+		rLoc = 1886;
+		rType = 0;
+		vrLen = 1176;
+		vrLoc = 835;
+	};
+	DD53795A12BDC4AE0022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */;
+		name = "SMFMenuItem.m: 79";
+		rLen = 0;
+		rLoc = 1886;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 835;
+	};
+	DD53795B12BDC4DC0022849E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */;
+		name = "SMFMenuItem.m: 80";
+		rLen = 0;
+		rLoc = 1918;
+		rType = 0;
+		vrLen = 1175;
 		vrLoc = 835;
 	};
 	DD96C0471295D949002C5144 /* control */ = {

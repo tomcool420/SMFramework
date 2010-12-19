@@ -39,4 +39,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFThemeInfo,sharedTheme)
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"seatbeltLogo" ofType:@"png"]];
 }
+-(BRImage *)mainMenuSettings
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"mainmenusettings" ofType:@"png"]];
+}
 @end

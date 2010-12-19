@@ -19,4 +19,5 @@
 -(BRImage *)packageImage;
 -(BRImage *)seatbeltImage;
 -(BRImage *)seatbeltLogoImage;
+-(BRImage *)mainMenuSettings;
 @end
