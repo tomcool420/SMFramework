@@ -23,4 +23,5 @@
 +(SMFMenuItem *)computerMenuItem;
 -(void)setTitle:(NSString *)title;
 -(void)setRightText:(NSString *)txt;
+-(void)setSelectedImage:(BOOL)b;
 @end

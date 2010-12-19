@@ -72,4 +72,17 @@
 {
     [self setRightJustifiedText:txt withAttributes:[[BRThemeInfo sharedTheme] menuItemSmallTextAttributes]];
 }
+-(void)setSelectedImage:(BOOL)b
+{
+    if (b) {
+        self.image=[[BRThemeInfo sharedTheme]selectedSettingImage];
+        self.imageInset=-5.0f;
+        self.textPadding=-10.0f;
+        self.imageHeight=30.0f;
+    }
+    else {
+        self.image=nil;
+    }
+
+}
 @end

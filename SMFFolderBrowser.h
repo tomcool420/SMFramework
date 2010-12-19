@@ -13,6 +13,9 @@
 -(BOOL)hasActionForFile:(NSString *)path;
 -(void)executeActionForFile:(NSString *)path;
 @optional
+-(void)executeRightActionForFile:(NSString *)path;
+-(void)executeLeftActionForFile:(NSString *)path;
+-(void)executeSelectActionForFile:(NSString *)path;
 -(void)executePlayPauseActionForFile:(NSString *)path;
 @end
 

@@ -1,22 +1,19 @@
 //
-//  QuDownloadController.h
-//  QuDownloader
+//  SMFPasscodeController.h
+//  SoftwareMenuFramework
 //
-//  Created by Alan Quatermain on 19/04/07.
-//  Copyright 2007 AwkwwardTV. All rights reserved.
+//  Created by Thomas Cool on 4/19/09.
+//  Copyright 2009,2010 Thomas Cool. All rights reserved.
 //
-// Updated by nito 08-20-08 - works in 2.x
-
 #import <Foundation/Foundation.h>
-//#import <BackRow/BRController.h>
-#import <CoreData/CoreData.h>
-#define DESCRIPTION_KEY			@"description"
-#define TITLE_KEY				@"title"
-#define NUMBER_BOXES_KEY		@"numberOfBoxes"
-#define KEY_KEY					@"key"
-#define DOMAIN_KEY              @"domain"
-#define DEFAULT_KEY				@"defaults"
+
 @class BRHeaderControl, BRTextControl,BRScrollingTextControl, BRImageControl, BRPasscodeEntryControl, BRDisplayManager;
+@protocol SMFPasscodeControllerDelegate
+- (void) textDidEndEditing: (id) sender;
+@optional
+- (void) textDidChange: (id) sender;
+@end
+
 
 @interface SMFPasscodeController : BRController
 {
@@ -30,42 +27,22 @@
     int                         boxes;
     int                         initialValue;
 }
-- (id)initWithTitle:(NSString *)title withDescription:(NSString *)description withBoxes:(int)boxes withKey:(NSString *)key withDomain:(NSString *)domain;
+- (id)initWithTitle:(NSString *)t withDescription:(NSString *)desc withBoxes:(int)b withKey:(NSString *)k withDomain:(NSString *)dom;
 + (SMFPasscodeController *)passcodeWithTitle:(NSString *)t withDescription:(NSString *)desc withBoxes:(int)b withDelegate:(id)del;
 + (SMFPasscodeController *)passcodeWithTitle:(NSString *)t withDescription:(NSString *)desc withBoxes:(int)b withKey:(NSString *)k withDomain:(NSString *)dom;
 
 
 
 
-#pragma mark Setter Methods
-- (void)setTitle:(NSString *)arg1;
-- (NSString *)title;
-
-- (void)setDescription:(NSString *)arg1;
-- (NSString *)description;
-
-- (void)setBoxes:(int)arg1;
-- (int)boxes;
-
-- (void)setDelegate:(id)arg1;
-- (id)delegate;
-
-- (void)setKey:(NSString *)arg1;
-- (NSString *)key;
-
-- (void)setDomain:(NSString *)arg1;
-- (NSString *)domain;
-
-- (void)setInitialValue:(int)value;
-- (int)initialValue;
-
-- (void)setIcon:(BRImage *)icon;
-- (BRImage *)icon;
-
-#pragma mark entryControl Delegate Methods
-- (void) textDidChange: (id) sender;
-- (void) textDidEndEditing: (id) sender;
 
 
+@property (assign) id delegate;
+@property (retain) NSString * key;
+@property (retain) NSString * domain;
+@property (assign) int initialValue;
+@property (retain) NSString *description;
+@property (assign) int boxes;
+@property (retain) BRImage * icon;
+@property (retain) NSString *title;
 @end
 

@@ -60,6 +60,19 @@ static NSArray *coverArtExtention=nil;
 	}
 	return returnCount;
 }
++(BRPhotoMediaAsset *)assetForPotoFile:(NSString *)pathToPhoto
+{
+    if([coverArtExtention containsObject:[[pathToPhoto pathExtension] lowercaseString]])
+    {
+        BRPhotoMediaAsset * asset = [[BRPhotoMediaAsset alloc] init];
+        [asset setFullURL:pathToPhoto];
+        [asset setThumbURL:pathToPhoto];
+        [asset setCoverArtURL:pathToPhoto];
+        [asset setIsLocal:YES];
+        return [asset autorelease];
+    }
+    return nil;
+}
 +(NSArray *)mediaAssetsForPath:(id)path
 {
     

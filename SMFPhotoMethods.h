@@ -21,6 +21,7 @@
 +(id)photoCollectionForPath:(NSString *)path;
 +(BRDataStore *)dataStoreForAssets:(NSArray *)assets;
 +(BRDataStore *)dataStoreForPath:(NSString *)path;
++(BRPhotoMediaAsset *)assetForPotoFile:(NSString *)pathToPhoto;
 +(NSArray *)imageProxiesForPath:(NSString *)path nbImages:(NSInteger)nb;
 +(int)imagesCountForPath:(NSString *)path;
 @end

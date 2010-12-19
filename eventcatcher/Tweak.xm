@@ -43,6 +43,25 @@ the generation of a class list and an automatic constructor.
 #import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
 #import "../SMFCommonTools.h"
+%hook BRApplianceManager
+//- (void)_loadApplianceAtPath:(id)path	// 0x315924f1
+//{
+//    if([[path lastPathComponent] isEqualToString:@"nitoTV.frappliance"])
+//        return;
+//    %log;
+//    %orig;
+//}
+//- (void)_loadAppliancesInFolder:(id)folder	// 0x315923b1
+//{
+//    %log;
+//    %orig;
+//}
+//- (void)loadAppliances	// 0x31592359
+//{
+//    %log;
+//    %orig;
+//}
+%end
 /*%hook NSFileManager
 -(NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
 {
@@ -248,6 +267,9 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
 
 }
 %end*/
+
+
+
 %hook BRMainMenuControl
 -(void)_reload
 {

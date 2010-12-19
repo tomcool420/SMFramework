@@ -5,7 +5,8 @@
 //  Created by Thomas Cool on 2/4/10.
 //  Copyright 2010 Thomas Cool. All rights reserved.
 //
-
+#include <sys/types.h>
+#include <unistd.h>
 #import <Foundation/Foundation.h>
 #import "../SynthesizeSingleton.h"
 @interface SMFHelperClass : NSObject
@@ -41,7 +42,7 @@ int main (int argc, const char * argv[]) {
     SMFHelperClass *c = [[SMFHelperClass alloc] init];
     rvalue=[c setSysValue:value forKey:option];
     [c release];
-
+    [pool release];
     return rvalue;
 }
 

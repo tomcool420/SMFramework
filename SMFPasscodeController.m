@@ -8,15 +8,23 @@
 //  Entry Control frame position by nito
 
 #import "SMFPasscodeController.h"
-
+#import "SMFPreferences.h"
 @interface SMFPasscodeController (Private)
 -(void)_drawSelf;
+-(void) textDidEndEditing: (id) sender;
+-(void) textDidChange: (id) sender;
 @end
 
 
 @implementation SMFPasscodeController
-
-
+@synthesize boxes;
+@synthesize initialValue;
+@synthesize delegate;
+@synthesize key;
+@synthesize domain;
+@synthesize description;
+@synthesize icon;
+@synthesize title;
 +(SMFPasscodeController *)passcodeWithTitle:(NSString *)t 
                             withDescription:(NSString *)desc 
                                   withBoxes:(int)b
@@ -48,136 +56,19 @@
 }
 - (void) dealloc
 {
-    [title release];
-    [description release];
-    [delegate release];
-    [key release];
-    [domain release];
-    [icon release];
+//    self.title=nil;
+//    self.delegate=nil;
+//    self.description=nil;
+//    self.key=nil;
+//    self.domain=nil;
+//    self.icon=nil;
     [super dealloc];
 }
 -(void)controlWasActivated
 {
 	[self _drawSelf];
     [super controlWasActivated];
-	
 }
-#pragma mark Setter Methods
--(void)setDelegate:(id)del
-{
-    if (delegate!=nil) {
-        [delegate release];
-        delegate=nil;
-    }
-    delegate=[del retain];
-}
--(id)delegate
-{
-    return delegate;
-}
-- (void)setTitle:(NSString *)t
-{
-    if (title!=nil) {
-        [title release];
-        title=nil;
-    }
-    title=[t retain];
-}
--(NSString *)title
-{
-    return title;
-}
-- (void)setBoxes:(int)arg1
-{
-    boxes=arg1;
-}
-- (int)boxes
-{
-    return boxes;
-}
-- (void)setKey:(NSString *)k
-{
-    if (key!=nil) {
-        [key release];
-        key=nil;
-    }
-    key=[k retain];
-}
-- (NSString *)key
-{
-    return key;
-}
-- (void)setDescription:(NSString *)desc
-{
-    if (description!=nil) {
-        [description release];
-        description=nil;
-    }
-    description=[desc retain];
-}
-- (NSString *)description
-{
-    return description;
-}
-- (void)setInitialValue:(int)value
-{
-    initialValue=value;
-}
-- (int)initialValue
-{
-    return initialValue;
-}
-- (void)setDomain:(NSString *)arg1
-{
-    if (domain!=nil) {
-        [domain release];
-        domain=nil;
-    }
-    domain=[arg1 retain];
-}
-- (NSString *)domain
-{
-    return domain;
-}
-- (void)setIcon:(BRImage *)i
-{
-    if (icon!=nil) {
-        [icon release];
-        icon=nil;
-    }
-    icon=[i retain];
-}
-- (BRImage *)icon
-{
-    return icon;
-}
-
-
-
-
-#pragma mark entryControl Delegate Methods
-- (void) textDidChange: (id) sender
-{
-}
-
-- (void) textDidEndEditing: (id) sender
-{
-//    if(key && domain)
-//    {
-//        CFPreferencesSetAppValue(ATVDCFSTR(self.key), (CFNumberRef)[NSNumber numberWithInt:[[sender stringValue] intValue]], ATVDCFSTR(self.domain));
-//        CFPreferencesAppSynchronize(ATVDCFSTR(self.domain));
-//    }
-//    
-//    else
-//	{
-//		[SMFPreferences setInteger:[[sender stringValue] intValue] forKey:@"defaultReturn"];
-//	}
-	[[self stack] popController];	
-}
-
-
-
-
 @end
 @implementation SMFPasscodeController (Private)
 
@@ -248,10 +139,10 @@
     /*
      *  Delegate
      */
-    if(self.delegate==nil)
+//    if(self.delegate==nil)
+//        [entryControl setDelegate:self];
+//    else 
         [entryControl setDelegate:self];
-    else 
-        [entryControl setDelegate:self.delegate];
     
 	/*
      *  Special Size for 1080i
@@ -272,7 +163,29 @@
     
     [self addControl:entryControl];
 }
+#pragma mark entryControl Delegate Methods
+- (void) textDidChange: (id) sender
+{
+    if (delegate && [delegate respondsToSelector:@selector(textDidChange:)]) {
+        [delegate textDidChange:sender];
+    }
+}
 
+- (void) textDidEndEditing: (id) sender
+{
+    if (delegate && [delegate respondsToSelector:@selector(textDidEndEditing:)]) {
+        [delegate textDidEndEditing:sender];
+    }
+    else 
+    {
+        if (key && domain) {
+            SMFPreferences *p = [[SMFPreferences alloc] initWithPersistentDomainName:domain];
+            [p setObject:[NSNumber numberWithInt:[[sender stringValue] intValue]] forKey:key];
+        }
+        [[self stack] popController];
+    }
+    
+}
 @end
 
 

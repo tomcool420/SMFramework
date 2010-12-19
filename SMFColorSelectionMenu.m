@@ -17,7 +17,7 @@
 @implementation SMFColorSelectionMenu
 @synthesize delegate;
 @synthesize key;
-+(SMFColorSelectionMenu *)colorMenuForKey:(NSString *)k andDelegate:(id<SMFColorSelectionDelegate>)del
++(SMFColorSelectionMenu *)colorMenuForKey:(NSString *)k andDelegate:(NSObject<SMFColorSelectionDelegate>*)del
 {
     SMFColorSelectionMenu *col = [[SMFColorSelectionMenu alloc] init];
     [col setDelegate:del];
@@ -61,7 +61,7 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
             const CGFloat myColor[] = {red[i], green[i], blue[i], 1.0};
             CGColorRef color = CGColorCreate(rgb, myColor);
             
-            [d setObject:color forKey:@"CTForegroundColor"];
+            [d setObject:(id)color forKey:@"CTForegroundColor"];
             CGColorRelease(color);
             [it setText:[strings objectAtIndex:i] withAttributes:d];
             [d release];

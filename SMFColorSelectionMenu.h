@@ -14,11 +14,11 @@
 @end
 
 @interface SMFColorSelectionMenu : SMFMediaMenuController {
-    id<SMFColorSelectionDelegate>delegate;
+    NSObject<SMFColorSelectionDelegate> *delegate;
     NSString *key;
     NSArray *colors;
 }
-+(SMFColorSelectionMenu *)colorMenuForKey:(NSString *)k andDelegate:(id<SMFColorSelectionDelegate>)del;
-@property (assign) id<SMFColorSelectionDelegate> delegate;
++(SMFColorSelectionMenu *)colorMenuForKey:(NSString *)k andDelegate:(NSObject<SMFColorSelectionDelegate>*)del;
+@property (assign) NSObject<SMFColorSelectionDelegate> *delegate;
 @property (retain) NSString * key;
 @end

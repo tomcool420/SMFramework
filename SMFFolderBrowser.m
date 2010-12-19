@@ -192,19 +192,39 @@
     NSString *p=[self pathAtRow:row];
     if (p) {
         if (delegate!=nil && 
-            [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)] &&
-            [delegate respondsToSelector:@selector(executePlayPauseActionForFile:)]) {
-            NSLog(@"delegate: %@ conforms to protocol",delegate);
-            if ([delegate hasActionForFile:p]) {
-                NSLog(@"delegate can use %@",p);
-                [delegate executePlayPauseActionForFile:p];
+            [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)])
+        {
+            if ([delegate hasActionForFile:p])
+            {
+                if ([delegate respondsToSelector:@selector(executePlayPauseActionForFile:)]) {
+                    [delegate executePlayPauseActionForFile:p];
+                }
+                else
+                    [delegate executeActionForFile:p]; 
             }
         }
+        
     }
+    [self reloadFiles];
+    [[self list] reload];
 }
 -(void)leftActionForRow:(long)row
 {
-    [self rightActionForRow:row];
+    NSString *p=[self pathAtRow:row];
+    if (p) 
+    {
+        if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {
+            if ([delegate hasActionForFile:p]) {
+                if ([delegate respondsToSelector:@selector(executeLeftActionForFile:)]) {
+                    [delegate executeRightActionForFile:p];
+                }
+                else
+                    [delegate executeActionForFile:p];
+            }
+        }
+    }
+    [self reloadFiles];
+    [[self list] reload];
 }
 -(void)rightActionForRow:(long)row
 {
@@ -212,24 +232,14 @@
     if (p) 
     {
         if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {
-            NSLog(@"delegate: %@ conforms to protocol",delegate);
             if ([delegate hasActionForFile:p]) {
-                NSLog(@"delegate can use %@",p);
-                [delegate executeActionForFile:p];
+                if ([delegate respondsToSelector:@selector(executeRightActionForFile:)]) {
+                    [delegate executeRightActionForFile:p];
+                }
+                else
+                    [delegate executeActionForFile:p];
             }
         }
-//        if (prefs!=nil && prefKey!=nil) {
-//            [prefs setObject:p forKey:prefKey];
-//            NSLog(@"writing %@ to %@ in %@",p,prefKey,prefs);
-//            if(popToController!=nil)
-//            {
-//                NSLog(@"popping to %@",popToController);
-//                [[self stack] popToController:popToController];
-//            }
-//        }
-//        else if (plistKey!=nil && plistPath!=nil) {
-//            [SMFFolderBrowser setString:p forKey:plistKey inDomain:plistPath];
-//        }
     }
     [self reloadFiles];
     [[self list] reload];
