@@ -5,6 +5,7 @@
 //  Created by Thomas Cool on 11/30/09.
 //  Copyright 2009 Thomas Cool. All rights reserved.
 //
+#import <Backrow/Backrow.h>
 @interface BRController (Compat)
 
 -(CGRect)frame;

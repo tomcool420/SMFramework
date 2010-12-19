@@ -6,7 +6,7 @@
 //  Copyright 2009,2010 Thomas Cool. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-
+#import <Backrow/Backrow.h>
 @class BRHeaderControl, BRTextControl,BRScrollingTextControl, BRImageControl, BRPasscodeEntryControl, BRDisplayManager;
 @protocol SMFPasscodeControllerDelegate
 - (void) textDidEndEditing: (id) sender;

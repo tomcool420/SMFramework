@@ -6,8 +6,7 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-
+#import <Backrow/Backrow.h>
 
 @interface SMFFolderDelegate : NSObject {
 

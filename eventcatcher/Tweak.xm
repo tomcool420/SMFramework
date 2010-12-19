@@ -33,7 +33,7 @@ the generation of a class list and an automatic constructor.
 %end
 */
 #import <objc/runtime.h>
-
+#import <BackRow/BackRow.h>
 @interface ATVSettingsFacade
 @end
 @interface ATVScreenSaverPrefetchTask

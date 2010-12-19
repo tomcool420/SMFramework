@@ -8,9 +8,47 @@
 
 #import "SMFThemeInfo.h"
 
-
+//static float red[]=  {0.0,0.0,0.6,0.0,0.33,0.0,0.66,1.0,1.0,0.5,1.0,1.0,1.0};
+//static float green[]={0.0,0.0,0.4,1.0,0.33,1.0,0.66,0.0,0.5,0.0,0.0,1.0,1.0};
+//static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
+static NSArray * colors=nil;
 @implementation SMFThemeInfo
-SYNTHESIZE_SINGLETON_FOR_CLASS(SMFThemeInfo,sharedTheme)
+static SMFThemeInfo *sharedTheme = nil; 
+
++ (SMFThemeInfo *)sharedTheme 
+{ 
+	@synchronized(self) 
+	{ 
+		if (sharedTheme == nil) 
+		{ 
+			sharedTheme = [[self alloc] init]; 
+		} 
+	} 
+    
+	return sharedTheme; 
+} 
+
++ (id)allocWithZone:(NSZone *)zone 
+{ 
+	@synchronized(self) 
+	{ 
+		if (sharedTheme == nil) 
+		{ 
+			sharedTheme = [super allocWithZone:zone]; 
+            colors = [[NSArray arrayWithObjects:@"Black",@"Blue",@"Brown",@"Cyan",@"Dark Gray",@"Green",
+                       @"Light Gray",@"Magenta",@"Orange",@"Purple",@"Red",@"White",@"Yellow",nil] retain];
+			return sharedTheme; 
+		} 
+	} 
+    
+	return nil; 
+} 
+- (id)copyWithZone:(NSZone *)zone   { return self; } 
+- (id)retain                        { return self; } 
+- (NSUInteger)retainCount           { return NSUIntegerMax;}
+- (void)release                     {} 
+- (id)autorelease                   { return self; }
+
 -(BRImage *)selectedImage
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"selsettings" ofType:@"png"]];

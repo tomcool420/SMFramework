@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #import <Foundation/Foundation.h>
+#import <Backrow/Backrow.h>
 #import "../SynthesizeSingleton.h"
 @interface SMFHelperClass : NSObject
 //-(SMFHelperClass *)sharedInstance;

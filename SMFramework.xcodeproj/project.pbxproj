@@ -82,6 +82,7 @@
 		DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFProgressBarMenuItem.m; sourceTree = "<group>"; };
 		DD3136CB1277CFFC00042510 /* SMFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuItem.h; sourceTree = "<group>"; };
 		DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuItem.m; sourceTree = "<group>"; };
+		DD5379E912BE78930022849E /* SMFSettingPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFSettingPreferences.h; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
 		DD96C0491295D949002C5144 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -159,6 +160,7 @@
 				875A8253126FFF5300ECADC2 /* BackRow */,
 				DD96C0411295D949002C5144 /* eventcatcher */,
 				DD1462FB12B53B6C00FA8984 /* SMFHelper */,
+				DD5379E812BE78470022849E /* Protocols */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
@@ -339,6 +341,14 @@
 				DD14630212B53B6C00FA8984 /* smfHelper.m */,
 			);
 			path = SMFHelper;
+			sourceTree = "<group>";
+		};
+		DD5379E812BE78470022849E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DD5379E912BE78930022849E /* SMFSettingPreferences.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		DD96C0411295D949002C5144 /* eventcatcher */ = {

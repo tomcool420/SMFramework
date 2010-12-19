@@ -6,6 +6,15 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
+/*
+ *   Protocols
+ */
+#import "SMFSettingPreferences.h"
+
+
+/*
+ *   Classes
+ */
 #import "SMFCenteredMenuController.h"
 #import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"

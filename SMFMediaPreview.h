@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 11/9/09.
 //  Copyright 2009 Thomas Cool. All rights reserved.
 //
-
+#import <Backrow/Backrow.h>
 #define METADATA_IMAGE_URL      @"ImageURL"
 #define METADATA_TITLE          @"Name"
 #define METADATA_SUMMARY        @"Summary"
