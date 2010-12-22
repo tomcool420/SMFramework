@@ -14,7 +14,7 @@
 //}
 //%end
 
-
+#import "SMFPopup.h"
 %subclass SMFPopupInfo : BRTrackInfoControl
 - (id)_fetchCoverArt
 {

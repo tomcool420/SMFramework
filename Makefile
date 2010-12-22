@@ -28,4 +28,5 @@ after-SMFramework-stage::
 	cp *.h "Headers/"
 	mkdir "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers"
 	cp *.h "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/"
+	mkdir ../ATV2Includes/SMFramework
 	cp -rf Headers/ ../ATV2Includes/SMFramework/

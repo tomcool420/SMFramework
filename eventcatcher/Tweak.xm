@@ -34,6 +34,7 @@ the generation of a class list and an automatic constructor.
 */
 #import <objc/runtime.h>
 #import <BackRow/BackRow.h>
+
 @interface ATVSettingsFacade
 @end
 @interface ATVScreenSaverPrefetchTask
@@ -285,6 +286,8 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     
 }
 %end
+
+
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -294,6 +297,8 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     [SMFEventManager sharedManager];
     [pool release]; 
     %orig;
+//    ReportIOSurfaces(200,50,50);
+    
     NSLog(@"root files: %@",[[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/mobile" error:nil]);
     // %orig does not return
 }
