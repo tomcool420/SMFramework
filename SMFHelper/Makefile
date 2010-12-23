@@ -5,6 +5,8 @@ include ../theos/makefiles/common.mk
 TOOL_NAME = SMFHelper
 SMFHelper_FILES = smfHelper.m 
 SMFHelper_INSTALL_PATH = /usr/bin
+SMFHelper_CFLAGS = -I../../ATV2Includes
+SMFHelper_LDFLAGS= -undefined dynamic_lookup
 
 include $(FW_MAKEDIR)/tool.mk
 

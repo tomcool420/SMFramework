@@ -41,7 +41,7 @@ the generation of a class list and an automatic constructor.
 @end
 @interface ATVScreenSaverArchiver
 @end
-#import "/opt/theos/include/BackRow/BackRow.h"
+//#import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
 #import "../SMFCommonTools.h"
 %hook BRApplianceManager

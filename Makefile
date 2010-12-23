@@ -12,7 +12,7 @@ SMFramework_FILES += SMFPreferences.m SMFProgressBarMenuItem.m SMFImageAsset.m S
 SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow
-#SMFramework_CFLAGS = -std=c99
+SMFramework_CFLAGS = -I../ATV2Includes
 SUBPROJECTS = eventcatcher SMFHelper
 
 
@@ -28,5 +28,6 @@ after-SMFramework-stage::
 	cp *.h "Headers/"
 	mkdir "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers"
 	cp *.h "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/"
+	rm -rf ../ATV2Includes/SMFramework
 	mkdir ../ATV2Includes/SMFramework
 	cp -rf Headers/ ../ATV2Includes/SMFramework/
