@@ -135,6 +135,8 @@
 		DDDC81721273A67000192ADD /* SMFController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFController.h; sourceTree = "<group>"; };
 		DDDC81731273A67000192ADD /* SMFController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFController.m; sourceTree = "<group>"; };
 		DDDC818F1273B8C000192ADD /* SMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFramework.h; sourceTree = "<group>"; };
+		DDF8E91512C8DE6A005EC3C1 /* NSArray_SMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_SMF.h; sourceTree = "<group>"; };
+		DDF8E91612C8DE6A005EC3C1 /* NSArray_SMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray_SMF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DDF8E91412C8DE52005EC3C1 /* Extensions */,
 				DD145D9F12B4A5AB00FA8984 /* MenuItems */,
 				DD145D9E12B4A58B00FA8984 /* Events */,
 				DD145D9D12B4A56B00FA8984 /* Controls */,
@@ -360,6 +363,15 @@
 				DD96C29A1295D94A002C5144 /* Tweak.xm */,
 			);
 			path = eventcatcher;
+			sourceTree = "<group>";
+		};
+		DDF8E91412C8DE52005EC3C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DDF8E91512C8DE6A005EC3C1 /* NSArray_SMF.h */,
+				DDF8E91612C8DE6A005EC3C1 /* NSArray_SMF.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

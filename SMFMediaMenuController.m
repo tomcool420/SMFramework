@@ -17,7 +17,8 @@
 - (long)rowForTitle:(id)title				{ return (long)[_items indexOfObject:title];}
 - (id)titleForRow:(long)row					
 { 
-    
+    if (row>=[_items count])
+        return nil;
     return [[_items objectAtIndex:row] text];
 }
 - (long)defaultIndex						{ return 0;}
