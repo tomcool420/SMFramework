@@ -63,75 +63,7 @@ the generation of a class list and an automatic constructor.
 //    %orig;
 //}
 %end
-/*%hook NSFileManager
--(NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error
-{
-    %log;
-    NSLog(@"path: %@",path);
-    return %orig;
-}
-- (NSArray *)contentsOfDirectoryAtURL:(NSURL *)url includingPropertiesForKeys:(NSArray *)keys options:(NSDirectoryEnumerationOptions)mask error:(NSError **)error
-{
-    %log;
-    NSLog(@"url: %@",url);
-    return %orig;
-}
-- (NSArray *)directoryContentsAtPath:(NSString *)path
-{
-    %log;
-    NSLog(@"dpath: %@",path);
-    if([path isEqualToString:@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultAnimalPhotos"] ||
-        [path isEqualToString:@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultFlowerPhotos"])
-    {
-        NSArray *f = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/root/pieter" error:nil];
-        NSLog(@"returning special %@",f);
-        return f;
-    }
-    return %orig;
-}
-%end
-%hook ATVScreenSaverArchiver
-+ (id)_providerForCollection:(id)collection
-{
-    %log;
-    //id r = %orig;
-    //NSLog(@"collection: %@, r: %@",collection,r);
-    id col= [SMFPhotoMethods photoCollectionForPath:@"/var/root/pf"];
-    NSLog(@"archive: %@",[ATVScreenSaverArchiver archiveForCollection:col]);
-            BRDataStore *store = [SMFPhotoMethods dataStoreForPath:@"/var/root/pf"];
-        BRPhotoControlFactory* controlFactory = [BRPhotoControlFactory standardFactory];
-        SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:store controlFactory:controlFactory];//[[ATVSettingsFacade sharedInstance] providerForScreenSaver];//[collection provider];
-        
-    return provider;
-}
-+ (id)archiveForCollection:(id)collection
-{
-    %log;
-    id r = %orig;
-    NSLog(@"collection: %@, archive: %@",collection,r);
-    return r;
-}
-//+ (id)screenSaverCollectionIDFromArchive:(id)archive	// 0x31a312f9
-//{
-//    %log;
-//    return nil;
-//}
-//+ (id)screenSaverCollectionNameFromArchive:(id)archive	// 0x31a31351
-//{
-//    %log;
-//    return @"Hehe";
-//}
-//+ (id)screenSaverServerIDFromArchive:(id)archive	// 0x31a31295
-//{
-//    %log;
-//    return nil;
-//}
-//+ (id)screenSaverTypeFromArchive:(id)archive
-//{
-//    %log;
-//    return nil;
-//}
-%end*/
+
 
 %hook BRAccount
 - (id)initWithAccountName:(id)accountName
@@ -165,33 +97,8 @@ the generation of a class list and an automatic constructor.
     return %orig;
 }
 %end
-%hook BRMainMenuSelectionHandler
--(BOOL)handleSelectionForControl:(id)ctrl
-{
-    %log;
-    BOOL r = %orig;
-    return r;
-}
-%end
-/*%hook BRMediaPlayer
-- (BOOL)setMediaAtIndex:(long)index inCollection:(id)collection error:(id *)error
-{
-    %log;
-    return %orig;
-}
-- (BOOL)setMediaAtIndex:(long)index inTrackList:(id)trackList error:(id *)error
-{
-    %log;
-    return %orig;
-}
-%end
-%hook ATVScreenSaverPrefetchTask
--(BOOL)perform
-{
-    %log;
-    return %orig;
-}
-%end*/
+
+
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event { 
     if([[SMFEventManager sharedManager]actionDefinedForAction:[event remoteAction]])
@@ -205,9 +112,6 @@ the generation of a class list and an automatic constructor.
 static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef cfData, void *info) {
 	const char *data = (const char *) CFDataGetBytePtr(cfData);
 	UInt16 dataLen = CFDataGetLength(cfData);
-//	NSString * text=nil;
-//	BREvent *event = nil;
-//    int value = 1;
     if (dataLen > 0 && data)
     {
         NSDictionary *dd = (NSDictionary *)[NSPropertyListSerialization propertyListFromData:(NSData *)cfData 
@@ -224,50 +128,7 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
         return NULL;  // as stated in header, both data and returnData will be released for us after callback returns
     }
 
-//%hook BRMainMenuController
-//-(void)_loadAppliances
-//{
-//%orig;
-//    %log;
-//    NSArray *info = MSHookIvar<NSArray *>(self, "_applianceInfos");
-//    NSMutableArray *c = [[NSMutableArray alloc]init];
-//    for(BRApplianceInfo *i in info)
-//    {
-//        if([i.key isEqualToString:@"com.apple.frontrow.appliance.settings"])
-//        {
-//        NSLog(@"changing settings");
-//            
-//            i.preferredOrder=1.000000;
-//            i.primaryAppliance=NO;
-//        }
-//        else
-//        {
-//            [c addObject:i];
-//        }
-//    }
-//    //[info release];
-////    info=[c retain];
-////    [self reloadMainMenu];
-//    
-//}
-//%end
-/*%hook ATVSettingsFacade
-//-(id)screenSaverCollectionArchive
-//{
-//    %log;
-//    //id r = %orig;
-//    //NSLog(@"orig: %@",r);
-//    return nil;
-//}
--(id)screenSaverInvocation
-{
-    %log;
-    id r = %orig;
-    NSLog(@"invocation orig: %@",r);
-    return r;
 
-}
-%end*/
 
 
 
@@ -286,8 +147,6 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     
 }
 %end
-
-
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -297,9 +156,5 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     [SMFEventManager sharedManager];
     [pool release]; 
     %orig;
-//    ReportIOSurfaces(200,50,50);
-    
-    NSLog(@"root files: %@",[[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/var/mobile" error:nil]);
-    // %orig does not return
 }
 %end
