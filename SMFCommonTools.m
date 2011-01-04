@@ -9,6 +9,7 @@
 #import "SMFCommonTools.h"
 #import "SMFPhotoMethods.h"
 #import "SynthesizeSingleton.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 
 @implementation SMFCommonTools
@@ -38,21 +39,31 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     [ctrl setObject:dict];
     return [ctrl autorelease];
 }
-+(void)showPopup:(id)popup
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withSize:(CGSize)size
 {
-    if (popup==nil) {
+    if (popup==nil)
         return;
-    }
+//    if (size==NULL) 
+//        size=CGSizeMake(0.9,0.15);
+    if (position <0)
+        position=6;
+    if (timeout<=0)
+        timeout=8;
     id manager  = [BRPopUpManager sharedInstance];
     if (manager==nil) {
         [BRPopUpManager setSingleton:[[BRPopUpManager alloc]init]];
     }
     [[BRPopUpManager sharedInstance] postPopUpWithControl:popup 
                                                identifier:@"SMFPopup" 
-                                                 position:6 
-                                                     size:CGSizeMake(0.9, 0.15)
+                                                 position:position 
+                                                     size:size
                                                   options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1],@"BRPopUpPostImmediately",
-                                                           [NSNumber numberWithInt:8],@"BRPopUpTimeoutValueKey",nil]];
+                                                           [NSNumber numberWithInt:timeout],@"BRPopUpTimeoutValueKey",nil]];
+    
+}
++(void)showPopup:(id)popup
+{
+    [SMFCommonTools showPopup:popup withTimeout:8 withPosition:6 withSize:CGSizeMake(0.9,0.15)];
 }
 
 -(NSArray *)returnForProcess:(NSString *)call
@@ -93,6 +104,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 
 -(int)disableSeatbelt
 {
+    NSLog(@"disable in framework");
     return system("SMFHelper security.mac.vnode_enforce 0");
 }
 -(int)enableSeatbelt
