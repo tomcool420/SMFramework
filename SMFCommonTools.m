@@ -39,12 +39,21 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     [ctrl setObject:dict];
     return [ctrl autorelease];
 }
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withWidth:(float)width withHeight:(float)Height
+{
+    if (width<=0.0f)
+        width=0.9;
+    if (height<=0.0f)
+        height=0.15;
+    [SMFCommonTools showPopup:popup withTimeout:timeout withPosition:position withSize:CGSizeMake(width, height)];
+
+}
 +(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withSize:(CGSize)size
 {
     if (popup==nil)
         return;
-//    if (size==NULL) 
-//        size=CGSizeMake(0.9,0.15);
+    if (size==nil) 
+        size=CGSizeMake(0.9,0.15);
     if (position <0)
         position=6;
     if (timeout<=0)

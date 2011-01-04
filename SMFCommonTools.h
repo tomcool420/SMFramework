@@ -35,6 +35,16 @@
  *  @arg4: CGSize (relative size)
  */
 +(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withSize:(CGSize)size;
+/*
+ *  Displays a popup using the BRPopupManager
+ *  adds more customizability to the +(void)showPopup: method
+ *  @arg1: a popup created using popupControlwithLines:andImage:
+ *  @arg2: timeout in seconds
+ *  @arg3: a position integer (needs more detail)
+ *  @arg4: width
+ *  @arg5: height
+ */
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withWidth:(float)width withHeight:(float)Height
 
 /*
  *  Runs a task with popen parsing the output
