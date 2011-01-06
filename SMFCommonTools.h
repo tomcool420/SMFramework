@@ -7,7 +7,14 @@
 //
 #import <Backrow/Backrow.h>
 
-
+typedef enum _popupPosition{
+    kSMFPopupCenterLeft     =0,
+    kSMFPopupTopLeft        =1,
+    kSMFPopupBottomLeft     =2,
+    kSMFPopupCenterFarLeft  =4,
+    kSMFPopupTopFarLeft     =5,
+    kSMFPopupBottomFarLeft  =6
+} PopupPosition;
 @interface SMFCommonTools : NSObject {
 
 }
@@ -34,7 +41,7 @@
  *  @arg3: a position integer (needs more detail)
  *  @arg4: CGSize (relative size)
  */
-+(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withSize:(CGSize)size;
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withSize:(CGSize)size;
 /*
  *  Displays a popup using the BRPopupManager
  *  adds more customizability to the +(void)showPopup: method
@@ -44,7 +51,7 @@
  *  @arg4: width
  *  @arg5: height
  */
-+(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withWidth:(float)width withHeight:(float)Height
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withWidth:(float)width withHeight:(float)height;
 
 /*
  *  Runs a task with popen parsing the output

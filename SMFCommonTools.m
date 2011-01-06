@@ -39,7 +39,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     [ctrl setObject:dict];
     return [ctrl autorelease];
 }
-+(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withWidth:(float)width withHeight:(float)Height
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withWidth:(float)width withHeight:(float)height
 {
     if (width<=0.0f)
         width=0.9;
@@ -48,12 +48,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     [SMFCommonTools showPopup:popup withTimeout:timeout withPosition:position withSize:CGSizeMake(width, height)];
 
 }
-+(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(int)position withSize:(CGSize)size
++(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withSize:(CGSize)size
 {
     if (popup==nil)
         return;
-    if (size==nil) 
-        size=CGSizeMake(0.9,0.15);
+//    if (size==nil) 
+//        size=CGSizeMake(0.9,0.15);
     if (position <0)
         position=6;
     if (timeout<=0)
@@ -64,7 +64,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
     }
     [[BRPopUpManager sharedInstance] postPopUpWithControl:popup 
                                                identifier:@"SMFPopup" 
-                                                 position:position 
+                                                 position:(int)position 
                                                      size:size
                                                   options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:1],@"BRPopUpPostImmediately",
                                                            [NSNumber numberWithInt:timeout],@"BRPopUpTimeoutValueKey",nil]];
