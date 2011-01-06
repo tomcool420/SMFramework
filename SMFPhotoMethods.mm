@@ -28,39 +28,30 @@ static NSArray *coverArtExtention=nil;
         return YES;
     return NO;
 }
-+(NSArray *)photoPathsForPath:(id)path
++(NSArray *)photoPathsForPath:(id)path showHidden:(BOOL)hidden
 {
-//    NSArray *contents = [[NSFileManager defaultManager]directoryContentsAtPath:path];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-
-	long i, count = [contents count];	
-	NSMutableArray *files =[NSMutableArray array];
-	for ( i = 0; i < count; i++ )
-	{
-		NSString *idStr = [contents objectAtIndex:i];
-		if([coverArtExtention containsObject:[[idStr pathExtension] lowercaseString]])
-        {
-            [files addObject:[path stringByAppendingPathComponent:idStr]];
+    NSMutableArray *files = [NSMutableArray array];
+    for(NSString *file in contents)
+    {
+        if ([coverArtExtention containsObject:[[file pathExtension] lowercaseString]]&&
+            (hidden || ![file hasPrefix:@"."])&&
+            ![file hasPrefix:@":2e"]) {
+            [files addObject:[path stringByAppendingPathComponent:file]];
         }
     }
     return files;
 }
++(NSArray *)photoPathsForPath:(id)path
+{
+    return [SMFPhotoMethods photoPathsForPath:path showHidden:YES];
+}
+
 +(int)imagesCountForPath:(NSString *)path
 {
-    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-	long i, count = [contents count];
-    int returnCount=0;
-	for ( i = 0; i < count; i++ )
-	{
-		NSString *idStr = [contents objectAtIndex:i];
-		if([coverArtExtention containsObject:[[idStr pathExtension] lowercaseString]])
-		{
-            returnCount++;
-		}
-	}
-	return returnCount;
+    return [[SMFPhotoMethods photoPathsForPath:path showHidden:YES]count];
 }
-+(BRPhotoMediaAsset *)assetForPotoFile:(NSString *)pathToPhoto
++(BRPhotoMediaAsset *)assetForPhotoFile:(NSString *)pathToPhoto
 {
     if([coverArtExtention containsObject:[[pathToPhoto pathExtension] lowercaseString]])
     {

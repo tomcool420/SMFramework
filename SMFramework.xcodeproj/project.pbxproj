@@ -56,7 +56,7 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atvTwo_Prefix.pch; sourceTree = "<group>"; };
 		875A8249126FFF1F00ECADC2 /* BackRowExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackRowExtras.h; path = Classes/BackRowExtras.h; sourceTree = "<group>"; };
-		875A8253126FFF5300ECADC2 /* BackRow */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackRow; path = theos/include/BackRow; sourceTree = "<group>"; };
+		875A8253126FFF5300ECADC2 /* BackRow */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackRow; path = ../ATV2Includes/BackRow; sourceTree = "<group>"; };
 		875A8425126FFF6500ECADC2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		875A8427126FFF6D00ECADC2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		875A86EB12704ACC00ECADC2 /* theos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = theos; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 		DDDC818F1273B8C000192ADD /* SMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFramework.h; sourceTree = "<group>"; };
 		DDF8E91512C8DE6A005EC3C1 /* NSArray_SMF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_SMF.h; sourceTree = "<group>"; };
 		DDF8E91612C8DE6A005EC3C1 /* NSArray_SMF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray_SMF.m; sourceTree = "<group>"; };
+		DDFC52AF12D3B96300D243D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +247,7 @@
 				089C1672FE841209C02AAC07 /* Foundation.framework */,
 				DDABC43312787C85001F026B /* MobileCoreServices.framework */,
 				DDABC43612787C91001F026B /* UIKit.framework */,
+				DDFC52AF12D3B96300D243D0 /* CoreGraphics.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -536,6 +538,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../ATV2Includes;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
