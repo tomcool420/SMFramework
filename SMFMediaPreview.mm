@@ -59,9 +59,23 @@
 
 @implementation SMFMediaPreview
 
-/*List of extensions to look for cover art*/
 static NSSet *coverArtExtentions = nil;
 
++(SMFMediaPreview *)simplePreviewWithTitle:(NSString *)title withSummary:(NSString *)summary withImage:(BRImage *)img
+{
+    SMFBaseAsset *a = [[SMFBaseAsset alloc] init];
+    [a setTitle:title];
+    [a setSummary:summary];
+    [a setCoverArt:img];
+    SMFMediaPreview *p = [[SMFMediaPreview alloc] init];
+    [p setAsset:a];
+    [a release];
+    return [p autorelease];
+}
++(SMFMediaPreview *)mediaPreview
+{
+    return [[[SMFMediaPreview alloc] init] autorelease];
+}
 + (void)initialize
 {
 	/*Initialize the set of cover art extensions*/
@@ -112,14 +126,8 @@ static NSSet *coverArtExtentions = nil;
 {
     [image release];
     image=[currentImage retain];
-//    NSLog(@"%@",_asset);
-//    [_asset setBRImage:image];
-//    if (_asset!=nil && [_asset respondsToSelector:@selector(setBRImage:)])
-//        [_asset setBRImage:image];
     BRCoverArtImageLayer * c = [self coverArtLayer];
     [c setImage:image];
-//    [_reflectionLayer setImage:image];
-//    [_reflectionLayer setReflectionAmount:0.337531];
 }
 - (void)setImagePath:(NSString *)path
 {
