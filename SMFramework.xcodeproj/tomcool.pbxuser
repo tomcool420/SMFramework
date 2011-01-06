@@ -2595,16 +2595,16 @@
 	};
 	DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1212, 819}}";
-			sepNavSelRange = "{1247, 0}";
-			sepNavVisRange = "{0, 1389}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 780}}";
+			sepNavSelRange = "{920, 0}";
+			sepNavVisRange = "{535, 855}";
 		};
 	};
 	DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 3965}}";
-			sepNavSelRange = "{729, 62}";
-			sepNavVisRange = "{2267, 1313}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 3991}}";
+			sepNavSelRange = "{1539, 0}";
+			sepNavVisRange = "{1124, 878}";
 			sepNavWindowFrame = "{{15, 4}, {788, 874}}";
 		};
 	};
@@ -2806,9 +2806,9 @@
 	};
 	DDAE5E0B12838A980038574E /* SMFCommonTools.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1090, 1612}}";
-			sepNavSelRange = "{2129, 0}";
-			sepNavVisRange = "{1354, 1310}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 1638}}";
+			sepNavSelRange = "{715, 0}";
+			sepNavVisRange = "{1313, 1304}";
 			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
 		};
 	};
@@ -3083,7 +3083,7 @@
 		fRef = DDB6EC2712CFC053009B4B9E /* Tweak.xm */;
 		name = "Tweak.xm: 85";
 		rLen = 0;
-		rLoc = 3004;
+		rLoc = 932;
 		rType = 0;
 		vrLen = 694;
 		vrLoc = 2644;
@@ -3094,6 +3094,7 @@
 		name = Tweak.xm;
 		path = /Users/tomcool/DVLP/ATV2/MLoader/MainMenuLoader/Tweak.xm;
 		sourceTree = "<absolute>";
+		xcLanguageSpecificationIdentifier = xcode.lang.objc;
 	};
 	DDB6EC2812CFC053009B4B9E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3366,15 +3367,15 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1038, 507}}";
 			sepNavSelRange = "{890, 0}";
-			sepNavVisRange = "{149, 1094}";
+			sepNavVisRange = "{149, 1089}";
 			sepNavWindowFrame = "{{15, 4}, {1037, 874}}";
 		};
 	};
 	DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1062, 3289}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 3263}}";
 			sepNavSelRange = "{2849, 0}";
-			sepNavVisRange = "{5417, 604}";
+			sepNavVisRange = "{1737, 637}";
 			sepNavWindowFrame = "{{15, 4}, {1037, 874}}";
 		};
 	};
@@ -3488,7 +3489,7 @@
 		fRef = DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */;
 		name = "SMFPhotoMethods.h: 48";
 		rLen = 0;
-		rLoc = 1247;
+		rLoc = 1248;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 0;

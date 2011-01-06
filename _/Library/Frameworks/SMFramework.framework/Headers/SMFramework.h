@@ -11,7 +11,10 @@
  */
 #import "SMFSettingPreferences.h"
 
-
+/*
+ *   Extentions
+ */
+#import "NSArray_SMF.h"
 /*
  *   Classes
  */

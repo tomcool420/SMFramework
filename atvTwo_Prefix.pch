@@ -4,6 +4,6 @@
 
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
-#import "theos/include/BackRow/BackRow.h"
+#import "../ATV2Includes/BackRow/BackRow.h"
 #import "SynthesizeSingleton.h"
 #endif

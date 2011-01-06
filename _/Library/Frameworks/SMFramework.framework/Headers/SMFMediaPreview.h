@@ -24,9 +24,9 @@ typedef enum {
     BRImage                     *image;
     id                          *_assetCustom;
 }
++(SMFMediaPreview *)simplePreviewWithTitle:(NSString *)title withSummary:(NSString *)summary withImage:(BRImage *)img;
++(SMFMediaPreview *)mediaPreview;
 
-//- (NSMutableDictionary *)getPluginMetaData;
-//- (void)setUtilityData:(NSMutableDictionary *)newMeta;
 - (id)coverArtForPath;
 //- (void)setUtilityData:(NSMutableDictionary *)newMeta;
 //- (void)setCustomMetaData:(NSMutableDictionary *)customMeta;
