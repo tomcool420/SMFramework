@@ -9,31 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <Backrow/Backrow.h>
 //#import "SMFMediaMenuController.h"
+#import "SMFMenuController.h"
 #import "SMFDefines.h"
-@class SMFMediaMenuController;
-@interface SMFCenteredMenuController : BRMenuController {
+@class SMFMenuController;
+@interface SMFCenteredMenuController : SMFMenuController {
 	int padding[128];
-	NSMutableArray *	_items;
-	NSMutableArray *	_options;
+//	NSMutableArray *	_items;
+//	NSMutableArray *	_options;
 }
--(float)heightForRow:(long)row;
--(BOOL)rowSelectable:(long)row;
--(long)itemCount;
--(id)itemForRow:(long)row;
--(long)rowForTitle:(id)title;
--(id)titleForRow:(long)row;
--(int)getSelection;
-- (void)setSelection:(int)sel;
--(id)everyLoad;
-/*
- *  Action Called Every Time someone Presses on Left Arrow
- */
--(void)leftActionForRow:(long)row;
-
-/*
- *  Action Called Every Time someone Presses on Right Arrow
- */
--(void)rightActionForRow:(long)row;
-    
 
 @end

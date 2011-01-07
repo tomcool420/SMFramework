@@ -6,6 +6,7 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
+//NOTE: should note be used ... use SMFMenuItem instead
 #import <Backrow/Backrow.h>
 
 @interface BRMenuItem (SMFExtensions) 

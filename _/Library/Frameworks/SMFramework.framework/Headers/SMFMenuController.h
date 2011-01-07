@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SMFDefines.h"
 @interface SMFMenuController : BRMenuController {
+//    int padding[32];
     NSMutableArray *_items;
     NSMutableArray *_options;
 }

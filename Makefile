@@ -4,12 +4,12 @@ first: clean package install
 include $(THEOS)/makefiles/common.mk
 
 FRAMEWORK_NAME = SMFramework
-SMFramework_FILES = SMFMediaMenuController.m SMFCenteredMenuController.m SMFFolderBrowser.m SMFMediaPreview.mm SMFBaseAsset.m SMFPasscodeController.m SMFMenuController.m
+SMFramework_FILES = SMFMediaMenuController.m SMFMenuController.m SMFCenteredMenuController.m SMFFolderBrowser.m SMFMediaPreview.mm SMFBaseAsset.m SMFPasscodeController.m 
 SMFramework_FILES += BRMenuItem_SMF.m SMFInvocationCenteredMenuController.m SMFMenuItem.m SMFScreenCapture.m SMFThemeInfo.m SMFClockController.m
 SMFramework_FILES += SMFEventManager.m SMFEvent.m SMFEventConfiguration.m SMFMovieAsset.m
 SMFramework_FILES += SMFPhotoMethods.mm SMFQueryMenu.m SMFProgressBarControl.m SMFPopup.xm SMFCommonTools.m SMFColorSelectionMenu.m 
 SMFramework_FILES += SMFPreferences.m SMFProgressBarMenuItem.m SMFImageAsset.m SMFDebAsset.m
-SMFramework_FILES += NSArray_SMF.m
+SMFramework_FILES += NSArray_SMF.m 
 SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow

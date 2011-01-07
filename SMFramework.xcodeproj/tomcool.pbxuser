@@ -301,9 +301,9 @@
 	};
 	875A8427126FFF6D00ECADC2 /* Makefile */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1195, 442}}";
-			sepNavSelRange = "{804, 0}";
-			sepNavVisRange = "{0, 1472}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 442}}";
+			sepNavSelRange = "{183, 0}";
+			sepNavVisRange = "{0, 1351}";
 			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
 		};
 	};
@@ -421,7 +421,7 @@
 	};
 	DD14618C12B50A5000FA8984 /* SMFDebAsset.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
 			sepNavSelRange = "{162, 0}";
 			sepNavVisRange = "{0, 307}";
 		};
@@ -456,6 +456,11 @@
 		name = main.m;
 		path = "/Users/tomcool/DVLP/ATV2/keyboard-atv/keyboardd/main.m";
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 6292}}";
+			sepNavSelRange = "{14906, 30}";
+			sepNavVisRange = "{0, 762}";
+		};
 	};
 	DD1461C612B5223F00FA8984 /* main.m */ = {
 		isa = PBXFileReference;
@@ -469,23 +474,23 @@
 		fRef = DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */;
 		name = "SMFBaseAsset.m: 61";
 		rLen = 674;
-		rLoc = 1295;
+		rLoc = 1376;
 		rType = 0;
 		vrLen = 1604;
 		vrLoc = 523;
 	};
 	DD1462FC12B53B6C00FA8984 /* Makefile */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 423}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
+			sepNavSelRange = "{356, 0}";
 			sepNavVisRange = "{0, 521}";
 		};
 	};
 	DD14630212B53B6C00FA8984 /* smfHelper.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 650}}";
-			sepNavSelRange = "{234, 0}";
-			sepNavVisRange = "{0, 1296}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 533}}";
+			sepNavSelRange = "{429, 0}";
+			sepNavVisRange = "{0, 712}";
 		};
 	};
 	DD14636312B5BA7500FA8984 /* PBXTextBookmark */ = {
@@ -905,7 +910,7 @@
 		fRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */;
 		name = "SMFCenteredMenuController.m: 27";
 		rLen = 0;
-		rLoc = 944;
+		rLoc = 939;
 		rType = 0;
 		vrLen = 1614;
 		vrLoc = 0;
@@ -1232,16 +1237,17 @@
 	};
 	DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 585}}";
-			sepNavSelRange = "{156, 27}";
-			sepNavVisRange = "{306, 1286}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 572}}";
+			sepNavSelRange = "{286, 0}";
+			sepNavVisRange = "{32, 1207}";
+			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
 		};
 	};
 	DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 1794}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1755}}";
 			sepNavSelRange = "{225, 0}";
-			sepNavVisRange = "{0, 964}";
+			sepNavVisRange = "{0, 815}";
 			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
 		};
 	};
@@ -1260,7 +1266,7 @@
 		fRef = DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */;
 		name = "BRMenuItem_SMF.h: 16";
 		rLen = 0;
-		rLoc = 306;
+		rLoc = 362;
 		rType = 0;
 		vrLen = 306;
 		vrLoc = 0;
@@ -1330,7 +1336,7 @@
 		fRef = 875A8427126FFF6D00ECADC2 /* Makefile */;
 		name = "Makefile: 12";
 		rLen = 0;
-		rLoc = 804;
+		rLoc = 807;
 		rType = 0;
 		vrLen = 1472;
 		vrLoc = 0;
@@ -1360,7 +1366,7 @@
 		fRef = DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */;
 		name = "SMFMediaPreview.mm: 119";
 		rLen = 0;
-		rLoc = 2359;
+		rLoc = 2390;
 		rType = 0;
 		vrLen = 604;
 		vrLoc = 5417;
@@ -1635,8 +1641,8 @@
 	DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1038, 1183}}";
-			sepNavSelRange = "{1918, 0}";
-			sepNavVisRange = "{0, 695}";
+			sepNavSelRange = "{321, 0}";
+			sepNavVisRange = "{0, 612}";
 		};
 	};
 	DD53555012C4A7EB00E6E54D /* PBXTextBookmark */ = {
@@ -2192,7 +2198,7 @@
 		fRef = DDDC81701273A66600192ADD /* SMFPasscodeController.m */;
 		name = "SMFPasscodeController.m: 169";
 		rLen = 125;
-		rLoc = 5141;
+		rLoc = 5129;
 		rType = 0;
 		vrLen = 1014;
 		vrLoc = 4477;
@@ -2206,7 +2212,7 @@
 	};
 	DD96C0491295D949002C5144 /* Makefile */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 432}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
 			sepNavSelRange = "{295, 0}";
 			sepNavVisRange = "{0, 384}";
 		};
@@ -2441,30 +2447,30 @@
 	};
 	DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 423}}";
-			sepNavSelRange = "{306, 0}";
-			sepNavVisRange = "{0, 306}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
+			sepNavSelRange = "{135, 0}";
+			sepNavVisRange = "{0, 362}";
 		};
 	};
 	DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 423}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 390}}";
 			sepNavSelRange = "{353, 10}";
 			sepNavVisRange = "{0, 621}";
 		};
 	};
 	DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
-			sepNavSelRange = "{196, 0}";
-			sepNavVisRange = "{0, 618}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
+			sepNavSelRange = "{241, 0}";
+			sepNavVisRange = "{0, 623}";
 		};
 	};
 	DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 884}}";
-			sepNavSelRange = "{1471, 24}";
-			sepNavVisRange = "{900, 1120}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 884}}";
+			sepNavSelRange = "{1505, 0}";
+			sepNavVisRange = "{169, 1030}";
 		};
 	};
 	DDABC41A127877B3001F026B /* SMFScreenCapture.h */ = {
@@ -2566,16 +2572,16 @@
 	};
 	DDAE5BD2127E0DE00038574E /* SMFEventManager.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 715}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 754}}";
 			sepNavSelRange = "{402, 0}";
-			sepNavVisRange = "{0, 1491}";
+			sepNavVisRange = "{404, 1087}";
 		};
 	};
 	DDAE5BD3127E0DE00038574E /* SMFEventManager.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1202, 3601}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1202, 3510}}";
 			sepNavSelRange = "{6595, 0}";
-			sepNavVisRange = "{5716, 2082}";
+			sepNavVisRange = "{6021, 1368}";
 			sepNavWindowFrame = "{{15, 4}, {788, 874}}";
 		};
 	};
@@ -2806,9 +2812,9 @@
 	};
 	DDAE5E0B12838A980038574E /* SMFCommonTools.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1090, 1651}}";
-			sepNavSelRange = "{3686, 0}";
-			sepNavVisRange = "{2997, 836}";
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 1664}}";
+			sepNavSelRange = "{2618, 1216}";
+			sepNavVisRange = "{2487, 861}";
 			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
 		};
 	};
@@ -2862,16 +2868,16 @@
 	};
 	DDAE5F291284EF280038574E /* SMFMenuController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
-			sepNavSelRange = "{166, 0}";
-			sepNavVisRange = "{0, 782}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 481}}";
+			sepNavSelRange = "{235, 17}";
+			sepNavVisRange = "{27, 671}";
 		};
 	};
 	DDAE5F2A1284EF280038574E /* SMFMenuController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 1781}}";
-			sepNavSelRange = "{174, 0}";
-			sepNavVisRange = "{2623, 847}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1820}}";
+			sepNavSelRange = "{3219, 0}";
+			sepNavVisRange = "{209, 739}";
 		};
 	};
 	DDB6EB5612CDFDEA009B4B9E /* BRSettingsFacade.h */ = {
@@ -3235,9 +3241,9 @@
 	};
 	DDCB54C9128CA1EC0045529A /* NSTask.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 923}}";
-			sepNavSelRange = "{272, 0}";
-			sepNavVisRange = "{0, 895}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 962}}";
+			sepNavSelRange = "{1516, 87}";
+			sepNavVisRange = "{1208, 587}";
 		};
 	};
 	DDCB54CE128CA2290045529A /* pastie-1291093.mm */ = {
@@ -3307,31 +3313,31 @@
 	};
 	DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 546}}";
 			sepNavSelRange = "{171, 0}";
-			sepNavVisRange = "{0, 923}";
+			sepNavVisRange = "{0, 687}";
 		};
 	};
 	DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 1989}}";
-			sepNavSelRange = "{363, 0}";
-			sepNavVisRange = "{144, 1022}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1911}}";
+			sepNavSelRange = "{651, 0}";
+			sepNavVisRange = "{0, 995}";
 			sepNavWindowFrame = "{{15, 4}, {1037, 874}}";
 		};
 	};
 	DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
-			sepNavSelRange = "{226, 0}";
-			sepNavVisRange = "{0, 901}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 507}}";
+			sepNavSelRange = "{396, 0}";
+			sepNavVisRange = "{0, 770}";
 		};
 	};
 	DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 1885}}";
-			sepNavSelRange = "{944, 0}";
-			sepNavVisRange = "{0, 1614}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1937}}";
+			sepNavSelRange = "{962, 253}";
+			sepNavVisRange = "{584, 744}";
 		};
 	};
 	DDDC80F91273784800192ADD /* SMFFolderBrowser.h */ = {
@@ -3350,16 +3356,16 @@
 	};
 	DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 635}}";
-			sepNavSelRange = "{173, 0}";
-			sepNavVisRange = "{0, 604}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 389}}";
+			sepNavSelRange = "{319, 0}";
+			sepNavVisRange = "{0, 627}";
 		};
 	};
 	DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 1300}}";
-			sepNavSelRange = "{1295, 674}";
-			sepNavVisRange = "{523, 1604}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1352}}";
+			sepNavSelRange = "{2209, 0}";
+			sepNavVisRange = "{0, 602}";
 			sepNavWindowFrame = "{{15, 4}, {788, 874}}";
 		};
 	};
@@ -3373,9 +3379,9 @@
 	};
 	DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1038, 2288}}";
-			sepNavSelRange = "{2965, 0}";
-			sepNavVisRange = "{1794, 608}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 2314}}";
+			sepNavSelRange = "{2434, 0}";
+			sepNavVisRange = "{2235, 511}";
 			sepNavWindowFrame = "{{15, 4}, {1037, 874}}";
 		};
 	};
@@ -3388,38 +3394,38 @@
 	};
 	DDDC816F1273A66600192ADD /* SMFPasscodeController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1118, 624}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1118, 637}}";
 			sepNavSelRange = "{352, 117}";
-			sepNavVisRange = "{31, 1273}";
+			sepNavVisRange = "{477, 1119}";
 		};
 	};
 	DDDC81701273A66600192ADD /* SMFPasscodeController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 2665}}";
-			sepNavSelRange = "{5141, 125}";
-			sepNavVisRange = "{4477, 1014}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 2704}}";
+			sepNavSelRange = "{1763, 0}";
+			sepNavVisRange = "{1376, 601}";
 		};
 	};
 	DDDC81721273A67000192ADD /* SMFController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1034, 730}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 806}}";
 			sepNavSelRange = "{174, 0}";
-			sepNavVisRange = "{0, 1228}";
+			sepNavVisRange = "{0, 645}";
 			sepNavWindowFrame = "{{15, 4}, {788, 874}}";
 		};
 	};
 	DDDC81731273A67000192ADD /* SMFController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1092, 1547}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 1508}}";
 			sepNavSelRange = "{404, 0}";
-			sepNavVisRange = "{0, 810}";
+			sepNavVisRange = "{0, 613}";
 		};
 	};
 	DDDC818F1273B8C000192ADD /* SMFramework.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1038, 546}}";
-			sepNavSelRange = "{267, 0}";
-			sepNavVisRange = "{0, 586}";
+			sepNavSelRange = "{391, 0}";
+			sepNavVisRange = "{186, 669}";
 		};
 	};
 	DDDC81991273B9B800192ADD /* Install */ = {
@@ -3479,7 +3485,7 @@
 		fRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */;
 		name = "SMFMediaMenuController.m: 15";
 		rLen = 0;
-		rLoc = 363;
+		rLoc = 390;
 		rType = 0;
 		vrLen = 1022;
 		vrLoc = 144;

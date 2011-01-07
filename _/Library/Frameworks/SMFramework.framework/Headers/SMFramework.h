@@ -18,9 +18,10 @@
 /*
  *   Classes
  */
-#import "SMFCenteredMenuController.h"
+
 #import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"
+#import "SMFCenteredMenuController.h"
 #import "SMFMediaPreview.h"
 #import "SMFBaseAsset.h"
 #import "SMFController.h"
