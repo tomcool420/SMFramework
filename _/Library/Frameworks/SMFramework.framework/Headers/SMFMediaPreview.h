@@ -11,28 +11,17 @@
 #define METADATA_SUMMARY        @"Summary"
 #define METADATA_CUSTOM_KEYS    @"KeysArray"
 #define METADATA_CUSTOM_OBJECTS @"ObjectsArray"
-typedef enum {
-    kMetaTypePlugin=0,
-    kMetaTypeCustom=1,
-    kMetaTypeSimple=2,
-    kMetaTypeAsset=3,
-} SMMetaType;
-
+@class SMFBaseAsset;
 @interface SMFMediaPreview : BRMetadataPreviewControl{
-	NSMutableDictionary			*meta;
-    SMMetaType                  MetaDataType;
     BRImage                     *image;
-    id                          *_assetCustom;
 }
 +(SMFMediaPreview *)simplePreviewWithTitle:(NSString *)title withSummary:(NSString *)summary withImage:(BRImage *)img;
++(SMFMediaPreview *)mediaPreviewWithAsset:(SMFBaseAsset *)a;
 +(SMFMediaPreview *)mediaPreview;
 
 - (id)coverArtForPath;
-//- (void)setUtilityData:(NSMutableDictionary *)newMeta;
-//- (void)setCustomMetaData:(NSMutableDictionary *)customMeta;
 - (void)setImage:(BRImage *)currentImage;
 - (void)setImagePath:(NSString *)path;
-//- (void)setSimpleMetaDataWithTitle:(NSString *)title andSummary:(NSString *)summary;
-//- (void)setAssetMeta:(id)asset;
+
 
 @end

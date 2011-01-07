@@ -6,9 +6,10 @@
 //  Copyright 2010 Thomas Cool. All rights reserved.
 //
 #import <Backrow/Backrow.h>
+#import "SMFMenuItem.h"
 
 @class SMFProgressBarControl;
-@interface SMFProgressBarMenuItem : BRMenuItem {
+@interface SMFProgressBarMenuItem : SMFMenuItem {
     SMFProgressBarControl * _progressBar;
     BOOL                    showBar;
     float                   _leftBarIndent;  //number from 0 -> 1

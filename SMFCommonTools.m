@@ -113,7 +113,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 
 -(int)disableSeatbelt
 {
-    NSLog(@"disable in framework");
     return system("SMFHelper security.mac.vnode_enforce 0");
 }
 -(int)enableSeatbelt

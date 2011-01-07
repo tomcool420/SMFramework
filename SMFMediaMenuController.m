@@ -8,7 +8,7 @@
 
 #import "SMFMediaMenuController.h"
 #import "SMFPopup.h"
-
+#import "SMFMediaPreview.h"
 @implementation SMFMediaMenuController
 - (float)heightForRow:(long)row				{ return 0.0f;}
 - (BOOL)rowSelectable:(long)row				{ return YES;}
@@ -24,10 +24,9 @@
 - (long)defaultIndex						{ return 0;}
 - (id)previewControlForItem:(long)row
 {
-    BRImage * image = [[BRThemeInfo sharedTheme] appleTVIcon];
-    BRImageAndSyncingPreviewController *preview = [[BRImageAndSyncingPreviewController alloc] init];
-    [preview setImage:image];
-	return [preview autorelease];
+    return [SMFMediaPreview simplePreviewWithTitle:[self titleForRow:row]
+                                withSummary:nil 
+                                  withImage:[[BRThemeInfo sharedTheme] appleTVIcon]];
 }
 - (id)init
 {

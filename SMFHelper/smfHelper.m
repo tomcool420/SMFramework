@@ -9,20 +9,13 @@
 #include <unistd.h>
 #import <Foundation/Foundation.h>
 #import <Backrow/Backrow.h>
-#import "../SynthesizeSingleton.h"
-@interface SMFHelperClass : NSObject
-//-(SMFHelperClass *)sharedInstance;
--(int)setSysValue:(NSString *)val forKey:(NSString *)key;
-@end
 
-@implementation SMFHelperClass
-//SYNTHESIZE_SINGLETON_FOR_CLASS(SMFHelperClass,sharedInstance)
--(int)setSysValue:(NSString *)val forKey:(NSString *)key
+
+static int setSysValue(NSString * val, NSString *k)
 {
-    return system([[NSString stringWithFormat:@"sysctl -w %@=%@",key,val,nil] UTF8String]);
+    NSLog(@"settingValue: %@ to key %@",val,k);
+    return system([[NSString stringWithFormat:@"sysctl -w %@=%@",k,val,nil] UTF8String]);
 }
-
-@end
 
 
 int main (int argc, const char * argv[]) {
@@ -40,9 +33,7 @@ int main (int argc, const char * argv[]) {
 		NSString *option = [NSString stringWithUTF8String:argv[1]]; //argument 1
 		NSString *value = [NSString stringWithUTF8String:argv[2]]; //argument 2
     int rvalue=0;
-    SMFHelperClass *c = [[SMFHelperClass alloc] init];
-    rvalue=[c setSysValue:value forKey:option];
-    [c release];
+    rvalue = setSysValue(value,option);
     [pool release];
     return rvalue;
 }

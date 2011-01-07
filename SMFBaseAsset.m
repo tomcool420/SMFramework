@@ -11,6 +11,10 @@
 
 
 @implementation SMFBaseAsset
++(SMFBaseAsset *)asset
+{
+    return [[[SMFBaseAsset alloc ]init] autorelease];
+}
 -(id)init
 {
     self=[super init];

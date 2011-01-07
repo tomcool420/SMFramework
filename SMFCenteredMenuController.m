@@ -16,7 +16,7 @@
 - (long)rowForTitle:(id)title				{ return (long)[_items indexOfObject:title];}
 - (id)titleForRow:(long)row					
 { 
-    return [[_items objectAtIndex:row] text];
+    return [[self itemForRow:row] text];
 }
 - (long)defaultIndex						{ return 0;}
 //- (id)previewControlForItem:(long)row

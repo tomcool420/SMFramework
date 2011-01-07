@@ -14,7 +14,7 @@
     NSMutableDictionary *_meta;
     BRImage *_image;
 }
-
++(SMFBaseAsset *)asset;
 -(void)setObject:(id)arg1 forKey:(id)arg2;
 -(void)setTitle:(NSString *)title;
 -(void)setSummary:(NSString *)summary;

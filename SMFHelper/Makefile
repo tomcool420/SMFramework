@@ -13,4 +13,4 @@ include $(FW_MAKEDIR)/tool.mk
 after-SMFHelper-stage::   
 	 $(FAKEROOT) chmod 4755 $(FW_STAGING_DIR)/usr/bin/SMFHelper
 #	 $(FAKEROOT) chmod u+s $(FW_STAGING_DIR)/usr/bin/SMFHelper
-	 $(FAKEROOT) chown root:staff $(FW_STAGING_DIR)/usr/bin/SMFHelper
+	 $(FAKEROOT) chown root:wheel $(FW_STAGING_DIR)/usr/bin/SMFHelper

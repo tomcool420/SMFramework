@@ -32,25 +32,21 @@
 //@end
 
 
-@interface BRMetadataPreviewControl (compat)
-- (void)_populateMetadata;
-- (void)_updateMetadataLayer;
-- (id) _loadCoverArt;
-@end
 
-@interface BRMetadataPreviewControl (protectedAccess)
-- (BRMetadataControl *)gimmieMetadataLayer;
-@end
 
-@implementation BRMetadataPreviewControl (protectedAccess)
-- (BRMetadataControl *)gimmieMetadataLayer
-{
-//	Class myClass = [self class];
-//	Ivar ret = class_getInstanceVariable(myClass,"_metadataLayer");
-//	
-	return MSHookIvar<BRMetadataControl *>(self, "_metadataLayer");
-}
-@end
+//@interface BRMetadataPreviewControl (protectedAccess)
+//- (BRMetadataControl *)gimmieMetadataLayer;
+//@end
+
+//@implementation BRMetadataPreviewControl (protectedAccess)
+//- (BRMetadataControl *)gimmieMetadataLayer
+//{
+////	Class myClass = [self class];
+////	Ivar ret = class_getInstanceVariable(myClass,"_metadataLayer");
+////	
+//	return MSHookIvar<BRMetadataControl *>(self, "_metadataLayer");
+//}
+//@end
 
 @interface SMFMediaPreview (Custom)
 - (void)doPopulation;
@@ -59,34 +55,29 @@
 
 @implementation SMFMediaPreview
 
-static NSSet *coverArtExtentions = nil;
 
 +(SMFMediaPreview *)simplePreviewWithTitle:(NSString *)title withSummary:(NSString *)summary withImage:(BRImage *)img
 {
-    SMFBaseAsset *a = [[SMFBaseAsset alloc] init];
-    [a setTitle:title];
-    [a setSummary:summary];
-    [a setCoverArt:img];
+    SMFBaseAsset *a = [SMFBaseAsset asset];
+    if (title)
+        [a setTitle:title];
+    if(summary)
+        [a setSummary:summary];
+    if(img)
+        [a setCoverArt:img];
     SMFMediaPreview *p = [[SMFMediaPreview alloc] init];
     [p setAsset:a];
-    [a release];
     return [p autorelease];
 }
 +(SMFMediaPreview *)mediaPreview
 {
     return [[[SMFMediaPreview alloc] init] autorelease];
 }
-+ (void)initialize
++(SMFMediaPreview *)mediaPreviewWithAsset:(SMFBaseAsset *)a
 {
-	/*Initialize the set of cover art extensions*/
-	coverArtExtentions = [[NSSet alloc] initWithObjects:
-		@"jpg",
-		@"jpeg",
-		@"tif",
-		@"tiff",
-		@"png",
-		@"gif",
-		nil];
+    SMFMediaPreview *p = [[SMFMediaPreview alloc] init];
+    [p setAsset:a];
+    return [p autorelease];
 }
 -(BRCoverArtImageLayer *)coverArtLayer
 {
@@ -95,9 +86,7 @@ static NSSet *coverArtExtentions = nil;
 - (id)init
 {
     self=[super init];
-    meta=[[NSMutableDictionary alloc] init];
     
-    [meta setObject:@"No Title" forKey:METADATA_TITLE];
     image=[[BRThemeInfo sharedTheme] appleTVIcon];
     [image retain];
     return self;
@@ -105,22 +94,10 @@ static NSSet *coverArtExtentions = nil;
 
 - (void)dealloc
 {
-	[meta release];
     [image release];
-    //[coverArtExtentions release];
-	//[dirMeta release];
 	[super dealloc];
 }
 
-//- (void)setUtilityData:(NSMutableDictionary *)newMeta
-//{
-//	[meta release];
-//	meta=[newMeta retain];
-//	SMFMedia *asset  =[SMFMedia alloc];
-//	[asset setDefaultImage];
-//	[self setAsset:asset];
-//
-//}
 
 - (void)setImage:(BRImage *)currentImage
 {
@@ -131,28 +108,14 @@ static NSSet *coverArtExtentions = nil;
 }
 - (void)setImagePath:(NSString *)path
 {
-    if([[NSFileManager defaultManager] fileExistsAtPath:path] && [coverArtExtentions containsObject:[path pathExtension]])
+    if([[NSFileManager defaultManager] fileExistsAtPath:path])
     {
         [self setImage:[BRImage imageWithPath:path]];
     }
     
 }
 
-- (void)setAsset:(id)a
-{
-    MetaDataType=kMetaTypeAsset;
-    [super setAsset:a];
-//    BRReflectionControl *c = MSHookIvar<BRReflectionControl *>(self, "_reflectionLayer");
-//    [c setImage:[a coverArt]];
-//    [c setReflectionAmount:0.337531];
-//    
-//    [[self coverArtLayer] setImage:[a coverArt]];
-//    
-    //[_coverArtLayer setImage:[asset coverArt]];
-    //NSLog(@"_asset: %@",_asset);
-    
-    //[self _updateMetadataLayer];
-}
+
 -(void)setAssetMeta:(id)a
 {
     [self setAsset:a];
@@ -171,31 +134,6 @@ static NSSet *coverArtExtentions = nil;
 	return [[BRThemeInfo sharedTheme] appleTVIcon];
 }
 
-
-- (id)_loadCoverArt
-{
-    //NSLog(@"loading cover art");
-	[super _loadCoverArt];
-	if([[self coverArtLayer] texture] != nil)
-		return nil;
-	id localImage = [self coverArtForPath];
-    
-    BRReflectionControl *c = MSHookIvar<BRReflectionControl *>(self, "_reflectionLayer");
-    [c setImage:localImage];
-    [c setReflectionAmount:0.337531];
-    
-    [[self coverArtLayer] setImage:localImage];
-    
-	return nil;
-}
-
-- (void)_populateMetadata
-{
-	[super _populateMetadata];
-	[self doPopulation];
-}
-
-
 - (void)_updateMetadataLayer
 {
 	[super _updateMetadataLayer];
@@ -204,35 +142,20 @@ static NSSet *coverArtExtentions = nil;
 
 - (void)doPopulation
 {
-    BRMetadataControl *metaLayer = [self gimmieMetadataLayer];
-    switch (MetaDataType) {
-        case kMetaTypeAsset:
+    //BRMetadataControl *metaLayer = [self gimmieMetadataLayer];
+    BRMetadataControl *metaLayer = [self metadataControl];
+    id a = [self asset];
+    if ([a respondsToSelector:@selector(orderedDictionary)]) {
+        NSDictionary *assetDict=[a orderedDictionary];
+        if([[assetDict allKeys] containsObject:METADATA_TITLE])
+            [metaLayer setTitle:[assetDict objectForKey:METADATA_TITLE]];
+        if([[assetDict allKeys] containsObject:METADATA_SUMMARY])
+            [metaLayer setSummary:[assetDict objectForKey:METADATA_SUMMARY]];
+        if([[assetDict allKeys] containsObject:METADATA_CUSTOM_KEYS])
         {
-            id a = [self asset];
-            if ([a respondsToSelector:@selector(orderedDictionary)]) {
-                NSDictionary *assetDict=[a orderedDictionary];
-                if([[assetDict allKeys] containsObject:METADATA_TITLE])
-                    [metaLayer setTitle:[assetDict objectForKey:METADATA_TITLE]];
-                if([[assetDict allKeys] containsObject:METADATA_SUMMARY])
-                    [metaLayer setSummary:[assetDict objectForKey:METADATA_SUMMARY]];
-                if([[assetDict allKeys] containsObject:METADATA_CUSTOM_KEYS])
-                {
-                    //NSLog(@"%@",[assetDict objectForKey:METADATA_CUSTOM_OBJECTS]);
-                    //NSLog(@"%@",[assetDict objectForKey:METADATA_CUSTOM_KEYS]);
-                    [metaLayer setMetadata:[assetDict objectForKey:METADATA_CUSTOM_OBJECTS] withLabels:[assetDict objectForKey:METADATA_CUSTOM_KEYS]];
-                }
-            }
-            break;
+            [metaLayer setMetadata:[assetDict objectForKey:METADATA_CUSTOM_OBJECTS] withLabels:[assetDict objectForKey:METADATA_CUSTOM_KEYS]];
         }
-        default:
-        {
-            [metaLayer setTitle:[meta objectForKey:METADATA_TITLE]];
-            [metaLayer setSummary:[meta objectForKey:METADATA_SUMMARY]];
-            break;
-        }
-           
     }
-    //`NSLog(@"donePopulating");
 	
 	
 
@@ -241,6 +164,10 @@ static NSSet *coverArtExtentions = nil;
 
 - (BOOL)_assetHasMetadata
 {
+    if ([[self asset] respondsToSelector:@selector(orderedDictionary)]) {
+        return YES;
+    }
+    NSLog(@"asset has not meta??");
 	return YES;
 }
 

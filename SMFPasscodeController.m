@@ -56,12 +56,12 @@
 }
 - (void) dealloc
 {
-//    self.title=nil;
-//    self.delegate=nil;
-//    self.description=nil;
-//    self.key=nil;
-//    self.domain=nil;
-//    self.icon=nil;
+    self.title=nil;
+    self.delegate=nil;
+    self.description=nil;
+    self.key=nil;
+    self.domain=nil;
+    self.icon=nil;
     [super dealloc];
 }
 -(void)controlWasActivated

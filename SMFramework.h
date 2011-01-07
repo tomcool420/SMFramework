@@ -36,5 +36,6 @@
 #import "SMFQueryMenu.h"
 #import "SMFThemeInfo.h"
 #import "SMFMenuItem.h"
+#import "SMFProgressBarMenuItem.h"
 #import "SMFPreferences.h"
 #import "SMFImageAsset.h"
