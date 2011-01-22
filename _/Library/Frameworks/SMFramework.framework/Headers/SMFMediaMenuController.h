@@ -11,8 +11,11 @@
 @interface SMFMediaMenuController : BRMediaMenuController {
     NSMutableArray *_items;
     NSMutableArray *_options;
+    BRDropShadowControl * popupControl;
 }
 
+-(void)showPopup;
+-(void)hidePopup;
 -(float)heightForRow:(long)row;
 -(BOOL)rowSelectable:(long)row;
 -(long)itemCount;
@@ -37,4 +40,5 @@
  *  Action Called Every Time someone Presses on play pause button on new remote
  */
 -(void)playPauseActionForRow:(long)row;
+@property (retain) BRDropShadowControl * popupControl;
 @end

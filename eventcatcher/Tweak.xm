@@ -98,6 +98,94 @@ the generation of a class list and an automatic constructor.
 }
 %end
 
+/*%hook BRPopUpManager
+- (id)init{	// 0x3162de75
+%log;
+%orig;
+}
+- (void)_addControlToQueue:(id)queue{	// 0x3162d50d
+%log;
+%orig;
+}
+- (void)_animateRemovePopupWithIdentifier:(id)identifier{	// 0x3162d9d9
+%log;
+%orig;
+}
+- (BOOL)_canDisplay{	// 0x3162de35
+%log;
+%orig;
+}
+- (void)_displayPopUp:(id)up{	// 0x3162d611
+%log;
+%orig;
+}
+- (id)_popUpForIdentifier:(id)identifier{	// 0x3162d569
+%log;
+%orig;
+}
+- (void)_processPopUps{	// 0x3162d789
+%log;
+%orig;
+}
+- (void)_removeAnimationFinished:(id)finished{	// 0x3162d831
+%log;
+%orig;
+}
+- (void)_removeControlFromQueue:(id)queue{	// 0x3162d4bd
+%log;
+%orig;
+}
+- (void)_removePopup:(id)popup{	// 0x3162d8d1
+%log;
+%orig;
+}
+- (void)_removePopupWithIdentifier:(id)identifier{	// 0x3162d9a5
+%log;
+%orig;
+}
+- (void)_updateActivity{	// 0x3162ddf9
+%log;
+%orig;
+}
+- (void)dealloc{	// 0x3162dd65
+%log;
+%orig;
+}
+- (void)postPopUpWithControl:(id)control identifier:(id)identifier position:(unsigned)position size:(CGSize)size options:(id)options{	// 0x3162df01
+%log;
+%orig;
+}
+- (void)removePopUpWithIdentifier:(id)identifier{	// 0x3162db35
+%log;
+%orig;
+}
+%end*/
+
+%hook BRDropShadowControl
+- (void)setContent:(id)content
+{
+NSLog(@"content: %@",content);
+if([content respondsToSelector:@selector(content)])
+    NSLog(@"content content: %@",[content content]);
+NSLog(@"controls: %@",[content controls]);
+%orig;
+%log;
+
+}
+- (void)setFrame:(CGRect)frame
+{
+%log;
+return %orig;
+}
+- (id)init
+{
+%log;
+return %orig;
+
+
+}
+
+%end
 
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event { 
@@ -121,12 +209,12 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
         NSArray *lines = [dd objectForKey:@"info" ];
         BRImage *img=[[SMFThemeInfo sharedTheme] colorAppleTVNameImage];
         if(msgid==1)
-            img=[[SMFThemeInfo sharedTheme] keyboardIcon];
+        img=[[SMFThemeInfo sharedTheme] keyboardIcon];
         id popup=[SMFCommonTools popupControlWithLines:lines andImage:img];
         [SMFCommonTools showPopup:popup];
-        }
-        return NULL;  // as stated in header, both data and returnData will be released for us after callback returns
     }
+    return NULL;  // as stated in header, both data and returnData will be released for us after callback returns
+}
 
 
 

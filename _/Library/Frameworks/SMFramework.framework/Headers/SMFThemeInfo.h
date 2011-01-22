@@ -20,4 +20,10 @@
 -(BRImage *)seatbeltImage;
 -(BRImage *)seatbeltLogoImage;
 -(BRImage *)mainMenuSettings;
+-(BRImage *)blackImage;
+
+//The CGColorRefs have been autoreleased
+-(CGColorRef)blackColor;
+-(CGColorRef)whiteColor;
+-(CGColorRef)colorWithRed:(float)r withGreen:(float)g withBlue:(float)b withAlpha:(float)a;
 @end

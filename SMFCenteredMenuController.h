@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <Backrow/Backrow.h>
-//#import "SMFMediaMenuController.h"
+#import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"
 #import "SMFDefines.h"
 @class SMFMenuController;
 @interface SMFCenteredMenuController : SMFMenuController {
-	int padding[128];
-//	NSMutableArray *	_items;
-//	NSMutableArray *	_options;
+
 }
 
 @end

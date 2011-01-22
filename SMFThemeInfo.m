@@ -81,4 +81,26 @@ static SMFThemeInfo *sharedTheme = nil;
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"mainmenusettings" ofType:@"png"]];
 }
+-(BRImage *)blackImage
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"black" ofType:@"png"]];
+}
+-(CGColorRef)colorWithRed:(float)r withGreen:(float)g withBlue:(float)b withAlpha:(float)a
+{
+    CGFloat myColor[] = {r, g, b, a};
+    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    CGColorRef color = CGColorCreate(rgb, myColor);
+    CGColorSpaceRelease(rgb);
+    [(id)color autorelease];
+    return color;
+}
+
+-(CGColorRef)blackColor
+{
+    return [self colorWithRed:0.0 withGreen:0.0 withBlue:0.0 withAlpha:1.0];
+}
+-(CGColorRef)whiteColor
+{
+    return [self colorWithRed:1.0 withGreen:1.0 withBlue:1.0 withAlpha:1.0];
+}
 @end

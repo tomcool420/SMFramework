@@ -10,7 +10,32 @@
 #import "SMFPhotoMethods.h"
 #import "SynthesizeSingleton.h"
 #import <CoreGraphics/CoreGraphics.h>
-
+static void daemonRunCode(int type, NSString *codeString){
+	
+	CFMessagePortRef daemonPort = 0;
+	NSMutableDictionary *d = [[NSMutableDictionary alloc]init];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    [d setObject:codeString forKey:@"command"];
+    CFDataRef data= CFPropertyListCreateData (
+                                              NULL,
+                                              (CFDictionaryRef)d,
+                                              kCFPropertyListXMLFormat_v1_0,
+                                              0,
+                                              NULL);
+    NSLog(@"sending info");
+	if (!daemonPort || !CFMessagePortIsValid(daemonPort)) {
+        NSLog(@"searching for port");
+		daemonPort = CFMessagePortCreateRemote(NULL, CFSTR("org.tomcool.lowtide.daemon"));
+	}
+	if (!daemonPort) return;
+	NSLog(@"found port");
+	// create and send message
+	CFMessagePortSendRequest(daemonPort, type, data, 1, 1, NULL, NULL);
+    if (data) {
+        CFRelease(data);
+    }
+}
 
 @implementation SMFCommonTools
 SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
@@ -113,7 +138,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 
 -(int)disableSeatbelt
 {
-    return system("SMFHelper security.mac.vnode_enforce 0");
+     daemonRunCode(0, @"SMFHelper security.mac.vnode_enforce 0");
+    return 0;
+    //return system("SMFHelper security.mac.vnode_enforce 0");
 }
 -(int)enableSeatbelt
 {

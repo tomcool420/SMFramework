@@ -9,7 +9,10 @@
 #import "SMFMediaMenuController.h"
 #import "SMFPopup.h"
 #import "SMFMediaPreview.h"
+#import "SMFListDropShadowControl.h"
+#import "SMFMenuItem.h"
 @implementation SMFMediaMenuController
+@synthesize popupControl;
 - (float)heightForRow:(long)row				{ return 0.0f;}
 - (BOOL)rowSelectable:(long)row				{ return YES;}
 - (long)itemCount							{ return (long)[_items count];}
@@ -46,6 +49,32 @@
 {
     return self;
 }
+-(void)showPopup
+{
+    if (self.popupControl==nil)
+        return;
+    if ([[self controls] containsObject:self.popupControl])
+        return;
+    if ([self.popupControl respondsToSelector:@selector(rectForSize:)]) {
+        CGRect f = [(SMFListDropShadowControl *)self.popupControl rectForSize:CGSizeMake(528., 154.)];
+        [self.popupControl setFrame:f];
+    }
+    [self addControl:self.popupControl];
+    [self setFocusedControl:self.popupControl];
+    [self _setFocus:self.popupControl];
+    if ([self.popupControl respondsToSelector:@selector(reloadList)])
+        [(SMFListDropShadowControl *)self.popupControl reloadList];
+}
+-(void)hidePopup
+{
+    if(self.popupControl==nil)
+        return;
+    if ([[self controls] containsObject:self.popupControl]) {
+        [self.popupControl removeFromParent];
+//        [[self controls] removeObject:self.popupControl];
+    }
+    return;
+}
 -(int)getSelection
 {
 	BRListControl *list = [self list];
@@ -76,6 +105,7 @@
 {
     
 }
+
 -(BOOL)brEventAction:(BREvent *)event
 {
 	int remoteAction = [event remoteAction];
@@ -85,6 +115,14 @@
     int itemCount = [[(BRListControl *)[self list] datasource] itemCount];
     switch (remoteAction)
     {	
+        case kBREventRemoteActionMenu:
+            if (self.popupControl!=nil) {
+                if ([[self controls]containsObject:self.popupControl])
+                {
+                    [self hidePopup];
+                    return YES;
+                }
+            }
         case kBREventRemoteActionSwipeLeft:
         case kBREventRemoteActionLeft:
             if([event value] == 1)
@@ -101,6 +139,13 @@
             if([event value] == 1)
                 [self playPauseActionForRow:[self getSelection]];
             return YES;
+            break;
+        case 21:
+            if (self.popupControl!=nil) {
+                if (![[self controls]containsObject:self.popupControl])
+                    [self showPopup];
+                return YES;
+            }
             break;
 		case kBREventRemoteActionUp:
 		case kBREventRemoteActionHoldUp:
@@ -123,26 +168,27 @@
 }
 - (void)setSelection:(int)sel
 {
-	BRListControl *list = [self list];
-	NSMethodSignature *signature = [list methodSignatureForSelector:@selector(setSelection:)];
-	NSInvocation *selInv = [NSInvocation invocationWithMethodSignature:signature];
-	[selInv setSelector:@selector(setSelection:)];
-	if(strcmp([signature getArgumentTypeAtIndex:2], "l"))
-	{
-		double dvalue = sel;
-		[selInv setArgument:&dvalue atIndex:2];
-	}
-	else
-	{
-		long lvalue = sel;
-		[selInv setArgument:&lvalue atIndex:2];
-	}
-	[selInv invokeWithTarget:list];
+    if (!(self.popupControl!=nil && [[self controls] containsObject:self.popupControl])) {
+        BRListControl *list = [self list];
+        NSMethodSignature *signature = [list methodSignatureForSelector:@selector(setSelection:)];
+        NSInvocation *selInv = [NSInvocation invocationWithMethodSignature:signature];
+        [selInv setSelector:@selector(setSelection:)];
+        if(strcmp([signature getArgumentTypeAtIndex:2], "l"))
+        {
+            double dvalue = sel;
+            [selInv setArgument:&dvalue atIndex:2];
+        }
+        else
+        {
+            long lvalue = sel;
+            [selInv setArgument:&lvalue atIndex:2];
+        }
+        [selInv invokeWithTarget:list];
+    }
 }
 
 -(void)controlWasActivated
 {
-
     if([self respondsToSelector:@selector(everyLoad)])
         [self everyLoad];
     [super controlWasActivated];

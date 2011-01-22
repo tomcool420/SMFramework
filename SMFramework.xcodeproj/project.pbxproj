@@ -76,13 +76,23 @@
 		DD14630212B53B6C00FA8984 /* smfHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smfHelper.m; sourceTree = "<group>"; };
 		DD1DCBC912A3384800907459 /* SMFMovieAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMovieAsset.h; sourceTree = "<group>"; };
 		DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMovieAsset.m; sourceTree = "<group>"; };
+		DD2387C012D7C27900D70709 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		DD2387C112D7C27900D70709 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		DD2387C212D7C27900D70709 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DD2388EA12D8BD5700D70709 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		DD2388EB12D8BD5700D70709 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		DD2388EC12D8BD5700D70709 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPreferences.h; sourceTree = "<group>"; };
 		DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPreferences.m; sourceTree = "<group>"; };
 		DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFProgressBarMenuItem.h; sourceTree = "<group>"; };
 		DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFProgressBarMenuItem.m; sourceTree = "<group>"; };
+		DD2C5D1F12D6D3CF00AB0BDB /* SMFViewMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFViewMenuController.h; sourceTree = "<group>"; };
+		DD2C5D2012D6D3CF00AB0BDB /* SMFViewMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFViewMenuController.m; sourceTree = "<group>"; };
 		DD3136CB1277CFFC00042510 /* SMFMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMenuItem.h; sourceTree = "<group>"; };
 		DD3136CC1277CFFC00042510 /* SMFMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMenuItem.m; sourceTree = "<group>"; };
 		DD5379E912BE78930022849E /* SMFSettingPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFSettingPreferences.h; sourceTree = "<group>"; };
+		DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFListDropShadowControl.h; sourceTree = "<group>"; };
+		DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFListDropShadowControl.m; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
 		DD96C0491295D949002C5144 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -162,6 +172,8 @@
 				875A86EB12704ACC00ECADC2 /* theos */,
 				875A8253126FFF5300ECADC2 /* BackRow */,
 				DD96C0411295D949002C5144 /* eventcatcher */,
+				DD2388E912D8BD5700D70709 /* smfporttester */,
+				DD2387BF12D7C27900D70709 /* rootlaunchd */,
 				DD1462FB12B53B6C00FA8984 /* SMFHelper */,
 				DD5379E812BE78470022849E /* Protocols */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
@@ -227,6 +239,8 @@
 				DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */,
 				DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */,
 				DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */,
+				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
+				DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -298,6 +312,8 @@
 				DDAE5F2A1284EF280038574E /* SMFMenuController.m */,
 				DDDC816F1273A66600192ADD /* SMFPasscodeController.h */,
 				DDDC81701273A66600192ADD /* SMFPasscodeController.m */,
+				DD2C5D1F12D6D3CF00AB0BDB /* SMFViewMenuController.h */,
+				DD2C5D2012D6D3CF00AB0BDB /* SMFViewMenuController.m */,
 			);
 			name = MenuControllers;
 			sourceTree = "<group>";
@@ -346,6 +362,26 @@
 				DD14630212B53B6C00FA8984 /* smfHelper.m */,
 			);
 			path = SMFHelper;
+			sourceTree = "<group>";
+		};
+		DD2387BF12D7C27900D70709 /* rootlaunchd */ = {
+			isa = PBXGroup;
+			children = (
+				DD2387C012D7C27900D70709 /* control */,
+				DD2387C112D7C27900D70709 /* main.mm */,
+				DD2387C212D7C27900D70709 /* Makefile */,
+			);
+			path = rootlaunchd;
+			sourceTree = "<group>";
+		};
+		DD2388E912D8BD5700D70709 /* smfporttester */ = {
+			isa = PBXGroup;
+			children = (
+				DD2388EA12D8BD5700D70709 /* control */,
+				DD2388EB12D8BD5700D70709 /* main.mm */,
+				DD2388EC12D8BD5700D70709 /* Makefile */,
+			);
+			path = smfporttester;
 			sourceTree = "<group>";
 		};
 		DD5379E812BE78470022849E /* Protocols */ = {
