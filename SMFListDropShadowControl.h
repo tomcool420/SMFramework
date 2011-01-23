@@ -26,8 +26,25 @@
     NSObject<SMFListDropShadowDatasource>* cDatasource;
     BRListControl *list;
 }
+/*
+ *  Simply calls [list reload]
+ */
 -(void)reloadList;
+
+/*
+ *  Should return a CGRect that can be use for the frame. max 6 list rows 
+ *  along with appropriate padding
+ */
 -(CGRect)rectForSize:(CGSize)s;
+/*
+ *  If the controller is not an SMFMediaMenuController (or subclass)
+ *  and thus does not possess the showPopup method, the following method
+ *  can be used to add it to a controller
+ *
+ *  To remove it: you can call: -(void)removeFromParent
+ */
+-(void)addToController:(BRController *)ctrl;
 @property (retain) NSObject<SMFListDropShadowDelegate>* cDelegate;
 @property (retain) NSObject<SMFListDropShadowDatasource>* cDatasource;
+@property (retain) BRListControl *list;
 @end

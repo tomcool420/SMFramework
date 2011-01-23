@@ -11,17 +11,17 @@
 #import "SMFMenuItem.h"
 #import "SMFDefines.h"
 @implementation SMFListDropShadowControl
-@synthesize cDelegate, cDatasource;
+@synthesize cDelegate, cDatasource, list;
 -(id)init
 {
     self =[super init];
     if (self!=nil) {
-        list = [[BRListControl alloc]init];
+        self.list = [[BRListControl alloc]init];
         [list setDatasource:self];
         self.backgroundColor=[[SMFThemeInfo sharedTheme]blackColor];
         self.borderColor=[[SMFThemeInfo sharedTheme] whiteColor];
         self.borderWidth=3.0;
-        [self setContent:list];
+        [self setContent:self.list];
     }
     return self;
 }
@@ -29,10 +29,16 @@
 {
     [list reload];
 }
--(void)controlWasActivated
+-(void)addToController:(BRController *)ctrl
 {
-    NSLog(@"controlWasActivated");
-    
+    CGRect f = [self rectForSize:CGSizeMake(528., 154.)];
+    [self setFrame:f];
+    [ctrl addControl:self];
+    [ctrl setFocusedControl:self];
+    [ctrl _setFocus:self];
+}
+-(void)controlWasActivated
+{    
     [list setSelection:0];
     [self setFocusedControl:list];
     [self _setFocus:list];
@@ -94,6 +100,10 @@
     int remoteAction = [event remoteAction];
     switch (remoteAction)
     {
+        case kBREventRemoteActionMenu:
+            [self removeFromParent];
+            return YES;
+            break;
         case kBREventRemoteActionPlay:
             [self itemSelected:[list selection]];
             return YES;
@@ -112,10 +122,17 @@
     int it = [self itemCount];
     if (it>6)
         it=6;
-    r.size.height=50.+ss.height*it;
+    r.size.height=52.+ss.height*it;
     CGSize windowSize = [BRWindow maxBounds];
     r.origin.y=(windowSize.height-r.size.height)/2.0f;
     r.origin.x=(windowSize.width-r.size.width)/2.0f;
     return r;
+}
+-(void)dealloc
+{
+    self.cDelegate=nil;
+    self.cDatasource=nil;
+    self.list=nil;
+    [super dealloc];
 }
 @end
