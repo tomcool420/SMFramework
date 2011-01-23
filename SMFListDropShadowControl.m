@@ -88,7 +88,9 @@
 }
 -(void)itemSelected:(long)selected
 {
-    if (cDelegate && [cDelegate respondsToSelector:@selector(popupItemSelected:)]) {
+    if (cDelegate && [cDelegate respondsToSelector:@selector(popup:itemSelected:)])
+        [cDelegate popup:self itemSelected:selected];
+    else if (cDelegate && [cDelegate respondsToSelector:@selector(popupItemSelected:)]) {
         [cDelegate popupItemSelected:selected];
     }
     else {

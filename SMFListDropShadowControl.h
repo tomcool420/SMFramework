@@ -8,15 +8,19 @@
 
 #import <Backrow/Backrow.h>
 @protocol SMFListDropShadowDatasource
-- (float)popupHeightForRow:(long)row;	
-- (BOOL)popupRowSelectable:(long)row;	
 - (long)popupItemCount;
 - (id)popupItemForRow:(long)row;
+
+@optional
+- (float)popupHeightForRow:(long)row;	
+- (BOOL)popupRowSelectable:(long)row;	
 - (id)popupTitleForRow:(long)row;	
 - (long)popupDefaultIndex;
 @end
 @protocol SMFListDropShadowDelegate
+@optional
 - (void)popupItemSelected:(long)row;
+- (void)popup:(id)p itemSelected:(long)row;
 @end
 
 
