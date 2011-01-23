@@ -123,6 +123,7 @@
                     return YES;
                 }
             }
+            break;
         case kBREventRemoteActionSwipeLeft:
         case kBREventRemoteActionLeft:
             if([event value] == 1)
