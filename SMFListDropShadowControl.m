@@ -39,7 +39,7 @@
 }
 -(void)controlWasActivated
 {    
-    [list setSelection:0];
+//    [list setSelection:0];
     [self setFocusedControl:list];
     [self _setFocus:list];
     [super controlWasActivated];

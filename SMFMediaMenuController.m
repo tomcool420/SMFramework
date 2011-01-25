@@ -150,7 +150,7 @@
             break;
 		case kBREventRemoteActionUp:
 		case kBREventRemoteActionHoldUp:
-			if([self getSelection] == 0 && [event value] == 1)
+			if([self getSelection] == 0 && [event value] == 1 && [self focusedControl]==[self list])
 			{
 				[self setSelection:itemCount-1];
 				return YES;
@@ -158,7 +158,7 @@
 			break;
 		case kBREventRemoteActionDown:
 		case kBREventRemoteActionHoldDown:
-			if([self getSelection] == itemCount-1 && [event value] == 1)
+			if([self getSelection] == itemCount-1 && [event value] == 1&& [self focusedControl]==[self list])
 			{
 				[self setSelection:0];
 				return YES;
