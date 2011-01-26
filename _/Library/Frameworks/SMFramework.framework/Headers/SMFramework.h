@@ -19,7 +19,7 @@
  *   Classes
  */
 #import "SMFListDropShadowControl.h"
-#import "SMFViewMenuController.h"
+//#import "SMFViewMenuController.h"
 #import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"
 #import "SMFCenteredMenuController.h"
