@@ -82,6 +82,8 @@
 		DD2388EA12D8BD5700D70709 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD2388EB12D8BD5700D70709 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DD2388EC12D8BD5700D70709 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DD2A4D1F12F26E8300E07934 /* SMFGridController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFGridController.h; sourceTree = "<group>"; };
+		DD2A4D2012F26E8300E07934 /* SMFGridController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFGridController.m; sourceTree = "<group>"; };
 		DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPreferences.h; sourceTree = "<group>"; };
 		DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPreferences.m; sourceTree = "<group>"; };
 		DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFProgressBarMenuItem.h; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DD2A4D1A12F26E7400E07934 /* Examples */,
 				DDF8E91412C8DE52005EC3C1 /* Extensions */,
 				DD145D9F12B4A5AB00FA8984 /* MenuItems */,
 				DD145D9E12B4A58B00FA8984 /* Events */,
@@ -382,6 +385,15 @@
 				DD2388EC12D8BD5700D70709 /* Makefile */,
 			);
 			path = smfporttester;
+			sourceTree = "<group>";
+		};
+		DD2A4D1A12F26E7400E07934 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				DD2A4D1F12F26E8300E07934 /* SMFGridController.h */,
+				DD2A4D2012F26E8300E07934 /* SMFGridController.m */,
+			);
+			name = Examples;
 			sourceTree = "<group>";
 		};
 		DD5379E812BE78470022849E /* Protocols */ = {
