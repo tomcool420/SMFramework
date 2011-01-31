@@ -94,13 +94,59 @@ static SMFThemeInfo *sharedTheme = nil;
     [(id)color autorelease];
     return color;
 }
-
+static float red[]=  {0.0,0.0,0.6,0.0,0.33,0.0,0.66,1.0,1.0,0.5,1.0,1.0,1.0};
+static float green[]={0.0,0.0,0.4,1.0,0.33,1.0,0.66,0.0,0.5,0.0,0.0,1.0,1.0};
+static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
 -(CGColorRef)blackColor
 {
-    return [self colorWithRed:0.0 withGreen:0.0 withBlue:0.0 withAlpha:1.0];
+    return [self colorWithRed:red[0] withGreen:green[0] withBlue:blue[0] withAlpha:1.0];
+}
+-(CGColorRef)blueColor
+{
+    return [self colorWithRed:red[1] withGreen:green[1] withBlue:blue[1] withAlpha:1.0];
+}
+-(CGColorRef)brownColor
+{
+    return [self colorWithRed:red[2] withGreen:green[2] withBlue:blue[2] withAlpha:1.0];
+}
+-(CGColorRef)cyanColor
+{
+    return [self colorWithRed:red[3] withGreen:green[3] withBlue:blue[3] withAlpha:1.0];
+}
+-(CGColorRef)darkGrayColor
+{
+    return [self colorWithRed:red[4] withGreen:green[4] withBlue:blue[4] withAlpha:1.0];
+}
+-(CGColorRef)greenColor
+{
+    return [self colorWithRed:red[5] withGreen:green[5] withBlue:blue[5] withAlpha:1.0];
+}
+-(CGColorRef)lightGrayColor
+{
+    return [self colorWithRed:red[6] withGreen:green[6] withBlue:blue[6] withAlpha:1.0];
+}
+-(CGColorRef)magentaColor
+{
+    return [self colorWithRed:red[7] withGreen:green[7] withBlue:blue[7] withAlpha:1.0];
+}
+-(CGColorRef)orangeColor
+{
+    return [self colorWithRed:red[8] withGreen:green[8] withBlue:blue[8] withAlpha:1.0];
+}
+-(CGColorRef)purpleColor
+{
+    return [self colorWithRed:red[9] withGreen:green[9] withBlue:blue[9] withAlpha:1.0];
+}
+-(CGColorRef)redColor
+{
+    return [self colorWithRed:red[10] withGreen:green[10] withBlue:blue[10] withAlpha:1.0];
 }
 -(CGColorRef)whiteColor
 {
-    return [self colorWithRed:1.0 withGreen:1.0 withBlue:1.0 withAlpha:1.0];
+    return [self colorWithRed:red[11] withGreen:green[11] withBlue:blue[11] withAlpha:1.0];
+}
+-(CGColorRef)yellowColor
+{
+    return [self colorWithRed:red[12] withGreen:green[12] withBlue:blue[12] withAlpha:1.0];
 }
 @end
