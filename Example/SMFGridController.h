@@ -15,7 +15,10 @@
     BRWaitSpinnerControl *  _spinner;
     BRCursorControl *       _cursorControl;
     BRScrollControl *       _scroller;
+    NSString *              _path;
 }
+-(id)initWithPath:(NSString *)path;
 -(void)drawSelf;
-- (void) setGrid;
+-(void)setGrid;
+@property (retain)NSString *_path;
 @end

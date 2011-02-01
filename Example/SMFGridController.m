@@ -7,13 +7,16 @@
 //
 
 #import "SMFGridController.h"
-#import "SMFPhotoMethods.h"
+#import "../SMFPhotoMethods.h"
 
 #define DEFAULT_IMAGES_PATH		@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultFlowerPhotos/"
 
 @implementation SMFGridController
+@synthesize _path;
 -(id)initWithPath:(NSString *)path
 {
+    self=[self init];
+    self._path=path;
     return self;
 }
 
@@ -33,9 +36,12 @@
 
 }
 
-- (void) setGrid;
+- (void) setGrid
 {
-    NSArray *assets=[SMFPhotoMethods mediaAssetsForPath:DEFAULT_IMAGES_PATH];
+    NSString *path = DEFAULT_IMAGES_PATH;
+    if (self._path!=nil)
+        path=self._path;
+    NSArray *assets=[SMFPhotoMethods mediaAssetsForPath:path];
     
     BRDataStore *st = [SMFPhotoMethods dataStoreForAssets:assets];
     SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:st 
@@ -44,7 +50,7 @@
     [_gridControl setColumnCount:5];
     [_gridControl setWrapsNavigation:YES];
     [self setControls:[NSArray arrayWithObjects:_spinner,_cursorControl,_scroller,nil]];
-    CGRect masterFrame = [[self parent] frame];
+    CGRect masterFrame = [BRWindow interfaceFrame];
 	
 	
     CGRect frame;
