@@ -1,6 +1,6 @@
 Package: org.tomcool.smframework
 Name: SMFramework
-Version: 0.6.0-20
+Version: 0.6.0-22
 Architecture: iphoneos-arm
 Description: Framework for most packages written by me
 Maintainer: Thomas Cool <thomas.cool@me.com>

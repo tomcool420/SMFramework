@@ -87,7 +87,6 @@
 }
 + (NSString *)stringForKey:(NSString *)theKey inDomain:(NSString *)theDomain
 {
-    NSLog(@"The Domain: %@",theDomain);
 	CFPreferencesAppSynchronize((CFStringRef)theDomain);
 	NSString * myString = (NSString *)CFPreferencesCopyAppValue((CFStringRef)theKey, (CFStringRef)theDomain);
 	return [(NSString *)myString autorelease];
@@ -107,17 +106,9 @@
 }
 - (id)initWithPath:(NSString *)thePath
 {
-	self = [super init];
-	[self addLabel:@"org.tomcool.Software.SMF"];
-    separate = TRUE;
-    showHidden = FALSE;
-	_items = [[NSMutableArray alloc] initWithObjects:nil];
-	_paths = [[NSMutableArray alloc] initWithObjects:nil];
-	_man = [[NSFileManager defaultManager] retain];
-    _files = [[NSMutableArray alloc]init];
-    _folders = [[NSMutableArray alloc]init];
-    [[self list] setDatasource:self];
-    [self setPath:thePath];
+	self = [self init];
+    if (self)
+        [self setPath:thePath];
     return self;
 }
 - (void)setPath:(NSString *)thePath
@@ -165,8 +156,6 @@
         }
     }
     [[self list] addDividerAtIndex:[_folders count] withLabel:@"Files"];
-    NSLog(@"files count: %i",[_files count]);
-    NSLog(@"folders count: %i",[_folders count]);
     //[[self list] reload];
 }
 -(NSString *)pathAtRow:(long)row
@@ -196,10 +185,15 @@
         {
             if ([delegate hasActionForFile:p])
             {
-                if ([delegate respondsToSelector:@selector(executePlayPauseActionForFile:)]) {
+                if ([delegate respondsToSelector:@selector(browser:executePlayPauseActionForFile:)]) {
+                    [delegate browser:self executePlayPauseActionForFile:p];
+                }
+                else if ([delegate respondsToSelector:@selector(executePlayPauseActionForFile:)]) {
                     [delegate executePlayPauseActionForFile:p];
                 }
-                else
+                else if ([delegate respondsToSelector:@selector(browser:executeActionForFile:)])
+                    [delegate browser:self executeActionForFile:p];
+                else if ([delegate respondsToSelector:@selector(executeActionForFile:)])
                     [delegate executeActionForFile:p]; 
             }
         }
@@ -215,10 +209,15 @@
     {
         if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {
             if ([delegate hasActionForFile:p]) {
-                if ([delegate respondsToSelector:@selector(executeLeftActionForFile:)]) {
+                if ([delegate respondsToSelector:@selector(browser:executeLeftActionForFile:)]) {
+                    [delegate browser:self executeRightActionForFile:p];
+                }
+                else if ([delegate respondsToSelector:@selector(executeLeftActionForFile:)]) {
                     [delegate executeRightActionForFile:p];
                 }
-                else
+                else if ([delegate respondsToSelector:@selector(browser:executeActionForFile:)])
+                    [delegate browser:self executeActionForFile:p];
+                else if ([delegate respondsToSelector:@selector(executeActionForFile:)])
                     [delegate executeActionForFile:p];
             }
         }
@@ -232,11 +231,17 @@
     if (p) 
     {
         if (delegate!=nil && [delegate conformsToProtocol:@protocol(SMFFolderBrowserDelegate)]) {
-            if ([delegate hasActionForFile:p]) {
-                if ([delegate respondsToSelector:@selector(executeRightActionForFile:)]) {
+            if ([delegate hasActionForFile:p]) 
+            {
+                if ([delegate respondsToSelector:@selector(browser:executeRightActionForFile:)]) {
+                    [delegate browser:self executeRightActionForFile:p];
+                }
+                else if ([delegate respondsToSelector:@selector(executeRightActionForFile:)]) {
                     [delegate executeRightActionForFile:p];
                 }
-                else
+                else if ([delegate respondsToSelector:@selector(browser:executeActionForFile:)])
+                    [delegate browser:self executeActionForFile:p];
+                else if ([delegate respondsToSelector:@selector(executeActionForFile:)])
                     [delegate executeActionForFile:p];
             }
         }
@@ -284,7 +289,6 @@
          withAttributes:[[BRThemeInfo sharedTheme]menuItemTextAttributes]];
             if (fpath!=nil&& 
                 [[_folders objectAtIndex:row] localizedCaseInsensitiveCompare:fpath]==NSOrderedSame) {
-                //NSLog(@"it :%@ %@",[_folders objectAtIndex:row],fpath);
                 [it setImage:[[SMFThemeInfo sharedTheme] selectedImage]];
             }
             return it;

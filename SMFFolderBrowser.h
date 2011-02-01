@@ -9,14 +9,45 @@
 #import "SMFMediaMenuController.h"
 #import "SMFPreferences.h"
 #import "SMFPhotoMethods.h"
+@class SMFFolderBrowser;
 @protocol SMFFolderBrowserDelegate
+/*
+ *  Checks to see if the delegate can handle this file
+ */
 -(BOOL)hasActionForFile:(NSString *)path;
--(void)executeActionForFile:(NSString *)path;
+
 @optional
+/*
+ *  Standard default action execution
+ */
+-(void)browser:(SMFFolderBrowser *)b executeActionForFile:(NSString *)path;
+/*
+ *  Pressing the right arrow
+ */
+-(void)browser:(SMFFolderBrowser *)b executeRightActionForFile:(NSString *)path;
+/*
+ *  Pressing the left arrow
+ */
+-(void)browser:(SMFFolderBrowser *)b executeLeftActionForFile:(NSString *)path;
+/*
+ *  Pressing the select button ... disabled for now
+ */
+-(void)browser:(SMFFolderBrowser *)b executeSelectActionForFile:(NSString *)path;
+/*
+ *  Pressing the play pause button on the new remote
+ */
+-(void)browser:(SMFFolderBrowser *)b executePlayPauseActionForFile:(NSString *)path;
+
+/*
+ *  Deprecated Methods
+ */
+-(void)executeActionForFile:(NSString *)path;
 -(void)executeRightActionForFile:(NSString *)path;
 -(void)executeLeftActionForFile:(NSString *)path;
 -(void)executeSelectActionForFile:(NSString *)path;
 -(void)executePlayPauseActionForFile:(NSString *)path;
+
+
 @end
 
 @interface SMFFolderBrowser : SMFMediaMenuController 

@@ -15,6 +15,9 @@
 @interface SMFMediaPreview : BRMetadataPreviewControl{
     BRImage                     *image;
 }
+/*
+ *  A nice and simple autoreleased media preview already populated with an asset
+ */
 +(SMFMediaPreview *)simplePreviewWithTitle:(NSString *)title withSummary:(NSString *)summary withImage:(BRImage *)img;
 +(SMFMediaPreview *)mediaPreviewWithAsset:(SMFBaseAsset *)a;
 +(SMFMediaPreview *)mediaPreview;

@@ -22,7 +22,7 @@
     _spinner=[[BRWaitSpinnerControl alloc]init];
     _cursorControl=[[BRCursorControl alloc] init];
     _scroller=[[BRScrollControl alloc] init];
-    _gridControl=[[BRMediaShelfControl alloc] init];//[[BRGridControl alloc] init];
+    _gridControl=[[BRGridControl alloc] init];
     [self setGrid];
     [_gridControl focusControlAtIndex:0];
 	[_gridControl setHorizontalGap:0.01f];

@@ -53,8 +53,7 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
         CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
         for(int i=0;i<[strings count];i++)
         {
-            //UIColor*c = [[[UIColor alloc] initWithRed:red[i] green:green[i] blue:blue[i] alpha:1.0] autorelease];
-            //NSLog(@"%@:%@",[strings objectAtIndex:i],c);
+
             SMFMenuItem *it = [[SMFMenuItem alloc] init];
             NSMutableDictionary *d = [[[BRThemeInfo sharedTheme]menuItemTextAttributes] mutableCopy];
             
