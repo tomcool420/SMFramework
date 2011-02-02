@@ -1,7 +1,7 @@
 GO_EASY_ON_ME=1
 export SDKVERSION=4.1
 FW_DEVICE_IP=appletv.local
-include ../theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 TOOL_NAME = SMFHelper
 SMFHelper_FILES = smfHelper.m 
 SMFHelper_INSTALL_PATH = /usr/bin

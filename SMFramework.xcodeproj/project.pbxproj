@@ -208,7 +208,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DD2A4D1A12F26E7400E07934 /* Examples */,
+				DD2A4D1A12F26E7400E07934 /* Example */,
 				DDF8E91412C8DE52005EC3C1 /* Extensions */,
 				DD145D9F12B4A5AB00FA8984 /* MenuItems */,
 				DD145D9E12B4A58B00FA8984 /* Events */,
@@ -387,13 +387,13 @@
 			path = smfporttester;
 			sourceTree = "<group>";
 		};
-		DD2A4D1A12F26E7400E07934 /* Examples */ = {
+		DD2A4D1A12F26E7400E07934 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				DD2A4D1F12F26E8300E07934 /* SMFGridController.h */,
 				DD2A4D2012F26E8300E07934 /* SMFGridController.m */,
 			);
-			name = Examples;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		DD5379E812BE78470022849E /* Protocols */ = {
