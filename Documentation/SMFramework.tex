@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+%\input{your_defs}
+\usepackage{fullpage,amsmath}
+\usepackage[pdftex]{hyperref}
+\usepackage{colortbl}
+%\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
+
+\usepackage{rotating}
+\usepackage{subfig}
+\usepackage{supertabular}
+\usepackage{appendix}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{subfig}
+\usepackage{mdwlist}
+\usepackage{verbatim}
+\usepackage{listings}
+\usepackage{upquote}
+\usepackage{amsmath, amssymb, graphics}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{hyperref}
+
+\newcommand{\hmwkDueDate}{4-2-2011}
+\newcommand{\hmwkAuthorName}{Thomas Cool}
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}
+\lstset{
+frame=single,
+upquote=true,
+%numbers=left,
+%language=Python,
+tabsize=2,
+showstringspaces=false,
+%basicstyle=\ttfamily,
+showtabs=false
+}
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{}  %
+\rhead{\hmwkDueDate}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+\begin{document}
+\paragraph{}
+\pagenumbering{arabic}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\section{Getting SMFramework}
+\subsection{Getting Dependencies}
+SMFramework does not require much but it does require a few things:
+\begin{itemize}
+\item SMFramework does not require XCode to build it but it does require the SDKs provided with xcode.
+\item theos is required for the actual building. 
+\item ATV2 Backrow.framework and AppleTV.framework headers
+\item it also requires gnutar and dpkg (for theos)
+\end{itemize}
+\subsubsection{Theos}
+To install theos just follow the instructions on:\\
+\url{http://iphonedevwiki.net/index.php/Theos/Getting_Started#For_Mac_OS_X}
+\paragraph{}
+Once those instructions are followed you might want to add: 
+\begin{lstlisting}
+export THEOS=/opt/theos
+\end{lstlisting}
+to your .profile file so the \$THEOS variable is always set.
+\subsubsection{Headers}
+Once theos (and i assume Xcode) is/are installed, you need to download the Headers. Assuming we want SMFramework inside a folder: $\sim$/DVLP, we would do the following:
+\begin{itemize}
+\item go to the folder:
+\begin{lstlisting}
+cd ~/DVLP
+\end{lstlisting}
+\item get the headers from github 
+\begin{lstlisting}
+git clone git://github.com/tomcool420/ATV2Includes.git
+\end{lstlisting}
+\item no step 3
+\end{itemize}
+\subsubsection{Gnutar and dpkg}
+the easiest way would be to simply use macports. (this is the methods explained here). Once macports is installed the following steps should be followed:
+\begin{enumerate}
+\item install dpkg
+\begin{lstlisting}
+sudo port install dpkg
+\end{lstlisting}
+\item install gnutar
+\begin{lstlisting}
+sudo port install gnutar
+\end{lstlisting}
+\item symlink gnutar to tar 
+\begin{lstlisting}
+sudo ln -s /opt/local/bin/gnutar /opt/local/bin/tar
+\end{lstlisting}
+\end{enumerate}
+\subsection{SMFramework}
+Go back to your DVLP folder and clone SMFramework:
+\begin{lstlisting}
+cd ~/DVLP
+git clone git://github.com/tomcool420/SMFramework.git
+\end{lstlisting}
+And that's it you now have all that is required to install and compile SMFramework
+\section{Building SMFramework}
+
+
+
+\end{document}
