@@ -17,6 +17,7 @@
     NSLocale    *_currentlocale;
     id     color;
 }
+
 -(void)timerRun;
 -(NSLocale *)currentlocale;
 -(void)setCurrentlocale:(NSLocale *)l;
