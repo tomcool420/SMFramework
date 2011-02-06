@@ -32,35 +32,55 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		875A8424126FFF5300ECADC2 /* BackRow in Resources */ = {isa = PBXBuildFile; fileRef = 875A8253126FFF5300ECADC2 /* BackRow */; };
 		875A8426126FFF6500ECADC2 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 875A8425126FFF6500ECADC2 /* build.sh */; };
-		875A8428126FFF6D00ECADC2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 875A8427126FFF6D00ECADC2 /* Makefile */; };
-		875A873412704ACC00ECADC2 /* theos in Resources */ = {isa = PBXBuildFile; fileRef = 875A86EB12704ACC00ECADC2 /* theos */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
-		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
-		DD14630312B53B6C00FA8984 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = DD1462FC12B53B6C00FA8984 /* Makefile */; };
-		DD14630812B53B6C00FA8984 /* smfHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DD14630212B53B6C00FA8984 /* smfHelper.m */; };
+		DD7A9EC512FDF1EE00AFF8C3 /* SMFFolderBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */; };
+		DD7A9EC612FDF1EE00AFF8C3 /* SMFScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = DDABC41B127877B3001F026B /* SMFScreenCapture.m */; };
+		DD7A9EC712FDF1EE00AFF8C3 /* SMFFolderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */; };
+		DD7A9EC812FDF1EE00AFF8C3 /* SMFThemeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0F80B9127CF99A00277D06 /* SMFThemeInfo.m */; };
+		DD7A9EC912FDF1EE00AFF8C3 /* SMFPhotoMethods.mm in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */; };
+		DD7A9ECA12FDF1EE00AFF8C3 /* SMFCommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5E0B12838A980038574E /* SMFCommonTools.m */; };
+		DD7A9ECB12FDF1EE00AFF8C3 /* SMFQueryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5F281284EED30038574E /* SMFQueryMenu.m */; };
+		DD7A9ECC12FDF1EE00AFF8C3 /* SMFColorSelectionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */; };
+		DD7A9ECD12FDF1EE00AFF8C3 /* SMFPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */; };
+		DD7A9ECE12FDF1EE00AFF8C3 /* SMFListDropShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */; };
+		DD7A9ECF12FDF1F700AFF8C3 /* SMFDebAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DD14618D12B50A5000FA8984 /* SMFDebAsset.m */; };
+		DD7A9ED012FDF1F700AFF8C3 /* SMFImageAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DD145D9812B48F6500FA8984 /* SMFImageAsset.m */; };
+		DD7A9ED112FDF1F700AFF8C3 /* SMFMovieAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */; };
+		DD7A9ED212FDF20000AFF8C3 /* SMFInvocationCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3036212750A3500B0AE9C /* SMFInvocationCenteredMenuController.m */; };
+		DD7A9ED312FDF20000AFF8C3 /* SMFMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5F2A1284EF280038574E /* SMFMenuController.m */; };
+		DD7A9ED412FDF20000AFF8C3 /* SMFViewMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2C5D2012D6D3CF00AB0BDB /* SMFViewMenuController.m */; };
+		DD7A9ED512FDF20500AFF8C3 /* SMFClockController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5BA0127DB3580038574E /* SMFClockController.m */; };
+		DD7A9ED612FDF20500AFF8C3 /* SMFProgressBarControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD623111290953500FC2CE5 /* SMFProgressBarControl.m */; };
+		DD7A9ED712FDF20B00AFF8C3 /* SMFEventConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5E0F12839A9A0038574E /* SMFEventConfiguration.m */; };
+		DD7A9ED812FDF20B00AFF8C3 /* SMFEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5BD3127E0DE00038574E /* SMFEventManager.m */; };
+		DD7A9ED912FDF20B00AFF8C3 /* SMFEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DDAE5BD5127E19570038574E /* SMFEvent.m */; };
+		DD7A9EDA12FDF21100AFF8C3 /* BRMenuItem_SMF.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */; };
+		DD7A9EDB12FDF21100AFF8C3 /* SMFMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3136CC1277CFFC00042510 /* SMFMenuItem.m */; };
+		DD7A9EDC12FDF21100AFF8C3 /* SMFProgressBarMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2C4D6412ADCEFA00A83159 /* SMFProgressBarMenuItem.m */; };
+		DD7A9EDD12FDF21600AFF8C3 /* NSArray_SMF.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF8E91612C8DE6A005EC3C1 /* NSArray_SMF.m */; };
+		DD7A9EDE12FDF21A00AFF8C3 /* SMFGridController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A4D2012F26E8300E07934 /* SMFGridController.m */; };
+		DD7A9EF812FDFEEE00AFF8C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */; };
+		DD7A9FEF12FE006C00AFF8C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFC52AF12D3B96300D243D0 /* CoreGraphics.framework */; };
+		DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */; };
 		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
 		DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */; };
 		DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */; };
 		DDDC81001273909900192ADD /* SMFMediaPreview.mm in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */; };
 		DDDC81711273A66600192ADD /* SMFPasscodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC81701273A66600192ADD /* SMFPasscodeController.m */; };
-		DDDC81741273A67000192ADD /* SMFController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC81731273A67000192ADD /* SMFController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atvTwo_Prefix.pch; sourceTree = "<group>"; };
 		875A8249126FFF1F00ECADC2 /* BackRowExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackRowExtras.h; path = Classes/BackRowExtras.h; sourceTree = "<group>"; };
 		875A8253126FFF5300ECADC2 /* BackRow */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackRow; path = ../ATV2Includes/BackRow; sourceTree = "<group>"; };
 		875A8425126FFF6500ECADC2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		875A8427126FFF6D00ECADC2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		875A86EB12704ACC00ECADC2 /* theos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = theos; sourceTree = "<group>"; };
-		8D5B49B6048680CD000E48DA /* atvTwo.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = atvTwo.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B6048680CD000E48DA /* SMFramework.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFFolderDelegate.h; sourceTree = "<group>"; };
@@ -76,12 +96,6 @@
 		DD14630212B53B6C00FA8984 /* smfHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smfHelper.m; sourceTree = "<group>"; };
 		DD1DCBC912A3384800907459 /* SMFMovieAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMovieAsset.h; sourceTree = "<group>"; };
 		DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMovieAsset.m; sourceTree = "<group>"; };
-		DD2387C012D7C27900D70709 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
-		DD2387C112D7C27900D70709 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		DD2387C212D7C27900D70709 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		DD2388EA12D8BD5700D70709 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
-		DD2388EB12D8BD5700D70709 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		DD2388EC12D8BD5700D70709 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		DD2A4D1F12F26E8300E07934 /* SMFGridController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFGridController.h; sourceTree = "<group>"; };
 		DD2A4D2012F26E8300E07934 /* SMFGridController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFGridController.m; sourceTree = "<group>"; };
 		DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPreferences.h; sourceTree = "<group>"; };
@@ -95,6 +109,8 @@
 		DD5379E912BE78930022849E /* SMFSettingPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFSettingPreferences.h; sourceTree = "<group>"; };
 		DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFListDropShadowControl.h; sourceTree = "<group>"; };
 		DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFListDropShadowControl.m; sourceTree = "<group>"; };
+		DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPopup.mm; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
 		DD96C0491295D949002C5144 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -157,8 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
 				DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */,
+				DD7A9EF812FDFEEE00AFF8C3 /* Foundation.framework in Frameworks */,
+				DD7A9FEF12FE006C00AFF8C3 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,11 +188,8 @@
 				DD96C3DB129971A2002C5144 /* control */,
 				875A8427126FFF6D00ECADC2 /* Makefile */,
 				875A8425126FFF6500ECADC2 /* build.sh */,
-				875A86EB12704ACC00ECADC2 /* theos */,
 				875A8253126FFF5300ECADC2 /* BackRow */,
 				DD96C0411295D949002C5144 /* eventcatcher */,
-				DD2388E912D8BD5700D70709 /* smfporttester */,
-				DD2387BF12D7C27900D70709 /* rootlaunchd */,
 				DD1462FB12B53B6C00FA8984 /* SMFHelper */,
 				DD5379E812BE78470022849E /* Protocols */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
@@ -238,6 +252,7 @@
 				DDAE5F281284EED30038574E /* SMFQueryMenu.m */,
 				DD96C3411298B9A0002C5144 /* SMFPopup.h */,
 				DD96C3401298B8EA002C5144 /* SMFPopup.xm */,
+				DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */,
 				DD96C83A129B5C99002C5144 /* SMFColorSelectionMenu.h */,
 				DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */,
 				DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */,
@@ -251,7 +266,7 @@
 		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+				DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -272,7 +287,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* atvTwo.bundle */,
+				8D5B49B6048680CD000E48DA /* SMFramework.frappliance */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,26 +382,6 @@
 			path = SMFHelper;
 			sourceTree = "<group>";
 		};
-		DD2387BF12D7C27900D70709 /* rootlaunchd */ = {
-			isa = PBXGroup;
-			children = (
-				DD2387C012D7C27900D70709 /* control */,
-				DD2387C112D7C27900D70709 /* main.mm */,
-				DD2387C212D7C27900D70709 /* Makefile */,
-			);
-			path = rootlaunchd;
-			sourceTree = "<group>";
-		};
-		DD2388E912D8BD5700D70709 /* smfporttester */ = {
-			isa = PBXGroup;
-			children = (
-				DD2388EA12D8BD5700D70709 /* control */,
-				DD2388EB12D8BD5700D70709 /* main.mm */,
-				DD2388EC12D8BD5700D70709 /* Makefile */,
-			);
-			path = smfporttester;
-			sourceTree = "<group>";
-		};
 		DD2A4D1A12F26E7400E07934 /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,10 +422,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D5B49AC048680CD000E48DA /* atvTwo */ = {
+		8D5B49AC048680CD000E48DA /* SMFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "atvTwo" */;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SMFramework" */;
 			buildPhases = (
+				DD8B8BEA12FE0D0700971B0A /* ShellScript */,
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
@@ -439,10 +435,10 @@
 			);
 			dependencies = (
 			);
-			name = atvTwo;
+			name = SMFramework;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = atvTwo;
-			productReference = 8D5B49B6048680CD000E48DA /* atvTwo.bundle */;
+			productReference = 8D5B49B6048680CD000E48DA /* SMFramework.frappliance */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -464,7 +460,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D5B49AC048680CD000E48DA /* atvTwo */,
+				8D5B49AC048680CD000E48DA /* SMFramework */,
 				875A8234126FFBA400ECADC2 /* thePlugin */,
 				DDDC81991273B9B800192ADD /* Install */,
 			);
@@ -477,9 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				875A8424126FFF5300ECADC2 /* BackRow in Resources */,
 				875A8426126FFF6500ECADC2 /* build.sh in Resources */,
-				875A873412704ACC00ECADC2 /* theos in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +492,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "make clean\nmake stage\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+		};
+		DD8B8BEA12FE0D0700971B0A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				$SRCROOT/SMFPopup.xm,
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export THEOS=/opt/theos\n$THEOS/bin/logos.pl $SRCROOT/SMFPopup.xm > $SRCROOT/SMFPopup.mm";
 		};
 		DDDC81981273B9B800192ADD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -519,15 +527,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				875A8428126FFF6D00ECADC2 /* Makefile in Sources */,
 				DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */,
 				DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */,
 				DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */,
 				DDDC81001273909900192ADD /* SMFMediaPreview.mm in Sources */,
 				DDDC81711273A66600192ADD /* SMFPasscodeController.m in Sources */,
-				DDDC81741273A67000192ADD /* SMFController.m in Sources */,
-				DD14630312B53B6C00FA8984 /* Makefile in Sources */,
-				DD14630812B53B6C00FA8984 /* smfHelper.m in Sources */,
+				DD7A9EC512FDF1EE00AFF8C3 /* SMFFolderBrowser.m in Sources */,
+				DD7A9EC612FDF1EE00AFF8C3 /* SMFScreenCapture.m in Sources */,
+				DD7A9EC712FDF1EE00AFF8C3 /* SMFFolderDelegate.m in Sources */,
+				DD7A9EC812FDF1EE00AFF8C3 /* SMFThemeInfo.m in Sources */,
+				DD7A9EC912FDF1EE00AFF8C3 /* SMFPhotoMethods.mm in Sources */,
+				DD7A9ECA12FDF1EE00AFF8C3 /* SMFCommonTools.m in Sources */,
+				DD7A9ECB12FDF1EE00AFF8C3 /* SMFQueryMenu.m in Sources */,
+				DD7A9ECC12FDF1EE00AFF8C3 /* SMFColorSelectionMenu.m in Sources */,
+				DD7A9ECD12FDF1EE00AFF8C3 /* SMFPreferences.m in Sources */,
+				DD7A9ECE12FDF1EE00AFF8C3 /* SMFListDropShadowControl.m in Sources */,
+				DD7A9ECF12FDF1F700AFF8C3 /* SMFDebAsset.m in Sources */,
+				DD7A9ED012FDF1F700AFF8C3 /* SMFImageAsset.m in Sources */,
+				DD7A9ED112FDF1F700AFF8C3 /* SMFMovieAsset.m in Sources */,
+				DD7A9ED212FDF20000AFF8C3 /* SMFInvocationCenteredMenuController.m in Sources */,
+				DD7A9ED312FDF20000AFF8C3 /* SMFMenuController.m in Sources */,
+				DD7A9ED412FDF20000AFF8C3 /* SMFViewMenuController.m in Sources */,
+				DD7A9ED512FDF20500AFF8C3 /* SMFClockController.m in Sources */,
+				DD7A9ED612FDF20500AFF8C3 /* SMFProgressBarControl.m in Sources */,
+				DD7A9ED712FDF20B00AFF8C3 /* SMFEventConfiguration.m in Sources */,
+				DD7A9ED812FDF20B00AFF8C3 /* SMFEventManager.m in Sources */,
+				DD7A9ED912FDF20B00AFF8C3 /* SMFEvent.m in Sources */,
+				DD7A9EDA12FDF21100AFF8C3 /* BRMenuItem_SMF.m in Sources */,
+				DD7A9EDB12FDF21100AFF8C3 /* SMFMenuItem.m in Sources */,
+				DD7A9EDC12FDF21100AFF8C3 /* SMFProgressBarMenuItem.m in Sources */,
+				DD7A9EDD12FDF21600AFF8C3 /* NSArray_SMF.m in Sources */,
+				DD7A9EDE12FDF21A00AFF8C3 /* SMFGridController.m in Sources */,
+				DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -556,10 +588,20 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = atvTwo_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../ATV2Includes;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_NAME = atvTwo;
-				WRAPPER_EXTENSION = bundle;
+				INSTALL_PATH = /Library/Frameworks;
+				OTHER_CFLAGS = (
+					"-weak_lBackRow",
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = SMFramework;
+				WRAPPER_EXTENSION = frappliance;
 			};
 			name = Debug;
 		};
@@ -567,14 +609,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = atvTwo_Prefix.pch;
+				HEADER_SEARCH_PATHS = ../ATV2Includes;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Bundles";
-				PRODUCT_NAME = atvTwo;
-				WRAPPER_EXTENSION = bundle;
+				INSTALL_PATH = /Library/Frameworks;
+				OTHER_CFLAGS = (
+					"-weak_lBackRow",
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = SMFramework;
+				WRAPPER_EXTENSION = frappliance;
 			};
 			name = Release;
 		};
@@ -588,6 +641,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../ATV2Includes;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
 			};
@@ -600,6 +657,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.1;
 			};
@@ -651,7 +712,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "atvTwo" */ = {
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "SMFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB913B08733D840010E9CD /* Debug */,
