@@ -32,7 +32,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		875A8426126FFF6500ECADC2 /* build.sh in Resources */ = {isa = PBXBuildFile; fileRef = 875A8425126FFF6500ECADC2 /* build.sh */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		DD7A9EC512FDF1EE00AFF8C3 /* SMFFolderBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */; };
 		DD7A9EC612FDF1EE00AFF8C3 /* SMFScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = DDABC41B127877B3001F026B /* SMFScreenCapture.m */; };
@@ -80,7 +79,6 @@
 		875A8253126FFF5300ECADC2 /* BackRow */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BackRow; path = ../ATV2Includes/BackRow; sourceTree = "<group>"; };
 		875A8425126FFF6500ECADC2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
 		875A8427126FFF6D00ECADC2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		8D5B49B6048680CD000E48DA /* SMFramework.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFFolderDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +108,7 @@
 		DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFListDropShadowControl.h; sourceTree = "<group>"; };
 		DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFListDropShadowControl.m; sourceTree = "<group>"; };
 		DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD82A41E12FF1519007221FC /* SMFramework.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPopup.mm; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
@@ -287,7 +286,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B6048680CD000E48DA /* SMFramework.frappliance */,
+				DD82A41E12FF1519007221FC /* SMFramework.frappliance */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,7 +437,7 @@
 			name = SMFramework;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = atvTwo;
-			productReference = 8D5B49B6048680CD000E48DA /* SMFramework.frappliance */;
+			productReference = DD82A41E12FF1519007221FC /* SMFramework.frappliance */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -473,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
-				875A8426126FFF6500ECADC2 /* build.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,35 +632,38 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../ATV2Includes;
+				LD_OPENMP_FLAGS = "-undefined dynamic_lookup -fopenmp";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../ATV2Includes;
+				LD_OPENMP_FLAGS = "-undefined dynamic_lookup -fopenmp";
 				OTHER_CFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
