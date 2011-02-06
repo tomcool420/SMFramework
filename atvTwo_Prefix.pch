@@ -3,7 +3,8 @@
 //
 
 #ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#import "../ATV2Includes/BackRow/BackRow.h"
+//    #import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import "../ATV2Includes/Backrow/Backrow.h"
 #import "SynthesizeSingleton.h"
 #endif
