@@ -1,6 +1,6 @@
 GO_EASY_ON_ME=1
 export FW_DEVICE_IP=appletv.local
-SDKVERSION=4.1
+SDKVERSION=4.2
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = EventCatcher

@@ -15,13 +15,15 @@
     NSDictionary *textAttributes;
     NSTimeZone  *timeZone;
     NSLocale    *_currentlocale;
-    UIColor     *color;
+    id     color;
 }
+
 -(void)timerRun;
 -(NSLocale *)currentlocale;
 -(void)setCurrentlocale:(NSLocale *)l;
 -(void)setTimeZone:(NSTimeZone*)tz;
 -(NSTimeZone *)timeZone;
--(void)setColor:(UIColor *)c;
+
+-(void)setColor:(id)c; 
 @property (retain) NSDictionary *textAttributes;
 @end

@@ -1,6 +1,6 @@
 GO_EASY_ON_ME=1
-SDKVERSION=4.1
-FW_DEVICE_IP=appletv.local
+SDKVERSION=4.2
+FW_DEVICE_IP=test.local
 first: clean package install
 include $(THEOS)/makefiles/common.mk
 
@@ -23,7 +23,7 @@ SUBPROJECTS = eventcatcher SMFHelper
 include $(FW_MAKEDIR)/framework.mk
 include $(FW_MAKEDIR)/aggregate.mk
 after-install::
-	ssh root@$(FW_DEVICE_IP) killall Lowtide
+	ssh root@$(FW_DEVICE_IP) killall AppleTV
 	
 after-SMFramework-stage::
 	rm -rf "Headers"

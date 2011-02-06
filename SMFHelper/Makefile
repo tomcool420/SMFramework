@@ -1,5 +1,5 @@
 GO_EASY_ON_ME=1
-export SDKVERSION=4.1
+export SDKVERSION=4.2
 FW_DEVICE_IP=appletv.local
 include $(THEOS)/makefiles/common.mk
 TOOL_NAME = SMFHelper

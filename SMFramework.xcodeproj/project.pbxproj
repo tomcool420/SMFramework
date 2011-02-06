@@ -516,7 +516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nmake clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+			shellScript = "source ~/.profile\nmake clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
