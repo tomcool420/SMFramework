@@ -64,10 +64,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFScreenCapture,sharedInstance)
 +(void)saveScreenToFile:(NSString *)path
 {
     CGSize screenSize = [BRWindow maxBounds];
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB(); 
-    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, colorSpaceRef, kCGImageAlphaPremultipliedLast);
-    CALayer *c = [[[[BRApplicationStackManager singleton] stack] peekController] layer];
     CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, rgb, kCGImageAlphaPremultipliedLast);
+    CALayer *c = [[[[BRApplicationStackManager singleton] stack] peekController] layer];
+    
     CGColorRef col = CGColorCreate(rgb, (CGFloat[]){ 0, 0, 0, 1 });
     c.backgroundColor=col;
     [c renderInContext:ctx];
@@ -75,56 +75,63 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFScreenCapture,sharedInstance)
     CGImageRef cgImage = CGBitmapContextCreateImage(ctx);
     c.backgroundColor=nil;
     UIImage  *img2 = [UIImage imageWithCGImage:cgImage];
-    [UIImagePNGRepresentation(img2) writeToFile:path atomically:YES];
+    NSData *d = UIImagePNGRepresentation(img2);
+    [d writeToFile:path atomically:YES];
+    [d release];
+    CGImageRelease(cgImage);
+    CGColorRelease(col);
+    CGContextRelease(ctx);
+    CGColorSpaceRelease(rgb);
     
 }
 +(NSData *)pngScreenData
 {
     
     CGSize screenSize = [BRWindow maxBounds];
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB(); 
-    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, colorSpaceRef, kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, rgb, kCGImageAlphaPremultipliedLast);
     //CGContextTranslateCTM(ctx, 0.0, screenSize.height);
     //CGContextScaleCTM(ctx, 1.0, -1.0);
     CALayer *c = [[[[BRApplicationStackManager singleton] stack] peekController] layer];
-    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    
     CGColorRef col = CGColorCreate(rgb, (CGFloat[]){ 0, 0, 0, 1 });
     c.backgroundColor=col;
     [c renderInContext:ctx];
-    
+    CGColorRelease(col);
+    CGColorSpaceRelease(rgb);
+    CGContextRelease(ctx);
     CGImageRef cgImage = CGBitmapContextCreateImage(ctx);
     c.backgroundColor=nil;
-    
-    //CFURLRef url = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, CFSTR("/var/mobile/Library/Preferences/image.bmp"), kCFURLPOSIXPathStyle, false);
-    //CFStringRef type = kUTTypeBMP; // or kUTTypeBMP if you like
-    //    CGImageDestinationRef dest = CGImageDestinationCreateWithURL(url, type, 1, 0);
-    //    CGImageDestinationAddImage(dest, cgImage, 0);
+
     UIImage  *img2 = [UIImage imageWithCGImage:cgImage];
+    CGImageRelease(cgImage);
     //[UIImageJPEGRepresentation(img2,10.0) writeToFile:@"/var/mobile/Library/Preferences/image2.jpg" atomically:YES];
-    return UIImagePNGRepresentation(img2);
+    return [UIImagePNGRepresentation(img2) autorelease];
 }
 +(NSData *)controlPlaneData
 {
     CGSize screenSize = [BRWindow maxBounds];
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB(); 
-    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, colorSpaceRef, kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
+    CGContextRef ctx = CGBitmapContextCreate(nil, screenSize.width, screenSize.height, 8, 4*(int)screenSize.width, rgb, kCGImageAlphaPremultipliedLast);
     //CGContextTranslateCTM(ctx, 0.0, screenSize.height);
     //CGContextScaleCTM(ctx, 1.0, -1.0);
     CALayer *c = [[[BRWindow window] _controlPlane] layer];//[[[[BRApplicationStackManager singleton] stack] peekController] layer];
-    CGColorSpaceRef rgb = CGColorSpaceCreateDeviceRGB();
     CGColorRef col = CGColorCreate(rgb, (CGFloat[]){ 0, 0, 0, 1 });
     c.backgroundColor=col;
     [c renderInContext:ctx];
     
     CGImageRef cgImage = CGBitmapContextCreateImage(ctx);
     c.backgroundColor=nil;
-    
+    CGColorRelease(col);
+    CGColorSpaceRelease(rgb);
+    CGContextRelease(ctx);
     //CFURLRef url = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, CFSTR("/var/mobile/Library/Preferences/image.bmp"), kCFURLPOSIXPathStyle, false);
     //CFStringRef type = kUTTypeBMP; // or kUTTypeBMP if you like
     //    CGImageDestinationRef dest = CGImageDestinationCreateWithURL(url, type, 1, 0);
     //    CGImageDestinationAddImage(dest, cgImage, 0);
     UIImage  *img2 = [UIImage imageWithCGImage:cgImage];
-    //[UIImageJPEGRepresentation(img2,10.0) writeToFile:@"/var/mobile/Library/Preferences/image2.jpg" atomically:YES];
-    return UIImagePNGRepresentation(img2);
+    CGImageRelease(cgImage);
+
+    return [UIImagePNGRepresentation(img2) autorelease];
 }
 @end

@@ -181,6 +181,7 @@
         if (key && domain) {
             SMFPreferences *p = [[SMFPreferences alloc] initWithPersistentDomainName:domain];
             [p setObject:[NSNumber numberWithInt:[[sender stringValue] intValue]] forKey:key];
+            [p release];
         }
         [[self stack] popController];
     }

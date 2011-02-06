@@ -22,6 +22,7 @@
         
         [a setText:[titles objectAtIndex:i] withAttributes:[[BRThemeInfo sharedTheme]menuItemTextAttributes]];
         [_items addObject:a];
+        [a release];
         [_options addObject:[invocations objectAtIndex:i]];
     }
     return self;
@@ -32,11 +33,11 @@
         [(NSInvocation *)[_options objectAtIndex:arg1]invoke];
     [[self stack]popController];
 }
-+(id)invocationsForObject:(id)target withSelectorVal:(NSString *)selectorString withArguments:(NSArray *)arguments
++(NSInvocation *)invocationsForObject:(id)target withSelectorVal:(NSString *)selectorString withArguments:(NSArray *)arguments
 {
     
     if (selectorString==nil) {
-        return @"none";
+        return [[[NSInvocation alloc] init] autorelease];
     }
     SEL theSelector;
     NSMethodSignature *aSignature;

@@ -14,7 +14,7 @@
 +(SMFViewMenuController *)menuViewController
 {
     SMFViewMenuController *vc = [[SMFViewMenuController alloc] init];
-    SMFPhotoMethods *col = [SMFPhotoMethods photoCollectionForPath:@"/var/root/pieter"];
+    //SMFPhotoMethods *col = [SMFPhotoMethods photoCollectionForPath:@"/var/root/pieter"];
 //    BRMenuView *v = [[NSClassFromString(@"BRMarimbaMenuView") alloc] initWithMediaCollection:col];
     BRMenuView *v = [[BRMenuView alloc]init];
     vc.view = v;
@@ -73,7 +73,7 @@
     
 }	// 0x3166c4e1
 - (id)list:(id)list willFocusItemAtIndexPath:(id)indexPath{
-    
+    return nil;
 }	// 0x3166c4e5
 - (void)list:(id)list willUnFocusItemAtIndexPath:(id)indexPath{
     

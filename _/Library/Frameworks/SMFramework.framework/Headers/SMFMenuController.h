@@ -8,18 +8,18 @@
 #import <Backrow/Backrow.h>
 #import <Foundation/Foundation.h>
 #import "SMFDefines.h"
-@interface SMFMenuController : BRMenuController {
+@interface SMFMenuController : BRMenuController <BRMenuListItemProvider> {
 //    int padding[32];
     NSMutableArray *_items;
     NSMutableArray *_options;
 }
 
--(float)heightForRow:(long)row;
--(BOOL)rowSelectable:(long)row;
--(long)itemCount;
--(id)itemForRow:(long)row;
+//-(float)heightForRow:(long)row;
+//-(BOOL)rowSelectable:(long)row;
+//-(long)itemCount;
+//-(id)itemForRow:(long)row;
 -(long)rowForTitle:(id)title;
--(id)titleForRow:(long)row;
+//-(id)titleForRow:(long)row;
 -(int)getSelection;
 -(id)everyLoad;
 

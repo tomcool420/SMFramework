@@ -50,11 +50,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFEventManager,sharedManager)
 
 -(void)loadInformation
 {
-    _remoteActionKeys=[(NSDictionary *) CFPreferencesCopyAppValue(remoteActionDict, eventsPlist)mutableCopy];
+    _remoteActionKeys=[ [ (NSDictionary *) CFPreferencesCopyAppValue(remoteActionDict, eventsPlist) autorelease]mutableCopy];
     if (_remoteActionKeys==nil) {
         _remoteActionKeys=[[NSMutableDictionary alloc]init];
     }
-    _keys=[(NSDictionary *) CFPreferencesCopyAppValue(keyDict, eventsPlist)mutableCopy];
+    _keys=[[[(NSDictionary *)CFPreferencesCopyAppValue(keyDict, eventsPlist) autorelease] mutableCopy] autorelease];
     if (_keys==nil) {
         _keys=[[NSMutableDictionary alloc]init];
     }

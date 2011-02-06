@@ -11,30 +11,30 @@
 #import "SynthesizeSingleton.h"
 #import <CoreGraphics/CoreGraphics.h>
 static void daemonRunCode(int type, NSString *codeString){
-	
-	CFMessagePortRef daemonPort = 0;
-	NSMutableDictionary *d = [[NSMutableDictionary alloc]init];
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    
-    [d setObject:codeString forKey:@"command"];
-    CFDataRef data= CFPropertyListCreateData (
-                                              NULL,
-                                              (CFDictionaryRef)d,
-                                              kCFPropertyListXMLFormat_v1_0,
-                                              0,
-                                              NULL);
-    NSLog(@"sending info");
-	if (!daemonPort || !CFMessagePortIsValid(daemonPort)) {
-        NSLog(@"searching for port");
-		daemonPort = CFMessagePortCreateRemote(NULL, CFSTR("org.tomcool.lowtide.daemon"));
-	}
-	if (!daemonPort) return;
-	NSLog(@"found port");
-	// create and send message
-	CFMessagePortSendRequest(daemonPort, type, data, 1, 1, NULL, NULL);
-    if (data) {
-        CFRelease(data);
-    }
+//	
+//	CFMessagePortRef daemonPort = 0;
+//	NSMutableDictionary *d = [[NSMutableDictionary alloc]init];
+//    
+//    [d setObject:codeString forKey:@"command"];
+//    CFDataRef data= CFPropertyListCreateData (
+//                                              NULL,
+//                                              (CFDictionaryRef)d,
+//                                              kCFPropertyListXMLFormat_v1_0,
+//                                              0,
+//                                              NULL);
+//    NSLog(@"sending info");
+//	if (!daemonPort || !CFMessagePortIsValid(daemonPort)) {
+//        NSLog(@"searching for port");
+//		daemonPort = CFMessagePortCreateRemote(NULL, CFSTR("org.tomcool.lowtide.daemon"));
+//	}
+//	if (!daemonPort) return;
+//	NSLog(@"found port");
+//	// create and send message
+//	CFMessagePortSendRequest(daemonPort, type, data, 1, 1, NULL, NULL);
+//    CFMessagePor
+//    if (data) {
+//        CFRelease(data);
+//    }
 }
 
 @implementation SMFCommonTools
@@ -46,9 +46,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 }
 +(id)popupControlWithLines:(NSArray *)array andImage:(BRImage *)image
 {
-    id ctrl =[[NSClassFromString(@"SMFPopupInfo") alloc] init];
+    
     if (image==nil) 
         return nil;
+    id ctrl =[[NSClassFromString(@"SMFPopupInfo") alloc] init];
     NSDictionary *dict;
     if (array==nil) {
         dict = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -85,7 +86,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
         timeout=8;
     id manager  = [BRPopUpManager sharedInstance];
     if (manager==nil) {
-        [BRPopUpManager setSingleton:[[BRPopUpManager alloc]init]];
+        [BRPopUpManager setSingleton:[[[BRPopUpManager alloc]init]autorelease]];
     }
     [[BRPopUpManager sharedInstance] postPopUpWithControl:popup 
                                                identifier:@"SMFPopup" 

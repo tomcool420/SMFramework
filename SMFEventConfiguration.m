@@ -57,7 +57,7 @@
     [k setPrimaryText:[_options objectAtIndex:selected]];
     [k setEvent:[_options objectAtIndex:selected]];
     [k setSecondaryText:@"Please press a key"];
-    [[self stack] pushController:k];
+    [[self stack] pushController:[k autorelease]];
 }
 @end
 @implementation SMFKeySelectMenu

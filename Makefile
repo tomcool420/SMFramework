@@ -1,4 +1,5 @@
 GO_EASY_ON_ME=1
+SDKVERSION=4.1
 FW_DEVICE_IP=appletv.local
 first: clean package install
 include $(THEOS)/makefiles/common.mk
@@ -15,7 +16,7 @@ SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow
 SMFramework_CFLAGS = -I../ATV2Includes
-SUBPROJECTS = eventcatcher SMFHelper # rootlaunchd smfporttester
+SUBPROJECTS = eventcatcher SMFHelper 
 
 
 
