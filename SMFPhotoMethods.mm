@@ -218,10 +218,27 @@ static NSArray *coverArtExtention=nil;
     }
     else if([arg1 isKindOfClass:[BRPhotoMediaAsset class]])
     {
+        NSLog(@"BRPhotoMediaAsset");
         returnObj = [[BRAsyncImageControl alloc] init];
         [returnObj setDefaultImage:[arg1 coverArt]];
         [returnObj setAcceptsFocus:YES];
         [returnObj autorelease];
+    }
+    else if([arg1 isKindOfClass:[BRBaseMediaAsset class]])
+    {
+        id proxy = [arg1 coverArt];
+        if(proxy == nil)
+            proxy = [arg1 imageProxy];
+        if (proxy==nil) 
+            return nil;
+        if ([proxy conformsToProtocol:@protocol(BRImageProxy)]) 
+            returnObj = [[BRAsyncImageControl alloc] initWithImage:proxy];
+        else if([proxy isKindOfClass:[BRImage class]])
+            returnObj = [[BRAsyncImageControl alloc] initWithImageProxy:proxy];
+        if (returnObj!=nil) {
+            [returnObj setAcceptsFocus:YES];
+            [returnObj autorelease];
+        }
     }
     else if([arg1 isKindOfClass:[BRDividerControl class]])
     {
