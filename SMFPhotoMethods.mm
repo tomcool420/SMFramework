@@ -196,6 +196,7 @@ static NSArray *coverArtExtention=nil;
 }
 -(id)controlForData:(id)arg1 currentControl:(id)arg2 requestedBy:(id)arg3
 {
+    NSLog(@"controlForData: data %@",arg1);
     id returnObj=nil;
     if([arg1 isKindOfClass:[SMFPhotoMediaCollection class]])
     {
@@ -218,7 +219,6 @@ static NSArray *coverArtExtention=nil;
     }
     else if([arg1 isKindOfClass:[BRPhotoMediaAsset class]])
     {
-        NSLog(@"BRPhotoMediaAsset");
         returnObj = [[BRAsyncImageControl alloc] init];
         [returnObj setDefaultImage:[arg1 coverArt]];
         [returnObj setAcceptsFocus:YES];
@@ -226,15 +226,15 @@ static NSArray *coverArtExtention=nil;
     }
     else if([arg1 isKindOfClass:[BRBaseMediaAsset class]])
     {
-        id proxy = [arg1 coverArt];
+        id proxy = nil;//[arg1 coverArt];
         if(proxy == nil)
             proxy = [arg1 imageProxy];
         if (proxy==nil) 
             return nil;
         if ([proxy conformsToProtocol:@protocol(BRImageProxy)]) 
-            returnObj = [[BRAsyncImageControl alloc] initWithImage:proxy];
-        else if([proxy isKindOfClass:[BRImage class]])
             returnObj = [[BRAsyncImageControl alloc] initWithImageProxy:proxy];
+        else if([proxy isKindOfClass:[BRImage class]])
+            returnObj = [[BRAsyncImageControl alloc] initWithImage:proxy];
         if (returnObj!=nil) {
             [returnObj setAcceptsFocus:YES];
             [returnObj autorelease];
@@ -248,6 +248,7 @@ static NSArray *coverArtExtention=nil;
     
     
     //returning nothing is also acceptable only for main menu
+    NSLog(@"returnObj: %@",returnObj);
     return returnObj;
 }
 @end
