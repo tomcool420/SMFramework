@@ -39,6 +39,7 @@
 @interface SMFPhotoMediaCollection : BRPhotoMediaCollection
 @end
 
+
 @interface SMFPhotoControlFactory : BRPhotoControlFactory
 {
     BOOL _mainmenu;

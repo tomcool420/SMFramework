@@ -49,4 +49,17 @@
  *  return: autoreleased CGColorRef
  */
 -(CGColorRef)colorWithRed:(float)r withGreen:(float)g withBlue:(float)b withAlpha:(float)a;
+
+/*
+ *  Convenience methods for the BRTheme Info Stars
+ */
+-(BRImage *)oneStar;
+-(BRImage *)onePointFiveStars;
+-(BRImage *)twoStars;
+-(BRImage *)twoPointFiveStars;
+-(BRImage *)threeStar;
+-(BRImage *)threePointFiveStars;
+-(BRImage *)fourStar;
+-(BRImage *)fourPointFiveStars;
+-(BRImage *)fiveStars;
 @end

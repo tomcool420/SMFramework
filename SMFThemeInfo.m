@@ -149,4 +149,41 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
 {
     return [self colorWithRed:red[12] withGreen:green[12] withBlue:blue[12] withAlpha:1.0];
 }
+-(BRImage *)oneStar
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars1" ofType:@"png"]];
+}
+-(BRImage *)onePointFiveStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars1_5" ofType:@"png"]];
+}
+-(BRImage *)twoStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars2" ofType:@"png"]];
+}
+-(BRImage *)twoPointFiveStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars2_5" ofType:@"png"]];
+}
+-(BRImage *)threeStar
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars3" ofType:@"png"]];
+}
+-(BRImage *)threePointFiveStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars3_5" ofType:@"png"]];
+}
+-(BRImage *)fourStar
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars4" ofType:@"png"]];
+}
+-(BRImage *)fourPointFiveStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars4_5" ofType:@"png"]];
+}
+-(BRImage *)fiveStars
+{
+    return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars5" ofType:@"png"]];
+}
+
 @end
