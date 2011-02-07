@@ -61,6 +61,45 @@
 		DD7A9EDE12FDF21A00AFF8C3 /* SMFGridController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A4D2012F26E8300E07934 /* SMFGridController.m */; };
 		DD7A9EF812FDFEEE00AFF8C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */; };
 		DD7A9FEF12FE006C00AFF8C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFC52AF12D3B96300D243D0 /* CoreGraphics.framework */; };
+		DD82B56212FFBC75007221FC /* SMFMoviePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */; };
+		DD82B57812FFBCF0007221FC /* BRMenuItem_SMF.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */; };
+		DD82B57912FFBCF0007221FC /* NSArray_SMF.h in Headers */ = {isa = PBXBuildFile; fileRef = DDF8E91512C8DE6A005EC3C1 /* NSArray_SMF.h */; };
+		DD82B57A12FFBCF0007221FC /* NSTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DDCB54C9128CA1EC0045529A /* NSTask.h */; };
+		DD82B57B12FFBCF0007221FC /* SMFBaseAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC80FB1273902A00192ADD /* SMFBaseAsset.h */; };
+		DD82B57C12FFBCF0007221FC /* SMFCenteredMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC80E9127375CE00192ADD /* SMFCenteredMenuController.h */; };
+		DD82B57D12FFBCF0007221FC /* SMFClockController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5B9F127DB3580038574E /* SMFClockController.h */; };
+		DD82B57E12FFBCF0007221FC /* SMFColorSelectionMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DD96C83A129B5C99002C5144 /* SMFColorSelectionMenu.h */; };
+		DD82B57F12FFBCF0007221FC /* SMFCommonTools.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5E0A12838A980038574E /* SMFCommonTools.h */; };
+		DD82B58012FFBCF0007221FC /* SMFController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC81721273A67000192ADD /* SMFController.h */; };
+		DD82B58112FFBCF0007221FC /* SMFDebAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD14618C12B50A5000FA8984 /* SMFDebAsset.h */; };
+		DD82B58212FFBCF0007221FC /* SMFDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA302A61274EF8900B0AE9C /* SMFDefines.h */; };
+		DD82B58312FFBCF0007221FC /* SMFEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5BD4127E19570038574E /* SMFEvent.h */; };
+		DD82B58412FFBCF0007221FC /* SMFEventConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5E0E12839A9A0038574E /* SMFEventConfiguration.h */; };
+		DD82B58512FFBCF0007221FC /* SMFEventManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5BD2127E0DE00038574E /* SMFEventManager.h */; };
+		DD82B58612FFBCF0007221FC /* SMFFolderBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC80F91273784800192ADD /* SMFFolderBrowser.h */; };
+		DD82B58712FFBCF0007221FC /* SMFFolderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */; };
+		DD82B58812FFBCF0007221FC /* SMFGridController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2A4D1F12F26E8300E07934 /* SMFGridController.h */; };
+		DD82B58912FFBCF0007221FC /* SMFImageAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD145D9712B48F6500FA8984 /* SMFImageAsset.h */; };
+		DD82B58A12FFBCF0007221FC /* SMFInvocationCenteredMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA3036112750A3500B0AE9C /* SMFInvocationCenteredMenuController.h */; };
+		DD82B58B12FFBCF0007221FC /* SMFListDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */; };
+		DD82B58C12FFBCF0007221FC /* SMFMediaMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC7DAD12731D1F00192ADD /* SMFMediaMenuController.h */; };
+		DD82B58D12FFBCF0007221FC /* SMFMediaPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC80FE1273909900192ADD /* SMFMediaPreview.h */; };
+		DD82B58E12FFBCF0007221FC /* SMFMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5F291284EF280038574E /* SMFMenuController.h */; };
+		DD82B58F12FFBCF0007221FC /* SMFMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD3136CB1277CFFC00042510 /* SMFMenuItem.h */; };
+		DD82B59012FFBCF0007221FC /* SMFMovieAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1DCBC912A3384800907459 /* SMFMovieAsset.h */; };
+		DD82B59112FFBCF0007221FC /* SMFMoviePreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */; };
+		DD82B59212FFBCF0007221FC /* SMFPasscodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC816F1273A66600192ADD /* SMFPasscodeController.h */; };
+		DD82B59312FFBCF0007221FC /* SMFPhotoMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5C03127E328C0038574E /* SMFPhotoMethods.h */; };
+		DD82B59412FFBCF0007221FC /* SMFPopup.h in Headers */ = {isa = PBXBuildFile; fileRef = DD96C3411298B9A0002C5144 /* SMFPopup.h */; };
+		DD82B59512FFBCF0007221FC /* SMFPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */; };
+		DD82B59612FFBCF0007221FC /* SMFProgressBarControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DDD623101290953500FC2CE5 /* SMFProgressBarControl.h */; };
+		DD82B59712FFBCF0007221FC /* SMFProgressBarMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2C4D6312ADCEFA00A83159 /* SMFProgressBarMenuItem.h */; };
+		DD82B59812FFBCF0007221FC /* SMFQueryMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = DDAE5F271284EED30038574E /* SMFQueryMenu.h */; };
+		DD82B59912FFBCF0007221FC /* SMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = DDDC818F1273B8C000192ADD /* SMFramework.h */; };
+		DD82B59A12FFBCF0007221FC /* SMFScreenCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = DDABC41A127877B3001F026B /* SMFScreenCapture.h */; };
+		DD82B59B12FFBCF0007221FC /* SMFSettingPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5379E912BE78930022849E /* SMFSettingPreferences.h */; };
+		DD82B59C12FFBCF0007221FC /* SMFThemeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */; };
+		DD82B59D12FFBCF0007221FC /* SMFViewMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2C5D1F12D6D3CF00AB0BDB /* SMFViewMenuController.h */; };
 		DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */; };
 		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
@@ -108,7 +147,9 @@
 		DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFListDropShadowControl.h; sourceTree = "<group>"; };
 		DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFListDropShadowControl.m; sourceTree = "<group>"; };
 		DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DD82A41E12FF1519007221FC /* SMFramework.frappliance */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.frappliance; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD82A41E12FF1519007221FC /* SMFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMoviePreviewController.h; sourceTree = "<group>"; };
+		DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMoviePreviewController.m; sourceTree = "<group>"; };
 		DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPopup.mm; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
@@ -286,7 +327,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DD82A41E12FF1519007221FC /* SMFramework.frappliance */,
+				DD82A41E12FF1519007221FC /* SMFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,6 +372,8 @@
 				DDDC81701273A66600192ADD /* SMFPasscodeController.m */,
 				DD2C5D1F12D6D3CF00AB0BDB /* SMFViewMenuController.h */,
 				DD2C5D2012D6D3CF00AB0BDB /* SMFViewMenuController.m */,
+				DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */,
+				DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */,
 			);
 			name = MenuControllers;
 			sourceTree = "<group>";
@@ -420,6 +463,54 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		DD82B5C212FFBD38007221FC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD82B57812FFBCF0007221FC /* BRMenuItem_SMF.h in Headers */,
+				DD82B57912FFBCF0007221FC /* NSArray_SMF.h in Headers */,
+				DD82B57A12FFBCF0007221FC /* NSTask.h in Headers */,
+				DD82B57B12FFBCF0007221FC /* SMFBaseAsset.h in Headers */,
+				DD82B57C12FFBCF0007221FC /* SMFCenteredMenuController.h in Headers */,
+				DD82B57D12FFBCF0007221FC /* SMFClockController.h in Headers */,
+				DD82B57E12FFBCF0007221FC /* SMFColorSelectionMenu.h in Headers */,
+				DD82B57F12FFBCF0007221FC /* SMFCommonTools.h in Headers */,
+				DD82B58012FFBCF0007221FC /* SMFController.h in Headers */,
+				DD82B58112FFBCF0007221FC /* SMFDebAsset.h in Headers */,
+				DD82B58212FFBCF0007221FC /* SMFDefines.h in Headers */,
+				DD82B58312FFBCF0007221FC /* SMFEvent.h in Headers */,
+				DD82B58412FFBCF0007221FC /* SMFEventConfiguration.h in Headers */,
+				DD82B58512FFBCF0007221FC /* SMFEventManager.h in Headers */,
+				DD82B58612FFBCF0007221FC /* SMFFolderBrowser.h in Headers */,
+				DD82B58712FFBCF0007221FC /* SMFFolderDelegate.h in Headers */,
+				DD82B58812FFBCF0007221FC /* SMFGridController.h in Headers */,
+				DD82B58912FFBCF0007221FC /* SMFImageAsset.h in Headers */,
+				DD82B58A12FFBCF0007221FC /* SMFInvocationCenteredMenuController.h in Headers */,
+				DD82B58B12FFBCF0007221FC /* SMFListDropShadowControl.h in Headers */,
+				DD82B58C12FFBCF0007221FC /* SMFMediaMenuController.h in Headers */,
+				DD82B58D12FFBCF0007221FC /* SMFMediaPreview.h in Headers */,
+				DD82B58E12FFBCF0007221FC /* SMFMenuController.h in Headers */,
+				DD82B58F12FFBCF0007221FC /* SMFMenuItem.h in Headers */,
+				DD82B59012FFBCF0007221FC /* SMFMovieAsset.h in Headers */,
+				DD82B59112FFBCF0007221FC /* SMFMoviePreviewController.h in Headers */,
+				DD82B59212FFBCF0007221FC /* SMFPasscodeController.h in Headers */,
+				DD82B59312FFBCF0007221FC /* SMFPhotoMethods.h in Headers */,
+				DD82B59412FFBCF0007221FC /* SMFPopup.h in Headers */,
+				DD82B59512FFBCF0007221FC /* SMFPreferences.h in Headers */,
+				DD82B59612FFBCF0007221FC /* SMFProgressBarControl.h in Headers */,
+				DD82B59712FFBCF0007221FC /* SMFProgressBarMenuItem.h in Headers */,
+				DD82B59812FFBCF0007221FC /* SMFQueryMenu.h in Headers */,
+				DD82B59912FFBCF0007221FC /* SMFramework.h in Headers */,
+				DD82B59A12FFBCF0007221FC /* SMFScreenCapture.h in Headers */,
+				DD82B59B12FFBCF0007221FC /* SMFSettingPreferences.h in Headers */,
+				DD82B59C12FFBCF0007221FC /* SMFThemeInfo.h in Headers */,
+				DD82B59D12FFBCF0007221FC /* SMFViewMenuController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		8D5B49AC048680CD000E48DA /* SMFramework */ = {
 			isa = PBXNativeTarget;
@@ -429,6 +520,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				DD82B5C212FFBD38007221FC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -437,7 +529,7 @@
 			name = SMFramework;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = atvTwo;
-			productReference = DD82A41E12FF1519007221FC /* SMFramework.frappliance */;
+			productReference = DD82A41E12FF1519007221FC /* SMFramework.framework */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -557,6 +649,7 @@
 				DD7A9EDD12FDF21600AFF8C3 /* NSArray_SMF.m in Sources */,
 				DD7A9EDE12FDF21A00AFF8C3 /* SMFGridController.m in Sources */,
 				DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */,
+				DD82B56212FFBC75007221FC /* SMFMoviePreviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +693,7 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = SMFramework;
-				WRAPPER_EXTENSION = frappliance;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
 		};
@@ -627,7 +720,7 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = SMFramework;
-				WRAPPER_EXTENSION = frappliance;
+				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
 		};
