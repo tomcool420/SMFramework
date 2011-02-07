@@ -78,6 +78,8 @@ static NSString * const kSMFMovieRating = @"rating";
     [asset setFullURL:p];
     BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:asset];
     [_previewControl setImageProxy:proxy];
+    [proxy release];
+    [asset release];
     [_previewControl setFrame:imageFrame];
     [self addControl:_previewControl];
     
