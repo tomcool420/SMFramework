@@ -1,6 +1,6 @@
 //
 //  SMFMoviePreviewController.m
-//  Slideshow
+//  SMFramework
 //
 //  Created by Thomas Cool on 2/6/11.
 //  Copyright 2011 tomcool.org. All rights reserved.

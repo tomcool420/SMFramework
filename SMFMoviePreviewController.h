@@ -1,12 +1,13 @@
 //
 //  SMFMoviePreviewController.h
-//  Slideshow
+//  SMFramework
 //
 //  Created by Thomas Cool on 2/6/11.
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
 
-#import <SMFramework/SMFramework.h>
+#import "SMFPhotoMethods.h"
+#import "SMFThemeInfo.h"
 @protocol SMFMoviePreviewControllerDatasource
 -(NSString *)title;
 -(NSString *)subtitle;
