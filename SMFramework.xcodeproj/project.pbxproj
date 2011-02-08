@@ -100,6 +100,353 @@
 		DD82B59B12FFBCF0007221FC /* SMFSettingPreferences.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5379E912BE78930022849E /* SMFSettingPreferences.h */; };
 		DD82B59C12FFBCF0007221FC /* SMFThemeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */; };
 		DD82B59D12FFBCF0007221FC /* SMFViewMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD2C5D1F12D6D3CF00AB0BDB /* SMFViewMenuController.h */; };
+		DD82B73A13007C7C007221FC /* ActionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E113007C7C007221FC /* ActionManager.h */; };
+		DD82B73B13007C7C007221FC /* AlertInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E213007C7C007221FC /* AlertInfo.h */; };
+		DD82B73C13007C7C007221FC /* AppleTV-Structs.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E313007C7C007221FC /* AppleTV-Structs.h */; };
+		DD82B73D13007C7C007221FC /* AppleTV.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E413007C7C007221FC /* AppleTV.h */; };
+		DD82B73E13007C7C007221FC /* AppNccpHandlerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E513007C7C007221FC /* AppNccpHandlerDelegate.h */; };
+		DD82B73F13007C7C007221FC /* ATVAirTunesConnectionControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E613007C7C007221FC /* ATVAirTunesConnectionControl.h */; };
+		DD82B74013007C7C007221FC /* ATVAirTunesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E713007C7C007221FC /* ATVAirTunesManager.h */; };
+		DD82B74113007C7C007221FC /* ATVAPNameEntryController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E813007C7C007221FC /* ATVAPNameEntryController.h */; };
+		DD82B74213007C7C007221FC /* ATVAPNetworkMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5E913007C7C007221FC /* ATVAPNetworkMenuController.h */; };
+		DD82B74313007C7C007221FC /* ATVAPPasswordEntryController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5EA13007C7C007221FC /* ATVAPPasswordEntryController.h */; };
+		DD82B74413007C7C007221FC /* ATVAPPasswordEntryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5EB13007C7C007221FC /* ATVAPPasswordEntryDelegate.h */; };
+		DD82B74513007C7C007221FC /* ATVAPTestController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5EC13007C7C007221FC /* ATVAPTestController.h */; };
+		DD82B74613007C7C007221FC /* ATVAPTestResultDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5ED13007C7C007221FC /* ATVAPTestResultDelegate.h */; };
+		DD82B74713007C7C007221FC /* ATVAPWEPPasswordMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5EE13007C7C007221FC /* ATVAPWEPPasswordMenuController.h */; };
+		DD82B74813007C7C007221FC /* ATVAsyncNetworkTest.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5EF13007C7C007221FC /* ATVAsyncNetworkTest.h */; };
+		DD82B74913007C7C007221FC /* ATVBlackScreenSaver.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F013007C7C007221FC /* ATVBlackScreenSaver.h */; };
+		DD82B74A13007C7C007221FC /* ATVBlueDotUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F113007C7C007221FC /* ATVBlueDotUtilities.h */; };
+		DD82B74B13007C7C007221FC /* ATVBSRLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F213007C7C007221FC /* ATVBSRLayer.h */; };
+		DD82B74C13007C7C007221FC /* ATVCatalogAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F313007C7C007221FC /* ATVCatalogAgent.h */; };
+		DD82B74D13007C7C007221FC /* ATVCatalogApplianceController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F413007C7C007221FC /* ATVCatalogApplianceController.h */; };
+		DD82B74E13007C7C007221FC /* ATVCatalogHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F513007C7C007221FC /* ATVCatalogHandler.h */; };
+		DD82B74F13007C7C007221FC /* ATVClientVersionEvaluation.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F613007C7C007221FC /* ATVClientVersionEvaluation.h */; };
+		DD82B75013007C7C007221FC /* ATVCVVControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F713007C7C007221FC /* ATVCVVControl.h */; };
+		DD82B75113007C7C007221FC /* ATVDateToMonthDayYearTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F813007C7C007221FC /* ATVDateToMonthDayYearTransformer.h */; };
+		DD82B75213007C7C007221FC /* ATVDefaultPhotos.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5F913007C7C007221FC /* ATVDefaultPhotos.h */; };
+		DD82B75313007C7C007221FC /* ATVDetailedMetadataControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FA13007C7C007221FC /* ATVDetailedMetadataControlFactory.h */; };
+		DD82B75413007C7C007221FC /* ATVDirectionalRemoteConnectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FB13007C7C007221FC /* ATVDirectionalRemoteConnectionHandler.h */; };
+		DD82B75513007C7C007221FC /* ATVDiskSpaceManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FC13007C7C007221FC /* ATVDiskSpaceManager.h */; };
+		DD82B75613007C7C007221FC /* ATVDotMacAccountDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FD13007C7C007221FC /* ATVDotMacAccountDelegate.h */; };
+		DD82B75713007C7C007221FC /* ATVDotMacAlbumDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FE13007C7C007221FC /* ATVDotMacAlbumDelegate.h */; };
+		DD82B75813007C7C007221FC /* ATVDotMacAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B5FF13007C7C007221FC /* ATVDotMacAsset.h */; };
+		DD82B75913007C7C007221FC /* ATVDotMacAuthentication.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60013007C7C007221FC /* ATVDotMacAuthentication.h */; };
+		DD82B75A13007C7C007221FC /* ATVDotMacCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60113007C7C007221FC /* ATVDotMacCollection.h */; };
+		DD82B75B13007C7C007221FC /* ATVDotMacCollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60213007C7C007221FC /* ATVDotMacCollectionController.h */; };
+		DD82B75C13007C7C007221FC /* ATVDotMacControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60313007C7C007221FC /* ATVDotMacControlFactory.h */; };
+		DD82B75D13007C7C007221FC /* ATVDotMacDisplayInfoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60413007C7C007221FC /* ATVDotMacDisplayInfoLoader.h */; };
+		DD82B75E13007C7C007221FC /* ATVDotMacImageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60513007C7C007221FC /* ATVDotMacImageProxy.h */; };
+		DD82B75F13007C7C007221FC /* ATVDotMacMainMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60613007C7C007221FC /* ATVDotMacMainMenuController.h */; };
+		DD82B76013007C7C007221FC /* ATVDotMacManagedAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60713007C7C007221FC /* ATVDotMacManagedAccount.h */; };
+		DD82B76113007C7C007221FC /* ATVDotMacMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60813007C7C007221FC /* ATVDotMacMonitor.h */; };
+		DD82B76213007C7C007221FC /* ATVDotMacMonitorBackgroundTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60913007C7C007221FC /* ATVDotMacMonitorBackgroundTask.h */; };
+		DD82B76313007C7C007221FC /* ATVDotMacParserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60A13007C7C007221FC /* ATVDotMacParserDelegate.h */; };
+		DD82B76413007C7C007221FC /* ATVDotMacPhotoSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60B13007C7C007221FC /* ATVDotMacPhotoSelectionHandler.h */; };
+		DD82B76513007C7C007221FC /* ATVDotMacProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60C13007C7C007221FC /* ATVDotMacProvider.h */; };
+		DD82B76613007C7C007221FC /* ATVDotMacProviderForAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60D13007C7C007221FC /* ATVDotMacProviderForAccount.h */; };
+		DD82B76713007C7C007221FC /* ATVDotMacProviderForCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60E13007C7C007221FC /* ATVDotMacProviderForCollection.h */; };
+		DD82B76813007C7C007221FC /* ATVDotMacRecentAlbumsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B60F13007C7C007221FC /* ATVDotMacRecentAlbumsProvider.h */; };
+		DD82B76913007C7C007221FC /* ATVDotMacRecentAlbumsRSSFeedDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61013007C7C007221FC /* ATVDotMacRecentAlbumsRSSFeedDelegate.h */; };
+		DD82B76A13007C7C007221FC /* ATVDotMacSecondaryAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61113007C7C007221FC /* ATVDotMacSecondaryAccount.h */; };
+		DD82B76B13007C7C007221FC /* ATVDotMacVideoAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61213007C7C007221FC /* ATVDotMacVideoAsset.h */; };
+		DD82B76C13007C7C007221FC /* ATVDotMacVideoDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61313007C7C007221FC /* ATVDotMacVideoDelegate.h */; };
+		DD82B76D13007C7C007221FC /* ATVDotMacVideoSlideshowAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61413007C7C007221FC /* ATVDotMacVideoSlideshowAsset.h */; };
+		DD82B76E13007C7C007221FC /* ATVDottedQuadEntryController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61513007C7C007221FC /* ATVDottedQuadEntryController.h */; };
+		DD82B76F13007C7C007221FC /* ATVDottedQuadEntryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61613007C7C007221FC /* ATVDottedQuadEntryDelegate.h */; };
+		DD82B77013007C7C007221FC /* ATVDownloadMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61713007C7C007221FC /* ATVDownloadMenuItem.h */; };
+		DD82B77113007C7C007221FC /* ATVDownloadsMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61813007C7C007221FC /* ATVDownloadsMonitor.h */; };
+		DD82B77213007C7C007221FC /* ATVDownloadsPeriodicCheckForPurchasesMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61913007C7C007221FC /* ATVDownloadsPeriodicCheckForPurchasesMonitor.h */; };
+		DD82B77313007C7C007221FC /* ATVEpisodeTitleTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61A13007C7C007221FC /* ATVEpisodeTitleTransformer.h */; };
+		DD82B77413007C7C007221FC /* ATVEvaluation.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61B13007C7C007221FC /* ATVEvaluation.h */; };
+		DD82B77513007C7C007221FC /* ATVFavorite.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61C13007C7C007221FC /* ATVFavorite.h */; };
+		DD82B77613007C7C007221FC /* ATVFavoritesControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61D13007C7C007221FC /* ATVFavoritesControlFactory.h */; };
+		DD82B77713007C7C007221FC /* ATVFavoritesController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61E13007C7C007221FC /* ATVFavoritesController.h */; };
+		DD82B77813007C7C007221FC /* ATVFavoritesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B61F13007C7C007221FC /* ATVFavoritesManager.h */; };
+		DD82B77913007C7C007221FC /* ATVFavoritesProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62013007C7C007221FC /* ATVFavoritesProvider.h */; };
+		DD82B77A13007C7C007221FC /* ATVFavoritesSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62113007C7C007221FC /* ATVFavoritesSelectionHandler.h */; };
+		DD82B77B13007C7C007221FC /* ATVFavoriteUnavailableController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62213007C7C007221FC /* ATVFavoriteUnavailableController.h */; };
+		DD82B77C13007C7C007221FC /* ATVFlickrAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62313007C7C007221FC /* ATVFlickrAsset.h */; };
+		DD82B77D13007C7C007221FC /* ATVFlickrCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62413007C7C007221FC /* ATVFlickrCollection.h */; };
+		DD82B77E13007C7C007221FC /* ATVFlickrCollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62513007C7C007221FC /* ATVFlickrCollectionController.h */; };
+		DD82B77F13007C7C007221FC /* ATVFlickrContactsController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62613007C7C007221FC /* ATVFlickrContactsController.h */; };
+		DD82B78013007C7C007221FC /* ATVFlickrContactsProviderForAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62713007C7C007221FC /* ATVFlickrContactsProviderForAccount.h */; };
+		DD82B78113007C7C007221FC /* ATVFlickrControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62813007C7C007221FC /* ATVFlickrControlFactory.h */; };
+		DD82B78213007C7C007221FC /* ATVFlickrDisplayInfoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62913007C7C007221FC /* ATVFlickrDisplayInfoLoader.h */; };
+		DD82B78313007C7C007221FC /* ATVFlickrImageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62A13007C7C007221FC /* ATVFlickrImageProxy.h */; };
+		DD82B78413007C7C007221FC /* ATVFlickrMainMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62B13007C7C007221FC /* ATVFlickrMainMenuController.h */; };
+		DD82B78513007C7C007221FC /* ATVFlickrManagedAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62C13007C7C007221FC /* ATVFlickrManagedAccount.h */; };
+		DD82B78613007C7C007221FC /* ATVFlickrMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62D13007C7C007221FC /* ATVFlickrMonitor.h */; };
+		DD82B78713007C7C007221FC /* ATVFlickrMonitorBackgroundTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62E13007C7C007221FC /* ATVFlickrMonitorBackgroundTask.h */; };
+		DD82B78813007C7C007221FC /* ATVFlickrParserDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B62F13007C7C007221FC /* ATVFlickrParserDelegate.h */; };
+		DD82B78913007C7C007221FC /* ATVFlickrProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63013007C7C007221FC /* ATVFlickrProvider.h */; };
+		DD82B78A13007C7C007221FC /* ATVFlickrProviderForAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63113007C7C007221FC /* ATVFlickrProviderForAccount.h */; };
+		DD82B78B13007C7C007221FC /* ATVFlickrProviderForCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63213007C7C007221FC /* ATVFlickrProviderForCollection.h */; };
+		DD82B78C13007C7C007221FC /* ATVFlickrProviderForSavedSearches.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63313007C7C007221FC /* ATVFlickrProviderForSavedSearches.h */; };
+		DD82B78D13007C7C007221FC /* ATVFlickrSaveRemoveSearchSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63413007C7C007221FC /* ATVFlickrSaveRemoveSearchSelectionHandler.h */; };
+		DD82B78E13007C7C007221FC /* ATVFlickrSearchAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63513007C7C007221FC /* ATVFlickrSearchAgent.h */; };
+		DD82B78F13007C7C007221FC /* ATVHardwareUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63613007C7C007221FC /* ATVHardwareUtility.h */; };
+		DD82B79013007C7C007221FC /* ATVHIDSystemClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63713007C7C007221FC /* ATVHIDSystemClient.h */; };
+		DD82B79113007C7C007221FC /* ATVHIDThread.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63813007C7C007221FC /* ATVHIDThread.h */; };
+		DD82B79213007C7C007221FC /* ATVHomeShareAccountCreationController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63913007C7C007221FC /* ATVHomeShareAccountCreationController.h */; };
+		DD82B79313007C7C007221FC /* ATVHomeShareAuthenticationResources.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63A13007C7C007221FC /* ATVHomeShareAuthenticationResources.h */; };
+		DD82B79413007C7C007221FC /* ATVInternetPhotosAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63B13007C7C007221FC /* ATVInternetPhotosAccount.h */; };
+		DD82B79513007C7C007221FC /* ATVInternetPhotosCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63C13007C7C007221FC /* ATVInternetPhotosCollection.h */; };
+		DD82B79613007C7C007221FC /* ATVInternetPhotosMonitor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63D13007C7C007221FC /* ATVInternetPhotosMonitor.h */; };
+		DD82B79713007C7C007221FC /* ATVInternetRadioFavorite.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63E13007C7C007221FC /* ATVInternetRadioFavorite.h */; };
+		DD82B79813007C7C007221FC /* ATVIPEntryDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B63F13007C7C007221FC /* ATVIPEntryDialog.h */; };
+		DD82B79913007C7C007221FC /* ATVIPv4AddressEntryControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64013007C7C007221FC /* ATVIPv4AddressEntryControl.h */; };
+		DD82B79A13007C7D007221FC /* ATVIPv4AddressSelectionControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64113007C7C007221FC /* ATVIPv4AddressSelectionControl.h */; };
+		DD82B79B13007C7D007221FC /* ATVIPv4AddressSelectionWidget.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64213007C7C007221FC /* ATVIPv4AddressSelectionWidget.h */; };
+		DD82B79C13007C7D007221FC /* ATViTunesKeyValueStoreAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64313007C7C007221FC /* ATViTunesKeyValueStoreAPI.h */; };
+		DD82B79D13007C7D007221FC /* ATViTunesKeyValueStoreGetItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64413007C7C007221FC /* ATViTunesKeyValueStoreGetItem.h */; };
+		DD82B79E13007C7D007221FC /* ATViTunesKeyValueStorePutItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64513007C7C007221FC /* ATViTunesKeyValueStorePutItem.h */; };
+		DD82B79F13007C7D007221FC /* ATVITunesLibraryTouchRemoteAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64613007C7C007221FC /* ATVITunesLibraryTouchRemoteAccess.h */; };
+		DD82B7A013007C7D007221FC /* ATVITunesTouchRemoteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64713007C7C007221FC /* ATVITunesTouchRemoteManager.h */; };
+		DD82B7A113007C7D007221FC /* ATVKeyValueStore.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64813007C7C007221FC /* ATVKeyValueStore.h */; };
+		DD82B7A213007C7D007221FC /* ATVKeyValueStoreCleanupTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64913007C7C007221FC /* ATVKeyValueStoreCleanupTask.h */; };
+		DD82B7A313007C7D007221FC /* ATVKeyValueStoreUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64A13007C7C007221FC /* ATVKeyValueStoreUtilities.h */; };
+		DD82B7A413007C7D007221FC /* ATVLanguageChooserController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64B13007C7C007221FC /* ATVLanguageChooserController.h */; };
+		DD82B7A513007C7D007221FC /* ATVMerchant.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64C13007C7C007221FC /* ATVMerchant.h */; };
+		DD82B7A613007C7D007221FC /* ATVMerchant_ITMS.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64D13007C7C007221FC /* ATVMerchant_ITMS.h */; };
+		DD82B7A713007C7D007221FC /* ATVMerchant_Sedona.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64E13007C7C007221FC /* ATVMerchant_Sedona.h */; };
+		DD82B7A813007C7D007221FC /* ATVMerchantRepresentativeFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B64F13007C7C007221FC /* ATVMerchantRepresentativeFeed.h */; };
+		DD82B7A913007C7D007221FC /* ATVMovieRentalPosterControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65013007C7C007221FC /* ATVMovieRentalPosterControl.h */; };
+		DD82B7AA13007C7D007221FC /* ATVMoviesPlayActionButtonControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65113007C7C007221FC /* ATVMoviesPlayActionButtonControl.h */; };
+		DD82B7AB13007C7D007221FC /* ATVMultistateProgressIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65213007C7C007221FC /* ATVMultistateProgressIndicator.h */; };
+		DD82B7AC13007C7D007221FC /* ATVMusicCoversCollectionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65313007C7C007221FC /* ATVMusicCoversCollectionProxy.h */; };
+		DD82B7AD13007C7D007221FC /* ATVMusicCoversMediaAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65413007C7C007221FC /* ATVMusicCoversMediaAsset.h */; };
+		DD82B7AE13007C7D007221FC /* ATVMusicStoreAccountSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65513007C7C007221FC /* ATVMusicStoreAccountSelector.h */; };
+		DD82B7AF13007C7D007221FC /* ATVMusicStoreAcquisitionController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65613007C7C007221FC /* ATVMusicStoreAcquisitionController.h */; };
+		DD82B7B013007C7D007221FC /* ATVMusicStoreActionControlPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65713007C7C007221FC /* ATVMusicStoreActionControlPopulator.h */; };
+		DD82B7B113007C7D007221FC /* ATVMusicStoreAssetController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65813007C7C007221FC /* ATVMusicStoreAssetController.h */; };
+		DD82B7B213007C7D007221FC /* ATVMusicStoreAuthenticationResources.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65913007C7C007221FC /* ATVMusicStoreAuthenticationResources.h */; };
+		DD82B7B313007C7D007221FC /* ATVMusicStoreBaseAppliance.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65A13007C7C007221FC /* ATVMusicStoreBaseAppliance.h */; };
+		DD82B7B413007C7D007221FC /* ATVMusicStoreBaseMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65B13007C7C007221FC /* ATVMusicStoreBaseMetadataProvider.h */; };
+		DD82B7B513007C7D007221FC /* ATVMusicStoreCatalogAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65C13007C7C007221FC /* ATVMusicStoreCatalogAgent.h */; };
+		DD82B7B613007C7D007221FC /* ATVMusicStoreCatalogCollectionController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65D13007C7C007221FC /* ATVMusicStoreCatalogCollectionController.h */; };
+		DD82B7B713007C7D007221FC /* ATVMusicStoreCatalogItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65E13007C7C007221FC /* ATVMusicStoreCatalogItemController.h */; };
+		DD82B7B813007C7D007221FC /* ATVMusicStoreCatalogItemProviderFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B65F13007C7C007221FC /* ATVMusicStoreCatalogItemProviderFactory.h */; };
+		DD82B7B913007C7D007221FC /* ATVMusicStoreCatalogRefreshTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66013007C7C007221FC /* ATVMusicStoreCatalogRefreshTask.h */; };
+		DD82B7BA13007C7D007221FC /* ATVMusicStoreControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66113007C7C007221FC /* ATVMusicStoreControlFactory.h */; };
+		DD82B7BB13007C7D007221FC /* ATVMusicStoreControlPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66213007C7C007221FC /* ATVMusicStoreControlPopulator.h */; };
+		DD82B7BC13007C7D007221FC /* ATVMusicStoreDoubleRowPagedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66313007C7C007221FC /* ATVMusicStoreDoubleRowPagedViewController.h */; };
+		DD82B7BD13007C7D007221FC /* ATVMusicStoreDownloadFailurePopup.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66413007C7C007221FC /* ATVMusicStoreDownloadFailurePopup.h */; };
+		DD82B7BE13007C7D007221FC /* ATVMusicStoreDownloadsController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66513007C7C007221FC /* ATVMusicStoreDownloadsController.h */; };
+		DD82B7BF13007C7D007221FC /* ATVMusicStoreFavoriteListItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66613007C7C007221FC /* ATVMusicStoreFavoriteListItemProvider.h */; };
+		DD82B7C013007C7D007221FC /* ATVMusicStoreHomeShareAccountSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66713007C7C007221FC /* ATVMusicStoreHomeShareAccountSelector.h */; };
+		DD82B7C113007C7D007221FC /* ATVMusicStoreItemDetailController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66813007C7C007221FC /* ATVMusicStoreItemDetailController.h */; };
+		DD82B7C213007C7D007221FC /* ATVMusicStoreItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66913007C7C007221FC /* ATVMusicStoreItemProvider.h */; };
+		DD82B7C313007C7D007221FC /* ATVMusicStoreMoreInfoController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66A13007C7C007221FC /* ATVMusicStoreMoreInfoController.h */; };
+		DD82B7C413007C7D007221FC /* ATVMusicStoreMoreInfoControlPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66B13007C7C007221FC /* ATVMusicStoreMoreInfoControlPopulator.h */; };
+		DD82B7C513007C7D007221FC /* ATVMusicStoreMoreInfoProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66C13007C7C007221FC /* ATVMusicStoreMoreInfoProvider.h */; };
+		DD82B7C613007C7D007221FC /* ATVMusicStoreMoreInfoSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66D13007C7C007221FC /* ATVMusicStoreMoreInfoSelectionHandler.h */; };
+		DD82B7C713007C7D007221FC /* ATVMusicStoreMovieItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66E13007C7C007221FC /* ATVMusicStoreMovieItemController.h */; };
+		DD82B7C813007C7D007221FC /* ATVMusicStoreMovieMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B66F13007C7C007221FC /* ATVMusicStoreMovieMetadataProvider.h */; };
+		DD82B7C913007C7D007221FC /* ATVMusicStoreMoviePreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67013007C7C007221FC /* ATVMusicStoreMoviePreviewController.h */; };
+		DD82B7CA13007C7D007221FC /* ATVMusicStoreMusicAlbumMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67113007C7C007221FC /* ATVMusicStoreMusicAlbumMetadataProvider.h */; };
+		DD82B7CB13007C7D007221FC /* ATVMusicStoreMusicItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67213007C7C007221FC /* ATVMusicStoreMusicItemController.h */; };
+		DD82B7CC13007C7D007221FC /* ATVMusicStoreMusicMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67313007C7C007221FC /* ATVMusicStoreMusicMetadataProvider.h */; };
+		DD82B7CD13007C7D007221FC /* ATVMusicStoreMusicVideoMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67413007C7C007221FC /* ATVMusicStoreMusicVideoMetadataProvider.h */; };
+		DD82B7CE13007C7D007221FC /* ATVMusicStoreOffer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67513007C7C007221FC /* ATVMusicStoreOffer.h */; };
+		DD82B7CF13007C7D007221FC /* ATVMusicStoreOfferControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67613007C7C007221FC /* ATVMusicStoreOfferControl.h */; };
+		DD82B7D013007C7D007221FC /* ATVMusicStoreOfferControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67713007C7C007221FC /* ATVMusicStoreOfferControlFactory.h */; };
+		DD82B7D113007C7D007221FC /* ATVMusicStoreOtherSeasonsControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67813007C7C007221FC /* ATVMusicStoreOtherSeasonsControlFactory.h */; };
+		DD82B7D213007C7D007221FC /* ATVMusicStoreOtherSeasonsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67913007C7C007221FC /* ATVMusicStoreOtherSeasonsProvider.h */; };
+		DD82B7D313007C7D007221FC /* ATVMusicStoreOtherSeasonsSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67A13007C7C007221FC /* ATVMusicStoreOtherSeasonsSelectionHandler.h */; };
+		DD82B7D413007C7D007221FC /* ATVMusicStorePagedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67B13007C7C007221FC /* ATVMusicStorePagedViewController.h */; };
+		DD82B7D513007C7D007221FC /* ATVMusicStorePodcastAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67C13007C7C007221FC /* ATVMusicStorePodcastAsset.h */; };
+		DD82B7D613007C7D007221FC /* ATVMusicStorePodcastItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67D13007C7C007221FC /* ATVMusicStorePodcastItemController.h */; };
+		DD82B7D713007C7D007221FC /* ATVMusicStorePodcastMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67E13007C7C007221FC /* ATVMusicStorePodcastMetadataProvider.h */; };
+		DD82B7D813007C7D007221FC /* ATVMusicStorePodcastShowMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B67F13007C7C007221FC /* ATVMusicStorePodcastShowMetadataProvider.h */; };
+		DD82B7D913007C7D007221FC /* ATVMusicStorePresentsDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68013007C7C007221FC /* ATVMusicStorePresentsDocument.h */; };
+		DD82B7DA13007C7D007221FC /* ATVMusicStorePresentsItemControlPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68113007C7C007221FC /* ATVMusicStorePresentsItemControlPopulator.h */; };
+		DD82B7DB13007C7D007221FC /* ATVMusicStorePresentsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68213007C7C007221FC /* ATVMusicStorePresentsProvider.h */; };
+		DD82B7DC13007C7D007221FC /* ATVMusicStoreRentalDetailPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68313007C7C007221FC /* ATVMusicStoreRentalDetailPageController.h */; };
+		DD82B7DD13007C7D007221FC /* ATVMusicStoreRottenTomatoesControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68413007C7C007221FC /* ATVMusicStoreRottenTomatoesControl.h */; };
+		DD82B7DE13007C7D007221FC /* ATVMusicStoreRottenTomatoesRatingControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68513007C7C007221FC /* ATVMusicStoreRottenTomatoesRatingControl.h */; };
+		DD82B7DF13007C7D007221FC /* ATVMusicStoreSearchAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68613007C7C007221FC /* ATVMusicStoreSearchAgent.h */; };
+		DD82B7E013007C7D007221FC /* ATVMusicStoreShowInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68713007C7C007221FC /* ATVMusicStoreShowInfo.h */; };
+		DD82B7E113007C7D007221FC /* ATVMusicStoreSingleItemPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68813007C7C007221FC /* ATVMusicStoreSingleItemPopulator.h */; };
+		DD82B7E213007C7D007221FC /* ATVMusicStoreSingleRowPagedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68913007C7C007221FC /* ATVMusicStoreSingleRowPagedViewController.h */; };
+		DD82B7E313007C7D007221FC /* ATVMusicStoreTabbedPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68A13007C7C007221FC /* ATVMusicStoreTabbedPageController.h */; };
+		DD82B7E413007C7D007221FC /* ATVMusicStoreTabManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68B13007C7C007221FC /* ATVMusicStoreTabManager.h */; };
+		DD82B7E513007C7D007221FC /* ATVMusicStoreTransactionDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68C13007C7C007221FC /* ATVMusicStoreTransactionDialog.h */; };
+		DD82B7E613007C7D007221FC /* ATVMusicStoreTVEpisodeItemController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68D13007C7C007221FC /* ATVMusicStoreTVEpisodeItemController.h */; };
+		DD82B7E713007C7D007221FC /* ATVMusicStoreTVMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68E13007C7C007221FC /* ATVMusicStoreTVMetadataProvider.h */; };
+		DD82B7E813007C7D007221FC /* ATVMusicStoreTVSeasonMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B68F13007C7C007221FC /* ATVMusicStoreTVSeasonMetadataProvider.h */; };
+		DD82B7E913007C7D007221FC /* ATVMusicStoreUserReviewsControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69013007C7C007221FC /* ATVMusicStoreUserReviewsControl.h */; };
+		DD82B7EA13007C7D007221FC /* ATVMusicStoreXMLDocumentPreProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69113007C7C007221FC /* ATVMusicStoreXMLDocumentPreProcessor.h */; };
+		DD82B7EB13007C7D007221FC /* ATVNumUserReviewsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69213007C7C007221FC /* ATVNumUserReviewsTransformer.h */; };
+		DD82B7EC13007C7D007221FC /* ATVPlayButtonEnabledButtonControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69313007C7C007221FC /* ATVPlayButtonEnabledButtonControl.h */; };
+		DD82B7ED13007C7D007221FC /* ATVRCButtonPatternSet.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69413007C7C007221FC /* ATVRCButtonPatternSet.h */; };
+		DD82B7EE13007C7D007221FC /* ATVRCCapture.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69513007C7C007221FC /* ATVRCCapture.h */; };
+		DD82B7EF13007C7D007221FC /* ATVRCManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69613007C7C007221FC /* ATVRCManager.h */; };
+		DD82B7F013007C7D007221FC /* ATVRCPatternMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69713007C7C007221FC /* ATVRCPatternMatcher.h */; };
+		DD82B7F113007C7D007221FC /* ATVRCPatternMatcherDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69813007C7C007221FC /* ATVRCPatternMatcherDelegate.h */; };
+		DD82B7F213007C7D007221FC /* ATVRebootWaitController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69913007C7C007221FC /* ATVRebootWaitController.h */; };
+		DD82B7F313007C7D007221FC /* ATVRecentSearchesController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69A13007C7C007221FC /* ATVRecentSearchesController.h */; };
+		DD82B7F413007C7D007221FC /* ATVRecentSearchSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69B13007C7C007221FC /* ATVRecentSearchSelectionHandler.h */; };
+		DD82B7F513007C7D007221FC /* ATVReleaseDateAsInTheatersDateValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69C13007C7C007221FC /* ATVReleaseDateAsInTheatersDateValueTransformer.h */; };
+		DD82B7F613007C7D007221FC /* ATVReleaseDateAsOriginalAirDateValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69D13007C7C007221FC /* ATVReleaseDateAsOriginalAirDateValueTransformer.h */; };
+		DD82B7F713007C7D007221FC /* ATVReleaseDateAsReleasedDateValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69E13007C7C007221FC /* ATVReleaseDateAsReleasedDateValueTransformer.h */; };
+		DD82B7F813007C7D007221FC /* ATVReleaseDateAsYearValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B69F13007C7C007221FC /* ATVReleaseDateAsYearValueTransformer.h */; };
+		DD82B7F913007C7D007221FC /* ATVRemoteControlMessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A013007C7C007221FC /* ATVRemoteControlMessageHandler.h */; };
+		DD82B7FA13007C7D007221FC /* ATVRemoteSet.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A113007C7C007221FC /* ATVRemoteSet.h */; };
+		DD82B7FB13007C7D007221FC /* ATVRentalExpiryUserNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A213007C7C007221FC /* ATVRentalExpiryUserNotification.h */; };
+		DD82B7FC13007C7D007221FC /* ATVRentalPosterControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A313007C7C007221FC /* ATVRentalPosterControl.h */; };
+		DD82B7FD13007C7D007221FC /* ATVRentedMediaProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A413007C7C007221FC /* ATVRentedMediaProvider.h */; };
+		DD82B7FE13007C7D007221FC /* ATVRetailDemoModeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A513007C7C007221FC /* ATVRetailDemoModeManager.h */; };
+		DD82B7FF13007C7D007221FC /* ATVScreenSaverArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A613007C7C007221FC /* ATVScreenSaverArchiver.h */; };
+		DD82B80013007C7D007221FC /* ATVScreenSaverControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A713007C7C007221FC /* ATVScreenSaverControl.h */; };
+		DD82B80113007C7D007221FC /* ATVScreenSaverManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A813007C7C007221FC /* ATVScreenSaverManager.h */; };
+		DD82B80213007C7D007221FC /* ATVScreenSaverPluginProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6A913007C7C007221FC /* ATVScreenSaverPluginProtocol.h */; };
+		DD82B80313007C7D007221FC /* ATVScreenSaverPrefetchTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AA13007C7C007221FC /* ATVScreenSaverPrefetchTask.h */; };
+		DD82B80413007C7D007221FC /* ATVSearchAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AB13007C7C007221FC /* ATVSearchAgent.h */; };
+		DD82B80513007C7D007221FC /* ATVSearchController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AC13007C7C007221FC /* ATVSearchController.h */; };
+		DD82B80613007C7D007221FC /* ATVSearchTerm.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AD13007C7C007221FC /* ATVSearchTerm.h */; };
+		DD82B80713007C7D007221FC /* ATVSedonaAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AE13007C7C007221FC /* ATVSedonaAccount.h */; };
+		DD82B80813007C7D007221FC /* ATVSedonaActionControlPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6AF13007C7C007221FC /* ATVSedonaActionControlPopulator.h */; };
+		DD82B80913007C7D007221FC /* ATVSedonaAuthenticationResources.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B013007C7C007221FC /* ATVSedonaAuthenticationResources.h */; };
+		DD82B80A13007C7D007221FC /* ATVSedonaCatalogAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B113007C7C007221FC /* ATVSedonaCatalogAgent.h */; };
+		DD82B80B13007C7D007221FC /* ATVSedonaCatalogHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B213007C7C007221FC /* ATVSedonaCatalogHandler.h */; };
+		DD82B80C13007C7D007221FC /* ATVSedonaCatalogItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B313007C7C007221FC /* ATVSedonaCatalogItem.h */; };
+		DD82B80D13007C7D007221FC /* ATVSedonaCatalogItemProviderFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B413007C7C007221FC /* ATVSedonaCatalogItemProviderFactory.h */; };
+		DD82B80E13007C7D007221FC /* ATVSedonaController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B513007C7C007221FC /* ATVSedonaController.h */; };
+		DD82B80F13007C7D007221FC /* ATVSedonaItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B613007C7C007221FC /* ATVSedonaItemProvider.h */; };
+		DD82B81013007C7D007221FC /* ATVSedonaMovieMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B713007C7C007221FC /* ATVSedonaMovieMetadataProvider.h */; };
+		DD82B81113007C7D007221FC /* ATVSedonaQueueControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B813007C7C007221FC /* ATVSedonaQueueControlFactory.h */; };
+		DD82B81213007C7D007221FC /* ATVSedonaQueueListItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6B913007C7C007221FC /* ATVSedonaQueueListItemProvider.h */; };
+		DD82B81313007C7D007221FC /* ATVSedonaQueueSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BA13007C7C007221FC /* ATVSedonaQueueSelectionHandler.h */; };
+		DD82B81413007C7D007221FC /* ATVSedonaRateControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BB13007C7C007221FC /* ATVSedonaRateControl.h */; };
+		DD82B81513007C7D007221FC /* ATVSedonaRateControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BC13007C7C007221FC /* ATVSedonaRateControlFactory.h */; };
+		DD82B81613007C7D007221FC /* ATVSedonaRateListItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BD13007C7C007221FC /* ATVSedonaRateListItemProvider.h */; };
+		DD82B81713007C7D007221FC /* ATVSedonaRateSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BE13007C7C007221FC /* ATVSedonaRateSelectionHandler.h */; };
+		DD82B81813007C7D007221FC /* ATVSedonaRefreshTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6BF13007C7C007221FC /* ATVSedonaRefreshTask.h */; };
+		DD82B81913007C7D007221FC /* ATVSedonaSearchAgent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C013007C7C007221FC /* ATVSedonaSearchAgent.h */; };
+		DD82B81A13007C7D007221FC /* ATVSedonaSingleItemPopulator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C113007C7C007221FC /* ATVSedonaSingleItemPopulator.h */; };
+		DD82B81B13007C7D007221FC /* ATVSedonaTVMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C213007C7C007221FC /* ATVSedonaTVMetadataProvider.h */; };
+		DD82B81C13007C7D007221FC /* ATVSedonaTVSeasonMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C313007C7C007221FC /* ATVSedonaTVSeasonMetadataProvider.h */; };
+		DD82B81D13007C7D007221FC /* ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C413007C7C007221FC /* ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h */; };
+		DD82B81E13007C7D007221FC /* ATVSedonaUserRatingToImageControlTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C513007C7C007221FC /* ATVSedonaUserRatingToImageControlTransformer.h */; };
+		DD82B81F13007C7D007221FC /* ATVSettingsFacade.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C613007C7C007221FC /* ATVSettingsFacade.h */; };
+		DD82B82013007C7D007221FC /* ATVSettingsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C713007C7C007221FC /* ATVSettingsHelper.h */; };
+		DD82B82113007C7D007221FC /* ATVStoreFavorite.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C813007C7C007221FC /* ATVStoreFavorite.h */; };
+		DD82B82213007C7D007221FC /* ATVStoreFavoriteRefreshTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6C913007C7C007221FC /* ATVStoreFavoriteRefreshTask.h */; };
+		DD82B82313007C7D007221FC /* ATVSWUDownloadResult.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CA13007C7C007221FC /* ATVSWUDownloadResult.h */; };
+		DD82B82413007C7D007221FC /* ATVSWUpdateCheckTask.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CB13007C7C007221FC /* ATVSWUpdateCheckTask.h */; };
+		DD82B82513007C7D007221FC /* ATVSWUpdateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CC13007C7C007221FC /* ATVSWUpdateManager.h */; };
+		DD82B82613007C7D007221FC /* ATVSWUpdateRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CD13007C7C007221FC /* ATVSWUpdateRecord.h */; };
+		DD82B82713007C7D007221FC /* ATVSWUpdateRecordV1.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CE13007C7C007221FC /* ATVSWUpdateRecordV1.h */; };
+		DD82B82813007C7D007221FC /* ATVSWUpdateRecordV2.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6CF13007C7C007221FC /* ATVSWUpdateRecordV2.h */; };
+		DD82B82913007C7D007221FC /* ATVSWUpdateServerIPController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D013007C7C007221FC /* ATVSWUpdateServerIPController.h */; };
+		DD82B82A13007C7D007221FC /* ATVSWUProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D113007C7C007221FC /* ATVSWUProgressView.h */; };
+		DD82B82B13007C7D007221FC /* ATVTCPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D213007C7C007221FC /* ATVTCPConnection.h */; };
+		DD82B82C13007C7D007221FC /* ATVTCPControlReceiver.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D313007C7C007221FC /* ATVTCPControlReceiver.h */; };
+		DD82B82D13007C7D007221FC /* ATVTCPIPConfigController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D413007C7C007221FC /* ATVTCPIPConfigController.h */; };
+		DD82B82E13007C7D007221FC /* ATVTomatoMeterTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D513007C7C007221FC /* ATVTomatoMeterTransformer.h */; };
+		DD82B82F13007C7D007221FC /* ATVTouchRemoteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D613007C7C007221FC /* ATVTouchRemoteManager.h */; };
+		DD82B83013007C7D007221FC /* ATVTVShowRentalPosterControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D713007C7C007221FC /* ATVTVShowRentalPosterControl.h */; };
+		DD82B83113007C7D007221FC /* ATVURLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D813007C7C007221FC /* ATVURLDocument.h */; };
+		DD82B83213007C7D007221FC /* ATVUserRatingAndNumReviewsTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6D913007C7C007221FC /* ATVUserRatingAndNumReviewsTransformer.h */; };
+		DD82B83313007C7D007221FC /* ATVUserRatingToImageControlTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DA13007C7C007221FC /* ATVUserRatingToImageControlTransformer.h */; };
+		DD82B83413007C7D007221FC /* ATVVersionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DB13007C7C007221FC /* ATVVersionInfo.h */; };
+		DD82B83513007C7D007221FC /* ATVVersionStringTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DC13007C7C007221FC /* ATVVersionStringTransformer.h */; };
+		DD82B83613007C7D007221FC /* ATVVideoCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DD13007C7C007221FC /* ATVVideoCacheManager.h */; };
+		DD82B83713007C7D007221FC /* ATVWishListFavorite.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DE13007C7C007221FC /* ATVWishListFavorite.h */; };
+		DD82B83813007C7D007221FC /* ATVWishListSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6DF13007C7C007221FC /* ATVWishListSelectionHandler.h */; };
+		DD82B83913007C7D007221FC /* AudioData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E013007C7C007221FC /* AudioData.h */; };
+		DD82B83A13007C7D007221FC /* Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E113007C7C007221FC /* Base64.h */; };
+		DD82B83B13007C7D007221FC /* BlackoutAnimationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E213007C7C007221FC /* BlackoutAnimationDelegate.h */; };
+		DD82B83C13007C7D007221FC /* BRAccountType.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E313007C7C007221FC /* BRAccountType.h */; };
+		DD82B83D13007C7D007221FC /* BRATVMediaItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E413007C7C007221FC /* BRATVMediaItem.h */; };
+		DD82B83E13007C7D007221FC /* BRControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E513007C7C007221FC /* BRControl.h */; };
+		DD82B83F13007C7D007221FC /* BRControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E613007C7C007221FC /* BRControlFactory.h */; };
+		DD82B84013007C7D007221FC /* BRControlHeightFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E713007C7C007221FC /* BRControlHeightFactory.h */; };
+		DD82B84113007C7D007221FC /* BRDeletable.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E813007C7C007221FC /* BRDeletable.h */; };
+		DD82B84213007C7D007221FC /* BRDisplayInfoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6E913007C7C007221FC /* BRDisplayInfoLoader.h */; };
+		DD82B84313007C7D007221FC /* BRDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6EA13007C7C007221FC /* BRDownload.h */; };
+		DD82B84413007C7D007221FC /* BRDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6EB13007C7C007221FC /* BRDownloadManager.h */; };
+		DD82B84513007C7D007221FC /* BRImageProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6EC13007C7C007221FC /* BRImageProxy.h */; };
+		DD82B84613007C7D007221FC /* BRMediaAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6ED13007C7C007221FC /* BRMediaAsset.h */; };
+		DD82B84713007C7D007221FC /* BRMediaAssetDerivesMediaURL.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6EE13007C7C007221FC /* BRMediaAssetDerivesMediaURL.h */; };
+		DD82B84813007C7D007221FC /* BRMediaObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6EF13007C7C007221FC /* BRMediaObject.h */; };
+		DD82B84913007C7D007221FC /* BRMenuListItemProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F013007C7C007221FC /* BRMenuListItemProvider.h */; };
+		DD82B84A13007C7D007221FC /* BRMerchant.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F113007C7C007221FC /* BRMerchant.h */; };
+		DD82B84B13007C7D007221FC /* BRMetadataProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F213007C7C007221FC /* BRMetadataProvider.h */; };
+		DD82B84C13007C7D007221FC /* BRMusicStore.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F313007C7C007221FC /* BRMusicStore.h */; };
+		DD82B84D13007C7D007221FC /* BRPhotoProviderForCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F413007C7C007221FC /* BRPhotoProviderForCollection.h */; };
+		DD82B84E13007C7D007221FC /* BRPlayButtonEnabledMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F513007C7C007221FC /* BRPlayButtonEnabledMenuItem.h */; };
+		DD82B84F13007C7D007221FC /* BRPlayButtonEnabledPosterControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F613007C7C007221FC /* BRPlayButtonEnabledPosterControl.h */; };
+		DD82B85013007C7D007221FC /* BRProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F713007C7C007221FC /* BRProvider.h */; };
+		DD82B85113007C7D007221FC /* BRResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F813007C7C007221FC /* BRResponder.h */; };
+		DD82B85213007C7D007221FC /* BRSelectionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6F913007C7C007221FC /* BRSelectionHandler.h */; };
+		DD82B85313007C7D007221FC /* BRTabControlDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FA13007C7C007221FC /* BRTabControlDelegate.h */; };
+		DD82B85413007C7D007221FC /* BRTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FB13007C7C007221FC /* BRTextField.h */; };
+		DD82B85513007C7D007221FC /* BRTextFieldDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FC13007C7C007221FC /* BRTextFieldDelegate.h */; };
+		DD82B85613007C7D007221FC /* BRThemeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FD13007C7C007221FC /* BRThemeInfo.h */; };
+		DD82B85713007C7D007221FC /* BRTitleProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FE13007C7C007221FC /* BRTitleProvider.h */; };
+		DD82B85813007C7D007221FC /* Buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B6FF13007C7C007221FC /* Buffer.h */; };
+		DD82B85913007C7D007221FC /* ChunkData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70013007C7C007221FC /* ChunkData.h */; };
+		DD82B85A13007C7D007221FC /* DRMData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70113007C7C007221FC /* DRMData.h */; };
+		DD82B85B13007C7D007221FC /* FujiConfigParser.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70213007C7C007221FC /* FujiConfigParser.h */; };
+		DD82B85C13007C7D007221FC /* HomeShareAccountController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70313007C7C007221FC /* HomeShareAccountController.h */; };
+		DD82B85D13007C7D007221FC /* HTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70413007C7C007221FC /* HTTPServer.h */; };
+		DD82B85E13007C7D007221FC /* ID3Header.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70513007C7C007221FC /* ID3Header.h */; };
+		DD82B85F13007C7D007221FC /* IndexData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70613007C7C007221FC /* IndexData.h */; };
+		DD82B86013007C7D007221FC /* LogCollectorWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70713007C7C007221FC /* LogCollectorWrapper.h */; };
+		DD82B86113007C7D007221FC /* MMCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70813007C7C007221FC /* MMCredential.h */; };
+		DD82B86213007C7D007221FC /* MMiDiskSession.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70913007C7C007221FC /* MMiDiskSession.h */; };
+		DD82B86313007C7D007221FC /* MMMemberAccount.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70A13007C7C007221FC /* MMMemberAccount.h */; };
+		DD82B86413007C7D007221FC /* MMRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70B13007C7C007221FC /* MMRequest.h */; };
+		DD82B86513007C7D007221FC /* MMSecondaryUser.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70C13007C7C007221FC /* MMSecondaryUser.h */; };
+		DD82B86613007C7D007221FC /* MMTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70D13007C7C007221FC /* MMTransaction.h */; };
+		DD82B86713007C7D007221FC /* MMUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70E13007C7C007221FC /* MMUtilities.h */; };
+		DD82B86813007C7D007221FC /* NccpCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B70F13007C7C007221FC /* NccpCommunicator.h */; };
+		DD82B86913007C7D007221FC /* NccpHandlerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71013007C7C007221FC /* NccpHandlerDelegate.h */; };
+		DD82B86A13007C7D007221FC /* NetflixTopHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71113007C7C007221FC /* NetflixTopHeader.h */; };
+		DD82B86B13007C7D007221FC /* NfhlsProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71213007C7C007221FC /* NfhlsProtocol.h */; };
+		DD82B86C13007C7D007221FC /* Nflxhls.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71313007C7C007221FC /* Nflxhls.h */; };
+		DD82B86D13007C7D007221FC /* NflxhlsAuthenticationPrimer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71413007C7C007221FC /* NflxhlsAuthenticationPrimer.h */; };
+		DD82B86E13007C7D007221FC /* NflxhlsStrings.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71513007C7C007221FC /* NflxhlsStrings.h */; };
+		DD82B86F13007C7D007221FC /* NSMutableURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71613007C7C007221FC /* NSMutableURLRequest.h */; };
+		DD82B87013007C7D007221FC /* NSMutableURLRequestAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71713007C7C007221FC /* NSMutableURLRequestAdditions.h */; };
+		DD82B87113007C7D007221FC /* NSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71813007C7C007221FC /* NSObject.h */; };
+		DD82B87213007C7D007221FC /* NSStreamDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71913007C7C007221FC /* NSStreamDelegate.h */; };
+		DD82B87313007C7D007221FC /* NSString.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71A13007C7C007221FC /* NSString.h */; };
+		DD82B87413007C7D007221FC /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71B13007C7C007221FC /* NSStringAdditions.h */; };
+		DD82B87513007C7D007221FC /* NSURL.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71C13007C7C007221FC /* NSURL.h */; };
+		DD82B87613007C7D007221FC /* NSURLAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71D13007C7C007221FC /* NSURLAdditions.h */; };
+		DD82B87713007C7D007221FC /* NSURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71E13007C7C007221FC /* NSURLRequest.h */; };
+		DD82B87813007C7D007221FC /* NSValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B71F13007C7C007221FC /* NSValueTransformer.h */; };
+		DD82B87913007C7D007221FC /* OAConsumer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72013007C7C007221FC /* OAConsumer.h */; };
+		DD82B87A13007C7D007221FC /* OADataFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72113007C7C007221FC /* OADataFetcher.h */; };
+		DD82B87B13007C7D007221FC /* OAHMAC_SHA1SignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72213007C7C007221FC /* OAHMAC_SHA1SignatureProvider.h */; };
+		DD82B87C13007C7D007221FC /* OAMutableURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72313007C7C007221FC /* OAMutableURLRequest.h */; };
+		DD82B87D13007C7D007221FC /* OAPlaintextSignatureProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72413007C7C007221FC /* OAPlaintextSignatureProvider.h */; };
+		DD82B87E13007C7D007221FC /* OARequestParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72513007C7C007221FC /* OARequestParameter.h */; };
+		DD82B87F13007C7D007221FC /* OAServiceTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72613007C7C007221FC /* OAServiceTicket.h */; };
+		DD82B88013007C7D007221FC /* OASignatureProviding.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72713007C7C007221FC /* OASignatureProviding.h */; };
+		DD82B88113007C7D007221FC /* OAToken.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72813007C7C007221FC /* OAToken.h */; };
+		DD82B88213007C7D007221FC /* PlaybackController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72913007C7C007221FC /* PlaybackController.h */; };
+		DD82B88313007C7D007221FC /* PlaydataController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72A13007C7C007221FC /* PlaydataController.h */; };
+		DD82B88413007C7D007221FC /* PlayListGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72B13007C7C007221FC /* PlayListGenerator.h */; };
+		DD82B88513007C7D007221FC /* PlayReady.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72C13007C7C007221FC /* PlayReady.h */; };
+		DD82B88613007C7D007221FC /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72D13007C7C007221FC /* SBJSON.h */; };
+		DD82B88713007C7D007221FC /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72E13007C7C007221FC /* SBJsonBase.h */; };
+		DD82B88813007C7D007221FC /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B72F13007C7C007221FC /* SBJsonParser.h */; };
+		DD82B88913007C7D007221FC /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73013007C7C007221FC /* SBJsonWriter.h */; };
+		DD82B88A13007C7D007221FC /* SedonaMediaAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73113007C7C007221FC /* SedonaMediaAsset.h */; };
+		DD82B88B13007C7D007221FC /* SimpleDownloadData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73213007C7C007221FC /* SimpleDownloadData.h */; };
+		DD82B88C13007C7D007221FC /* StreamData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73313007C7C007221FC /* StreamData.h */; };
+		DD82B88D13007C7D007221FC /* StreamHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73413007C7C007221FC /* StreamHeader.h */; };
+		DD82B88E13007C7D007221FC /* TCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73513007C7C007221FC /* TCPServer.h */; };
+		DD82B88F13007C7D007221FC /* TransportPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73613007C7C007221FC /* TransportPacket.h */; };
+		DD82B89013007C7D007221FC /* UrlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73713007C7C007221FC /* UrlParser.h */; };
+		DD82B89113007C7D007221FC /* VideoData.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73813007C7C007221FC /* VideoData.h */; };
+		DD82B89213007C7D007221FC /* WSLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82B73913007C7C007221FC /* WSLogging.h */; };
+		DD82BE0F1300A8AB007221FC /* SMFControlFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = DD82BE0D1300A8AB007221FC /* SMFControlFactory.h */; };
+		DD82BE101300A8AB007221FC /* SMFControlFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DD82BE0E1300A8AB007221FC /* SMFControlFactory.m */; };
 		DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */; };
 		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
@@ -150,6 +497,353 @@
 		DD82A41E12FF1519007221FC /* SMFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMoviePreviewController.h; sourceTree = "<group>"; };
 		DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMoviePreviewController.m; sourceTree = "<group>"; };
+		DD82B5E113007C7C007221FC /* ActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionManager.h; sourceTree = "<group>"; };
+		DD82B5E213007C7C007221FC /* AlertInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertInfo.h; sourceTree = "<group>"; };
+		DD82B5E313007C7C007221FC /* AppleTV-Structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppleTV-Structs.h"; sourceTree = "<group>"; };
+		DD82B5E413007C7C007221FC /* AppleTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleTV.h; sourceTree = "<group>"; };
+		DD82B5E513007C7C007221FC /* AppNccpHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppNccpHandlerDelegate.h; sourceTree = "<group>"; };
+		DD82B5E613007C7C007221FC /* ATVAirTunesConnectionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAirTunesConnectionControl.h; sourceTree = "<group>"; };
+		DD82B5E713007C7C007221FC /* ATVAirTunesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAirTunesManager.h; sourceTree = "<group>"; };
+		DD82B5E813007C7C007221FC /* ATVAPNameEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPNameEntryController.h; sourceTree = "<group>"; };
+		DD82B5E913007C7C007221FC /* ATVAPNetworkMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPNetworkMenuController.h; sourceTree = "<group>"; };
+		DD82B5EA13007C7C007221FC /* ATVAPPasswordEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPPasswordEntryController.h; sourceTree = "<group>"; };
+		DD82B5EB13007C7C007221FC /* ATVAPPasswordEntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPPasswordEntryDelegate.h; sourceTree = "<group>"; };
+		DD82B5EC13007C7C007221FC /* ATVAPTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPTestController.h; sourceTree = "<group>"; };
+		DD82B5ED13007C7C007221FC /* ATVAPTestResultDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPTestResultDelegate.h; sourceTree = "<group>"; };
+		DD82B5EE13007C7C007221FC /* ATVAPWEPPasswordMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAPWEPPasswordMenuController.h; sourceTree = "<group>"; };
+		DD82B5EF13007C7C007221FC /* ATVAsyncNetworkTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVAsyncNetworkTest.h; sourceTree = "<group>"; };
+		DD82B5F013007C7C007221FC /* ATVBlackScreenSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVBlackScreenSaver.h; sourceTree = "<group>"; };
+		DD82B5F113007C7C007221FC /* ATVBlueDotUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVBlueDotUtilities.h; sourceTree = "<group>"; };
+		DD82B5F213007C7C007221FC /* ATVBSRLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVBSRLayer.h; sourceTree = "<group>"; };
+		DD82B5F313007C7C007221FC /* ATVCatalogAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVCatalogAgent.h; sourceTree = "<group>"; };
+		DD82B5F413007C7C007221FC /* ATVCatalogApplianceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVCatalogApplianceController.h; sourceTree = "<group>"; };
+		DD82B5F513007C7C007221FC /* ATVCatalogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVCatalogHandler.h; sourceTree = "<group>"; };
+		DD82B5F613007C7C007221FC /* ATVClientVersionEvaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVClientVersionEvaluation.h; sourceTree = "<group>"; };
+		DD82B5F713007C7C007221FC /* ATVCVVControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVCVVControl.h; sourceTree = "<group>"; };
+		DD82B5F813007C7C007221FC /* ATVDateToMonthDayYearTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDateToMonthDayYearTransformer.h; sourceTree = "<group>"; };
+		DD82B5F913007C7C007221FC /* ATVDefaultPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDefaultPhotos.h; sourceTree = "<group>"; };
+		DD82B5FA13007C7C007221FC /* ATVDetailedMetadataControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDetailedMetadataControlFactory.h; sourceTree = "<group>"; };
+		DD82B5FB13007C7C007221FC /* ATVDirectionalRemoteConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDirectionalRemoteConnectionHandler.h; sourceTree = "<group>"; };
+		DD82B5FC13007C7C007221FC /* ATVDiskSpaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDiskSpaceManager.h; sourceTree = "<group>"; };
+		DD82B5FD13007C7C007221FC /* ATVDotMacAccountDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacAccountDelegate.h; sourceTree = "<group>"; };
+		DD82B5FE13007C7C007221FC /* ATVDotMacAlbumDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacAlbumDelegate.h; sourceTree = "<group>"; };
+		DD82B5FF13007C7C007221FC /* ATVDotMacAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacAsset.h; sourceTree = "<group>"; };
+		DD82B60013007C7C007221FC /* ATVDotMacAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacAuthentication.h; sourceTree = "<group>"; };
+		DD82B60113007C7C007221FC /* ATVDotMacCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacCollection.h; sourceTree = "<group>"; };
+		DD82B60213007C7C007221FC /* ATVDotMacCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacCollectionController.h; sourceTree = "<group>"; };
+		DD82B60313007C7C007221FC /* ATVDotMacControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacControlFactory.h; sourceTree = "<group>"; };
+		DD82B60413007C7C007221FC /* ATVDotMacDisplayInfoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacDisplayInfoLoader.h; sourceTree = "<group>"; };
+		DD82B60513007C7C007221FC /* ATVDotMacImageProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacImageProxy.h; sourceTree = "<group>"; };
+		DD82B60613007C7C007221FC /* ATVDotMacMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacMainMenuController.h; sourceTree = "<group>"; };
+		DD82B60713007C7C007221FC /* ATVDotMacManagedAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacManagedAccount.h; sourceTree = "<group>"; };
+		DD82B60813007C7C007221FC /* ATVDotMacMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacMonitor.h; sourceTree = "<group>"; };
+		DD82B60913007C7C007221FC /* ATVDotMacMonitorBackgroundTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacMonitorBackgroundTask.h; sourceTree = "<group>"; };
+		DD82B60A13007C7C007221FC /* ATVDotMacParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacParserDelegate.h; sourceTree = "<group>"; };
+		DD82B60B13007C7C007221FC /* ATVDotMacPhotoSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacPhotoSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B60C13007C7C007221FC /* ATVDotMacProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacProvider.h; sourceTree = "<group>"; };
+		DD82B60D13007C7C007221FC /* ATVDotMacProviderForAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacProviderForAccount.h; sourceTree = "<group>"; };
+		DD82B60E13007C7C007221FC /* ATVDotMacProviderForCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacProviderForCollection.h; sourceTree = "<group>"; };
+		DD82B60F13007C7C007221FC /* ATVDotMacRecentAlbumsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacRecentAlbumsProvider.h; sourceTree = "<group>"; };
+		DD82B61013007C7C007221FC /* ATVDotMacRecentAlbumsRSSFeedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacRecentAlbumsRSSFeedDelegate.h; sourceTree = "<group>"; };
+		DD82B61113007C7C007221FC /* ATVDotMacSecondaryAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacSecondaryAccount.h; sourceTree = "<group>"; };
+		DD82B61213007C7C007221FC /* ATVDotMacVideoAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacVideoAsset.h; sourceTree = "<group>"; };
+		DD82B61313007C7C007221FC /* ATVDotMacVideoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacVideoDelegate.h; sourceTree = "<group>"; };
+		DD82B61413007C7C007221FC /* ATVDotMacVideoSlideshowAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDotMacVideoSlideshowAsset.h; sourceTree = "<group>"; };
+		DD82B61513007C7C007221FC /* ATVDottedQuadEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDottedQuadEntryController.h; sourceTree = "<group>"; };
+		DD82B61613007C7C007221FC /* ATVDottedQuadEntryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDottedQuadEntryDelegate.h; sourceTree = "<group>"; };
+		DD82B61713007C7C007221FC /* ATVDownloadMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDownloadMenuItem.h; sourceTree = "<group>"; };
+		DD82B61813007C7C007221FC /* ATVDownloadsMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDownloadsMonitor.h; sourceTree = "<group>"; };
+		DD82B61913007C7C007221FC /* ATVDownloadsPeriodicCheckForPurchasesMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVDownloadsPeriodicCheckForPurchasesMonitor.h; sourceTree = "<group>"; };
+		DD82B61A13007C7C007221FC /* ATVEpisodeTitleTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVEpisodeTitleTransformer.h; sourceTree = "<group>"; };
+		DD82B61B13007C7C007221FC /* ATVEvaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVEvaluation.h; sourceTree = "<group>"; };
+		DD82B61C13007C7C007221FC /* ATVFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavorite.h; sourceTree = "<group>"; };
+		DD82B61D13007C7C007221FC /* ATVFavoritesControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoritesControlFactory.h; sourceTree = "<group>"; };
+		DD82B61E13007C7C007221FC /* ATVFavoritesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoritesController.h; sourceTree = "<group>"; };
+		DD82B61F13007C7C007221FC /* ATVFavoritesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoritesManager.h; sourceTree = "<group>"; };
+		DD82B62013007C7C007221FC /* ATVFavoritesProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoritesProvider.h; sourceTree = "<group>"; };
+		DD82B62113007C7C007221FC /* ATVFavoritesSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoritesSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B62213007C7C007221FC /* ATVFavoriteUnavailableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFavoriteUnavailableController.h; sourceTree = "<group>"; };
+		DD82B62313007C7C007221FC /* ATVFlickrAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrAsset.h; sourceTree = "<group>"; };
+		DD82B62413007C7C007221FC /* ATVFlickrCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrCollection.h; sourceTree = "<group>"; };
+		DD82B62513007C7C007221FC /* ATVFlickrCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrCollectionController.h; sourceTree = "<group>"; };
+		DD82B62613007C7C007221FC /* ATVFlickrContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrContactsController.h; sourceTree = "<group>"; };
+		DD82B62713007C7C007221FC /* ATVFlickrContactsProviderForAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrContactsProviderForAccount.h; sourceTree = "<group>"; };
+		DD82B62813007C7C007221FC /* ATVFlickrControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrControlFactory.h; sourceTree = "<group>"; };
+		DD82B62913007C7C007221FC /* ATVFlickrDisplayInfoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrDisplayInfoLoader.h; sourceTree = "<group>"; };
+		DD82B62A13007C7C007221FC /* ATVFlickrImageProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrImageProxy.h; sourceTree = "<group>"; };
+		DD82B62B13007C7C007221FC /* ATVFlickrMainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrMainMenuController.h; sourceTree = "<group>"; };
+		DD82B62C13007C7C007221FC /* ATVFlickrManagedAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrManagedAccount.h; sourceTree = "<group>"; };
+		DD82B62D13007C7C007221FC /* ATVFlickrMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrMonitor.h; sourceTree = "<group>"; };
+		DD82B62E13007C7C007221FC /* ATVFlickrMonitorBackgroundTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrMonitorBackgroundTask.h; sourceTree = "<group>"; };
+		DD82B62F13007C7C007221FC /* ATVFlickrParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrParserDelegate.h; sourceTree = "<group>"; };
+		DD82B63013007C7C007221FC /* ATVFlickrProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrProvider.h; sourceTree = "<group>"; };
+		DD82B63113007C7C007221FC /* ATVFlickrProviderForAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrProviderForAccount.h; sourceTree = "<group>"; };
+		DD82B63213007C7C007221FC /* ATVFlickrProviderForCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrProviderForCollection.h; sourceTree = "<group>"; };
+		DD82B63313007C7C007221FC /* ATVFlickrProviderForSavedSearches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrProviderForSavedSearches.h; sourceTree = "<group>"; };
+		DD82B63413007C7C007221FC /* ATVFlickrSaveRemoveSearchSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrSaveRemoveSearchSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B63513007C7C007221FC /* ATVFlickrSearchAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVFlickrSearchAgent.h; sourceTree = "<group>"; };
+		DD82B63613007C7C007221FC /* ATVHardwareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVHardwareUtility.h; sourceTree = "<group>"; };
+		DD82B63713007C7C007221FC /* ATVHIDSystemClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVHIDSystemClient.h; sourceTree = "<group>"; };
+		DD82B63813007C7C007221FC /* ATVHIDThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVHIDThread.h; sourceTree = "<group>"; };
+		DD82B63913007C7C007221FC /* ATVHomeShareAccountCreationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVHomeShareAccountCreationController.h; sourceTree = "<group>"; };
+		DD82B63A13007C7C007221FC /* ATVHomeShareAuthenticationResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVHomeShareAuthenticationResources.h; sourceTree = "<group>"; };
+		DD82B63B13007C7C007221FC /* ATVInternetPhotosAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVInternetPhotosAccount.h; sourceTree = "<group>"; };
+		DD82B63C13007C7C007221FC /* ATVInternetPhotosCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVInternetPhotosCollection.h; sourceTree = "<group>"; };
+		DD82B63D13007C7C007221FC /* ATVInternetPhotosMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVInternetPhotosMonitor.h; sourceTree = "<group>"; };
+		DD82B63E13007C7C007221FC /* ATVInternetRadioFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVInternetRadioFavorite.h; sourceTree = "<group>"; };
+		DD82B63F13007C7C007221FC /* ATVIPEntryDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVIPEntryDialog.h; sourceTree = "<group>"; };
+		DD82B64013007C7C007221FC /* ATVIPv4AddressEntryControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVIPv4AddressEntryControl.h; sourceTree = "<group>"; };
+		DD82B64113007C7C007221FC /* ATVIPv4AddressSelectionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVIPv4AddressSelectionControl.h; sourceTree = "<group>"; };
+		DD82B64213007C7C007221FC /* ATVIPv4AddressSelectionWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVIPv4AddressSelectionWidget.h; sourceTree = "<group>"; };
+		DD82B64313007C7C007221FC /* ATViTunesKeyValueStoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATViTunesKeyValueStoreAPI.h; sourceTree = "<group>"; };
+		DD82B64413007C7C007221FC /* ATViTunesKeyValueStoreGetItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATViTunesKeyValueStoreGetItem.h; sourceTree = "<group>"; };
+		DD82B64513007C7C007221FC /* ATViTunesKeyValueStorePutItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATViTunesKeyValueStorePutItem.h; sourceTree = "<group>"; };
+		DD82B64613007C7C007221FC /* ATVITunesLibraryTouchRemoteAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVITunesLibraryTouchRemoteAccess.h; sourceTree = "<group>"; };
+		DD82B64713007C7C007221FC /* ATVITunesTouchRemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVITunesTouchRemoteManager.h; sourceTree = "<group>"; };
+		DD82B64813007C7C007221FC /* ATVKeyValueStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVKeyValueStore.h; sourceTree = "<group>"; };
+		DD82B64913007C7C007221FC /* ATVKeyValueStoreCleanupTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVKeyValueStoreCleanupTask.h; sourceTree = "<group>"; };
+		DD82B64A13007C7C007221FC /* ATVKeyValueStoreUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVKeyValueStoreUtilities.h; sourceTree = "<group>"; };
+		DD82B64B13007C7C007221FC /* ATVLanguageChooserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVLanguageChooserController.h; sourceTree = "<group>"; };
+		DD82B64C13007C7C007221FC /* ATVMerchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMerchant.h; sourceTree = "<group>"; };
+		DD82B64D13007C7C007221FC /* ATVMerchant_ITMS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMerchant_ITMS.h; sourceTree = "<group>"; };
+		DD82B64E13007C7C007221FC /* ATVMerchant_Sedona.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMerchant_Sedona.h; sourceTree = "<group>"; };
+		DD82B64F13007C7C007221FC /* ATVMerchantRepresentativeFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMerchantRepresentativeFeed.h; sourceTree = "<group>"; };
+		DD82B65013007C7C007221FC /* ATVMovieRentalPosterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMovieRentalPosterControl.h; sourceTree = "<group>"; };
+		DD82B65113007C7C007221FC /* ATVMoviesPlayActionButtonControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMoviesPlayActionButtonControl.h; sourceTree = "<group>"; };
+		DD82B65213007C7C007221FC /* ATVMultistateProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMultistateProgressIndicator.h; sourceTree = "<group>"; };
+		DD82B65313007C7C007221FC /* ATVMusicCoversCollectionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicCoversCollectionProxy.h; sourceTree = "<group>"; };
+		DD82B65413007C7C007221FC /* ATVMusicCoversMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicCoversMediaAsset.h; sourceTree = "<group>"; };
+		DD82B65513007C7C007221FC /* ATVMusicStoreAccountSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreAccountSelector.h; sourceTree = "<group>"; };
+		DD82B65613007C7C007221FC /* ATVMusicStoreAcquisitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreAcquisitionController.h; sourceTree = "<group>"; };
+		DD82B65713007C7C007221FC /* ATVMusicStoreActionControlPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreActionControlPopulator.h; sourceTree = "<group>"; };
+		DD82B65813007C7C007221FC /* ATVMusicStoreAssetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreAssetController.h; sourceTree = "<group>"; };
+		DD82B65913007C7C007221FC /* ATVMusicStoreAuthenticationResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreAuthenticationResources.h; sourceTree = "<group>"; };
+		DD82B65A13007C7C007221FC /* ATVMusicStoreBaseAppliance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreBaseAppliance.h; sourceTree = "<group>"; };
+		DD82B65B13007C7C007221FC /* ATVMusicStoreBaseMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreBaseMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B65C13007C7C007221FC /* ATVMusicStoreCatalogAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreCatalogAgent.h; sourceTree = "<group>"; };
+		DD82B65D13007C7C007221FC /* ATVMusicStoreCatalogCollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreCatalogCollectionController.h; sourceTree = "<group>"; };
+		DD82B65E13007C7C007221FC /* ATVMusicStoreCatalogItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreCatalogItemController.h; sourceTree = "<group>"; };
+		DD82B65F13007C7C007221FC /* ATVMusicStoreCatalogItemProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreCatalogItemProviderFactory.h; sourceTree = "<group>"; };
+		DD82B66013007C7C007221FC /* ATVMusicStoreCatalogRefreshTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreCatalogRefreshTask.h; sourceTree = "<group>"; };
+		DD82B66113007C7C007221FC /* ATVMusicStoreControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreControlFactory.h; sourceTree = "<group>"; };
+		DD82B66213007C7C007221FC /* ATVMusicStoreControlPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreControlPopulator.h; sourceTree = "<group>"; };
+		DD82B66313007C7C007221FC /* ATVMusicStoreDoubleRowPagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreDoubleRowPagedViewController.h; sourceTree = "<group>"; };
+		DD82B66413007C7C007221FC /* ATVMusicStoreDownloadFailurePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreDownloadFailurePopup.h; sourceTree = "<group>"; };
+		DD82B66513007C7C007221FC /* ATVMusicStoreDownloadsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreDownloadsController.h; sourceTree = "<group>"; };
+		DD82B66613007C7C007221FC /* ATVMusicStoreFavoriteListItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreFavoriteListItemProvider.h; sourceTree = "<group>"; };
+		DD82B66713007C7C007221FC /* ATVMusicStoreHomeShareAccountSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreHomeShareAccountSelector.h; sourceTree = "<group>"; };
+		DD82B66813007C7C007221FC /* ATVMusicStoreItemDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreItemDetailController.h; sourceTree = "<group>"; };
+		DD82B66913007C7C007221FC /* ATVMusicStoreItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreItemProvider.h; sourceTree = "<group>"; };
+		DD82B66A13007C7C007221FC /* ATVMusicStoreMoreInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMoreInfoController.h; sourceTree = "<group>"; };
+		DD82B66B13007C7C007221FC /* ATVMusicStoreMoreInfoControlPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMoreInfoControlPopulator.h; sourceTree = "<group>"; };
+		DD82B66C13007C7C007221FC /* ATVMusicStoreMoreInfoProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMoreInfoProvider.h; sourceTree = "<group>"; };
+		DD82B66D13007C7C007221FC /* ATVMusicStoreMoreInfoSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMoreInfoSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B66E13007C7C007221FC /* ATVMusicStoreMovieItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMovieItemController.h; sourceTree = "<group>"; };
+		DD82B66F13007C7C007221FC /* ATVMusicStoreMovieMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMovieMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B67013007C7C007221FC /* ATVMusicStoreMoviePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMoviePreviewController.h; sourceTree = "<group>"; };
+		DD82B67113007C7C007221FC /* ATVMusicStoreMusicAlbumMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMusicAlbumMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B67213007C7C007221FC /* ATVMusicStoreMusicItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMusicItemController.h; sourceTree = "<group>"; };
+		DD82B67313007C7C007221FC /* ATVMusicStoreMusicMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMusicMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B67413007C7C007221FC /* ATVMusicStoreMusicVideoMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreMusicVideoMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B67513007C7C007221FC /* ATVMusicStoreOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOffer.h; sourceTree = "<group>"; };
+		DD82B67613007C7C007221FC /* ATVMusicStoreOfferControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOfferControl.h; sourceTree = "<group>"; };
+		DD82B67713007C7C007221FC /* ATVMusicStoreOfferControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOfferControlFactory.h; sourceTree = "<group>"; };
+		DD82B67813007C7C007221FC /* ATVMusicStoreOtherSeasonsControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOtherSeasonsControlFactory.h; sourceTree = "<group>"; };
+		DD82B67913007C7C007221FC /* ATVMusicStoreOtherSeasonsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOtherSeasonsProvider.h; sourceTree = "<group>"; };
+		DD82B67A13007C7C007221FC /* ATVMusicStoreOtherSeasonsSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreOtherSeasonsSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B67B13007C7C007221FC /* ATVMusicStorePagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePagedViewController.h; sourceTree = "<group>"; };
+		DD82B67C13007C7C007221FC /* ATVMusicStorePodcastAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePodcastAsset.h; sourceTree = "<group>"; };
+		DD82B67D13007C7C007221FC /* ATVMusicStorePodcastItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePodcastItemController.h; sourceTree = "<group>"; };
+		DD82B67E13007C7C007221FC /* ATVMusicStorePodcastMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePodcastMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B67F13007C7C007221FC /* ATVMusicStorePodcastShowMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePodcastShowMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B68013007C7C007221FC /* ATVMusicStorePresentsDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePresentsDocument.h; sourceTree = "<group>"; };
+		DD82B68113007C7C007221FC /* ATVMusicStorePresentsItemControlPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePresentsItemControlPopulator.h; sourceTree = "<group>"; };
+		DD82B68213007C7C007221FC /* ATVMusicStorePresentsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStorePresentsProvider.h; sourceTree = "<group>"; };
+		DD82B68313007C7C007221FC /* ATVMusicStoreRentalDetailPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreRentalDetailPageController.h; sourceTree = "<group>"; };
+		DD82B68413007C7C007221FC /* ATVMusicStoreRottenTomatoesControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreRottenTomatoesControl.h; sourceTree = "<group>"; };
+		DD82B68513007C7C007221FC /* ATVMusicStoreRottenTomatoesRatingControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreRottenTomatoesRatingControl.h; sourceTree = "<group>"; };
+		DD82B68613007C7C007221FC /* ATVMusicStoreSearchAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreSearchAgent.h; sourceTree = "<group>"; };
+		DD82B68713007C7C007221FC /* ATVMusicStoreShowInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreShowInfo.h; sourceTree = "<group>"; };
+		DD82B68813007C7C007221FC /* ATVMusicStoreSingleItemPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreSingleItemPopulator.h; sourceTree = "<group>"; };
+		DD82B68913007C7C007221FC /* ATVMusicStoreSingleRowPagedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreSingleRowPagedViewController.h; sourceTree = "<group>"; };
+		DD82B68A13007C7C007221FC /* ATVMusicStoreTabbedPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTabbedPageController.h; sourceTree = "<group>"; };
+		DD82B68B13007C7C007221FC /* ATVMusicStoreTabManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTabManager.h; sourceTree = "<group>"; };
+		DD82B68C13007C7C007221FC /* ATVMusicStoreTransactionDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTransactionDialog.h; sourceTree = "<group>"; };
+		DD82B68D13007C7C007221FC /* ATVMusicStoreTVEpisodeItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTVEpisodeItemController.h; sourceTree = "<group>"; };
+		DD82B68E13007C7C007221FC /* ATVMusicStoreTVMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTVMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B68F13007C7C007221FC /* ATVMusicStoreTVSeasonMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreTVSeasonMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B69013007C7C007221FC /* ATVMusicStoreUserReviewsControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreUserReviewsControl.h; sourceTree = "<group>"; };
+		DD82B69113007C7C007221FC /* ATVMusicStoreXMLDocumentPreProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVMusicStoreXMLDocumentPreProcessor.h; sourceTree = "<group>"; };
+		DD82B69213007C7C007221FC /* ATVNumUserReviewsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVNumUserReviewsTransformer.h; sourceTree = "<group>"; };
+		DD82B69313007C7C007221FC /* ATVPlayButtonEnabledButtonControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVPlayButtonEnabledButtonControl.h; sourceTree = "<group>"; };
+		DD82B69413007C7C007221FC /* ATVRCButtonPatternSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRCButtonPatternSet.h; sourceTree = "<group>"; };
+		DD82B69513007C7C007221FC /* ATVRCCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRCCapture.h; sourceTree = "<group>"; };
+		DD82B69613007C7C007221FC /* ATVRCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRCManager.h; sourceTree = "<group>"; };
+		DD82B69713007C7C007221FC /* ATVRCPatternMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRCPatternMatcher.h; sourceTree = "<group>"; };
+		DD82B69813007C7C007221FC /* ATVRCPatternMatcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRCPatternMatcherDelegate.h; sourceTree = "<group>"; };
+		DD82B69913007C7C007221FC /* ATVRebootWaitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRebootWaitController.h; sourceTree = "<group>"; };
+		DD82B69A13007C7C007221FC /* ATVRecentSearchesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRecentSearchesController.h; sourceTree = "<group>"; };
+		DD82B69B13007C7C007221FC /* ATVRecentSearchSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRecentSearchSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B69C13007C7C007221FC /* ATVReleaseDateAsInTheatersDateValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVReleaseDateAsInTheatersDateValueTransformer.h; sourceTree = "<group>"; };
+		DD82B69D13007C7C007221FC /* ATVReleaseDateAsOriginalAirDateValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVReleaseDateAsOriginalAirDateValueTransformer.h; sourceTree = "<group>"; };
+		DD82B69E13007C7C007221FC /* ATVReleaseDateAsReleasedDateValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVReleaseDateAsReleasedDateValueTransformer.h; sourceTree = "<group>"; };
+		DD82B69F13007C7C007221FC /* ATVReleaseDateAsYearValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVReleaseDateAsYearValueTransformer.h; sourceTree = "<group>"; };
+		DD82B6A013007C7C007221FC /* ATVRemoteControlMessageHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRemoteControlMessageHandler.h; sourceTree = "<group>"; };
+		DD82B6A113007C7C007221FC /* ATVRemoteSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRemoteSet.h; sourceTree = "<group>"; };
+		DD82B6A213007C7C007221FC /* ATVRentalExpiryUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRentalExpiryUserNotification.h; sourceTree = "<group>"; };
+		DD82B6A313007C7C007221FC /* ATVRentalPosterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRentalPosterControl.h; sourceTree = "<group>"; };
+		DD82B6A413007C7C007221FC /* ATVRentedMediaProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRentedMediaProvider.h; sourceTree = "<group>"; };
+		DD82B6A513007C7C007221FC /* ATVRetailDemoModeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVRetailDemoModeManager.h; sourceTree = "<group>"; };
+		DD82B6A613007C7C007221FC /* ATVScreenSaverArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVScreenSaverArchiver.h; sourceTree = "<group>"; };
+		DD82B6A713007C7C007221FC /* ATVScreenSaverControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVScreenSaverControl.h; sourceTree = "<group>"; };
+		DD82B6A813007C7C007221FC /* ATVScreenSaverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVScreenSaverManager.h; sourceTree = "<group>"; };
+		DD82B6A913007C7C007221FC /* ATVScreenSaverPluginProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVScreenSaverPluginProtocol.h; sourceTree = "<group>"; };
+		DD82B6AA13007C7C007221FC /* ATVScreenSaverPrefetchTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVScreenSaverPrefetchTask.h; sourceTree = "<group>"; };
+		DD82B6AB13007C7C007221FC /* ATVSearchAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSearchAgent.h; sourceTree = "<group>"; };
+		DD82B6AC13007C7C007221FC /* ATVSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSearchController.h; sourceTree = "<group>"; };
+		DD82B6AD13007C7C007221FC /* ATVSearchTerm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSearchTerm.h; sourceTree = "<group>"; };
+		DD82B6AE13007C7C007221FC /* ATVSedonaAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaAccount.h; sourceTree = "<group>"; };
+		DD82B6AF13007C7C007221FC /* ATVSedonaActionControlPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaActionControlPopulator.h; sourceTree = "<group>"; };
+		DD82B6B013007C7C007221FC /* ATVSedonaAuthenticationResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaAuthenticationResources.h; sourceTree = "<group>"; };
+		DD82B6B113007C7C007221FC /* ATVSedonaCatalogAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaCatalogAgent.h; sourceTree = "<group>"; };
+		DD82B6B213007C7C007221FC /* ATVSedonaCatalogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaCatalogHandler.h; sourceTree = "<group>"; };
+		DD82B6B313007C7C007221FC /* ATVSedonaCatalogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaCatalogItem.h; sourceTree = "<group>"; };
+		DD82B6B413007C7C007221FC /* ATVSedonaCatalogItemProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaCatalogItemProviderFactory.h; sourceTree = "<group>"; };
+		DD82B6B513007C7C007221FC /* ATVSedonaController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaController.h; sourceTree = "<group>"; };
+		DD82B6B613007C7C007221FC /* ATVSedonaItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaItemProvider.h; sourceTree = "<group>"; };
+		DD82B6B713007C7C007221FC /* ATVSedonaMovieMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaMovieMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B6B813007C7C007221FC /* ATVSedonaQueueControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaQueueControlFactory.h; sourceTree = "<group>"; };
+		DD82B6B913007C7C007221FC /* ATVSedonaQueueListItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaQueueListItemProvider.h; sourceTree = "<group>"; };
+		DD82B6BA13007C7C007221FC /* ATVSedonaQueueSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaQueueSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B6BB13007C7C007221FC /* ATVSedonaRateControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaRateControl.h; sourceTree = "<group>"; };
+		DD82B6BC13007C7C007221FC /* ATVSedonaRateControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaRateControlFactory.h; sourceTree = "<group>"; };
+		DD82B6BD13007C7C007221FC /* ATVSedonaRateListItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaRateListItemProvider.h; sourceTree = "<group>"; };
+		DD82B6BE13007C7C007221FC /* ATVSedonaRateSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaRateSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B6BF13007C7C007221FC /* ATVSedonaRefreshTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaRefreshTask.h; sourceTree = "<group>"; };
+		DD82B6C013007C7C007221FC /* ATVSedonaSearchAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaSearchAgent.h; sourceTree = "<group>"; };
+		DD82B6C113007C7C007221FC /* ATVSedonaSingleItemPopulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaSingleItemPopulator.h; sourceTree = "<group>"; };
+		DD82B6C213007C7C007221FC /* ATVSedonaTVMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaTVMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B6C313007C7C007221FC /* ATVSedonaTVSeasonMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaTVSeasonMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B6C413007C7C007221FC /* ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h; sourceTree = "<group>"; };
+		DD82B6C513007C7C007221FC /* ATVSedonaUserRatingToImageControlTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSedonaUserRatingToImageControlTransformer.h; sourceTree = "<group>"; };
+		DD82B6C613007C7C007221FC /* ATVSettingsFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSettingsFacade.h; sourceTree = "<group>"; };
+		DD82B6C713007C7C007221FC /* ATVSettingsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSettingsHelper.h; sourceTree = "<group>"; };
+		DD82B6C813007C7C007221FC /* ATVStoreFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVStoreFavorite.h; sourceTree = "<group>"; };
+		DD82B6C913007C7C007221FC /* ATVStoreFavoriteRefreshTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVStoreFavoriteRefreshTask.h; sourceTree = "<group>"; };
+		DD82B6CA13007C7C007221FC /* ATVSWUDownloadResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUDownloadResult.h; sourceTree = "<group>"; };
+		DD82B6CB13007C7C007221FC /* ATVSWUpdateCheckTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateCheckTask.h; sourceTree = "<group>"; };
+		DD82B6CC13007C7C007221FC /* ATVSWUpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateManager.h; sourceTree = "<group>"; };
+		DD82B6CD13007C7C007221FC /* ATVSWUpdateRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateRecord.h; sourceTree = "<group>"; };
+		DD82B6CE13007C7C007221FC /* ATVSWUpdateRecordV1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateRecordV1.h; sourceTree = "<group>"; };
+		DD82B6CF13007C7C007221FC /* ATVSWUpdateRecordV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateRecordV2.h; sourceTree = "<group>"; };
+		DD82B6D013007C7C007221FC /* ATVSWUpdateServerIPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUpdateServerIPController.h; sourceTree = "<group>"; };
+		DD82B6D113007C7C007221FC /* ATVSWUProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVSWUProgressView.h; sourceTree = "<group>"; };
+		DD82B6D213007C7C007221FC /* ATVTCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTCPConnection.h; sourceTree = "<group>"; };
+		DD82B6D313007C7C007221FC /* ATVTCPControlReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTCPControlReceiver.h; sourceTree = "<group>"; };
+		DD82B6D413007C7C007221FC /* ATVTCPIPConfigController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTCPIPConfigController.h; sourceTree = "<group>"; };
+		DD82B6D513007C7C007221FC /* ATVTomatoMeterTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTomatoMeterTransformer.h; sourceTree = "<group>"; };
+		DD82B6D613007C7C007221FC /* ATVTouchRemoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTouchRemoteManager.h; sourceTree = "<group>"; };
+		DD82B6D713007C7C007221FC /* ATVTVShowRentalPosterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVTVShowRentalPosterControl.h; sourceTree = "<group>"; };
+		DD82B6D813007C7C007221FC /* ATVURLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVURLDocument.h; sourceTree = "<group>"; };
+		DD82B6D913007C7C007221FC /* ATVUserRatingAndNumReviewsTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVUserRatingAndNumReviewsTransformer.h; sourceTree = "<group>"; };
+		DD82B6DA13007C7C007221FC /* ATVUserRatingToImageControlTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVUserRatingToImageControlTransformer.h; sourceTree = "<group>"; };
+		DD82B6DB13007C7C007221FC /* ATVVersionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVVersionInfo.h; sourceTree = "<group>"; };
+		DD82B6DC13007C7C007221FC /* ATVVersionStringTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVVersionStringTransformer.h; sourceTree = "<group>"; };
+		DD82B6DD13007C7C007221FC /* ATVVideoCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVVideoCacheManager.h; sourceTree = "<group>"; };
+		DD82B6DE13007C7C007221FC /* ATVWishListFavorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVWishListFavorite.h; sourceTree = "<group>"; };
+		DD82B6DF13007C7C007221FC /* ATVWishListSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATVWishListSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B6E013007C7C007221FC /* AudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioData.h; sourceTree = "<group>"; };
+		DD82B6E113007C7C007221FC /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		DD82B6E213007C7C007221FC /* BlackoutAnimationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackoutAnimationDelegate.h; sourceTree = "<group>"; };
+		DD82B6E313007C7C007221FC /* BRAccountType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAccountType.h; sourceTree = "<group>"; };
+		DD82B6E413007C7C007221FC /* BRATVMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRATVMediaItem.h; sourceTree = "<group>"; };
+		DD82B6E513007C7C007221FC /* BRControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRControl.h; sourceTree = "<group>"; };
+		DD82B6E613007C7C007221FC /* BRControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRControlFactory.h; sourceTree = "<group>"; };
+		DD82B6E713007C7C007221FC /* BRControlHeightFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRControlHeightFactory.h; sourceTree = "<group>"; };
+		DD82B6E813007C7C007221FC /* BRDeletable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDeletable.h; sourceTree = "<group>"; };
+		DD82B6E913007C7C007221FC /* BRDisplayInfoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDisplayInfoLoader.h; sourceTree = "<group>"; };
+		DD82B6EA13007C7C007221FC /* BRDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDownload.h; sourceTree = "<group>"; };
+		DD82B6EB13007C7C007221FC /* BRDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDownloadManager.h; sourceTree = "<group>"; };
+		DD82B6EC13007C7C007221FC /* BRImageProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRImageProxy.h; sourceTree = "<group>"; };
+		DD82B6ED13007C7C007221FC /* BRMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMediaAsset.h; sourceTree = "<group>"; };
+		DD82B6EE13007C7C007221FC /* BRMediaAssetDerivesMediaURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMediaAssetDerivesMediaURL.h; sourceTree = "<group>"; };
+		DD82B6EF13007C7C007221FC /* BRMediaObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMediaObject.h; sourceTree = "<group>"; };
+		DD82B6F013007C7C007221FC /* BRMenuListItemProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMenuListItemProvider.h; sourceTree = "<group>"; };
+		DD82B6F113007C7C007221FC /* BRMerchant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMerchant.h; sourceTree = "<group>"; };
+		DD82B6F213007C7C007221FC /* BRMetadataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMetadataProvider.h; sourceTree = "<group>"; };
+		DD82B6F313007C7C007221FC /* BRMusicStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRMusicStore.h; sourceTree = "<group>"; };
+		DD82B6F413007C7C007221FC /* BRPhotoProviderForCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPhotoProviderForCollection.h; sourceTree = "<group>"; };
+		DD82B6F513007C7C007221FC /* BRPlayButtonEnabledMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPlayButtonEnabledMenuItem.h; sourceTree = "<group>"; };
+		DD82B6F613007C7C007221FC /* BRPlayButtonEnabledPosterControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPlayButtonEnabledPosterControl.h; sourceTree = "<group>"; };
+		DD82B6F713007C7C007221FC /* BRProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRProvider.h; sourceTree = "<group>"; };
+		DD82B6F813007C7C007221FC /* BRResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRResponder.h; sourceTree = "<group>"; };
+		DD82B6F913007C7C007221FC /* BRSelectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRSelectionHandler.h; sourceTree = "<group>"; };
+		DD82B6FA13007C7C007221FC /* BRTabControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTabControlDelegate.h; sourceTree = "<group>"; };
+		DD82B6FB13007C7C007221FC /* BRTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTextField.h; sourceTree = "<group>"; };
+		DD82B6FC13007C7C007221FC /* BRTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTextFieldDelegate.h; sourceTree = "<group>"; };
+		DD82B6FD13007C7C007221FC /* BRThemeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRThemeInfo.h; sourceTree = "<group>"; };
+		DD82B6FE13007C7C007221FC /* BRTitleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTitleProvider.h; sourceTree = "<group>"; };
+		DD82B6FF13007C7C007221FC /* Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Buffer.h; sourceTree = "<group>"; };
+		DD82B70013007C7C007221FC /* ChunkData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChunkData.h; sourceTree = "<group>"; };
+		DD82B70113007C7C007221FC /* DRMData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRMData.h; sourceTree = "<group>"; };
+		DD82B70213007C7C007221FC /* FujiConfigParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FujiConfigParser.h; sourceTree = "<group>"; };
+		DD82B70313007C7C007221FC /* HomeShareAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeShareAccountController.h; sourceTree = "<group>"; };
+		DD82B70413007C7C007221FC /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPServer.h; sourceTree = "<group>"; };
+		DD82B70513007C7C007221FC /* ID3Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ID3Header.h; sourceTree = "<group>"; };
+		DD82B70613007C7C007221FC /* IndexData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexData.h; sourceTree = "<group>"; };
+		DD82B70713007C7C007221FC /* LogCollectorWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogCollectorWrapper.h; sourceTree = "<group>"; };
+		DD82B70813007C7C007221FC /* MMCredential.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCredential.h; sourceTree = "<group>"; };
+		DD82B70913007C7C007221FC /* MMiDiskSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMiDiskSession.h; sourceTree = "<group>"; };
+		DD82B70A13007C7C007221FC /* MMMemberAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMemberAccount.h; sourceTree = "<group>"; };
+		DD82B70B13007C7C007221FC /* MMRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRequest.h; sourceTree = "<group>"; };
+		DD82B70C13007C7C007221FC /* MMSecondaryUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSecondaryUser.h; sourceTree = "<group>"; };
+		DD82B70D13007C7C007221FC /* MMTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTransaction.h; sourceTree = "<group>"; };
+		DD82B70E13007C7C007221FC /* MMUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMUtilities.h; sourceTree = "<group>"; };
+		DD82B70F13007C7C007221FC /* NccpCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NccpCommunicator.h; sourceTree = "<group>"; };
+		DD82B71013007C7C007221FC /* NccpHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NccpHandlerDelegate.h; sourceTree = "<group>"; };
+		DD82B71113007C7C007221FC /* NetflixTopHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetflixTopHeader.h; sourceTree = "<group>"; };
+		DD82B71213007C7C007221FC /* NfhlsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NfhlsProtocol.h; sourceTree = "<group>"; };
+		DD82B71313007C7C007221FC /* Nflxhls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nflxhls.h; sourceTree = "<group>"; };
+		DD82B71413007C7C007221FC /* NflxhlsAuthenticationPrimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NflxhlsAuthenticationPrimer.h; sourceTree = "<group>"; };
+		DD82B71513007C7C007221FC /* NflxhlsStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NflxhlsStrings.h; sourceTree = "<group>"; };
+		DD82B71613007C7C007221FC /* NSMutableURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableURLRequest.h; sourceTree = "<group>"; };
+		DD82B71713007C7C007221FC /* NSMutableURLRequestAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableURLRequestAdditions.h; sourceTree = "<group>"; };
+		DD82B71813007C7C007221FC /* NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		DD82B71913007C7C007221FC /* NSStreamDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamDelegate.h; sourceTree = "<group>"; };
+		DD82B71A13007C7C007221FC /* NSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSString.h; sourceTree = "<group>"; };
+		DD82B71B13007C7C007221FC /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		DD82B71C13007C7C007221FC /* NSURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURL.h; sourceTree = "<group>"; };
+		DD82B71D13007C7C007221FC /* NSURLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLAdditions.h; sourceTree = "<group>"; };
+		DD82B71E13007C7C007221FC /* NSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLRequest.h; sourceTree = "<group>"; };
+		DD82B71F13007C7C007221FC /* NSValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSValueTransformer.h; sourceTree = "<group>"; };
+		DD82B72013007C7C007221FC /* OAConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAConsumer.h; sourceTree = "<group>"; };
+		DD82B72113007C7C007221FC /* OADataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OADataFetcher.h; sourceTree = "<group>"; };
+		DD82B72213007C7C007221FC /* OAHMAC_SHA1SignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAHMAC_SHA1SignatureProvider.h; sourceTree = "<group>"; };
+		DD82B72313007C7C007221FC /* OAMutableURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAMutableURLRequest.h; sourceTree = "<group>"; };
+		DD82B72413007C7C007221FC /* OAPlaintextSignatureProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAPlaintextSignatureProvider.h; sourceTree = "<group>"; };
+		DD82B72513007C7C007221FC /* OARequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OARequestParameter.h; sourceTree = "<group>"; };
+		DD82B72613007C7C007221FC /* OAServiceTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAServiceTicket.h; sourceTree = "<group>"; };
+		DD82B72713007C7C007221FC /* OASignatureProviding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OASignatureProviding.h; sourceTree = "<group>"; };
+		DD82B72813007C7C007221FC /* OAToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAToken.h; sourceTree = "<group>"; };
+		DD82B72913007C7C007221FC /* PlaybackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaybackController.h; sourceTree = "<group>"; };
+		DD82B72A13007C7C007221FC /* PlaydataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaydataController.h; sourceTree = "<group>"; };
+		DD82B72B13007C7C007221FC /* PlayListGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayListGenerator.h; sourceTree = "<group>"; };
+		DD82B72C13007C7C007221FC /* PlayReady.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayReady.h; sourceTree = "<group>"; };
+		DD82B72D13007C7C007221FC /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		DD82B72E13007C7C007221FC /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		DD82B72F13007C7C007221FC /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		DD82B73013007C7C007221FC /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		DD82B73113007C7C007221FC /* SedonaMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SedonaMediaAsset.h; sourceTree = "<group>"; };
+		DD82B73213007C7C007221FC /* SimpleDownloadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDownloadData.h; sourceTree = "<group>"; };
+		DD82B73313007C7C007221FC /* StreamData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamData.h; sourceTree = "<group>"; };
+		DD82B73413007C7C007221FC /* StreamHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamHeader.h; sourceTree = "<group>"; };
+		DD82B73513007C7C007221FC /* TCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPServer.h; sourceTree = "<group>"; };
+		DD82B73613007C7C007221FC /* TransportPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportPacket.h; sourceTree = "<group>"; };
+		DD82B73713007C7C007221FC /* UrlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlParser.h; sourceTree = "<group>"; };
+		DD82B73813007C7C007221FC /* VideoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoData.h; sourceTree = "<group>"; };
+		DD82B73913007C7C007221FC /* WSLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLogging.h; sourceTree = "<group>"; };
+		DD82BE0D1300A8AB007221FC /* SMFControlFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFControlFactory.h; sourceTree = "<group>"; };
+		DD82BE0E1300A8AB007221FC /* SMFControlFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFControlFactory.m; sourceTree = "<group>"; };
 		DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFPopup.mm; sourceTree = "<group>"; };
 		DD96C0471295D949002C5144 /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		DD96C0481295D949002C5144 /* EventCatcher.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = EventCatcher.plist; sourceTree = "<group>"; };
@@ -228,6 +922,7 @@
 				DD96C3DB129971A2002C5144 /* control */,
 				875A8427126FFF6D00ECADC2 /* Makefile */,
 				875A8425126FFF6500ECADC2 /* build.sh */,
+				DD82B5E013007C7C007221FC /* AppleTV */,
 				875A8253126FFF5300ECADC2 /* BackRow */,
 				DD96C0411295D949002C5144 /* eventcatcher */,
 				DD1462FB12B53B6C00FA8984 /* SMFHelper */,
@@ -299,6 +994,8 @@
 				DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */,
 				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
 				DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */,
+				DD82BE0D1300A8AB007221FC /* SMFControlFactory.h */,
+				DD82BE0E1300A8AB007221FC /* SMFControlFactory.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -441,6 +1138,359 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		DD82B5E013007C7C007221FC /* AppleTV */ = {
+			isa = PBXGroup;
+			children = (
+				DD82B5E113007C7C007221FC /* ActionManager.h */,
+				DD82B5E213007C7C007221FC /* AlertInfo.h */,
+				DD82B5E313007C7C007221FC /* AppleTV-Structs.h */,
+				DD82B5E413007C7C007221FC /* AppleTV.h */,
+				DD82B5E513007C7C007221FC /* AppNccpHandlerDelegate.h */,
+				DD82B5E613007C7C007221FC /* ATVAirTunesConnectionControl.h */,
+				DD82B5E713007C7C007221FC /* ATVAirTunesManager.h */,
+				DD82B5E813007C7C007221FC /* ATVAPNameEntryController.h */,
+				DD82B5E913007C7C007221FC /* ATVAPNetworkMenuController.h */,
+				DD82B5EA13007C7C007221FC /* ATVAPPasswordEntryController.h */,
+				DD82B5EB13007C7C007221FC /* ATVAPPasswordEntryDelegate.h */,
+				DD82B5EC13007C7C007221FC /* ATVAPTestController.h */,
+				DD82B5ED13007C7C007221FC /* ATVAPTestResultDelegate.h */,
+				DD82B5EE13007C7C007221FC /* ATVAPWEPPasswordMenuController.h */,
+				DD82B5EF13007C7C007221FC /* ATVAsyncNetworkTest.h */,
+				DD82B5F013007C7C007221FC /* ATVBlackScreenSaver.h */,
+				DD82B5F113007C7C007221FC /* ATVBlueDotUtilities.h */,
+				DD82B5F213007C7C007221FC /* ATVBSRLayer.h */,
+				DD82B5F313007C7C007221FC /* ATVCatalogAgent.h */,
+				DD82B5F413007C7C007221FC /* ATVCatalogApplianceController.h */,
+				DD82B5F513007C7C007221FC /* ATVCatalogHandler.h */,
+				DD82B5F613007C7C007221FC /* ATVClientVersionEvaluation.h */,
+				DD82B5F713007C7C007221FC /* ATVCVVControl.h */,
+				DD82B5F813007C7C007221FC /* ATVDateToMonthDayYearTransformer.h */,
+				DD82B5F913007C7C007221FC /* ATVDefaultPhotos.h */,
+				DD82B5FA13007C7C007221FC /* ATVDetailedMetadataControlFactory.h */,
+				DD82B5FB13007C7C007221FC /* ATVDirectionalRemoteConnectionHandler.h */,
+				DD82B5FC13007C7C007221FC /* ATVDiskSpaceManager.h */,
+				DD82B5FD13007C7C007221FC /* ATVDotMacAccountDelegate.h */,
+				DD82B5FE13007C7C007221FC /* ATVDotMacAlbumDelegate.h */,
+				DD82B5FF13007C7C007221FC /* ATVDotMacAsset.h */,
+				DD82B60013007C7C007221FC /* ATVDotMacAuthentication.h */,
+				DD82B60113007C7C007221FC /* ATVDotMacCollection.h */,
+				DD82B60213007C7C007221FC /* ATVDotMacCollectionController.h */,
+				DD82B60313007C7C007221FC /* ATVDotMacControlFactory.h */,
+				DD82B60413007C7C007221FC /* ATVDotMacDisplayInfoLoader.h */,
+				DD82B60513007C7C007221FC /* ATVDotMacImageProxy.h */,
+				DD82B60613007C7C007221FC /* ATVDotMacMainMenuController.h */,
+				DD82B60713007C7C007221FC /* ATVDotMacManagedAccount.h */,
+				DD82B60813007C7C007221FC /* ATVDotMacMonitor.h */,
+				DD82B60913007C7C007221FC /* ATVDotMacMonitorBackgroundTask.h */,
+				DD82B60A13007C7C007221FC /* ATVDotMacParserDelegate.h */,
+				DD82B60B13007C7C007221FC /* ATVDotMacPhotoSelectionHandler.h */,
+				DD82B60C13007C7C007221FC /* ATVDotMacProvider.h */,
+				DD82B60D13007C7C007221FC /* ATVDotMacProviderForAccount.h */,
+				DD82B60E13007C7C007221FC /* ATVDotMacProviderForCollection.h */,
+				DD82B60F13007C7C007221FC /* ATVDotMacRecentAlbumsProvider.h */,
+				DD82B61013007C7C007221FC /* ATVDotMacRecentAlbumsRSSFeedDelegate.h */,
+				DD82B61113007C7C007221FC /* ATVDotMacSecondaryAccount.h */,
+				DD82B61213007C7C007221FC /* ATVDotMacVideoAsset.h */,
+				DD82B61313007C7C007221FC /* ATVDotMacVideoDelegate.h */,
+				DD82B61413007C7C007221FC /* ATVDotMacVideoSlideshowAsset.h */,
+				DD82B61513007C7C007221FC /* ATVDottedQuadEntryController.h */,
+				DD82B61613007C7C007221FC /* ATVDottedQuadEntryDelegate.h */,
+				DD82B61713007C7C007221FC /* ATVDownloadMenuItem.h */,
+				DD82B61813007C7C007221FC /* ATVDownloadsMonitor.h */,
+				DD82B61913007C7C007221FC /* ATVDownloadsPeriodicCheckForPurchasesMonitor.h */,
+				DD82B61A13007C7C007221FC /* ATVEpisodeTitleTransformer.h */,
+				DD82B61B13007C7C007221FC /* ATVEvaluation.h */,
+				DD82B61C13007C7C007221FC /* ATVFavorite.h */,
+				DD82B61D13007C7C007221FC /* ATVFavoritesControlFactory.h */,
+				DD82B61E13007C7C007221FC /* ATVFavoritesController.h */,
+				DD82B61F13007C7C007221FC /* ATVFavoritesManager.h */,
+				DD82B62013007C7C007221FC /* ATVFavoritesProvider.h */,
+				DD82B62113007C7C007221FC /* ATVFavoritesSelectionHandler.h */,
+				DD82B62213007C7C007221FC /* ATVFavoriteUnavailableController.h */,
+				DD82B62313007C7C007221FC /* ATVFlickrAsset.h */,
+				DD82B62413007C7C007221FC /* ATVFlickrCollection.h */,
+				DD82B62513007C7C007221FC /* ATVFlickrCollectionController.h */,
+				DD82B62613007C7C007221FC /* ATVFlickrContactsController.h */,
+				DD82B62713007C7C007221FC /* ATVFlickrContactsProviderForAccount.h */,
+				DD82B62813007C7C007221FC /* ATVFlickrControlFactory.h */,
+				DD82B62913007C7C007221FC /* ATVFlickrDisplayInfoLoader.h */,
+				DD82B62A13007C7C007221FC /* ATVFlickrImageProxy.h */,
+				DD82B62B13007C7C007221FC /* ATVFlickrMainMenuController.h */,
+				DD82B62C13007C7C007221FC /* ATVFlickrManagedAccount.h */,
+				DD82B62D13007C7C007221FC /* ATVFlickrMonitor.h */,
+				DD82B62E13007C7C007221FC /* ATVFlickrMonitorBackgroundTask.h */,
+				DD82B62F13007C7C007221FC /* ATVFlickrParserDelegate.h */,
+				DD82B63013007C7C007221FC /* ATVFlickrProvider.h */,
+				DD82B63113007C7C007221FC /* ATVFlickrProviderForAccount.h */,
+				DD82B63213007C7C007221FC /* ATVFlickrProviderForCollection.h */,
+				DD82B63313007C7C007221FC /* ATVFlickrProviderForSavedSearches.h */,
+				DD82B63413007C7C007221FC /* ATVFlickrSaveRemoveSearchSelectionHandler.h */,
+				DD82B63513007C7C007221FC /* ATVFlickrSearchAgent.h */,
+				DD82B63613007C7C007221FC /* ATVHardwareUtility.h */,
+				DD82B63713007C7C007221FC /* ATVHIDSystemClient.h */,
+				DD82B63813007C7C007221FC /* ATVHIDThread.h */,
+				DD82B63913007C7C007221FC /* ATVHomeShareAccountCreationController.h */,
+				DD82B63A13007C7C007221FC /* ATVHomeShareAuthenticationResources.h */,
+				DD82B63B13007C7C007221FC /* ATVInternetPhotosAccount.h */,
+				DD82B63C13007C7C007221FC /* ATVInternetPhotosCollection.h */,
+				DD82B63D13007C7C007221FC /* ATVInternetPhotosMonitor.h */,
+				DD82B63E13007C7C007221FC /* ATVInternetRadioFavorite.h */,
+				DD82B63F13007C7C007221FC /* ATVIPEntryDialog.h */,
+				DD82B64013007C7C007221FC /* ATVIPv4AddressEntryControl.h */,
+				DD82B64113007C7C007221FC /* ATVIPv4AddressSelectionControl.h */,
+				DD82B64213007C7C007221FC /* ATVIPv4AddressSelectionWidget.h */,
+				DD82B64313007C7C007221FC /* ATViTunesKeyValueStoreAPI.h */,
+				DD82B64413007C7C007221FC /* ATViTunesKeyValueStoreGetItem.h */,
+				DD82B64513007C7C007221FC /* ATViTunesKeyValueStorePutItem.h */,
+				DD82B64613007C7C007221FC /* ATVITunesLibraryTouchRemoteAccess.h */,
+				DD82B64713007C7C007221FC /* ATVITunesTouchRemoteManager.h */,
+				DD82B64813007C7C007221FC /* ATVKeyValueStore.h */,
+				DD82B64913007C7C007221FC /* ATVKeyValueStoreCleanupTask.h */,
+				DD82B64A13007C7C007221FC /* ATVKeyValueStoreUtilities.h */,
+				DD82B64B13007C7C007221FC /* ATVLanguageChooserController.h */,
+				DD82B64C13007C7C007221FC /* ATVMerchant.h */,
+				DD82B64D13007C7C007221FC /* ATVMerchant_ITMS.h */,
+				DD82B64E13007C7C007221FC /* ATVMerchant_Sedona.h */,
+				DD82B64F13007C7C007221FC /* ATVMerchantRepresentativeFeed.h */,
+				DD82B65013007C7C007221FC /* ATVMovieRentalPosterControl.h */,
+				DD82B65113007C7C007221FC /* ATVMoviesPlayActionButtonControl.h */,
+				DD82B65213007C7C007221FC /* ATVMultistateProgressIndicator.h */,
+				DD82B65313007C7C007221FC /* ATVMusicCoversCollectionProxy.h */,
+				DD82B65413007C7C007221FC /* ATVMusicCoversMediaAsset.h */,
+				DD82B65513007C7C007221FC /* ATVMusicStoreAccountSelector.h */,
+				DD82B65613007C7C007221FC /* ATVMusicStoreAcquisitionController.h */,
+				DD82B65713007C7C007221FC /* ATVMusicStoreActionControlPopulator.h */,
+				DD82B65813007C7C007221FC /* ATVMusicStoreAssetController.h */,
+				DD82B65913007C7C007221FC /* ATVMusicStoreAuthenticationResources.h */,
+				DD82B65A13007C7C007221FC /* ATVMusicStoreBaseAppliance.h */,
+				DD82B65B13007C7C007221FC /* ATVMusicStoreBaseMetadataProvider.h */,
+				DD82B65C13007C7C007221FC /* ATVMusicStoreCatalogAgent.h */,
+				DD82B65D13007C7C007221FC /* ATVMusicStoreCatalogCollectionController.h */,
+				DD82B65E13007C7C007221FC /* ATVMusicStoreCatalogItemController.h */,
+				DD82B65F13007C7C007221FC /* ATVMusicStoreCatalogItemProviderFactory.h */,
+				DD82B66013007C7C007221FC /* ATVMusicStoreCatalogRefreshTask.h */,
+				DD82B66113007C7C007221FC /* ATVMusicStoreControlFactory.h */,
+				DD82B66213007C7C007221FC /* ATVMusicStoreControlPopulator.h */,
+				DD82B66313007C7C007221FC /* ATVMusicStoreDoubleRowPagedViewController.h */,
+				DD82B66413007C7C007221FC /* ATVMusicStoreDownloadFailurePopup.h */,
+				DD82B66513007C7C007221FC /* ATVMusicStoreDownloadsController.h */,
+				DD82B66613007C7C007221FC /* ATVMusicStoreFavoriteListItemProvider.h */,
+				DD82B66713007C7C007221FC /* ATVMusicStoreHomeShareAccountSelector.h */,
+				DD82B66813007C7C007221FC /* ATVMusicStoreItemDetailController.h */,
+				DD82B66913007C7C007221FC /* ATVMusicStoreItemProvider.h */,
+				DD82B66A13007C7C007221FC /* ATVMusicStoreMoreInfoController.h */,
+				DD82B66B13007C7C007221FC /* ATVMusicStoreMoreInfoControlPopulator.h */,
+				DD82B66C13007C7C007221FC /* ATVMusicStoreMoreInfoProvider.h */,
+				DD82B66D13007C7C007221FC /* ATVMusicStoreMoreInfoSelectionHandler.h */,
+				DD82B66E13007C7C007221FC /* ATVMusicStoreMovieItemController.h */,
+				DD82B66F13007C7C007221FC /* ATVMusicStoreMovieMetadataProvider.h */,
+				DD82B67013007C7C007221FC /* ATVMusicStoreMoviePreviewController.h */,
+				DD82B67113007C7C007221FC /* ATVMusicStoreMusicAlbumMetadataProvider.h */,
+				DD82B67213007C7C007221FC /* ATVMusicStoreMusicItemController.h */,
+				DD82B67313007C7C007221FC /* ATVMusicStoreMusicMetadataProvider.h */,
+				DD82B67413007C7C007221FC /* ATVMusicStoreMusicVideoMetadataProvider.h */,
+				DD82B67513007C7C007221FC /* ATVMusicStoreOffer.h */,
+				DD82B67613007C7C007221FC /* ATVMusicStoreOfferControl.h */,
+				DD82B67713007C7C007221FC /* ATVMusicStoreOfferControlFactory.h */,
+				DD82B67813007C7C007221FC /* ATVMusicStoreOtherSeasonsControlFactory.h */,
+				DD82B67913007C7C007221FC /* ATVMusicStoreOtherSeasonsProvider.h */,
+				DD82B67A13007C7C007221FC /* ATVMusicStoreOtherSeasonsSelectionHandler.h */,
+				DD82B67B13007C7C007221FC /* ATVMusicStorePagedViewController.h */,
+				DD82B67C13007C7C007221FC /* ATVMusicStorePodcastAsset.h */,
+				DD82B67D13007C7C007221FC /* ATVMusicStorePodcastItemController.h */,
+				DD82B67E13007C7C007221FC /* ATVMusicStorePodcastMetadataProvider.h */,
+				DD82B67F13007C7C007221FC /* ATVMusicStorePodcastShowMetadataProvider.h */,
+				DD82B68013007C7C007221FC /* ATVMusicStorePresentsDocument.h */,
+				DD82B68113007C7C007221FC /* ATVMusicStorePresentsItemControlPopulator.h */,
+				DD82B68213007C7C007221FC /* ATVMusicStorePresentsProvider.h */,
+				DD82B68313007C7C007221FC /* ATVMusicStoreRentalDetailPageController.h */,
+				DD82B68413007C7C007221FC /* ATVMusicStoreRottenTomatoesControl.h */,
+				DD82B68513007C7C007221FC /* ATVMusicStoreRottenTomatoesRatingControl.h */,
+				DD82B68613007C7C007221FC /* ATVMusicStoreSearchAgent.h */,
+				DD82B68713007C7C007221FC /* ATVMusicStoreShowInfo.h */,
+				DD82B68813007C7C007221FC /* ATVMusicStoreSingleItemPopulator.h */,
+				DD82B68913007C7C007221FC /* ATVMusicStoreSingleRowPagedViewController.h */,
+				DD82B68A13007C7C007221FC /* ATVMusicStoreTabbedPageController.h */,
+				DD82B68B13007C7C007221FC /* ATVMusicStoreTabManager.h */,
+				DD82B68C13007C7C007221FC /* ATVMusicStoreTransactionDialog.h */,
+				DD82B68D13007C7C007221FC /* ATVMusicStoreTVEpisodeItemController.h */,
+				DD82B68E13007C7C007221FC /* ATVMusicStoreTVMetadataProvider.h */,
+				DD82B68F13007C7C007221FC /* ATVMusicStoreTVSeasonMetadataProvider.h */,
+				DD82B69013007C7C007221FC /* ATVMusicStoreUserReviewsControl.h */,
+				DD82B69113007C7C007221FC /* ATVMusicStoreXMLDocumentPreProcessor.h */,
+				DD82B69213007C7C007221FC /* ATVNumUserReviewsTransformer.h */,
+				DD82B69313007C7C007221FC /* ATVPlayButtonEnabledButtonControl.h */,
+				DD82B69413007C7C007221FC /* ATVRCButtonPatternSet.h */,
+				DD82B69513007C7C007221FC /* ATVRCCapture.h */,
+				DD82B69613007C7C007221FC /* ATVRCManager.h */,
+				DD82B69713007C7C007221FC /* ATVRCPatternMatcher.h */,
+				DD82B69813007C7C007221FC /* ATVRCPatternMatcherDelegate.h */,
+				DD82B69913007C7C007221FC /* ATVRebootWaitController.h */,
+				DD82B69A13007C7C007221FC /* ATVRecentSearchesController.h */,
+				DD82B69B13007C7C007221FC /* ATVRecentSearchSelectionHandler.h */,
+				DD82B69C13007C7C007221FC /* ATVReleaseDateAsInTheatersDateValueTransformer.h */,
+				DD82B69D13007C7C007221FC /* ATVReleaseDateAsOriginalAirDateValueTransformer.h */,
+				DD82B69E13007C7C007221FC /* ATVReleaseDateAsReleasedDateValueTransformer.h */,
+				DD82B69F13007C7C007221FC /* ATVReleaseDateAsYearValueTransformer.h */,
+				DD82B6A013007C7C007221FC /* ATVRemoteControlMessageHandler.h */,
+				DD82B6A113007C7C007221FC /* ATVRemoteSet.h */,
+				DD82B6A213007C7C007221FC /* ATVRentalExpiryUserNotification.h */,
+				DD82B6A313007C7C007221FC /* ATVRentalPosterControl.h */,
+				DD82B6A413007C7C007221FC /* ATVRentedMediaProvider.h */,
+				DD82B6A513007C7C007221FC /* ATVRetailDemoModeManager.h */,
+				DD82B6A613007C7C007221FC /* ATVScreenSaverArchiver.h */,
+				DD82B6A713007C7C007221FC /* ATVScreenSaverControl.h */,
+				DD82B6A813007C7C007221FC /* ATVScreenSaverManager.h */,
+				DD82B6A913007C7C007221FC /* ATVScreenSaverPluginProtocol.h */,
+				DD82B6AA13007C7C007221FC /* ATVScreenSaverPrefetchTask.h */,
+				DD82B6AB13007C7C007221FC /* ATVSearchAgent.h */,
+				DD82B6AC13007C7C007221FC /* ATVSearchController.h */,
+				DD82B6AD13007C7C007221FC /* ATVSearchTerm.h */,
+				DD82B6AE13007C7C007221FC /* ATVSedonaAccount.h */,
+				DD82B6AF13007C7C007221FC /* ATVSedonaActionControlPopulator.h */,
+				DD82B6B013007C7C007221FC /* ATVSedonaAuthenticationResources.h */,
+				DD82B6B113007C7C007221FC /* ATVSedonaCatalogAgent.h */,
+				DD82B6B213007C7C007221FC /* ATVSedonaCatalogHandler.h */,
+				DD82B6B313007C7C007221FC /* ATVSedonaCatalogItem.h */,
+				DD82B6B413007C7C007221FC /* ATVSedonaCatalogItemProviderFactory.h */,
+				DD82B6B513007C7C007221FC /* ATVSedonaController.h */,
+				DD82B6B613007C7C007221FC /* ATVSedonaItemProvider.h */,
+				DD82B6B713007C7C007221FC /* ATVSedonaMovieMetadataProvider.h */,
+				DD82B6B813007C7C007221FC /* ATVSedonaQueueControlFactory.h */,
+				DD82B6B913007C7C007221FC /* ATVSedonaQueueListItemProvider.h */,
+				DD82B6BA13007C7C007221FC /* ATVSedonaQueueSelectionHandler.h */,
+				DD82B6BB13007C7C007221FC /* ATVSedonaRateControl.h */,
+				DD82B6BC13007C7C007221FC /* ATVSedonaRateControlFactory.h */,
+				DD82B6BD13007C7C007221FC /* ATVSedonaRateListItemProvider.h */,
+				DD82B6BE13007C7C007221FC /* ATVSedonaRateSelectionHandler.h */,
+				DD82B6BF13007C7C007221FC /* ATVSedonaRefreshTask.h */,
+				DD82B6C013007C7C007221FC /* ATVSedonaSearchAgent.h */,
+				DD82B6C113007C7C007221FC /* ATVSedonaSingleItemPopulator.h */,
+				DD82B6C213007C7C007221FC /* ATVSedonaTVMetadataProvider.h */,
+				DD82B6C313007C7C007221FC /* ATVSedonaTVSeasonMetadataProvider.h */,
+				DD82B6C413007C7C007221FC /* ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h */,
+				DD82B6C513007C7C007221FC /* ATVSedonaUserRatingToImageControlTransformer.h */,
+				DD82B6C613007C7C007221FC /* ATVSettingsFacade.h */,
+				DD82B6C713007C7C007221FC /* ATVSettingsHelper.h */,
+				DD82B6C813007C7C007221FC /* ATVStoreFavorite.h */,
+				DD82B6C913007C7C007221FC /* ATVStoreFavoriteRefreshTask.h */,
+				DD82B6CA13007C7C007221FC /* ATVSWUDownloadResult.h */,
+				DD82B6CB13007C7C007221FC /* ATVSWUpdateCheckTask.h */,
+				DD82B6CC13007C7C007221FC /* ATVSWUpdateManager.h */,
+				DD82B6CD13007C7C007221FC /* ATVSWUpdateRecord.h */,
+				DD82B6CE13007C7C007221FC /* ATVSWUpdateRecordV1.h */,
+				DD82B6CF13007C7C007221FC /* ATVSWUpdateRecordV2.h */,
+				DD82B6D013007C7C007221FC /* ATVSWUpdateServerIPController.h */,
+				DD82B6D113007C7C007221FC /* ATVSWUProgressView.h */,
+				DD82B6D213007C7C007221FC /* ATVTCPConnection.h */,
+				DD82B6D313007C7C007221FC /* ATVTCPControlReceiver.h */,
+				DD82B6D413007C7C007221FC /* ATVTCPIPConfigController.h */,
+				DD82B6D513007C7C007221FC /* ATVTomatoMeterTransformer.h */,
+				DD82B6D613007C7C007221FC /* ATVTouchRemoteManager.h */,
+				DD82B6D713007C7C007221FC /* ATVTVShowRentalPosterControl.h */,
+				DD82B6D813007C7C007221FC /* ATVURLDocument.h */,
+				DD82B6D913007C7C007221FC /* ATVUserRatingAndNumReviewsTransformer.h */,
+				DD82B6DA13007C7C007221FC /* ATVUserRatingToImageControlTransformer.h */,
+				DD82B6DB13007C7C007221FC /* ATVVersionInfo.h */,
+				DD82B6DC13007C7C007221FC /* ATVVersionStringTransformer.h */,
+				DD82B6DD13007C7C007221FC /* ATVVideoCacheManager.h */,
+				DD82B6DE13007C7C007221FC /* ATVWishListFavorite.h */,
+				DD82B6DF13007C7C007221FC /* ATVWishListSelectionHandler.h */,
+				DD82B6E013007C7C007221FC /* AudioData.h */,
+				DD82B6E113007C7C007221FC /* Base64.h */,
+				DD82B6E213007C7C007221FC /* BlackoutAnimationDelegate.h */,
+				DD82B6E313007C7C007221FC /* BRAccountType.h */,
+				DD82B6E413007C7C007221FC /* BRATVMediaItem.h */,
+				DD82B6E513007C7C007221FC /* BRControl.h */,
+				DD82B6E613007C7C007221FC /* BRControlFactory.h */,
+				DD82B6E713007C7C007221FC /* BRControlHeightFactory.h */,
+				DD82B6E813007C7C007221FC /* BRDeletable.h */,
+				DD82B6E913007C7C007221FC /* BRDisplayInfoLoader.h */,
+				DD82B6EA13007C7C007221FC /* BRDownload.h */,
+				DD82B6EB13007C7C007221FC /* BRDownloadManager.h */,
+				DD82B6EC13007C7C007221FC /* BRImageProxy.h */,
+				DD82B6ED13007C7C007221FC /* BRMediaAsset.h */,
+				DD82B6EE13007C7C007221FC /* BRMediaAssetDerivesMediaURL.h */,
+				DD82B6EF13007C7C007221FC /* BRMediaObject.h */,
+				DD82B6F013007C7C007221FC /* BRMenuListItemProvider.h */,
+				DD82B6F113007C7C007221FC /* BRMerchant.h */,
+				DD82B6F213007C7C007221FC /* BRMetadataProvider.h */,
+				DD82B6F313007C7C007221FC /* BRMusicStore.h */,
+				DD82B6F413007C7C007221FC /* BRPhotoProviderForCollection.h */,
+				DD82B6F513007C7C007221FC /* BRPlayButtonEnabledMenuItem.h */,
+				DD82B6F613007C7C007221FC /* BRPlayButtonEnabledPosterControl.h */,
+				DD82B6F713007C7C007221FC /* BRProvider.h */,
+				DD82B6F813007C7C007221FC /* BRResponder.h */,
+				DD82B6F913007C7C007221FC /* BRSelectionHandler.h */,
+				DD82B6FA13007C7C007221FC /* BRTabControlDelegate.h */,
+				DD82B6FB13007C7C007221FC /* BRTextField.h */,
+				DD82B6FC13007C7C007221FC /* BRTextFieldDelegate.h */,
+				DD82B6FD13007C7C007221FC /* BRThemeInfo.h */,
+				DD82B6FE13007C7C007221FC /* BRTitleProvider.h */,
+				DD82B6FF13007C7C007221FC /* Buffer.h */,
+				DD82B70013007C7C007221FC /* ChunkData.h */,
+				DD82B70113007C7C007221FC /* DRMData.h */,
+				DD82B70213007C7C007221FC /* FujiConfigParser.h */,
+				DD82B70313007C7C007221FC /* HomeShareAccountController.h */,
+				DD82B70413007C7C007221FC /* HTTPServer.h */,
+				DD82B70513007C7C007221FC /* ID3Header.h */,
+				DD82B70613007C7C007221FC /* IndexData.h */,
+				DD82B70713007C7C007221FC /* LogCollectorWrapper.h */,
+				DD82B70813007C7C007221FC /* MMCredential.h */,
+				DD82B70913007C7C007221FC /* MMiDiskSession.h */,
+				DD82B70A13007C7C007221FC /* MMMemberAccount.h */,
+				DD82B70B13007C7C007221FC /* MMRequest.h */,
+				DD82B70C13007C7C007221FC /* MMSecondaryUser.h */,
+				DD82B70D13007C7C007221FC /* MMTransaction.h */,
+				DD82B70E13007C7C007221FC /* MMUtilities.h */,
+				DD82B70F13007C7C007221FC /* NccpCommunicator.h */,
+				DD82B71013007C7C007221FC /* NccpHandlerDelegate.h */,
+				DD82B71113007C7C007221FC /* NetflixTopHeader.h */,
+				DD82B71213007C7C007221FC /* NfhlsProtocol.h */,
+				DD82B71313007C7C007221FC /* Nflxhls.h */,
+				DD82B71413007C7C007221FC /* NflxhlsAuthenticationPrimer.h */,
+				DD82B71513007C7C007221FC /* NflxhlsStrings.h */,
+				DD82B71613007C7C007221FC /* NSMutableURLRequest.h */,
+				DD82B71713007C7C007221FC /* NSMutableURLRequestAdditions.h */,
+				DD82B71813007C7C007221FC /* NSObject.h */,
+				DD82B71913007C7C007221FC /* NSStreamDelegate.h */,
+				DD82B71A13007C7C007221FC /* NSString.h */,
+				DD82B71B13007C7C007221FC /* NSStringAdditions.h */,
+				DD82B71C13007C7C007221FC /* NSURL.h */,
+				DD82B71D13007C7C007221FC /* NSURLAdditions.h */,
+				DD82B71E13007C7C007221FC /* NSURLRequest.h */,
+				DD82B71F13007C7C007221FC /* NSValueTransformer.h */,
+				DD82B72013007C7C007221FC /* OAConsumer.h */,
+				DD82B72113007C7C007221FC /* OADataFetcher.h */,
+				DD82B72213007C7C007221FC /* OAHMAC_SHA1SignatureProvider.h */,
+				DD82B72313007C7C007221FC /* OAMutableURLRequest.h */,
+				DD82B72413007C7C007221FC /* OAPlaintextSignatureProvider.h */,
+				DD82B72513007C7C007221FC /* OARequestParameter.h */,
+				DD82B72613007C7C007221FC /* OAServiceTicket.h */,
+				DD82B72713007C7C007221FC /* OASignatureProviding.h */,
+				DD82B72813007C7C007221FC /* OAToken.h */,
+				DD82B72913007C7C007221FC /* PlaybackController.h */,
+				DD82B72A13007C7C007221FC /* PlaydataController.h */,
+				DD82B72B13007C7C007221FC /* PlayListGenerator.h */,
+				DD82B72C13007C7C007221FC /* PlayReady.h */,
+				DD82B72D13007C7C007221FC /* SBJSON.h */,
+				DD82B72E13007C7C007221FC /* SBJsonBase.h */,
+				DD82B72F13007C7C007221FC /* SBJsonParser.h */,
+				DD82B73013007C7C007221FC /* SBJsonWriter.h */,
+				DD82B73113007C7C007221FC /* SedonaMediaAsset.h */,
+				DD82B73213007C7C007221FC /* SimpleDownloadData.h */,
+				DD82B73313007C7C007221FC /* StreamData.h */,
+				DD82B73413007C7C007221FC /* StreamHeader.h */,
+				DD82B73513007C7C007221FC /* TCPServer.h */,
+				DD82B73613007C7C007221FC /* TransportPacket.h */,
+				DD82B73713007C7C007221FC /* UrlParser.h */,
+				DD82B73813007C7C007221FC /* VideoData.h */,
+				DD82B73913007C7C007221FC /* WSLogging.h */,
+			);
+			name = AppleTV;
+			path = ../ATV2Includes/AppleTV;
+			sourceTree = SOURCE_ROOT;
+		};
 		DD96C0411295D949002C5144 /* eventcatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +1556,352 @@
 				DD82B59B12FFBCF0007221FC /* SMFSettingPreferences.h in Headers */,
 				DD82B59C12FFBCF0007221FC /* SMFThemeInfo.h in Headers */,
 				DD82B59D12FFBCF0007221FC /* SMFViewMenuController.h in Headers */,
+				DD82B73A13007C7C007221FC /* ActionManager.h in Headers */,
+				DD82B73B13007C7C007221FC /* AlertInfo.h in Headers */,
+				DD82B73C13007C7C007221FC /* AppleTV-Structs.h in Headers */,
+				DD82B73D13007C7C007221FC /* AppleTV.h in Headers */,
+				DD82B73E13007C7C007221FC /* AppNccpHandlerDelegate.h in Headers */,
+				DD82B73F13007C7C007221FC /* ATVAirTunesConnectionControl.h in Headers */,
+				DD82B74013007C7C007221FC /* ATVAirTunesManager.h in Headers */,
+				DD82B74113007C7C007221FC /* ATVAPNameEntryController.h in Headers */,
+				DD82B74213007C7C007221FC /* ATVAPNetworkMenuController.h in Headers */,
+				DD82B74313007C7C007221FC /* ATVAPPasswordEntryController.h in Headers */,
+				DD82B74413007C7C007221FC /* ATVAPPasswordEntryDelegate.h in Headers */,
+				DD82B74513007C7C007221FC /* ATVAPTestController.h in Headers */,
+				DD82B74613007C7C007221FC /* ATVAPTestResultDelegate.h in Headers */,
+				DD82B74713007C7C007221FC /* ATVAPWEPPasswordMenuController.h in Headers */,
+				DD82B74813007C7C007221FC /* ATVAsyncNetworkTest.h in Headers */,
+				DD82B74913007C7C007221FC /* ATVBlackScreenSaver.h in Headers */,
+				DD82B74A13007C7C007221FC /* ATVBlueDotUtilities.h in Headers */,
+				DD82B74B13007C7C007221FC /* ATVBSRLayer.h in Headers */,
+				DD82B74C13007C7C007221FC /* ATVCatalogAgent.h in Headers */,
+				DD82B74D13007C7C007221FC /* ATVCatalogApplianceController.h in Headers */,
+				DD82B74E13007C7C007221FC /* ATVCatalogHandler.h in Headers */,
+				DD82B74F13007C7C007221FC /* ATVClientVersionEvaluation.h in Headers */,
+				DD82B75013007C7C007221FC /* ATVCVVControl.h in Headers */,
+				DD82B75113007C7C007221FC /* ATVDateToMonthDayYearTransformer.h in Headers */,
+				DD82B75213007C7C007221FC /* ATVDefaultPhotos.h in Headers */,
+				DD82B75313007C7C007221FC /* ATVDetailedMetadataControlFactory.h in Headers */,
+				DD82B75413007C7C007221FC /* ATVDirectionalRemoteConnectionHandler.h in Headers */,
+				DD82B75513007C7C007221FC /* ATVDiskSpaceManager.h in Headers */,
+				DD82B75613007C7C007221FC /* ATVDotMacAccountDelegate.h in Headers */,
+				DD82B75713007C7C007221FC /* ATVDotMacAlbumDelegate.h in Headers */,
+				DD82B75813007C7C007221FC /* ATVDotMacAsset.h in Headers */,
+				DD82B75913007C7C007221FC /* ATVDotMacAuthentication.h in Headers */,
+				DD82B75A13007C7C007221FC /* ATVDotMacCollection.h in Headers */,
+				DD82B75B13007C7C007221FC /* ATVDotMacCollectionController.h in Headers */,
+				DD82B75C13007C7C007221FC /* ATVDotMacControlFactory.h in Headers */,
+				DD82B75D13007C7C007221FC /* ATVDotMacDisplayInfoLoader.h in Headers */,
+				DD82B75E13007C7C007221FC /* ATVDotMacImageProxy.h in Headers */,
+				DD82B75F13007C7C007221FC /* ATVDotMacMainMenuController.h in Headers */,
+				DD82B76013007C7C007221FC /* ATVDotMacManagedAccount.h in Headers */,
+				DD82B76113007C7C007221FC /* ATVDotMacMonitor.h in Headers */,
+				DD82B76213007C7C007221FC /* ATVDotMacMonitorBackgroundTask.h in Headers */,
+				DD82B76313007C7C007221FC /* ATVDotMacParserDelegate.h in Headers */,
+				DD82B76413007C7C007221FC /* ATVDotMacPhotoSelectionHandler.h in Headers */,
+				DD82B76513007C7C007221FC /* ATVDotMacProvider.h in Headers */,
+				DD82B76613007C7C007221FC /* ATVDotMacProviderForAccount.h in Headers */,
+				DD82B76713007C7C007221FC /* ATVDotMacProviderForCollection.h in Headers */,
+				DD82B76813007C7C007221FC /* ATVDotMacRecentAlbumsProvider.h in Headers */,
+				DD82B76913007C7C007221FC /* ATVDotMacRecentAlbumsRSSFeedDelegate.h in Headers */,
+				DD82B76A13007C7C007221FC /* ATVDotMacSecondaryAccount.h in Headers */,
+				DD82B76B13007C7C007221FC /* ATVDotMacVideoAsset.h in Headers */,
+				DD82B76C13007C7C007221FC /* ATVDotMacVideoDelegate.h in Headers */,
+				DD82B76D13007C7C007221FC /* ATVDotMacVideoSlideshowAsset.h in Headers */,
+				DD82B76E13007C7C007221FC /* ATVDottedQuadEntryController.h in Headers */,
+				DD82B76F13007C7C007221FC /* ATVDottedQuadEntryDelegate.h in Headers */,
+				DD82B77013007C7C007221FC /* ATVDownloadMenuItem.h in Headers */,
+				DD82B77113007C7C007221FC /* ATVDownloadsMonitor.h in Headers */,
+				DD82B77213007C7C007221FC /* ATVDownloadsPeriodicCheckForPurchasesMonitor.h in Headers */,
+				DD82B77313007C7C007221FC /* ATVEpisodeTitleTransformer.h in Headers */,
+				DD82B77413007C7C007221FC /* ATVEvaluation.h in Headers */,
+				DD82B77513007C7C007221FC /* ATVFavorite.h in Headers */,
+				DD82B77613007C7C007221FC /* ATVFavoritesControlFactory.h in Headers */,
+				DD82B77713007C7C007221FC /* ATVFavoritesController.h in Headers */,
+				DD82B77813007C7C007221FC /* ATVFavoritesManager.h in Headers */,
+				DD82B77913007C7C007221FC /* ATVFavoritesProvider.h in Headers */,
+				DD82B77A13007C7C007221FC /* ATVFavoritesSelectionHandler.h in Headers */,
+				DD82B77B13007C7C007221FC /* ATVFavoriteUnavailableController.h in Headers */,
+				DD82B77C13007C7C007221FC /* ATVFlickrAsset.h in Headers */,
+				DD82B77D13007C7C007221FC /* ATVFlickrCollection.h in Headers */,
+				DD82B77E13007C7C007221FC /* ATVFlickrCollectionController.h in Headers */,
+				DD82B77F13007C7C007221FC /* ATVFlickrContactsController.h in Headers */,
+				DD82B78013007C7C007221FC /* ATVFlickrContactsProviderForAccount.h in Headers */,
+				DD82B78113007C7C007221FC /* ATVFlickrControlFactory.h in Headers */,
+				DD82B78213007C7C007221FC /* ATVFlickrDisplayInfoLoader.h in Headers */,
+				DD82B78313007C7C007221FC /* ATVFlickrImageProxy.h in Headers */,
+				DD82B78413007C7C007221FC /* ATVFlickrMainMenuController.h in Headers */,
+				DD82B78513007C7C007221FC /* ATVFlickrManagedAccount.h in Headers */,
+				DD82B78613007C7C007221FC /* ATVFlickrMonitor.h in Headers */,
+				DD82B78713007C7C007221FC /* ATVFlickrMonitorBackgroundTask.h in Headers */,
+				DD82B78813007C7C007221FC /* ATVFlickrParserDelegate.h in Headers */,
+				DD82B78913007C7C007221FC /* ATVFlickrProvider.h in Headers */,
+				DD82B78A13007C7C007221FC /* ATVFlickrProviderForAccount.h in Headers */,
+				DD82B78B13007C7C007221FC /* ATVFlickrProviderForCollection.h in Headers */,
+				DD82B78C13007C7C007221FC /* ATVFlickrProviderForSavedSearches.h in Headers */,
+				DD82B78D13007C7C007221FC /* ATVFlickrSaveRemoveSearchSelectionHandler.h in Headers */,
+				DD82B78E13007C7C007221FC /* ATVFlickrSearchAgent.h in Headers */,
+				DD82B78F13007C7C007221FC /* ATVHardwareUtility.h in Headers */,
+				DD82B79013007C7C007221FC /* ATVHIDSystemClient.h in Headers */,
+				DD82B79113007C7C007221FC /* ATVHIDThread.h in Headers */,
+				DD82B79213007C7C007221FC /* ATVHomeShareAccountCreationController.h in Headers */,
+				DD82B79313007C7C007221FC /* ATVHomeShareAuthenticationResources.h in Headers */,
+				DD82B79413007C7C007221FC /* ATVInternetPhotosAccount.h in Headers */,
+				DD82B79513007C7C007221FC /* ATVInternetPhotosCollection.h in Headers */,
+				DD82B79613007C7C007221FC /* ATVInternetPhotosMonitor.h in Headers */,
+				DD82B79713007C7C007221FC /* ATVInternetRadioFavorite.h in Headers */,
+				DD82B79813007C7C007221FC /* ATVIPEntryDialog.h in Headers */,
+				DD82B79913007C7C007221FC /* ATVIPv4AddressEntryControl.h in Headers */,
+				DD82B79A13007C7D007221FC /* ATVIPv4AddressSelectionControl.h in Headers */,
+				DD82B79B13007C7D007221FC /* ATVIPv4AddressSelectionWidget.h in Headers */,
+				DD82B79C13007C7D007221FC /* ATViTunesKeyValueStoreAPI.h in Headers */,
+				DD82B79D13007C7D007221FC /* ATViTunesKeyValueStoreGetItem.h in Headers */,
+				DD82B79E13007C7D007221FC /* ATViTunesKeyValueStorePutItem.h in Headers */,
+				DD82B79F13007C7D007221FC /* ATVITunesLibraryTouchRemoteAccess.h in Headers */,
+				DD82B7A013007C7D007221FC /* ATVITunesTouchRemoteManager.h in Headers */,
+				DD82B7A113007C7D007221FC /* ATVKeyValueStore.h in Headers */,
+				DD82B7A213007C7D007221FC /* ATVKeyValueStoreCleanupTask.h in Headers */,
+				DD82B7A313007C7D007221FC /* ATVKeyValueStoreUtilities.h in Headers */,
+				DD82B7A413007C7D007221FC /* ATVLanguageChooserController.h in Headers */,
+				DD82B7A513007C7D007221FC /* ATVMerchant.h in Headers */,
+				DD82B7A613007C7D007221FC /* ATVMerchant_ITMS.h in Headers */,
+				DD82B7A713007C7D007221FC /* ATVMerchant_Sedona.h in Headers */,
+				DD82B7A813007C7D007221FC /* ATVMerchantRepresentativeFeed.h in Headers */,
+				DD82B7A913007C7D007221FC /* ATVMovieRentalPosterControl.h in Headers */,
+				DD82B7AA13007C7D007221FC /* ATVMoviesPlayActionButtonControl.h in Headers */,
+				DD82B7AB13007C7D007221FC /* ATVMultistateProgressIndicator.h in Headers */,
+				DD82B7AC13007C7D007221FC /* ATVMusicCoversCollectionProxy.h in Headers */,
+				DD82B7AD13007C7D007221FC /* ATVMusicCoversMediaAsset.h in Headers */,
+				DD82B7AE13007C7D007221FC /* ATVMusicStoreAccountSelector.h in Headers */,
+				DD82B7AF13007C7D007221FC /* ATVMusicStoreAcquisitionController.h in Headers */,
+				DD82B7B013007C7D007221FC /* ATVMusicStoreActionControlPopulator.h in Headers */,
+				DD82B7B113007C7D007221FC /* ATVMusicStoreAssetController.h in Headers */,
+				DD82B7B213007C7D007221FC /* ATVMusicStoreAuthenticationResources.h in Headers */,
+				DD82B7B313007C7D007221FC /* ATVMusicStoreBaseAppliance.h in Headers */,
+				DD82B7B413007C7D007221FC /* ATVMusicStoreBaseMetadataProvider.h in Headers */,
+				DD82B7B513007C7D007221FC /* ATVMusicStoreCatalogAgent.h in Headers */,
+				DD82B7B613007C7D007221FC /* ATVMusicStoreCatalogCollectionController.h in Headers */,
+				DD82B7B713007C7D007221FC /* ATVMusicStoreCatalogItemController.h in Headers */,
+				DD82B7B813007C7D007221FC /* ATVMusicStoreCatalogItemProviderFactory.h in Headers */,
+				DD82B7B913007C7D007221FC /* ATVMusicStoreCatalogRefreshTask.h in Headers */,
+				DD82B7BA13007C7D007221FC /* ATVMusicStoreControlFactory.h in Headers */,
+				DD82B7BB13007C7D007221FC /* ATVMusicStoreControlPopulator.h in Headers */,
+				DD82B7BC13007C7D007221FC /* ATVMusicStoreDoubleRowPagedViewController.h in Headers */,
+				DD82B7BD13007C7D007221FC /* ATVMusicStoreDownloadFailurePopup.h in Headers */,
+				DD82B7BE13007C7D007221FC /* ATVMusicStoreDownloadsController.h in Headers */,
+				DD82B7BF13007C7D007221FC /* ATVMusicStoreFavoriteListItemProvider.h in Headers */,
+				DD82B7C013007C7D007221FC /* ATVMusicStoreHomeShareAccountSelector.h in Headers */,
+				DD82B7C113007C7D007221FC /* ATVMusicStoreItemDetailController.h in Headers */,
+				DD82B7C213007C7D007221FC /* ATVMusicStoreItemProvider.h in Headers */,
+				DD82B7C313007C7D007221FC /* ATVMusicStoreMoreInfoController.h in Headers */,
+				DD82B7C413007C7D007221FC /* ATVMusicStoreMoreInfoControlPopulator.h in Headers */,
+				DD82B7C513007C7D007221FC /* ATVMusicStoreMoreInfoProvider.h in Headers */,
+				DD82B7C613007C7D007221FC /* ATVMusicStoreMoreInfoSelectionHandler.h in Headers */,
+				DD82B7C713007C7D007221FC /* ATVMusicStoreMovieItemController.h in Headers */,
+				DD82B7C813007C7D007221FC /* ATVMusicStoreMovieMetadataProvider.h in Headers */,
+				DD82B7C913007C7D007221FC /* ATVMusicStoreMoviePreviewController.h in Headers */,
+				DD82B7CA13007C7D007221FC /* ATVMusicStoreMusicAlbumMetadataProvider.h in Headers */,
+				DD82B7CB13007C7D007221FC /* ATVMusicStoreMusicItemController.h in Headers */,
+				DD82B7CC13007C7D007221FC /* ATVMusicStoreMusicMetadataProvider.h in Headers */,
+				DD82B7CD13007C7D007221FC /* ATVMusicStoreMusicVideoMetadataProvider.h in Headers */,
+				DD82B7CE13007C7D007221FC /* ATVMusicStoreOffer.h in Headers */,
+				DD82B7CF13007C7D007221FC /* ATVMusicStoreOfferControl.h in Headers */,
+				DD82B7D013007C7D007221FC /* ATVMusicStoreOfferControlFactory.h in Headers */,
+				DD82B7D113007C7D007221FC /* ATVMusicStoreOtherSeasonsControlFactory.h in Headers */,
+				DD82B7D213007C7D007221FC /* ATVMusicStoreOtherSeasonsProvider.h in Headers */,
+				DD82B7D313007C7D007221FC /* ATVMusicStoreOtherSeasonsSelectionHandler.h in Headers */,
+				DD82B7D413007C7D007221FC /* ATVMusicStorePagedViewController.h in Headers */,
+				DD82B7D513007C7D007221FC /* ATVMusicStorePodcastAsset.h in Headers */,
+				DD82B7D613007C7D007221FC /* ATVMusicStorePodcastItemController.h in Headers */,
+				DD82B7D713007C7D007221FC /* ATVMusicStorePodcastMetadataProvider.h in Headers */,
+				DD82B7D813007C7D007221FC /* ATVMusicStorePodcastShowMetadataProvider.h in Headers */,
+				DD82B7D913007C7D007221FC /* ATVMusicStorePresentsDocument.h in Headers */,
+				DD82B7DA13007C7D007221FC /* ATVMusicStorePresentsItemControlPopulator.h in Headers */,
+				DD82B7DB13007C7D007221FC /* ATVMusicStorePresentsProvider.h in Headers */,
+				DD82B7DC13007C7D007221FC /* ATVMusicStoreRentalDetailPageController.h in Headers */,
+				DD82B7DD13007C7D007221FC /* ATVMusicStoreRottenTomatoesControl.h in Headers */,
+				DD82B7DE13007C7D007221FC /* ATVMusicStoreRottenTomatoesRatingControl.h in Headers */,
+				DD82B7DF13007C7D007221FC /* ATVMusicStoreSearchAgent.h in Headers */,
+				DD82B7E013007C7D007221FC /* ATVMusicStoreShowInfo.h in Headers */,
+				DD82B7E113007C7D007221FC /* ATVMusicStoreSingleItemPopulator.h in Headers */,
+				DD82B7E213007C7D007221FC /* ATVMusicStoreSingleRowPagedViewController.h in Headers */,
+				DD82B7E313007C7D007221FC /* ATVMusicStoreTabbedPageController.h in Headers */,
+				DD82B7E413007C7D007221FC /* ATVMusicStoreTabManager.h in Headers */,
+				DD82B7E513007C7D007221FC /* ATVMusicStoreTransactionDialog.h in Headers */,
+				DD82B7E613007C7D007221FC /* ATVMusicStoreTVEpisodeItemController.h in Headers */,
+				DD82B7E713007C7D007221FC /* ATVMusicStoreTVMetadataProvider.h in Headers */,
+				DD82B7E813007C7D007221FC /* ATVMusicStoreTVSeasonMetadataProvider.h in Headers */,
+				DD82B7E913007C7D007221FC /* ATVMusicStoreUserReviewsControl.h in Headers */,
+				DD82B7EA13007C7D007221FC /* ATVMusicStoreXMLDocumentPreProcessor.h in Headers */,
+				DD82B7EB13007C7D007221FC /* ATVNumUserReviewsTransformer.h in Headers */,
+				DD82B7EC13007C7D007221FC /* ATVPlayButtonEnabledButtonControl.h in Headers */,
+				DD82B7ED13007C7D007221FC /* ATVRCButtonPatternSet.h in Headers */,
+				DD82B7EE13007C7D007221FC /* ATVRCCapture.h in Headers */,
+				DD82B7EF13007C7D007221FC /* ATVRCManager.h in Headers */,
+				DD82B7F013007C7D007221FC /* ATVRCPatternMatcher.h in Headers */,
+				DD82B7F113007C7D007221FC /* ATVRCPatternMatcherDelegate.h in Headers */,
+				DD82B7F213007C7D007221FC /* ATVRebootWaitController.h in Headers */,
+				DD82B7F313007C7D007221FC /* ATVRecentSearchesController.h in Headers */,
+				DD82B7F413007C7D007221FC /* ATVRecentSearchSelectionHandler.h in Headers */,
+				DD82B7F513007C7D007221FC /* ATVReleaseDateAsInTheatersDateValueTransformer.h in Headers */,
+				DD82B7F613007C7D007221FC /* ATVReleaseDateAsOriginalAirDateValueTransformer.h in Headers */,
+				DD82B7F713007C7D007221FC /* ATVReleaseDateAsReleasedDateValueTransformer.h in Headers */,
+				DD82B7F813007C7D007221FC /* ATVReleaseDateAsYearValueTransformer.h in Headers */,
+				DD82B7F913007C7D007221FC /* ATVRemoteControlMessageHandler.h in Headers */,
+				DD82B7FA13007C7D007221FC /* ATVRemoteSet.h in Headers */,
+				DD82B7FB13007C7D007221FC /* ATVRentalExpiryUserNotification.h in Headers */,
+				DD82B7FC13007C7D007221FC /* ATVRentalPosterControl.h in Headers */,
+				DD82B7FD13007C7D007221FC /* ATVRentedMediaProvider.h in Headers */,
+				DD82B7FE13007C7D007221FC /* ATVRetailDemoModeManager.h in Headers */,
+				DD82B7FF13007C7D007221FC /* ATVScreenSaverArchiver.h in Headers */,
+				DD82B80013007C7D007221FC /* ATVScreenSaverControl.h in Headers */,
+				DD82B80113007C7D007221FC /* ATVScreenSaverManager.h in Headers */,
+				DD82B80213007C7D007221FC /* ATVScreenSaverPluginProtocol.h in Headers */,
+				DD82B80313007C7D007221FC /* ATVScreenSaverPrefetchTask.h in Headers */,
+				DD82B80413007C7D007221FC /* ATVSearchAgent.h in Headers */,
+				DD82B80513007C7D007221FC /* ATVSearchController.h in Headers */,
+				DD82B80613007C7D007221FC /* ATVSearchTerm.h in Headers */,
+				DD82B80713007C7D007221FC /* ATVSedonaAccount.h in Headers */,
+				DD82B80813007C7D007221FC /* ATVSedonaActionControlPopulator.h in Headers */,
+				DD82B80913007C7D007221FC /* ATVSedonaAuthenticationResources.h in Headers */,
+				DD82B80A13007C7D007221FC /* ATVSedonaCatalogAgent.h in Headers */,
+				DD82B80B13007C7D007221FC /* ATVSedonaCatalogHandler.h in Headers */,
+				DD82B80C13007C7D007221FC /* ATVSedonaCatalogItem.h in Headers */,
+				DD82B80D13007C7D007221FC /* ATVSedonaCatalogItemProviderFactory.h in Headers */,
+				DD82B80E13007C7D007221FC /* ATVSedonaController.h in Headers */,
+				DD82B80F13007C7D007221FC /* ATVSedonaItemProvider.h in Headers */,
+				DD82B81013007C7D007221FC /* ATVSedonaMovieMetadataProvider.h in Headers */,
+				DD82B81113007C7D007221FC /* ATVSedonaQueueControlFactory.h in Headers */,
+				DD82B81213007C7D007221FC /* ATVSedonaQueueListItemProvider.h in Headers */,
+				DD82B81313007C7D007221FC /* ATVSedonaQueueSelectionHandler.h in Headers */,
+				DD82B81413007C7D007221FC /* ATVSedonaRateControl.h in Headers */,
+				DD82B81513007C7D007221FC /* ATVSedonaRateControlFactory.h in Headers */,
+				DD82B81613007C7D007221FC /* ATVSedonaRateListItemProvider.h in Headers */,
+				DD82B81713007C7D007221FC /* ATVSedonaRateSelectionHandler.h in Headers */,
+				DD82B81813007C7D007221FC /* ATVSedonaRefreshTask.h in Headers */,
+				DD82B81913007C7D007221FC /* ATVSedonaSearchAgent.h in Headers */,
+				DD82B81A13007C7D007221FC /* ATVSedonaSingleItemPopulator.h in Headers */,
+				DD82B81B13007C7D007221FC /* ATVSedonaTVMetadataProvider.h in Headers */,
+				DD82B81C13007C7D007221FC /* ATVSedonaTVSeasonMetadataProvider.h in Headers */,
+				DD82B81D13007C7D007221FC /* ATVSedonaUserRatingAndNumReviewsToImageControlTransformer.h in Headers */,
+				DD82B81E13007C7D007221FC /* ATVSedonaUserRatingToImageControlTransformer.h in Headers */,
+				DD82B81F13007C7D007221FC /* ATVSettingsFacade.h in Headers */,
+				DD82B82013007C7D007221FC /* ATVSettingsHelper.h in Headers */,
+				DD82B82113007C7D007221FC /* ATVStoreFavorite.h in Headers */,
+				DD82B82213007C7D007221FC /* ATVStoreFavoriteRefreshTask.h in Headers */,
+				DD82B82313007C7D007221FC /* ATVSWUDownloadResult.h in Headers */,
+				DD82B82413007C7D007221FC /* ATVSWUpdateCheckTask.h in Headers */,
+				DD82B82513007C7D007221FC /* ATVSWUpdateManager.h in Headers */,
+				DD82B82613007C7D007221FC /* ATVSWUpdateRecord.h in Headers */,
+				DD82B82713007C7D007221FC /* ATVSWUpdateRecordV1.h in Headers */,
+				DD82B82813007C7D007221FC /* ATVSWUpdateRecordV2.h in Headers */,
+				DD82B82913007C7D007221FC /* ATVSWUpdateServerIPController.h in Headers */,
+				DD82B82A13007C7D007221FC /* ATVSWUProgressView.h in Headers */,
+				DD82B82B13007C7D007221FC /* ATVTCPConnection.h in Headers */,
+				DD82B82C13007C7D007221FC /* ATVTCPControlReceiver.h in Headers */,
+				DD82B82D13007C7D007221FC /* ATVTCPIPConfigController.h in Headers */,
+				DD82B82E13007C7D007221FC /* ATVTomatoMeterTransformer.h in Headers */,
+				DD82B82F13007C7D007221FC /* ATVTouchRemoteManager.h in Headers */,
+				DD82B83013007C7D007221FC /* ATVTVShowRentalPosterControl.h in Headers */,
+				DD82B83113007C7D007221FC /* ATVURLDocument.h in Headers */,
+				DD82B83213007C7D007221FC /* ATVUserRatingAndNumReviewsTransformer.h in Headers */,
+				DD82B83313007C7D007221FC /* ATVUserRatingToImageControlTransformer.h in Headers */,
+				DD82B83413007C7D007221FC /* ATVVersionInfo.h in Headers */,
+				DD82B83513007C7D007221FC /* ATVVersionStringTransformer.h in Headers */,
+				DD82B83613007C7D007221FC /* ATVVideoCacheManager.h in Headers */,
+				DD82B83713007C7D007221FC /* ATVWishListFavorite.h in Headers */,
+				DD82B83813007C7D007221FC /* ATVWishListSelectionHandler.h in Headers */,
+				DD82B83913007C7D007221FC /* AudioData.h in Headers */,
+				DD82B83A13007C7D007221FC /* Base64.h in Headers */,
+				DD82B83B13007C7D007221FC /* BlackoutAnimationDelegate.h in Headers */,
+				DD82B83C13007C7D007221FC /* BRAccountType.h in Headers */,
+				DD82B83D13007C7D007221FC /* BRATVMediaItem.h in Headers */,
+				DD82B83E13007C7D007221FC /* BRControl.h in Headers */,
+				DD82B83F13007C7D007221FC /* BRControlFactory.h in Headers */,
+				DD82B84013007C7D007221FC /* BRControlHeightFactory.h in Headers */,
+				DD82B84113007C7D007221FC /* BRDeletable.h in Headers */,
+				DD82B84213007C7D007221FC /* BRDisplayInfoLoader.h in Headers */,
+				DD82B84313007C7D007221FC /* BRDownload.h in Headers */,
+				DD82B84413007C7D007221FC /* BRDownloadManager.h in Headers */,
+				DD82B84513007C7D007221FC /* BRImageProxy.h in Headers */,
+				DD82B84613007C7D007221FC /* BRMediaAsset.h in Headers */,
+				DD82B84713007C7D007221FC /* BRMediaAssetDerivesMediaURL.h in Headers */,
+				DD82B84813007C7D007221FC /* BRMediaObject.h in Headers */,
+				DD82B84913007C7D007221FC /* BRMenuListItemProvider.h in Headers */,
+				DD82B84A13007C7D007221FC /* BRMerchant.h in Headers */,
+				DD82B84B13007C7D007221FC /* BRMetadataProvider.h in Headers */,
+				DD82B84C13007C7D007221FC /* BRMusicStore.h in Headers */,
+				DD82B84D13007C7D007221FC /* BRPhotoProviderForCollection.h in Headers */,
+				DD82B84E13007C7D007221FC /* BRPlayButtonEnabledMenuItem.h in Headers */,
+				DD82B84F13007C7D007221FC /* BRPlayButtonEnabledPosterControl.h in Headers */,
+				DD82B85013007C7D007221FC /* BRProvider.h in Headers */,
+				DD82B85113007C7D007221FC /* BRResponder.h in Headers */,
+				DD82B85213007C7D007221FC /* BRSelectionHandler.h in Headers */,
+				DD82B85313007C7D007221FC /* BRTabControlDelegate.h in Headers */,
+				DD82B85413007C7D007221FC /* BRTextField.h in Headers */,
+				DD82B85513007C7D007221FC /* BRTextFieldDelegate.h in Headers */,
+				DD82B85613007C7D007221FC /* BRThemeInfo.h in Headers */,
+				DD82B85713007C7D007221FC /* BRTitleProvider.h in Headers */,
+				DD82B85813007C7D007221FC /* Buffer.h in Headers */,
+				DD82B85913007C7D007221FC /* ChunkData.h in Headers */,
+				DD82B85A13007C7D007221FC /* DRMData.h in Headers */,
+				DD82B85B13007C7D007221FC /* FujiConfigParser.h in Headers */,
+				DD82B85C13007C7D007221FC /* HomeShareAccountController.h in Headers */,
+				DD82B85D13007C7D007221FC /* HTTPServer.h in Headers */,
+				DD82B85E13007C7D007221FC /* ID3Header.h in Headers */,
+				DD82B85F13007C7D007221FC /* IndexData.h in Headers */,
+				DD82B86013007C7D007221FC /* LogCollectorWrapper.h in Headers */,
+				DD82B86113007C7D007221FC /* MMCredential.h in Headers */,
+				DD82B86213007C7D007221FC /* MMiDiskSession.h in Headers */,
+				DD82B86313007C7D007221FC /* MMMemberAccount.h in Headers */,
+				DD82B86413007C7D007221FC /* MMRequest.h in Headers */,
+				DD82B86513007C7D007221FC /* MMSecondaryUser.h in Headers */,
+				DD82B86613007C7D007221FC /* MMTransaction.h in Headers */,
+				DD82B86713007C7D007221FC /* MMUtilities.h in Headers */,
+				DD82B86813007C7D007221FC /* NccpCommunicator.h in Headers */,
+				DD82B86913007C7D007221FC /* NccpHandlerDelegate.h in Headers */,
+				DD82B86A13007C7D007221FC /* NetflixTopHeader.h in Headers */,
+				DD82B86B13007C7D007221FC /* NfhlsProtocol.h in Headers */,
+				DD82B86C13007C7D007221FC /* Nflxhls.h in Headers */,
+				DD82B86D13007C7D007221FC /* NflxhlsAuthenticationPrimer.h in Headers */,
+				DD82B86E13007C7D007221FC /* NflxhlsStrings.h in Headers */,
+				DD82B86F13007C7D007221FC /* NSMutableURLRequest.h in Headers */,
+				DD82B87013007C7D007221FC /* NSMutableURLRequestAdditions.h in Headers */,
+				DD82B87113007C7D007221FC /* NSObject.h in Headers */,
+				DD82B87213007C7D007221FC /* NSStreamDelegate.h in Headers */,
+				DD82B87313007C7D007221FC /* NSString.h in Headers */,
+				DD82B87413007C7D007221FC /* NSStringAdditions.h in Headers */,
+				DD82B87513007C7D007221FC /* NSURL.h in Headers */,
+				DD82B87613007C7D007221FC /* NSURLAdditions.h in Headers */,
+				DD82B87713007C7D007221FC /* NSURLRequest.h in Headers */,
+				DD82B87813007C7D007221FC /* NSValueTransformer.h in Headers */,
+				DD82B87913007C7D007221FC /* OAConsumer.h in Headers */,
+				DD82B87A13007C7D007221FC /* OADataFetcher.h in Headers */,
+				DD82B87B13007C7D007221FC /* OAHMAC_SHA1SignatureProvider.h in Headers */,
+				DD82B87C13007C7D007221FC /* OAMutableURLRequest.h in Headers */,
+				DD82B87D13007C7D007221FC /* OAPlaintextSignatureProvider.h in Headers */,
+				DD82B87E13007C7D007221FC /* OARequestParameter.h in Headers */,
+				DD82B87F13007C7D007221FC /* OAServiceTicket.h in Headers */,
+				DD82B88013007C7D007221FC /* OASignatureProviding.h in Headers */,
+				DD82B88113007C7D007221FC /* OAToken.h in Headers */,
+				DD82B88213007C7D007221FC /* PlaybackController.h in Headers */,
+				DD82B88313007C7D007221FC /* PlaydataController.h in Headers */,
+				DD82B88413007C7D007221FC /* PlayListGenerator.h in Headers */,
+				DD82B88513007C7D007221FC /* PlayReady.h in Headers */,
+				DD82B88613007C7D007221FC /* SBJSON.h in Headers */,
+				DD82B88713007C7D007221FC /* SBJsonBase.h in Headers */,
+				DD82B88813007C7D007221FC /* SBJsonParser.h in Headers */,
+				DD82B88913007C7D007221FC /* SBJsonWriter.h in Headers */,
+				DD82B88A13007C7D007221FC /* SedonaMediaAsset.h in Headers */,
+				DD82B88B13007C7D007221FC /* SimpleDownloadData.h in Headers */,
+				DD82B88C13007C7D007221FC /* StreamData.h in Headers */,
+				DD82B88D13007C7D007221FC /* StreamHeader.h in Headers */,
+				DD82B88E13007C7D007221FC /* TCPServer.h in Headers */,
+				DD82B88F13007C7D007221FC /* TransportPacket.h in Headers */,
+				DD82B89013007C7D007221FC /* UrlParser.h in Headers */,
+				DD82B89113007C7D007221FC /* VideoData.h in Headers */,
+				DD82B89213007C7D007221FC /* WSLogging.h in Headers */,
+				DD82BE0F1300A8AB007221FC /* SMFControlFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,7 +2004,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "source ~/.profile\nmake clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+			shellScript = "source ~/.profile\nmake -j 2 clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -650,6 +2046,7 @@
 				DD7A9EDE12FDF21A00AFF8C3 /* SMFGridController.m in Sources */,
 				DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */,
 				DD82B56212FFBC75007221FC /* SMFMoviePreviewController.m in Sources */,
+				DD82BE101300A8AB007221FC /* SMFControlFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

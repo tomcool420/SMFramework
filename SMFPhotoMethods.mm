@@ -8,6 +8,7 @@
 
 #import "SMFPhotoMethods.h"
 #import "Classes/BackRowExtras.h"
+#import "SMFBaseAsset.h"
 
 @implementation SMFPhotoMethods
 static NSArray *coverArtExtention=nil;
@@ -75,13 +76,17 @@ static NSArray *coverArtExtention=nil;
 		NSString *idStr = [contents objectAtIndex:i];
 		if([coverArtExtention containsObject:[[idStr pathExtension] lowercaseString]])
 		{
-			BRPhotoMediaAsset * asset = [[BRPhotoMediaAsset alloc] init];
-			[asset setFullURL:[path stringByAppendingPathComponent:idStr]];
-			[asset setThumbURL:[path stringByAppendingPathComponent:idStr]];
-			[asset setCoverArtURL:[path stringByAppendingPathComponent:idStr]];
-			[asset setIsLocal:YES];
-			[assets addObject:asset];
-            [asset release];
+//			BRPhotoMediaAsset * asset = [[BRPhotoMediaAsset alloc] init];
+//			[asset setFullURL:[path stringByAppendingPathComponent:idStr]];
+//			[asset setThumbURL:[path stringByAppendingPathComponent:idStr]];
+//			[asset setCoverArtURL:[path stringByAppendingPathComponent:idStr]];
+//			[asset setIsLocal:YES];
+//			[assets addObject:asset];
+//            [asset release];
+            SMFBaseAsset *asset = [SMFBaseAsset asset];
+            [asset setCoverArt:[BRImage imageWithPath:[path stringByAppendingPathComponent:idStr]]];
+            [asset setTitle:[idStr stringByDeletingPathExtension]];
+            [assets addObject:asset];
 		}
 	}
 	return assets;
@@ -178,80 +183,7 @@ static NSArray *coverArtExtention=nil;
 -(id)collectionID               {return @"200";}
 @end
 
-@implementation SMFPhotoControlFactory
-+(id)mainMenuFactory
-{
-    return [[[SMFPhotoControlFactory alloc] initForMainMenu:YES] autorelease];
-}
-+(id)standardFactory
-{
-    return [[[SMFPhotoControlFactory alloc] initForMainMenu:NO] autorelease];
-}
-//Returns the control shown on main menu
--(id)initForMainMenu:(BOOL)arg1
-{
-    self = [super initForMainMenu:arg1];
-    _mainmenu = arg1;
-    return self;
-}
--(id)controlForData:(id)arg1 currentControl:(id)arg2 requestedBy:(id)arg3
-{
-    NSLog(@"controlForData: data %@",arg1);
-    id returnObj=nil;
-    if([arg1 isKindOfClass:[SMFPhotoMediaCollection class]])
-    {
-        BRDataStore *store = [SMFPhotoMethods dataStoreForAssets:[arg1 mediaAssets]];
-        BRPhotoControlFactory* controlFactory = [BRPhotoControlFactory mainMenuFactory];
-        SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:store controlFactory:controlFactory];
-        returnObj = [BRCyclerControl cyclerWithProvider:provider];
-        if([[arg1 mediaAssets]count]>0)
-            [returnObj setAcceptsFocus:YES];
-        [returnObj setObject:arg1];
-        [returnObj setStartIndex:0];
-    }
-    else if([arg1 isKindOfClass:[BRImageProxyProvider class]])
-    {
-        //return a simple image
-        returnObj = [[BRAsyncImageControl alloc] init];
-        [returnObj setDefaultImage:[[[arg1 dataAtIndex:0]asset] coverArt]];
-        [returnObj setAcceptsFocus:YES];
-        [returnObj autorelease];
-    }
-    else if([arg1 isKindOfClass:[BRPhotoMediaAsset class]])
-    {
-        returnObj = [[BRAsyncImageControl alloc] init];
-        [returnObj setDefaultImage:[arg1 coverArt]];
-        [returnObj setAcceptsFocus:YES];
-        [returnObj autorelease];
-    }
-    else if([arg1 isKindOfClass:[BRBaseMediaAsset class]])
-    {
-        id proxy = nil;//[arg1 coverArt];
-        if(proxy == nil)
-            proxy = [arg1 imageProxy];
-        if (proxy==nil) 
-            return nil;
-        if ([proxy conformsToProtocol:@protocol(BRImageProxy)]) 
-            returnObj = [[BRAsyncImageControl alloc] initWithImageProxy:proxy];
-        else if([proxy isKindOfClass:[BRImage class]])
-            returnObj = [[BRAsyncImageControl alloc] initWithImage:proxy];
-        if (returnObj!=nil) {
-            [returnObj setAcceptsFocus:YES];
-            [returnObj autorelease];
-        }
-    }
-    else if([arg1 isKindOfClass:[BRDividerControl class]])
-    {
-        NSLog(@"divider");
-        returnObj=arg1;
-    }
-    
-    
-    //returning nothing is also acceptable only for main menu
-    NSLog(@"returnObj: %@",returnObj);
-    return returnObj;
-}
-@end
+
 @implementation SMFPhotoCollectionProvider
 //Adding something to return a collection
 -(BOOL)canHaveZeroData

@@ -45,7 +45,7 @@
     
     BRDataStore *st = [SMFPhotoMethods dataStoreForAssets:assets];
     SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:st 
-                                                                                 controlFactory:[BRPhotoControlFactory standardFactory]];
+                                                                                 controlFactory:[SMFControlFactory standardFactory]];
     [_gridControl setProvider:provider];
     [_gridControl setColumnCount:5];
     [_gridControl setWrapsNavigation:YES];

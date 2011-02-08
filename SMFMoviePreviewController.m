@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 2/6/11.
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
-
+#import "SMFControlFactory.h"
 #import "SMFMoviePreviewController.h"
 static NSString * const kSMFMovieTitle = @"title";
 static NSString * const kSMFMovieSubtitle = @"substitle";
@@ -66,10 +66,10 @@ static NSString * const kSMFMovieRating = @"rating";
     /*
      *  The Poster
      */
-    CGRect imageFrame = CGRectMake(masterFrame.origin.x+masterFrame.size.width*0.03f,
-                                   masterFrame.origin.y+masterFrame.size.height*0.28f,
-                                   masterFrame.size.width*0.221f,
-                                   masterFrame.size.height*0.73f);
+    CGRect imageFrame = CGRectMake(masterFrame.origin.x+masterFrame.size.width*0.00f,
+                                   masterFrame.origin.y+masterFrame.size.height*0.20f,
+                                   masterFrame.size.width*0.32f,
+                                   masterFrame.size.height*0.83f);
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
     BRPhotoMediaAsset *asset = [[BRPhotoMediaAsset alloc]init];
     NSString *p = [_info objectForKey:kSMFMoviePoster];
@@ -90,7 +90,7 @@ static NSString * const kSMFMovieRating = @"rating";
     [_titleControl setText:[_info objectForKey:kSMFMovieTitle] withAttributes:[[BRThemeInfo sharedTheme]menuTitleTextAttributes]];
     CGRect titleFrame;
     titleFrame.size = [_titleControl renderedSize];
-    titleFrame.origin.x=imageFrame.origin.x+imageFrame.size.width+masterFrame.size.width*0.05f;
+    titleFrame.origin.x=imageFrame.origin.x+imageFrame.size.width-masterFrame.size.width*0.02f;
     titleFrame.origin.y=imageFrame.origin.y+imageFrame.size.height-titleFrame.size.height-masterFrame.size.height*0.05;
     [_titleControl setFrame:titleFrame];
     [self addControl:_titleControl];
@@ -191,7 +191,7 @@ static NSString * const kSMFMovieRating = @"rating";
         int maxObj = [current count]>5?5:[current count];
         float tempY = lastOriginY;
         for (int objcount=0; objcount<maxObj; objcount++) {
-            BRControl *obj;
+            BRControl *obj=nil;
             CGRect objFrame=CGRectMake(0.0, 0.0, 0.0, 0.0);
             if ([[current objectAtIndex:objcount] isKindOfClass:[NSString class]]) {
                 obj = [[BRTextControl alloc] init];
@@ -235,8 +235,8 @@ static NSString * const kSMFMovieRating = @"rating";
     _previewButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
                                                     subtitle:@"Preview" 
                                                        badge:nil] retain];
-    CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.35f, 
-                                   masterFrame.origin.y + masterFrame.size.height *0.3f,
+    CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
+                                   masterFrame.origin.y + masterFrame.size.height *0.32f,
                                    masterFrame.size.height*0.15, 
                                    masterFrame.size.height*0.15f);
     [_previewButton setFrame:previewFrame];
@@ -245,8 +245,8 @@ static NSString * const kSMFMovieRating = @"rating";
     _playButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
                                                  subtitle:@"Play" 
                                                     badge:nil]retain];
-    CGRect playFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.35f+ masterFrame.size.height*0.17,
-                                  masterFrame.origin.y + masterFrame.size.height *0.3f, 
+    CGRect playFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17,
+                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
                                   masterFrame.size.height*0.15, 
                                   masterFrame.size.height*0.15f);
     [_playButton setFrame:playFrame];
@@ -255,8 +255,8 @@ static NSString * const kSMFMovieRating = @"rating";
     _queueButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
                                                  subtitle:@"Queue" 
                                                     badge:nil]retain];
-    CGRect queueFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.35f+ masterFrame.size.height*0.17*2.f,
-                                  masterFrame.origin.y + masterFrame.size.height *0.3f, 
+    CGRect queueFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*2.f,
+                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
                                   masterFrame.size.height*0.15, 
                                   masterFrame.size.height*0.15f);
     [_queueButton setFrame:queueFrame];
@@ -265,8 +265,8 @@ static NSString * const kSMFMovieRating = @"rating";
     _moreButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
                                                   subtitle:@"More" 
                                                      badge:nil]retain];
-    CGRect moreFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.35f+ masterFrame.size.height*0.17*3.f,
-                                  masterFrame.origin.y + masterFrame.size.height *0.3f, 
+    CGRect moreFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*3.f,
+                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
                                   masterFrame.size.height*0.15, 
                                   masterFrame.size.height*0.15f);
     [_moreButton setFrame:moreFrame];
@@ -274,13 +274,14 @@ static NSString * const kSMFMovieRating = @"rating";
     
     _shelfControl = [[BRMediaShelfControl alloc] init];
     [_shelfControl setProvider:[self getProviderForShelf]];
-    [_shelfControl setColumnCount:7];
-    [_shelfControl setCentered:YES];
-    [_shelfControl setHorizontalGap:masterFrame.size.width*0.039f];
-    CGRect gframe=CGRectMake(masterFrame.size.width*0.05, 
+    [_shelfControl setColumnCount:8];
+    [_shelfControl setCentered:NO];
+    [_shelfControl setHorizontalGap:23];
+//    [_shelfControl setCoverflowMargin:.021746988594532013];
+    CGRect gframe=CGRectMake(masterFrame.size.width*0.00, 
                              masterFrame.origin.y+masterFrame.size.height*0.04f, 
-                             masterFrame.size.width*.9f,
-                             masterFrame.size.height*0.2f);
+                             masterFrame.size.width*1.f,
+                             masterFrame.size.height*0.24f);
     [_shelfControl setFrame:gframe];
     [self addControl:_shelfControl];
     
@@ -288,16 +289,16 @@ static NSString * const kSMFMovieRating = @"rating";
     [moviesControl setText:@"Movies" withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
     CGRect mf;
     mf.size = [moviesControl renderedSize];
-    mf.origin.x=gframe.origin.x;
-    mf.origin.y=masterFrame.origin.y+masterFrame.size.height*0.245f;
+    mf.origin.x=gframe.origin.x+masterFrame.size.width*0.05;
+    mf.origin.y=gframe.origin.y+gframe.size.height+masterFrame.size.height*0.005f,
     [moviesControl setFrame:mf];
     [self addControl:moviesControl];
     [moviesControl release];
     
     BRDividerControl *div3 = [[BRDividerControl alloc]init];
-    CGRect div3Frame =CGRectMake(gframe.origin.x + mf.size.width+masterFrame.size.width*0.01, 
-                                 masterFrame.origin.y+masterFrame.size.height*0.25f,
-                                 gframe.size.width-(mf.size.width+masterFrame.size.width*0.03), 
+    CGRect div3Frame =CGRectMake(gframe.origin.x + mf.size.width+masterFrame.size.width*0.02, 
+                                 gframe.origin.y+gframe.size.height+masterFrame.size.height*0.005f,
+                                 div1Frame.size.width+div1Frame.origin.x-(mf.size.width+masterFrame.size.width*0.02), 
                                  masterFrame.size.height*0.02f);
     [div3 setFrame:div3Frame];
     [self addControl:div3];
@@ -377,7 +378,7 @@ static NSString * const kSMFMovieRating = @"rating";
     
     //id dSPfCClass = NSClassFromString(@"BRPhotoDataStoreProvider");
     
-    id tcControlFactory = [SMFPhotoControlFactory standardFactory];
+    id tcControlFactory = [BRPosterControlFactory factory];
     id provider    = [BRPhotoDataStoreProvider providerWithDataStore:store controlFactory:tcControlFactory];
     [store release];
     return provider; 

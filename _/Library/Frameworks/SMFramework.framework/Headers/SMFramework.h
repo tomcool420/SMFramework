@@ -41,3 +41,4 @@
 #import "SMFProgressBarMenuItem.h"
 #import "SMFPreferences.h"
 #import "SMFImageAsset.h"
+#import "SMFMoviePreviewController.h"

@@ -8,7 +8,7 @@
 
 
 #import <Backrow/Backrow.h>
-
+#import "SMFControlFactory.h"
 @interface SMFPhotoMethods : NSObject {
     
 }
@@ -40,11 +40,7 @@
 @end
 
 
-@interface SMFPhotoControlFactory : BRPhotoControlFactory
-{
-    BOOL _mainmenu;
-}
-@end
+
 
 @interface SMFPhotoCollectionProvider : BRPhotoDataStoreProvider
 {
