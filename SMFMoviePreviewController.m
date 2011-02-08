@@ -7,6 +7,7 @@
 //
 #import "SMFControlFactory.h"
 #import "SMFMoviePreviewController.h"
+#import "SMFDefines.h"
 static NSString * const kSMFMovieTitle = @"title";
 static NSString * const kSMFMovieSubtitle = @"substitle";
 static NSString * const kSMFMovieSummary = @"summary";
@@ -17,7 +18,7 @@ static NSString * const kSMFMovieRating = @"rating";
 
 
 @implementation SMFMoviePreviewController
-
+@synthesize delegate;
 @synthesize datasource;
 -(id)getProviderForShelf
 {
@@ -313,6 +314,24 @@ static NSString * const kSMFMovieRating = @"rating";
 {
     [self drawSelf];
     [super controlWasActivated];
+}
+-(BOOL)brEventAction:(BREvent *)action
+{
+    if ([[self stack] peekController]!=self)
+        return [super brEventAction:action];
+    int remoteAction = [action remoteAction];
+    if (self.delegate && [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)]) {
+    }
+    if (remoteAction==kBREventRemoteActionPlay && 
+        self.delegate!=nil && 
+        action.value==1 && 
+        [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)])
+    {
+        [self.delegate controller:self selectedControl:[self focusedControl]];
+        return YES;
+    }
+    return [super brEventAction:action];
+        
 }
 -(void)dealloc
 {

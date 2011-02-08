@@ -8,6 +8,8 @@
 
 #import "SMFPhotoMethods.h"
 #import "SMFThemeInfo.h"
+#import <Backrow/Backrow.h>
+@class BRControl;
 @protocol SMFMoviePreviewControllerDatasource
 -(NSString *)title;
 -(NSString *)subtitle;
@@ -18,6 +20,11 @@
 -(NSString *)rating;
 -(BRPhotoDataStoreProvider *)providerForShelf;
 @end
+@class SMFMoviePreviewController;
+@protocol SMFMoviePreviewControllerDelegate
+-(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl;
+@end
+
     
 
 @interface SMFMoviePreviewController : BRController<SMFMoviePreviewControllerDatasource> {
@@ -33,8 +40,10 @@
     BRCoverArtPreviewControl *_previewControl;
     NSMutableDictionary        *_info;
     NSObject<SMFMoviePreviewControllerDatasource> *datasource;
+    NSObject<SMFMoviePreviewControllerDelegate> *delegate;
 }
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
+@property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
 -(NSString *)title;
 -(NSString *)subtitle;
 -(NSString *)summary;
