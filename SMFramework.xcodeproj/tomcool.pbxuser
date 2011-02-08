@@ -56,8 +56,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 318749797;
-			PBXWorkspaceStateSaveDate = 318749797;
+			PBXPerProjectTemplateStateSaveDate = 318828604;
+			PBXWorkspaceStateSaveDate = 318828604;
 		};
 		perUserProjectItems = {
 			DD0CDBC912FE5D9300743D2C /* PBXTextBookmark */ = DD0CDBC912FE5D9300743D2C /* PBXTextBookmark */;
@@ -216,12 +216,10 @@
 			DD7B5B4E12E65A6500EC6FBC /* PBXTextBookmark */ = DD7B5B4E12E65A6500EC6FBC /* PBXTextBookmark */;
 			DD7B5B4F12E65A6500EC6FBC /* PBXTextBookmark */ = DD7B5B4F12E65A6500EC6FBC /* PBXTextBookmark */;
 			DD7B5B7012E8983800EC6FBC /* PBXTextBookmark */ = DD7B5B7012E8983800EC6FBC /* PBXTextBookmark */;
-			DD7B5B7212E8983800EC6FBC /* PBXTextBookmark */ = DD7B5B7212E8983800EC6FBC /* PBXTextBookmark */;
 			DD7B5B7412E8983800EC6FBC /* PBXTextBookmark */ = DD7B5B7412E8983800EC6FBC /* PBXTextBookmark */;
 			DD7B5B7A12E8983800EC6FBC /* PBXTextBookmark */ = DD7B5B7A12E8983800EC6FBC /* PBXTextBookmark */;
 			DD7B5B7B12E8983800EC6FBC /* PBXTextBookmark */ = DD7B5B7B12E8983800EC6FBC /* PBXTextBookmark */;
 			DD82A42812FF1550007221FC /* PBXTextBookmark */ = DD82A42812FF1550007221FC /* PBXTextBookmark */;
-			DD82A42B12FF1550007221FC /* PBXTextBookmark */ = DD82A42B12FF1550007221FC /* PBXTextBookmark */;
 			DD82A61712FF1573007221FC /* PBXTextBookmark */ = DD82A61712FF1573007221FC /* PBXTextBookmark */;
 			DD82A62212FF15BB007221FC /* PBXTextBookmark */ = DD82A62212FF15BB007221FC /* PBXTextBookmark */;
 			DD82A62312FF15BB007221FC /* PBXTextBookmark */ = DD82A62312FF15BB007221FC /* PBXTextBookmark */;
@@ -292,14 +290,17 @@
 			DD82BEDB1300E81D007221FC /* PBXTextBookmark */ = DD82BEDB1300E81D007221FC /* PBXTextBookmark */;
 			DD82BEDE1300E81D007221FC /* PBXTextBookmark */ = DD82BEDE1300E81D007221FC /* PBXTextBookmark */;
 			DD82BEE61300E8A1007221FC /* PBXTextBookmark */ = DD82BEE61300E8A1007221FC /* PBXTextBookmark */;
-			DD82BEF11300E8F4007221FC /* PBXTextBookmark */ = DD82BEF11300E8F4007221FC /* PBXTextBookmark */;
 			DD82BF0A1300ED11007221FC /* PBXTextBookmark */ = DD82BF0A1300ED11007221FC /* PBXTextBookmark */;
 			DD82BF0B1300ED11007221FC /* PBXTextBookmark */ = DD82BF0B1300ED11007221FC /* PBXTextBookmark */;
 			DD82BF121300EE22007221FC /* PBXTextBookmark */ = DD82BF121300EE22007221FC /* PBXTextBookmark */;
-			DD82C1861300EFF5007221FC /* PBXTextBookmark */ = DD82C1861300EFF5007221FC /* PBXTextBookmark */;
-			DD82C1871300EFF5007221FC /* PBXTextBookmark */ = DD82C1871300EFF5007221FC /* PBXTextBookmark */;
-			DD82C1881300EFF5007221FC /* PBXTextBookmark */ = DD82C1881300EFF5007221FC /* PBXTextBookmark */;
-			DD82C1891300EFF5007221FC /* PBXTextBookmark */ = DD82C1891300EFF5007221FC /* PBXTextBookmark */;
+			DD82C1BD1300F564007221FC /* PBXTextBookmark */ = DD82C1BD1300F564007221FC /* PBXTextBookmark */;
+			DD82C1BE1300F564007221FC /* PBXTextBookmark */ = DD82C1BE1300F564007221FC /* PBXTextBookmark */;
+			DD82C1BF1300F564007221FC /* PBXTextBookmark */ = DD82C1BF1300F564007221FC /* PBXTextBookmark */;
+			DD82C1C11300F564007221FC /* PBXTextBookmark */ = DD82C1C11300F564007221FC /* PBXTextBookmark */;
+			DD82C1C31300F564007221FC /* PBXTextBookmark */ = DD82C1C31300F564007221FC /* PBXTextBookmark */;
+			DD82C1C41300F564007221FC /* PBXTextBookmark */ = DD82C1C41300F564007221FC /* PBXTextBookmark */;
+			DD82C1C51300F564007221FC /* PBXTextBookmark */ = DD82C1C51300F564007221FC /* PBXTextBookmark */;
+			DD82C1C61300F564007221FC /* PBXTextBookmark */ = DD82C1C61300F564007221FC /* PBXTextBookmark */;
 			DD8B887312FE084D00971B0A /* PBXTextBookmark */ = DD8B887312FE084D00971B0A /* PBXTextBookmark */;
 			DD8B8DD112FE1DCF00971B0A /* PBXTextBookmark */ = DD8B8DD112FE1DCF00971B0A /* PBXTextBookmark */;
 			DD8B8F2C12FE1EF300971B0A /* PBXTextBookmark */ = DD8B8F2C12FE1EF300971B0A /* PBXTextBookmark */;
@@ -2469,11 +2470,6 @@
 		name = BRPopUpManager.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRPopUpManager.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 494}}";
-			sepNavSelRange = "{499, 0}";
-			sepNavVisRange = "{4, 1378}";
-		};
 	};
 	DD7B5AB512E54F8E00EC6FBC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -2993,16 +2989,6 @@
 		vrLen = 1589;
 		vrLoc = 234;
 	};
-	DD7B5B7212E8983800EC6FBC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = DDB6EC2512CFC053009B4B9E /* BRControl.h */;
-		name = "BRControl.h: 179";
-		rLen = 8;
-		rLoc = 10493;
-		rType = 0;
-		vrLen = 2643;
-		vrLoc = 722;
-	};
 	DD7B5B7412E8983800EC6FBC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = DD7B5B7512E8983800EC6FBC /* queryMenu.m */;
@@ -3048,16 +3034,6 @@
 		rLoc = 162;
 		rType = 0;
 		vrLen = 1192;
-		vrLoc = 0;
-	};
-	DD82A42B12FF1550007221FC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = DD96C3DB129971A2002C5144 /* control */;
-		name = "control: 3";
-		rLen = 0;
-		rLoc = 65;
-		rType = 0;
-		vrLen = 255;
 		vrLoc = 0;
 	};
 	DD82A61712FF1573007221FC /* PBXTextBookmark */ = {
@@ -3376,11 +3352,6 @@
 		name = BRActionShelfControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRActionShelfControl.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 428}}";
-			sepNavSelRange = "{317, 20}";
-			sepNavVisRange = "{0, 774}";
-		};
 	};
 	DD82B53712FFBC5B007221FC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3438,25 +3409,19 @@
 		name = BRMediaShelfControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRMediaShelfControl.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1166, 1989}}";
-			sepNavSelRange = "{331, 45}";
-			sepNavVisRange = "{0, 2776}";
-			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
-		};
 	};
 	DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 611}}";
-			sepNavSelRange = "{201, 0}";
-			sepNavVisRange = "{145, 1040}";
+			sepNavIntBoundsRect = "{{0, 0}, {1157, 741}}";
+			sepNavSelRange = "{579, 83}";
+			sepNavVisRange = "{3, 968}";
 		};
 	};
 	DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 4771}}";
-			sepNavSelRange = "{13050, 0}";
-			sepNavVisRange = "{12395, 1735}";
+			sepNavIntBoundsRect = "{{0, 0}, {1157, 5356}}";
+			sepNavSelRange = "{14983, 0}";
+			sepNavVisRange = "{14606, 934}";
 		};
 	};
 	DD82B5BA12FFBD38007221FC /* PBXTextBookmark */ = {
@@ -3629,6 +3594,7 @@
 	};
 	DD82B8AE13009845007221FC /* BRButtonControl.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRButtonControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRButtonControl.h;
 		sourceTree = "<absolute>";
@@ -3682,6 +3648,7 @@
 	};
 	DD82B8B813009845007221FC /* BRBoxControl.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRBoxControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRBoxControl.h;
 		sourceTree = "<absolute>";
@@ -3735,6 +3702,7 @@
 	};
 	DD82BDCD13009CB0007221FC /* BRFocusableImageControl.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRFocusableImageControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRFocusableImageControl.h;
 		sourceTree = "<absolute>";
@@ -3751,12 +3719,14 @@
 	};
 	DD82BDCF13009CB0007221FC /* BRImageControl.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRImageControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRImageControl.h;
 		sourceTree = "<absolute>";
 	};
 	DD82BDD113009CB0007221FC /* BRURLImageProxy.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRURLImageProxy.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRURLImageProxy.h;
 		sourceTree = "<absolute>";
@@ -3780,8 +3750,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1300, 2704}}";
 			sepNavSelRange = "{4990, 47}";
-			sepNavVisRange = "{9806, 2259}";
-			sepNavWindowFrame = "{{15, 4}, {1225, 874}}";
+			sepNavVisRange = "{257, 1569}";
 		};
 	};
 	DD82BDDB13009D7B007221FC /* PBXTextBookmark */ = {
@@ -3851,6 +3820,7 @@
 	};
 	DD82BE481300DE0A007221FC /* BRMediaAsset.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRMediaAsset.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRMediaAsset.h;
 		sourceTree = "<absolute>";
@@ -3901,9 +3871,9 @@
 		path = SMFMoviePreviewController.m;
 		sourceTree = "<group>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1346, 4953}}";
-			sepNavSelRange = "{8046, 0}";
-			sepNavVisRange = "{7425, 1395}";
+			sepNavIntBoundsRect = "{{0, 0}, {1157, 5356}}";
+			sepNavSelRange = "{14983, 0}";
+			sepNavVisRange = "{14606, 934}";
 		};
 	};
 	DD82BEC51300E4E3007221FC /* PBXTextBookmark */ = {
@@ -3918,14 +3888,10 @@
 	};
 	DD82BEC81300E4E3007221FC /* BRPosterControlFactory.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRPosterControlFactory.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRPosterControlFactory.h;
 		sourceTree = "<absolute>";
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 428}}";
-			sepNavSelRange = "{299, 22}";
-			sepNavVisRange = "{0, 1030}";
-		};
 	};
 	DD82BECD1300E5D5007221FC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -3969,6 +3935,7 @@
 	};
 	DD82BEDC1300E81D007221FC /* BRPhotoControlFactory.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRPhotoControlFactory.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRPhotoControlFactory.h;
 		sourceTree = "<absolute>";
@@ -3985,6 +3952,7 @@
 	};
 	DD82BEDF1300E81D007221FC /* BRPhotoBrowserControlFactory.h */ = {
 		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
 		name = BRPhotoBrowserControlFactory.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRPhotoBrowserControlFactory.h;
 		sourceTree = "<absolute>";
@@ -3998,16 +3966,6 @@
 		rType = 0;
 		vrLen = 1030;
 		vrLoc = 0;
-	};
-	DD82BEF11300E8F4007221FC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = DD82BDD913009D7B007221FC /* BRPosterControl.h */;
-		name = "BRPosterControl.h: 93";
-		rLen = 47;
-		rLoc = 4990;
-		rType = 0;
-		vrLen = 2259;
-		vrLoc = 9806;
 	};
 	DD82BF0A1300ED11007221FC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -4039,45 +3997,97 @@
 		vrLen = 1189;
 		vrLoc = 286;
 	};
-	DD82C1861300EFF5007221FC /* PBXTextBookmark */ = {
+	DD82C1BD1300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD96C3DB129971A2002C5144 /* control */;
+		name = "control: 3";
+		rLen = 0;
+		rLoc = 65;
+		rType = 0;
+		vrLen = 255;
+		vrLoc = 0;
+	};
+	DD82C1BE1300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD82BDD913009D7B007221FC /* BRPosterControl.h */;
+		name = "BRPosterControl.h: 93";
+		rLen = 47;
+		rLoc = 4990;
+		rType = 0;
+		vrLen = 1569;
+		vrLoc = 257;
+	};
+	DD82C1BF1300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD82C1C01300F564007221FC /* BRCursorLayer.h */;
+		name = "BRCursorLayer.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1021;
+		vrLoc = 0;
+	};
+	DD82C1C01300F564007221FC /* BRCursorLayer.h */ = {
+		isa = PBXFileReference;
+		name = BRCursorLayer.h;
+		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRCursorLayer.h;
+		sourceTree = "<absolute>";
+	};
+	DD82C1C11300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD82C1C21300F564007221FC /* BRCursorControl.h */;
+		name = "BRCursorControl.h: 15";
+		rLen = 0;
+		rLoc = 388;
+		rType = 0;
+		vrLen = 1637;
+		vrLoc = 257;
+	};
+	DD82C1C21300F564007221FC /* BRCursorControl.h */ = {
+		isa = PBXFileReference;
+		name = BRCursorControl.h;
+		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRCursorControl.h;
+		sourceTree = "<absolute>";
+	};
+	DD82C1C31300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DDB6EC2512CFC053009B4B9E /* BRControl.h */;
+		name = "BRControl.h: 44";
+		rLen = 14;
+		rLoc = 2203;
+		rType = 0;
+		vrLen = 2644;
+		vrLoc = 785;
+	};
+	DD82C1C41300F564007221FC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */;
+		name = "SMFMoviePreviewController.h: 25";
+		rLen = 83;
+		rLoc = 579;
+		rType = 0;
+		vrLen = 968;
+		vrLoc = 3;
+	};
+	DD82C1C51300F564007221FC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = DD82BEC31300E4CA007221FC /* SMFMoviePreviewController.m */;
-		name = "SMFMoviePreviewController.m: 301";
-		rLen = 0;
-		rLoc = 14308;
+		name = "SMFMoviePreviewController.m: 59";
+		rLen = 15;
+		rLoc = 2345;
 		rType = 0;
-		vrLen = 1289;
-		vrLoc = 13411;
+		vrLen = 1710;
+		vrLoc = 6793;
 	};
-	DD82C1871300EFF5007221FC /* PBXTextBookmark */ = {
+	DD82C1C61300F564007221FC /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */;
-		name = "SMFMoviePreviewController.h: 10";
+		fRef = DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */;
+		name = "SMFMoviePreviewController.m: 324";
 		rLen = 0;
-		rLoc = 201;
+		rLoc = 14983;
 		rType = 0;
-		vrLen = 1040;
-		vrLoc = 145;
-	};
-	DD82C1881300EFF5007221FC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */;
-		name = "SMFMoviePreviewController.h: 10";
-		rLen = 0;
-		rLoc = 201;
-		rType = 0;
-		vrLen = 1040;
-		vrLoc = 145;
-	};
-	DD82C1891300EFF5007221FC /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = DDAE5C04127E328C0038574E /* SMFPhotoMethods.mm */;
-		name = "SMFPhotoMethods.mm: 186";
-		rLen = 0;
-		rLoc = 6584;
-		rType = 0;
-		vrLen = 2088;
-		vrLoc = 6228;
+		vrLen = 934;
+		vrLoc = 14606;
 	};
 	DD8B887312FE084D00971B0A /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -4207,7 +4217,7 @@
 	};
 	DD96C3DB129971A2002C5144 /* control */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1157, 410}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1157, 445}}";
 			sepNavSelRange = "{65, 0}";
 			sepNavVisRange = "{0, 255}";
 			sepNavWindowFrame = "{{15, 4}, {788, 874}}";
@@ -4969,6 +4979,11 @@
 		name = BRControl.h;
 		path = /Users/tomcool/DVLP/ATV2/ATV2Includes/BackRow/BRControl.h;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1157, 2613}}";
+			sepNavSelRange = "{2203, 14}";
+			sepNavVisRange = "{785, 2644}";
+		};
 	};
 	DDB6EC2812CFC053009B4B9E /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;

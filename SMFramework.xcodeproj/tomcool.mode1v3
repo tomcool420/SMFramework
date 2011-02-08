@@ -213,10 +213,6 @@
 						<string>DD82B8BC13009845007221FC</string>
 						<key>PBXProjectModuleLabel</key>
 						<string>SMFPhotoMethods.mm</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>DD82C1891300EFF5007221FC</string>
 						<key>history</key>
 						<array>
 							<string>DD82B8BD13009845007221FC</string>
@@ -277,8 +273,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -327,22 +321,19 @@
 								<string>19C28FB8FE9D52D311CA2CBB</string>
 								<string>DD82A41E12FF1519007221FC</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>DD82B5B912FFBD38007221FC</string>
-								<string>DD82BE821300E1F9007221FC</string>
-								<string>DD82BE831300E1F9007221FC</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>33</integer>
+									<integer>34</integer>
 									<integer>18</integer>
 									<integer>10</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 137}, {200, 769}}</string>
+							<string>{{0, 222}, {200, 769}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -372,12 +363,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SMFMoviePreviewController.h</string>
+								<string>SMFMoviePreviewController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -385,11 +378,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SMFMoviePreviewController.h</string>
+										<string>SMFMoviePreviewController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DD82C1881300EFF5007221FC</string>
+										<string>DD82C1C61300F564007221FC</string>
 										<key>history</key>
 										<array>
 											<string>DDDC81E11273C03700192ADD</string>
@@ -557,7 +550,6 @@
 											<string>DD7B5B4E12E65A6500EC6FBC</string>
 											<string>DD7B5B4F12E65A6500EC6FBC</string>
 											<string>DD7B5B7012E8983800EC6FBC</string>
-											<string>DD7B5B7212E8983800EC6FBC</string>
 											<string>DD7B5B7412E8983800EC6FBC</string>
 											<string>DD7B5B7A12E8983800EC6FBC</string>
 											<string>DD7B5B7B12E8983800EC6FBC</string>
@@ -605,7 +597,6 @@
 											<string>DD0CDBD612FE5D9300743D2C</string>
 											<string>DD0CDBD712FE5D9300743D2C</string>
 											<string>DD82A42812FF1550007221FC</string>
-											<string>DD82A42B12FF1550007221FC</string>
 											<string>DD82A61712FF1573007221FC</string>
 											<string>DD82A62212FF15BB007221FC</string>
 											<string>DD82A62312FF15BB007221FC</string>
@@ -675,12 +666,16 @@
 											<string>DD82BEDB1300E81D007221FC</string>
 											<string>DD82BEDE1300E81D007221FC</string>
 											<string>DD82BEE61300E8A1007221FC</string>
-											<string>DD82BEF11300E8F4007221FC</string>
 											<string>DD82BF0A1300ED11007221FC</string>
 											<string>DD82BF0B1300ED11007221FC</string>
 											<string>DD82BF121300EE22007221FC</string>
-											<string>DD82C1861300EFF5007221FC</string>
-											<string>DD82C1871300EFF5007221FC</string>
+											<string>DD82C1BD1300F564007221FC</string>
+											<string>DD82C1BE1300F564007221FC</string>
+											<string>DD82C1BF1300F564007221FC</string>
+											<string>DD82C1C11300F564007221FC</string>
+											<string>DD82C1C31300F564007221FC</string>
+											<string>DD82C1C41300F564007221FC</string>
+											<string>DD82C1C51300F564007221FC</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -692,14 +687,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1218, 485}}</string>
+								<string>{{0, 0}, {1218, 477}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 50 1440 828 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>485pt</string>
+							<string>477pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -712,14 +707,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 490}, {1218, 297}}</string>
+								<string>{{0, 482}, {1218, 305}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 50 1440 828 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>297pt</string>
+							<string>305pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -738,9 +733,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DD82B55D12FFBC6E007221FC</string>
+				<string>DD82C1C71300F564007221FC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>DD82B55E12FFBC6E007221FC</string>
+				<string>DD82C1C81300F564007221FC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -903,7 +898,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SMFMoviePreviewController.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -920,8 +915,6 @@
 							<string>423pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -961,7 +954,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>DDE49962127145AF00BAC606</string>
-				<string>DD82B55F12FFBC6E007221FC</string>
+				<string>DD82C1C91300F564007221FC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
