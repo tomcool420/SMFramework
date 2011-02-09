@@ -26,7 +26,7 @@ static NSString * const kSMFMovieRating = @"rating";
                               @"(no summary)",kSMFMovieSummary,
                               [NSArray array],kSMFMovieHeaders,
                               [NSArray array],kSMFMovieColumns,
-                              [[BRThemeInfo sharedTheme]missingImage],kSMFMoviePoster,
+                              [[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"],kSMFMoviePoster,
                               @"pg",kSMFMovieRating,
                               nil];
     if ([asset isKindOfClass:[BRBaseMediaAsset class]]) {
