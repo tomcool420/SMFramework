@@ -26,7 +26,7 @@ static NSString * const kSMFMovieRating = @"rating";
                               @"(no summary)",kSMFMovieSummary,
                               [NSArray array],kSMFMovieHeaders,
                               [NSArray array],kSMFMovieColumns,
-                              [[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"],kSMFMoviePoster,
+                              [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"]],kSMFMoviePoster,
                               @"pg",kSMFMovieRating,
                               nil];
     if ([asset isKindOfClass:[BRBaseMediaAsset class]]) {
@@ -39,6 +39,11 @@ static NSString * const kSMFMovieRating = @"rating";
         
         t = [self.asset mediaSummary];
         if (t!=nil)  {[d setObject:t forKey:kSMFMovieSummary];}
+        if ([asset respondsToSelector:@selector(coverArt)]) {
+            BRImage *i = [self.asset coverArt];
+            if (i==nil) [d setObject:i forKey:kSMFMoviePoster];
+        }
+        
         
         NSArray *a = [NSArray arrayWithObjects:@"Details",@"Actors",@"Director",@"Producers",nil];
         [d setObject:a forKey:kSMFMovieHeaders];

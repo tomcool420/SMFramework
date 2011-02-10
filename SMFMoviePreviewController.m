@@ -8,9 +8,11 @@
 #import "SMFControlFactory.h"
 #import "SMFMoviePreviewController.h"
 #import "SMFDefines.h"
+#import "SMFBaseAsset.h"
 static NSString * const kSMFMovieTitle = @"title";
 static NSString * const kSMFMovieSubtitle = @"substitle";
 static NSString * const kSMFMovieSummary = @"summary";
+static NSString * const kSMFMoviePosterPath = @"posterPath";
 static NSString * const kSMFMoviePoster = @"poster";
 static NSString * const kSMFMovieHeaders = @"headers";
 static NSString * const kSMFMovieColumns = @"columns";
@@ -33,7 +35,8 @@ static NSString * const kSMFMovieRating = @"rating";
                               @"(no summary)",kSMFMovieSummary,
                               [NSArray array],kSMFMovieHeaders,
                               [NSArray array],kSMFMovieColumns,
-                              [[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"],kSMFMoviePoster,
+                              [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"]],kSMFMoviePoster,
+                              @"",kSMFMoviePosterPath,
                               @"pg",kSMFMovieRating,
                               nil];
     if (self.datasource!=nil && [self.datasource conformsToProtocol:@protocol(SMFMoviePreviewControllerDatasource)]) {
@@ -48,8 +51,17 @@ static NSString * const kSMFMovieRating = @"rating";
         if (a!=nil)  {[d setObject:a forKey:kSMFMovieHeaders];}         
         a = [self.datasource columns];
         if (a!=nil)  {[d setObject:a forKey:kSMFMovieColumns];} 
-        t = [self.datasource posterPath];
-        if (t!=nil)  {[d setObject:t forKey:kSMFMoviePoster];}
+        if ([self.datasource respondsToSelector:@selector(coverArt)]) {
+            BRImage *i = [self.datasource coverArt];
+            if (i!=nil)  {[d setObject:i forKey:kSMFMoviePoster];}
+        }
+        else if([self.datasource respondsToSelector:@selector(posterPath)])
+        {
+            t = [self.datasource posterPath];
+            if (t!=nil)  {[d setObject:t forKey:kSMFMoviePosterPath];}
+        }
+        
+       
         t = [self.datasource rating];
         if (t!=nil)  {[d setObject:t forKey:kSMFMovieRating];}
     }
@@ -73,11 +85,13 @@ static NSString * const kSMFMovieRating = @"rating";
                                    masterFrame.size.height*0.83f);
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
     BRPhotoMediaAsset *asset = [[BRPhotoMediaAsset alloc]init];
-    NSString *p = [_info objectForKey:kSMFMoviePoster];
-    [asset setCoverArtURL:p];
-    [asset setThumbURL:p];
-    [asset setFullURL:p];
-    BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:asset];
+//    NSString *p = [_info objectForKey:kSMFMoviePoster];
+//    [asset setCoverArtURL:p];
+//    [asset setThumbURL:p];
+//    [asset setFullURL:p];
+    SMFBaseAsset *a  = [SMFBaseAsset asset];
+    [a setCoverArt:[_info objectForKey:kSMFMoviePoster]];
+    BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:a];
     [_previewControl setImageProxy:proxy];
     [proxy release];
     [asset release];
@@ -380,6 +394,10 @@ static NSString * const kSMFMovieRating = @"rating";
 -(NSString *)rating
 {
     return @"R";
+}
+-(BRImage *)coverArt
+{
+    return [BRImage imageWithPath:[self posterPath]];
 }
 -(NSString *)posterPath
 {

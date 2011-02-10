@@ -14,11 +14,14 @@
 -(NSString *)title;
 -(NSString *)subtitle;
 -(NSString *)summary;
--(NSString *)posterPath;
 -(NSArray  *)headers;
 -(NSArray  *)columns;
 -(NSString *)rating;
+-(BRImage *)coverArt;
 -(BRPhotoDataStoreProvider *)providerForShelf;
+@optional
+
+-(NSString *)posterPath;
 @end
 @class SMFMoviePreviewController;
 @protocol SMFMoviePreviewControllerDelegate
