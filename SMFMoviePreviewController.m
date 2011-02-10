@@ -22,6 +22,10 @@ static NSString * const kSMFMovieRating = @"rating";
 @implementation SMFMoviePreviewController
 @synthesize delegate;
 @synthesize datasource;
+void logFrame(CGRect frame)
+{
+    NSLog(@"{{%f, %f},{%f,%f}}",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height);
+}
 -(id)getProviderForShelf
 {
     return [self.datasource providerForShelf];
@@ -205,41 +209,110 @@ static NSString * const kSMFMovieRating = @"rating";
         int maxObj = [current count]>5?5:[current count];
         float tempY = lastOriginY;
         for (int objcount=0; objcount<maxObj; objcount++) {
-            BRControl *obj=nil;
-            CGRect objFrame=CGRectMake(0.0, 0.0, 0.0, 0.0);
-            if ([[current objectAtIndex:objcount] isKindOfClass:[NSString class]]) {
-                obj = [[BRTextControl alloc] init];
-                [(BRTextControl *)obj setText:[current objectAtIndex:objcount] withAttributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]];
-                objFrame.size=[(BRTextControl *)obj renderedSize];
-                if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
-                    objFrame.size.width=(masterFrame.size.width*increment*0.95f);
-            }
-            else if ([[current objectAtIndex:objcount] isKindOfClass:[NSAttributedString class]]) {
-                obj = [[BRTextControl alloc] init];
-                [(BRTextControl *)obj setAttributedString:[current objectAtIndex:objcount]];
-                objFrame.size=[(BRTextControl *)obj renderedSize];
-                if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
-                    objFrame.size.width=(masterFrame.size.width*increment*0.95f);
-            }
-            else if([[current objectAtIndex:objcount] isKindOfClass:[BRImage class]])
-            {
-                obj = [[BRImageControl alloc]init];
-                [(BRImageControl *)obj setImage:[current objectAtIndex:objcount]];
-                objFrame.size=[(BRImageControl *)obj pixelBounds];
-                if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
+            if ([[current objectAtIndex:objcount] isKindOfClass:[NSArray class]]) {
+                NSArray *objects = [current objectAtIndex:objcount];
+                float x = titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
+                float maxX=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter+masterFrame.size.width*increment*0.95;
+                float maxY=0.0;
+                for (int i=0;i<[objects count];i++)
                 {
-                    float rescaleFactor=objFrame.size.width/(masterFrame.size.width*increment*0.95f);
-                    objFrame.size.width=objFrame.size.width*rescaleFactor;
-                    objFrame.size.height=objFrame.size.height*rescaleFactor;
-                }
+                    id ctrl = nil;
+                    CGRect r= CGRectMake(x, 0.0, 0.0, 0.0 );
+                    if ([[objects objectAtIndex:i] isKindOfClass:[NSAttributedString class]])
+                    {
+                        ctrl = [[BRTextControl alloc]init];
+                        [ctrl setAttributedString:[objects objectAtIndex:i]];
+                        r.size=[ctrl renderedSize];
+                        r.origin.y=tempY-r.size.height;
+                        if (r.size.width+r.origin.x>maxX) {
+                            r.size.width=maxX-r.origin.x;
+                        }
+                        logFrame(r);
+                    }
+                    else if([[objects objectAtIndex:i] isKindOfClass:[NSString class]])
+                    {
+                        ctrl = [[BRTextControl alloc]init];
+                        [ctrl setText:[objects objectAtIndex:i] withAttributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]];
+                        r.size=[ctrl renderedSize];
+                        r.origin.y=tempY-r.size.height;
+                        if (r.size.width+r.origin.x>maxX) {
+                            r.size.width=maxX-r.origin.x;
+                        }
+                        logFrame(r);
+                    }
+                    else if([[objects objectAtIndex:i] isKindOfClass:[BRImage class]])
+                    {
+                        NSLog(@"obj %@ %i",[objects objectAtIndex:i],i);
+                        ctrl = [[BRImageControl alloc]init];
+                        [(BRImageControl *)ctrl setImage:[objects objectAtIndex:i]];
+                        r.size=[(BRImageControl *)ctrl pixelBounds];
+                        if (r.size.width+r.origin.x>maxX)
+                        {
+                            float rescaleFactor=r.size.width/(maxX-r.origin.x);
+                            r.size.width=r.size.width*rescaleFactor;
+                            r.size.height=r.size.height*rescaleFactor;
+                            ctrl=nil;
+                        }
+                        r.origin.y=tempY-r.size.height;
+                        logFrame(r);
+                        
+                    }
+                    if (maxY<r.size.height)
+                        maxY=r.size.height;
+                    
+                    if(i==([objects count]-1))
+                        tempY=tempY-maxY;
+                    
+                    
+                    if (ctrl!=nil) {
+                        [ctrl setFrame:r];
+                        [self addControl:ctrl];
+                        [ctrl release];
+                        x=r.origin.x+r.size.width;
+                    }
 
+                }
             }
-            objFrame.origin.x=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
-            objFrame.origin.y=tempY-objFrame.size.height;
-            tempY=objFrame.origin.y;
-            [obj setFrame:objFrame];
-            [self addControl:obj];
-            [obj release];
+            else {
+                BRControl *obj=nil;
+                CGRect objFrame=CGRectMake(0.0, 0.0, 0.0, 0.0);
+                if ([[current objectAtIndex:objcount] isKindOfClass:[NSString class]]) {
+                    obj = [[BRTextControl alloc] init];
+                    [(BRTextControl *)obj setText:[current objectAtIndex:objcount] withAttributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]];
+                    objFrame.size=[(BRTextControl *)obj renderedSize];
+                    if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
+                        objFrame.size.width=(masterFrame.size.width*increment*0.95f);
+                }
+                else if ([[current objectAtIndex:objcount] isKindOfClass:[NSAttributedString class]]) {
+                    obj = [[BRTextControl alloc] init];
+                    [(BRTextControl *)obj setAttributedString:[current objectAtIndex:objcount]];
+                    objFrame.size=[(BRTextControl *)obj renderedSize];
+                    if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
+                        objFrame.size.width=(masterFrame.size.width*increment*0.95f);
+                }
+                else if([[current objectAtIndex:objcount] isKindOfClass:[BRImage class]])
+                {
+                    obj = [[BRImageControl alloc]init];
+                    [(BRImageControl *)obj setImage:[current objectAtIndex:objcount]];
+                    objFrame.size=[(BRImageControl *)obj pixelBounds];
+                    if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
+                    {
+                        float rescaleFactor=objFrame.size.width/(masterFrame.size.width*increment*0.95f);
+                        objFrame.size.width=objFrame.size.width*rescaleFactor;
+                        objFrame.size.height=objFrame.size.height*rescaleFactor;
+                    }
+                    
+                }
+                
+                objFrame.origin.x=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
+                objFrame.origin.y=tempY-objFrame.size.height;
+                tempY=objFrame.origin.y;
+                [obj setFrame:objFrame];
+                [self addControl:obj];
+                [obj release];
+                
+            }
+            
         }
     }
     
@@ -410,7 +483,17 @@ static NSString * const kSMFMovieRating = @"rating";
                                                           attributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]]autorelease],
                           @"Leddy",nil];
     NSArray *producers = [NSArray arrayWithObjects:@"Alan Quatermain",@"gbooker",@"DHowett",nil];
-    NSArray *details = [NSArray arrayWithObjects:@"Action & Comedy",@"Released: 2010",@"Run Time: Years",[[SMFThemeInfo sharedTheme]fourPointFiveStars], nil];
+    BRImage *i = [[BRThemeInfo sharedTheme] hdBadge];
+    NSArray *details = [NSArray arrayWithObjects:
+                        @"Action & Comedy",
+                        @"Released: 2010",
+                        [NSArray arrayWithObjects:
+                         i,
+                         [[[NSAttributedString alloc] initWithString:@" 2" attributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]]autorelease],
+                         i,nil],
+                        @"Run Time: Years",
+                        [[SMFThemeInfo sharedTheme]fourPointFiveStars],
+                        nil];
     NSArray *objects = [NSArray arrayWithObjects:details,actors,directors,producers,nil];
     return objects;
 }
