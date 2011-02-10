@@ -40,7 +40,6 @@ static NSString * const kSMFMovieRating = @"rating";
                               @"pg",kSMFMovieRating,
                               nil];
     if (self.datasource!=nil && [self.datasource conformsToProtocol:@protocol(SMFMoviePreviewControllerDatasource)]) {
-        NSLog(@"conforms to protocol");
         NSString *t = [self.datasource title];
         if (t!=nil)  {[d setObject:t forKey:kSMFMovieTitle];}
         t = [self.datasource subtitle];
@@ -247,45 +246,69 @@ static NSString * const kSMFMovieRating = @"rating";
     /*
      *  Buttons not yet customizable
      */
-    _previewButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
-                                                    subtitle:@"Preview" 
-                                                       badge:nil] retain];
-    CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
-                                   masterFrame.origin.y + masterFrame.size.height *0.32f,
-                                   masterFrame.size.height*0.15, 
-                                   masterFrame.size.height*0.15f);
-    [_previewButton setFrame:previewFrame];
-    [self addControl:_previewButton];
+    if ([self.datasource respondsToSelector:@selector(buttons)]) {
+        NSArray *buttons = [self.datasource buttons];
+        CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
+                                       masterFrame.origin.y + masterFrame.size.height *0.32f,
+                                       masterFrame.size.height*0.15, 
+                                       masterFrame.size.height*0.15f);
+        int button=0;
+        for(int i=0;i<[buttons count];i++)
+        {
+            id b = [buttons objectAtIndex:i];
+            if([b isKindOfClass:[BRButtonControl class]])
+            {
+                CGRect f = previewFrame;
+                f.origin.x=f.origin.x+ masterFrame.size.height*0.17*(float)button;
+                [b setFrame:f];
+                [self addControl:b];
+                button++;
+            }
+        }
+    }
+    else {
+        _previewButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
+                                                        subtitle:@"Preview" 
+                                                           badge:nil] retain];
+        CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
+                                       masterFrame.origin.y + masterFrame.size.height *0.32f,
+                                       masterFrame.size.height*0.15, 
+                                       masterFrame.size.height*0.15f);
+        [_previewButton setFrame:previewFrame];
+        [self addControl:_previewButton];
+        
+        _playButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
+                                                     subtitle:@"Play" 
+                                                        badge:nil]retain];
+        CGRect playFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17,
+                                      masterFrame.origin.y + masterFrame.size.height *0.32f, 
+                                      masterFrame.size.height*0.15, 
+                                      masterFrame.size.height*0.15f);
+        [_playButton setFrame:playFrame];
+        [self addControl:_playButton];
+        
+        _queueButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
+                                                      subtitle:@"Queue" 
+                                                         badge:nil]retain];
+        CGRect queueFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*2.f,
+                                       masterFrame.origin.y + masterFrame.size.height *0.32f, 
+                                       masterFrame.size.height*0.15, 
+                                       masterFrame.size.height*0.15f);
+        [_queueButton setFrame:queueFrame];
+        [self addControl:_queueButton];
+        
+        _moreButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
+                                                     subtitle:@"More" 
+                                                        badge:nil]retain];
+        CGRect moreFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*3.f,
+                                      masterFrame.origin.y + masterFrame.size.height *0.32f, 
+                                      masterFrame.size.height*0.15, 
+                                      masterFrame.size.height*0.15f);
+        [_moreButton setFrame:moreFrame];
+        [self addControl:_moreButton];
+    }
+
     
-    _playButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
-                                                 subtitle:@"Play" 
-                                                    badge:nil]retain];
-    CGRect playFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17,
-                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                  masterFrame.size.height*0.15, 
-                                  masterFrame.size.height*0.15f);
-    [_playButton setFrame:playFrame];
-    [self addControl:_playButton];
-    
-    _queueButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
-                                                 subtitle:@"Queue" 
-                                                    badge:nil]retain];
-    CGRect queueFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*2.f,
-                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                  masterFrame.size.height*0.15, 
-                                  masterFrame.size.height*0.15f);
-    [_queueButton setFrame:queueFrame];
-    [self addControl:_queueButton];
-    
-    _moreButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
-                                                  subtitle:@"More" 
-                                                     badge:nil]retain];
-    CGRect moreFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*3.f,
-                                  masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                  masterFrame.size.height*0.15, 
-                                  masterFrame.size.height*0.15f);
-    [_moreButton setFrame:moreFrame];
-    [self addControl:_moreButton];
     
     _shelfControl = [[BRMediaShelfControl alloc] init];
     [_shelfControl setProvider:[self getProviderForShelf]];
@@ -419,5 +442,32 @@ static NSString * const kSMFMovieRating = @"rating";
     id provider    = [BRPhotoDataStoreProvider providerWithDataStore:store controlFactory:tcControlFactory];
     [store release];
     return provider; 
+}
+-(NSArray *)buttons
+{
+    NSMutableArray *buttons = [[NSMutableArray alloc]init];
+    BRButtonControl* b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
+                                                        subtitle:@"CPreview" 
+                                                           badge:nil] retain];
+    [buttons addObject:b];
+    
+    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
+                                       subtitle:@"CPlay"
+                                          badge:nil]retain];
+    
+    [buttons addObject:b];
+    
+    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
+                                       subtitle:@"CQueue" 
+                                          badge:nil]retain];
+    
+    [buttons addObject:b];
+    
+    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
+                                       subtitle:@"CMore" 
+                                          badge:nil]retain];
+    [buttons addObject:b];
+    return [buttons autorelease];
+    
 }
 @end

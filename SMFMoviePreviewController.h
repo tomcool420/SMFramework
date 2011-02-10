@@ -20,7 +20,7 @@
 -(BRImage *)coverArt;
 -(BRPhotoDataStoreProvider *)providerForShelf;
 @optional
-
+-(NSArray *)buttons;
 -(NSString *)posterPath;
 @end
 @class SMFMoviePreviewController;
