@@ -77,6 +77,7 @@ void logFrame(CGRect frame)
     [_info release];
     _info=nil;
     _info = [[self getInformation] retain];
+    _summaryToggled=NO;
     
     
     /*
@@ -104,36 +105,33 @@ void logFrame(CGRect frame)
     /*
      *  The Title
      */
-    _titleControl = [[BRTextControl alloc]init];
-    [_titleControl setText:[_info objectForKey:kSMFMovieTitle] withAttributes:[[BRThemeInfo sharedTheme]menuTitleTextAttributes]];
-    CGRect titleFrame;
-    titleFrame.size = [_titleControl renderedSize];
-    titleFrame.origin.x=imageFrame.origin.x+imageFrame.size.width-masterFrame.size.width*0.02f;
-    titleFrame.origin.y=imageFrame.origin.y+imageFrame.size.height-titleFrame.size.height-masterFrame.size.height*0.05;
-    [_titleControl setFrame:titleFrame];
-    [self addControl:_titleControl];
+    _metadataTitleControl=[[BRMetadataTitleControl alloc]init];
+    [_metadataTitleControl setTitle:[_info objectForKey:kSMFMovieTitle]];
+    [_metadataTitleControl setTitleSubtext:[_info objectForKey:kSMFMovieSubtitle]];
+    [_metadataTitleControl setRating:[_info objectForKey:kSMFMovieRating]];
+    CGRect mtcf;
+    mtcf.size=CGSizeMake(830., 50);
+    mtcf.origin.x=imageFrame.origin.x+imageFrame.size.width-masterFrame.size.width*0.02f;
+    mtcf.origin.y=imageFrame.origin.y+imageFrame.size.height-mtcf.size.height-masterFrame.size.height*0.05;
+    [_metadataTitleControl setFrame:mtcf];
+    [self addControl:_metadataTitleControl];
+    
+
+    //[self addControl:_titleControl];
     
     
     /*
      *  The Subtitle
      */
-    _subtitleControl = [[BRTextControl alloc] init];
-    NSMutableDictionary *attributes = [[[[BRThemeInfo sharedTheme] metadataSummaryFieldAttributes] mutableCopy]autorelease];
-    //[attributes setObject:(id)[[SMFThemeInfo sharedTheme]lightGrayColor] forKey:@"CTForegroundColor"];
-    [_subtitleControl setText:[_info objectForKey:kSMFMovieSubtitle] withAttributes:attributes];
-    CGRect subtitleFrame;
-    subtitleFrame.size= [ _subtitleControl renderedSize];
-    subtitleFrame.origin.x=titleFrame.origin.x;
-    subtitleFrame.origin.y=titleFrame.origin.y-subtitleFrame.size.height;//-masterFrame.size.height*0.005;
-    [_subtitleControl setFrame:subtitleFrame];
-    [self addControl:_subtitleControl];
+
+    //[self addControl:_subtitleControl];
     
     /*
      *  First Divider
      */
     BRDividerControl *div1 = [[BRDividerControl alloc]init];
-    CGRect div1Frame = CGRectMake(subtitleFrame.origin.x , 
-                                 subtitleFrame.origin.y-masterFrame.size.height*0.01f, 
+    CGRect div1Frame = CGRectMake(mtcf.origin.x , 
+                                 mtcf.origin.y-masterFrame.size.height*0.01f, 
                                  masterFrame.size.width*0.64f, 
                                  masterFrame.size.height*0.02f);
     [div1 setFrame:div1Frame];
@@ -144,21 +142,22 @@ void logFrame(CGRect frame)
      *  Summary
      */
     _summaryControl = [[BRTextControl alloc]init];
-    CGRect summaryFrame = CGRectMake(subtitleFrame.origin.x, 
-                                     div1Frame.origin.y-masterFrame.size.height*0.118f,
+    CGRect summaryFrame = CGRectMake(mtcf.origin.x, 
+                                     div1Frame.origin.y-94.,//masterFrame.size.height*0.118f,
                                      masterFrame.size.width*0.64f, 
-                                     masterFrame.size.height*0.113f);
+                                     94.);//masterFrame.size.height*0.113f);
     [_summaryControl setFrame:summaryFrame];
     [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
          withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
-    [self addControl:_summaryControl];
+    [_summaryControl setBackgroundColor:[[SMFThemeInfo sharedTheme]blackColor]];
+    
     
     
     /*
      *  Second Divider
      */
     BRDividerControl *div2 = [[BRDividerControl alloc]init];
-    CGRect div2Frame =CGRectMake(subtitleFrame.origin.x , 
+    CGRect div2Frame =CGRectMake(mtcf.origin.x , 
                                  summaryFrame.origin.y-masterFrame.size.height*0.01f,
                                  masterFrame.size.width*0.64f, 
                                  masterFrame.size.height*0.02f);
@@ -174,9 +173,9 @@ void logFrame(CGRect frame)
     CGRect ratingFrame;
     ratingFrame.size=[_rating pixelBounds];
     ratingFrame.origin.x=div1Frame.origin.x+div1Frame.size.width-ratingFrame.size.width;
-    ratingFrame.origin.y=titleFrame.origin.y;
+    ratingFrame.origin.y=mtcf.origin.y;
     [_rating setFrame:ratingFrame];
-    [self addControl:_rating];
+    //[self addControl:_rating];
 
     /*
      *  Headers for information
@@ -193,7 +192,7 @@ void logFrame(CGRect frame)
         headFrame.size=[head renderedSize];
         if (headFrame.size.width>(masterFrame.size.width*increment*0.95f))
             headFrame.size.width=(masterFrame.size.width*increment*0.95f);
-        headFrame.origin.x=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
+        headFrame.origin.x=mtcf.origin.x+masterFrame.size.width*increment*(float)counter;
         headFrame.origin.y=div2Frame.origin.y-masterFrame.size.height*0.001-headFrame.size.height;
         lastOriginY=headFrame.origin.y;
         [head setFrame:headFrame];
@@ -211,8 +210,8 @@ void logFrame(CGRect frame)
         for (int objcount=0; objcount<maxObj; objcount++) {
             if ([[current objectAtIndex:objcount] isKindOfClass:[NSArray class]]) {
                 NSArray *objects = [current objectAtIndex:objcount];
-                float x = titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
-                float maxX=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter+masterFrame.size.width*increment*0.95;
+                float x = mtcf.origin.x+masterFrame.size.width*increment*(float)counter;
+                float maxX=mtcf.origin.x+masterFrame.size.width*increment*(float)counter+masterFrame.size.width*increment*0.95;
                 float maxY=0.0;
                 for (int i=0;i<[objects count];i++)
                 {
@@ -304,7 +303,7 @@ void logFrame(CGRect frame)
                     
                 }
                 
-                objFrame.origin.x=titleFrame.origin.x+masterFrame.size.width*increment*(float)counter;
+                objFrame.origin.x=mtcf.origin.x+masterFrame.size.width*increment*(float)counter;
                 objFrame.origin.y=tempY-objFrame.size.height;
                 tempY=objFrame.origin.y;
                 [obj setFrame:objFrame];
@@ -417,6 +416,7 @@ void logFrame(CGRect frame)
 
     BRCursorControl * hey = [[BRCursorControl alloc] init];
     [self addControl:hey];
+    [self addControl:_summaryControl];
     [hey release];
     
 }
@@ -425,11 +425,38 @@ void logFrame(CGRect frame)
     [self drawSelf];
     [super controlWasActivated];
 }
+-(void)toggleLongSummary
+{
+    CGRect f = [_summaryControl frame];
+    
+    float sh=94.;
+    float lh=275.;
+    if (_summaryToggled==YES) {
+        f.origin.y=f.origin.y+(lh-sh);
+        f.size.height=sh;
+        _summaryToggled=NO;
+    }
+    else {
+        f.origin.y=f.origin.y-(lh-sh);
+        f.size.height=lh;
+        _summaryToggled=YES;
+    }
+    [_summaryControl setFrame:f];
+    
+    
+    [_summaryControl layoutSubcontrols];
+}
 -(BOOL)brEventAction:(BREvent *)action
 {
     if ([[self stack] peekController]!=self)
         return [super brEventAction:action];
     int remoteAction = [action remoteAction];
+    if (remoteAction==kBREventRemoteActionUp&&action.value==1) {
+        if ([[self focusedControl] isKindOfClass:[BRButtonControl class]]) {
+            [self toggleLongSummary];
+            return YES;
+        }
+    }
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)]) {
     }
     if (remoteAction==kBREventRemoteActionPlay && 
