@@ -82,15 +82,16 @@ void logFrame(CGRect frame)
     return [d autorelease];
     
 }
+void checkNil(BRControl *ctrl)
+{
+    if (ctrl!=nil) {
+        [ctrl release];
+        ctrl=nil;
+    }
+}
 -(void)reload
 {
-    void checkNil(BRControl *ctrl)
-    {
-        if (ctrl!=nil) {
-            [ctrl release];
-            ctrl=nil;
-        }
-    }
+
     //[self _removeAllControls];
     for (BRControl *c in [self controls]) {
         if (c!=_shelfControl) {
@@ -483,13 +484,14 @@ void logFrame(CGRect frame)
 }
 -(void)dealloc
 {
-    [_titleControl release];
-    [_subtitleControl release];
+    //[_titleControl release];
+    //[_subtitleControl release];
     [_summaryControl release];
-    [_rating release];
+    //[_rating release];
     [_previewButton release];
     [_moreButton release];
     [_previewControl release];
+    [_metadataTitleControl release];
     self.datasource=nil;
     [_playButton release];
     [_shelfControl release];
