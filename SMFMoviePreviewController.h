@@ -32,10 +32,7 @@
 
 @interface SMFMoviePreviewController : BRController<SMFMoviePreviewControllerDatasource> {
     BRMetadataTitleControl *_metadataTitleControl;
-    BRTextControl       * _titleControl;
-    BRTextControl       * _subtitleControl;
     BRTextControl       * _summaryControl;
-    BRImageControl      * _rating;
     BRButtonControl     * _previewButton;
     BRButtonControl     * _playButton;
     BRButtonControl     * _queueButton;
@@ -46,9 +43,14 @@
     NSObject<SMFMoviePreviewControllerDatasource> *datasource;
     NSObject<SMFMoviePreviewControllerDelegate> *delegate;
     BOOL                _summaryToggled;
+    BRDividerControl    *_div3;
+    BRTextControl       *_alsoWatched;
 }
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
 @property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
+
++(NSDictionary *)columnHeaderAttributes;
++(NSDictionary *)columnLabelAttributes;
 -(NSString *)title;
 -(NSString *)subtitle;
 -(NSString *)summary;
@@ -57,5 +59,7 @@
 -(NSArray  *)columns;
 -(NSString *)rating;
 -(BRPhotoDataStoreProvider *)providerForShelf;
+-(void)reload;
+-(void)reloadShelf;
 -(void)toggleLongSummary;
 @end

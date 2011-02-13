@@ -5,6 +5,9 @@
 //  Created by Thomas Cool on 2/6/11.
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
+#import <Backrow/BRThemeInfo.h>
+#import <Backrow/BRController.h>
+#import <Backrow/BRControl.h>
 #import "SMFControlFactory.h"
 #import "SMFMoviePreviewController.h"
 #import "SMFDefines.h"
@@ -22,6 +25,14 @@ static NSString * const kSMFMovieRating = @"rating";
 @implementation SMFMoviePreviewController
 @synthesize delegate;
 @synthesize datasource;
++(NSDictionary *)columnHeaderAttributes
+{
+    return [[BRThemeInfo sharedTheme]movieMetadataLabelAttributes];
+}
++(NSDictionary *)columnLabelAttributes
+{
+    return [[BRThemeInfo sharedTheme]metadataLineAttributes];
+}
 void logFrame(CGRect frame)
 {
     NSLog(@"{{%f, %f},{%f,%f}}",frame.origin.x,frame.origin.y,frame.size.width,frame.size.height);
@@ -71,8 +82,22 @@ void logFrame(CGRect frame)
     return [d autorelease];
     
 }
--(void)drawSelf
+-(void)reload
 {
+    void checkNil(BRControl *ctrl)
+    {
+        if (ctrl!=nil) {
+            [ctrl release];
+            ctrl=nil;
+        }
+    }
+    //[self _removeAllControls];
+    for (BRControl *c in [self controls]) {
+        if (c!=_shelfControl) {
+            [c removeFromParent];
+        }
+    }
+    
     CGRect masterFrame=[BRWindow interfaceFrame];
     [_info release];
     _info=nil;
@@ -83,28 +108,26 @@ void logFrame(CGRect frame)
     /*
      *  The Poster
      */
+    checkNil(_previewControl);
     CGRect imageFrame = CGRectMake(masterFrame.origin.x+masterFrame.size.width*0.00f,
                                    masterFrame.origin.y+masterFrame.size.height*0.20f,
                                    masterFrame.size.width*0.32f,
                                    masterFrame.size.height*0.83f);
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
-    BRPhotoMediaAsset *asset = [[BRPhotoMediaAsset alloc]init];
-//    NSString *p = [_info objectForKey:kSMFMoviePoster];
-//    [asset setCoverArtURL:p];
-//    [asset setThumbURL:p];
-//    [asset setFullURL:p];
+
     SMFBaseAsset *a  = [SMFBaseAsset asset];
     [a setCoverArt:[_info objectForKey:kSMFMoviePoster]];
     BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:a];
     [_previewControl setImageProxy:proxy];
     [proxy release];
-    [asset release];
+
     [_previewControl setFrame:imageFrame];
     [self addControl:_previewControl];
     
     /*
      *  The Title
      */
+    checkNil(_metadataTitleControl);
     _metadataTitleControl=[[BRMetadataTitleControl alloc]init];
     [_metadataTitleControl setTitle:[_info objectForKey:kSMFMovieTitle]];
     [_metadataTitleControl setTitleSubtext:[_info objectForKey:kSMFMovieSubtitle]];
@@ -141,6 +164,7 @@ void logFrame(CGRect frame)
     /*
      *  Summary
      */
+    checkNil(_summaryControl);
     _summaryControl = [[BRTextControl alloc]init];
     CGRect summaryFrame = CGRectMake(mtcf.origin.x, 
                                      div1Frame.origin.y-94.,//masterFrame.size.height*0.118f,
@@ -165,17 +189,7 @@ void logFrame(CGRect frame)
     [self addControl:div2];
     [div2 release];
     
-    /*
-     *  Rating
-     */
-    _rating = [[BRImageControl alloc] init];
-    [_rating setImage:[[BRThemeInfo sharedTheme]ratingImageForString:[_info objectForKey:kSMFMovieRating]]];
-    CGRect ratingFrame;
-    ratingFrame.size=[_rating pixelBounds];
-    ratingFrame.origin.x=div1Frame.origin.x+div1Frame.size.width-ratingFrame.size.width;
-    ratingFrame.origin.y=mtcf.origin.y;
-    [_rating setFrame:ratingFrame];
-    //[self addControl:_rating];
+
 
     /*
      *  Headers for information
@@ -187,7 +201,7 @@ void logFrame(CGRect frame)
     for(int counter=0;counter<4;counter++)
     {
         BRTextControl *head = [[BRTextControl alloc]init];
-        [head setText:[headers objectAtIndex:counter] withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
+        [head setText:[headers objectAtIndex:counter] withAttributes:[SMFMoviePreviewController columnHeaderAttributes] ];
         CGRect headFrame;
         headFrame.size=[head renderedSize];
         if (headFrame.size.width>(masterFrame.size.width*increment*0.95f))
@@ -231,7 +245,7 @@ void logFrame(CGRect frame)
                     else if([[objects objectAtIndex:i] isKindOfClass:[NSString class]])
                     {
                         ctrl = [[BRTextControl alloc]init];
-                        [ctrl setText:[objects objectAtIndex:i] withAttributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]];
+                        [ctrl setText:[objects objectAtIndex:i] withAttributes:[SMFMoviePreviewController columnLabelAttributes]];
                         r.size=[ctrl renderedSize];
                         r.origin.y=tempY-r.size.height;
                         if (r.size.width+r.origin.x>maxX) {
@@ -277,7 +291,7 @@ void logFrame(CGRect frame)
                 CGRect objFrame=CGRectMake(0.0, 0.0, 0.0, 0.0);
                 if ([[current objectAtIndex:objcount] isKindOfClass:[NSString class]]) {
                     obj = [[BRTextControl alloc] init];
-                    [(BRTextControl *)obj setText:[current objectAtIndex:objcount] withAttributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]];
+                    [(BRTextControl *)obj setText:[current objectAtIndex:objcount] withAttributes:[SMFMoviePreviewController columnLabelAttributes]];
                     objFrame.size=[(BRTextControl *)obj renderedSize];
                     if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
                         objFrame.size.width=(masterFrame.size.width*increment*0.95f);
@@ -315,9 +329,11 @@ void logFrame(CGRect frame)
         }
     }
     
-    /*
-     *  Buttons not yet customizable
-     */
+
+    checkNil(_previewButton);
+    checkNil(_playButton);
+    checkNil(_queueButton);
+    checkNil(_moreButton);
     if ([self.datasource respondsToSelector:@selector(buttons)]) {
         NSArray *buttons = [self.datasource buttons];
         CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
@@ -339,6 +355,7 @@ void logFrame(CGRect frame)
         }
     }
     else {
+
         _previewButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
                                                         subtitle:@"Preview" 
                                                            badge:nil] retain];
@@ -382,12 +399,26 @@ void logFrame(CGRect frame)
 
     
     
+    
+    BRCursorControl * hey = [[BRCursorControl alloc] init];
+    [self addControl:hey];
+    [self addControl:_summaryControl];
+    [hey release];
+    
+}
+-(void)reloadShelf
+{
+    if (_shelfControl!=nil) {
+        [_shelfControl release];
+        _shelfControl=nil;
+    }
+    CGRect masterFrame=[BRWindow interfaceFrame];
     _shelfControl = [[BRMediaShelfControl alloc] init];
     [_shelfControl setProvider:[self getProviderForShelf]];
     [_shelfControl setColumnCount:8];
     [_shelfControl setCentered:NO];
     [_shelfControl setHorizontalGap:23];
-//    [_shelfControl setCoverflowMargin:.021746988594532013];
+    //    [_shelfControl setCoverflowMargin:.021746988594532013];
     CGRect gframe=CGRectMake(masterFrame.size.width*0.00, 
                              masterFrame.origin.y+masterFrame.size.height*0.04f, 
                              masterFrame.size.width*1.f,
@@ -395,34 +426,14 @@ void logFrame(CGRect frame)
     [_shelfControl setFrame:gframe];
     [self addControl:_shelfControl];
     
-    BRTextControl *moviesControl =[[BRTextControl alloc] init];
-    [moviesControl setText:@"Movies" withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
-    CGRect mf;
-    mf.size = [moviesControl renderedSize];
-    mf.origin.x=gframe.origin.x+masterFrame.size.width*0.05;
-    mf.origin.y=gframe.origin.y+gframe.size.height+masterFrame.size.height*0.005f,
-    [moviesControl setFrame:mf];
-    [self addControl:moviesControl];
-    [moviesControl release];
-    
-    BRDividerControl *div3 = [[BRDividerControl alloc]init];
-    CGRect div3Frame =CGRectMake(gframe.origin.x + mf.size.width+masterFrame.size.width*0.02, 
-                                 gframe.origin.y+gframe.size.height+masterFrame.size.height*0.005f,
-                                 div1Frame.size.width+div1Frame.origin.x-(mf.size.width+masterFrame.size.width*0.02), 
-                                 masterFrame.size.height*0.02f);
-    [div3 setFrame:div3Frame];
-    [self addControl:div3];
-    [div3 release];
 
-    BRCursorControl * hey = [[BRCursorControl alloc] init];
-    [self addControl:hey];
-    [self addControl:_summaryControl];
-    [hey release];
+    
     
 }
 -(void)controlWasActivated
 {
-    [self drawSelf];
+    [self reload];
+    [self reloadShelf];
     [super controlWasActivated];
 }
 -(void)toggleLongSummary
@@ -556,26 +567,26 @@ void logFrame(CGRect frame)
 -(NSArray *)buttons
 {
     NSMutableArray *buttons = [[NSMutableArray alloc]init];
-    BRButtonControl* b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
-                                                        subtitle:@"CPreview" 
-                                                           badge:nil] retain];
+    BRButtonControl* b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
+                                                        subtitle:@"Preview" 
+                                                           badge:nil];
     [buttons addObject:b];
     
-    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
-                                       subtitle:@"CPlay"
-                                          badge:nil]retain];
-    
-    [buttons addObject:b];
-    
-    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
-                                       subtitle:@"CQueue" 
-                                          badge:nil]retain];
+    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
+                                       subtitle:@"Play"
+                                          badge:nil];
     
     [buttons addObject:b];
     
-    b = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
-                                       subtitle:@"CMore" 
-                                          badge:nil]retain];
+    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
+                                       subtitle:@"Queue" 
+                                          badge:nil];
+    
+    [buttons addObject:b];
+    
+    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
+                                       subtitle:@"More" 
+                                          badge:nil];
     [buttons addObject:b];
     return [buttons autorelease];
     
