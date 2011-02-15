@@ -62,4 +62,13 @@
 -(BRImage *)fourStar;
 -(BRImage *)fourPointFiveStars;
 -(BRImage *)fiveStars;
+
+
+/*
+ *  Sound stuff
+ */
+-(void)playSelectSound;
+-(void)playMenuSound;
+-(void)playNavigateSound;
+-(void)playErrorSound;
 @end

@@ -185,5 +185,26 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"stars5" ofType:@"png"]];
 }
-
+enum{
+    kBRSelectSoundInt   =1,
+    kBRMenuSoundInt     =2,
+    kBRNavigateSoundInt =15,
+    kBRErrorSoundInt    =18
+};
+-(void)playSelectSound
+{
+    [BRSoundHandler playSound:kBRSelectSoundInt];
+}
+-(void)playMenuSound
+{
+    [BRSoundHandler playSound:kBRMenuSoundInt];
+}
+-(void)playNavigateSound
+{
+    [BRSoundHandler playSound:kBRNavigateSoundInt];
+}
+-(void)playErrorSound
+{
+    [BRSoundHandler playSound:kBRErrorSoundInt];
+}
 @end
