@@ -476,6 +476,7 @@ void checkNil(BRControl *ctrl)
 -(BOOL)brEventAction:(BREvent *)action
 {
     BRControl *c = [self focusedControl];
+    long shelfIndex = [_shelfControl focusedIndex];
     if ([[self stack] peekController]!=self)
         return [super brEventAction:action];
     int remoteAction = [action remoteAction];
@@ -500,6 +501,9 @@ void checkNil(BRControl *ctrl)
     if (action.value==1 && c!=d) {
         if (delegate!=nil && [delegate respondsToSelector:@selector(controller:switchedFocusTo:)]) {
             [delegate controller:self switchedFocusTo:d];
+        }
+        if (delegate!=nil && [delegate respondsToSelector:@selector(controller:shelfLastIndex:)]) {
+            [delegate controller:self shelfLastIndex:shelfIndex];
         }
     }
     return b;

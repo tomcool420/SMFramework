@@ -28,6 +28,7 @@
 -(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl;
 @optional
 -(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl;
+-(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index;
 @end
 
 
