@@ -420,7 +420,7 @@ void checkNil(NSObject *ctrl)
 -(void)toggleLongSummary
 {
     CGRect f = [_summaryControl frame];
-    CGSize masterSize = [BRWindow maxSize];
+    CGSize masterSize = [BRWindow maxBounds];
     float sh=94.f/720.f*masterSize.height;
     float lh=275.f/720.f*masterSize.height;
     if (_summaryToggled==YES) {
@@ -502,7 +502,7 @@ void checkNil(NSObject *ctrl)
     [_shelfControl release];
     [_buttons release];
     checkNil(_info);
-    checkNil(_summaryControl)
+    checkNil(_summaryControl);
     [super dealloc];
 }
 #pragma mark datasource methods
