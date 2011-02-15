@@ -51,6 +51,7 @@
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
 @property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
 @property (readonly)BRMediaShelfControl *_shelfControl;
+@property (readonly)NSMutableArray *_buttons;
 
 +(NSDictionary *)columnHeaderAttributes;
 +(NSDictionary *)columnLabelAttributes;

@@ -28,6 +28,7 @@ NSString * const kMoviePreviewControllerNewSelectedControl = @"kMoviePreviewCont
 @synthesize delegate;
 @synthesize datasource;
 @synthesize _shelfControl;
+@synthesize _buttons;
 +(NSDictionary *)columnHeaderAttributes
 {
     return [[BRThemeInfo sharedTheme]movieMetadataLabelAttributes];
