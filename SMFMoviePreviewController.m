@@ -85,7 +85,7 @@ void logFrame(CGRect frame)
     return [d autorelease];
     
 }
-void checkNil(BRControl *ctrl)
+void checkNil(NSObject *ctrl)
 {
     if (ctrl!=nil) {
         [ctrl release];
@@ -334,73 +334,50 @@ void checkNil(BRControl *ctrl)
     }
     
 
-    checkNil(_previewButton);
-    checkNil(_playButton);
-    checkNil(_queueButton);
-    checkNil(_moreButton);
+    checkNil(_buttons);
+
+    _buttons=[[NSMutableArray alloc]init];
+    NSArray *buttons=[NSArray array];
     if ([self.datasource respondsToSelector:@selector(buttons)]) {
-        NSArray *buttons = [self.datasource buttons];
-        CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
-                                       masterFrame.origin.y + masterFrame.size.height *0.32f,
-                                       masterFrame.size.height*0.15, 
-                                       masterFrame.size.height*0.15f);
-        int button=0;
-        for(int i=0;i<[buttons count];i++)
-        {
-            id b = [buttons objectAtIndex:i];
-            if([b isKindOfClass:[BRButtonControl class]])
-            {
-                CGRect f = previewFrame;
-                f.origin.x=f.origin.x+ masterFrame.size.height*0.17*(float)button;
-                [b setFrame:f];
-                [self addControl:b];
-                button++;
-            }
-        }
+        buttons = [self.datasource buttons];
     }
     else {
-
-        _previewButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
-                                                        subtitle:@"Preview" 
-                                                           badge:nil] retain];
-        CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
-                                       masterFrame.origin.y + masterFrame.size.height *0.32f,
-                                       masterFrame.size.height*0.15, 
-                                       masterFrame.size.height*0.15f);
-        [_previewButton setFrame:previewFrame];
-        [self addControl:_previewButton];
+        buttons=[[NSMutableArray alloc]init];
+        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
+                                                                           subtitle:@"Preview" 
+                                                                              badge:nil]];
+        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
+                                                                           subtitle:@"Play" 
+                                                                              badge:nil]];
+        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
+                                                                           subtitle:@"Queue" 
+                                                                              badge:nil]];
+        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
+                                                                           subtitle:@"More" 
+                                                                              badge:nil]];
+        [buttons autorelease];
         
-        _playButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
-                                                     subtitle:@"Play" 
-                                                        badge:nil]retain];
-        CGRect playFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17,
-                                      masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                      masterFrame.size.height*0.15, 
-                                      masterFrame.size.height*0.15f);
-        [_playButton setFrame:playFrame];
-        [self addControl:_playButton];
-        
-        _queueButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
-                                                      subtitle:@"Queue" 
-                                                         badge:nil]retain];
-        CGRect queueFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*2.f,
-                                       masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                       masterFrame.size.height*0.15, 
-                                       masterFrame.size.height*0.15f);
-        [_queueButton setFrame:queueFrame];
-        [self addControl:_queueButton];
-        
-        _moreButton = [[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
-                                                     subtitle:@"More" 
-                                                        badge:nil]retain];
-        CGRect moreFrame = CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f+ masterFrame.size.height*0.17*3.f,
-                                      masterFrame.origin.y + masterFrame.size.height *0.32f, 
-                                      masterFrame.size.height*0.15, 
-                                      masterFrame.size.height*0.15f);
-        [_moreButton setFrame:moreFrame];
-        [self addControl:_moreButton];
     }
 
+    CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
+                                   masterFrame.origin.y + masterFrame.size.height *0.32f,
+                                   masterFrame.size.height*0.15, 
+                                   masterFrame.size.height*0.15f);
+    int button=0;
+    for(int i=0;i<[buttons count];i++)
+    {
+        id b = [buttons objectAtIndex:i];
+        if([b isKindOfClass:[BRButtonControl class]])
+        {
+            CGRect f = previewFrame;
+            f.origin.x=f.origin.x+ masterFrame.size.height*0.17*(float)button;
+            [b setFrame:f];
+            [self addControl:b];
+            button++;
+            [_buttons addObject:b];
+        }
+    }
+    
     
     
     
@@ -496,6 +473,23 @@ void checkNil(BRControl *ctrl)
         [self.delegate controller:self selectedControl:[self focusedControl]];
         return YES;
     }
+    else if(action.value==1 && self.delegate!=nil)
+    {
+        if ((remoteAction==kBREventRemoteActionRight || 
+            remoteAction==kBREventRemoteActionSwipeRight) &&
+            [self.delegate respondsToSelector:@selector(controllerSwitchToNext:)] &&
+            [self focusedControl]==[_buttons lastObject]) {
+            [self.delegate controllerSwitchToNext:self];
+            return YES;
+        }
+        else if((remoteAction==kBREventRemoteActionLeft || 
+                 remoteAction==kBREventRemoteActionSwipeLeft) &&
+                [self.delegate respondsToSelector:@selector(controllerSwitchToPrevious:)] &&
+                [self focusedControl]==[_buttons objectAtIndex:0]){
+            [self.delegate controllerSwitchToPrevious:self];
+            return YES;
+        }
+    }
     BOOL b=[super brEventAction:action];
     BRControl *d = [self focusedControl];
     if (action.value==1 && c!=d) {
@@ -515,14 +509,12 @@ void checkNil(BRControl *ctrl)
     //[_subtitleControl release];
     [_summaryControl release];
     //[_rating release];
-    [_previewButton release];
-    [_moreButton release];
     [_previewControl release];
     [_metadataTitleControl release];
     self.datasource=nil;
-    [_playButton release];
+    self.datasource=nil;
     [_shelfControl release];
-    [_queueButton release];
+    [_buttons release];
     [super dealloc];
 }
 #pragma mark datasource methods

@@ -29,6 +29,8 @@
 @optional
 -(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl;
 -(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index;
+-(void)controllerSwitchToNext:(SMFMoviePreviewController *)c ;
+-(void)controllerSwitchToPrevious:(SMFMoviePreviewController *)c ;
 @end
 
 
@@ -36,10 +38,7 @@
 @interface SMFMoviePreviewController : BRController<SMFMoviePreviewControllerDatasource> {
     BRMetadataTitleControl *_metadataTitleControl;
     BRTextControl       * _summaryControl;
-    BRButtonControl     * _previewButton;
-    BRButtonControl     * _playButton;
-    BRButtonControl     * _queueButton;
-    BRButtonControl     * _moreButton;
+    NSMutableArray             * _buttons;
     BRMediaShelfControl *_shelfControl;
     BRCoverArtPreviewControl *_previewControl;
     NSMutableDictionary        *_info;
