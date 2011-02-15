@@ -383,8 +383,6 @@ void checkNil(NSObject *ctrl)
     
     BRCursorControl * hey = [[BRCursorControl alloc] init];
     [self addControl:hey];
-    [hey addObserver:self forKeyPath:@"defaultFocus" options:1 context:NULL];
-    [hey addObserver:self forKeyPath:@"focusedControl" options:1 context:NULL];
     [self addControl:_summaryControl];
     [hey release];
     
@@ -415,26 +413,16 @@ void checkNil(NSObject *ctrl)
 }
 -(void)controlWasActivated
 {
-    [self addObserver:self forKeyPath:@"focusedControl" options:1 context:NULL];
-    [self addObserver:self forKeyPath:@"_focusedControl" options:1 context:NULL];
-    [self addObserver:self forKeyPath:@"defaultFocus" options:1 context:NULL];
     [self reload];
     [self reloadShelf];
     [super controlWasActivated];
 }
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)obj
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    NSLog(@"changed:%@, obj: %@, change: %@",keyPath,obj,change);
-}
 -(void)toggleLongSummary
 {
     CGRect f = [_summaryControl frame];
-    
-    float sh=94.;
-    float lh=275.;
+    CGSize masterSize = [BRWindow maxSize];
+    float sh=94.f/720.f*masterSize.height;
+    float lh=275.f/720.f*masterSize.height;
     if (_summaryToggled==YES) {
         f.origin.y=f.origin.y+(lh-sh);
         f.size.height=sh;
@@ -493,28 +481,28 @@ void checkNil(NSObject *ctrl)
     BOOL b=[super brEventAction:action];
     BRControl *d = [self focusedControl];
     if (action.value==1 && c!=d) {
-        if (delegate!=nil && [delegate respondsToSelector:@selector(controller:switchedFocusTo:)]) {
-            [delegate controller:self switchedFocusTo:d];
-        }
         if (delegate!=nil && [delegate respondsToSelector:@selector(controller:shelfLastIndex:)]) {
             [delegate controller:self shelfLastIndex:shelfIndex];
         }
+        if (delegate!=nil && [delegate respondsToSelector:@selector(controller:switchedFocusTo:)]) {
+            [delegate controller:self switchedFocusTo:d];
+        }
+
     }
     return b;
         
 }
 -(void)dealloc
 {
-    //[_titleControl release];
-    //[_subtitleControl release];
-    [_summaryControl release];
-    //[_rating release];
+
     [_previewControl release];
     [_metadataTitleControl release];
     self.datasource=nil;
     self.datasource=nil;
     [_shelfControl release];
     [_buttons release];
+    checkNil(_info);
+    checkNil(_summaryControl)
     [super dealloc];
 }
 #pragma mark datasource methods
