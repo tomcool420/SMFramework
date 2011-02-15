@@ -26,9 +26,11 @@
 @class SMFMoviePreviewController;
 @protocol SMFMoviePreviewControllerDelegate
 -(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl;
+@optional
+-(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl;
 @end
 
-    
+
 
 @interface SMFMoviePreviewController : BRController<SMFMoviePreviewControllerDatasource> {
     BRMetadataTitleControl *_metadataTitleControl;
@@ -48,6 +50,7 @@
 }
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
 @property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
+@property (readonly)BRMediaShelfControl *_shelfControl;
 
 +(NSDictionary *)columnHeaderAttributes;
 +(NSDictionary *)columnLabelAttributes;

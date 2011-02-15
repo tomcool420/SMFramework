@@ -20,11 +20,14 @@ static NSString * const kSMFMoviePoster = @"poster";
 static NSString * const kSMFMovieHeaders = @"headers";
 static NSString * const kSMFMovieColumns = @"columns";
 static NSString * const kSMFMovieRating = @"rating";
+NSString * const kMoviePreviewControllerSelectionChanged = @"kMoviePreviewControllerSelectionChanged";
+NSString * const kMoviePreviewControllerNewSelectedControl = @"kMoviePreviewControllerNewSelectedControl";
 
 
 @implementation SMFMoviePreviewController
 @synthesize delegate;
 @synthesize datasource;
+@synthesize _shelfControl;
 +(NSDictionary *)columnHeaderAttributes
 {
     return [[BRThemeInfo sharedTheme]movieMetadataLabelAttributes];
@@ -403,6 +406,8 @@ void checkNil(BRControl *ctrl)
     
     BRCursorControl * hey = [[BRCursorControl alloc] init];
     [self addControl:hey];
+    [hey addObserver:self forKeyPath:@"defaultFocus" options:1 context:NULL];
+    [hey addObserver:self forKeyPath:@"focusedControl" options:1 context:NULL];
     [self addControl:_summaryControl];
     [hey release];
     
@@ -433,9 +438,19 @@ void checkNil(BRControl *ctrl)
 }
 -(void)controlWasActivated
 {
+    [self addObserver:self forKeyPath:@"focusedControl" options:1 context:NULL];
+    [self addObserver:self forKeyPath:@"_focusedControl" options:1 context:NULL];
+    [self addObserver:self forKeyPath:@"defaultFocus" options:1 context:NULL];
     [self reload];
     [self reloadShelf];
     [super controlWasActivated];
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)obj
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    NSLog(@"changed:%@, obj: %@, change: %@",keyPath,obj,change);
 }
 -(void)toggleLongSummary
 {
@@ -460,6 +475,7 @@ void checkNil(BRControl *ctrl)
 }
 -(BOOL)brEventAction:(BREvent *)action
 {
+    BRControl *c = [self focusedControl];
     if ([[self stack] peekController]!=self)
         return [super brEventAction:action];
     int remoteAction = [action remoteAction];
@@ -479,7 +495,14 @@ void checkNil(BRControl *ctrl)
         [self.delegate controller:self selectedControl:[self focusedControl]];
         return YES;
     }
-    return [super brEventAction:action];
+    BOOL b=[super brEventAction:action];
+    BRControl *d = [self focusedControl];
+    if (action.value==1 && c!=d) {
+        if (delegate!=nil && [delegate respondsToSelector:@selector(controller:switchedFocusTo:)]) {
+            [delegate controller:self switchedFocusTo:d];
+        }
+    }
+    return b;
         
 }
 -(void)dealloc
