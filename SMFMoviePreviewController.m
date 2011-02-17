@@ -140,7 +140,7 @@ void checkNil(NSObject *ctrl)
     CGRect mtcf;
     mtcf.size=CGSizeMake(830., 50);
     mtcf.origin.x=imageFrame.origin.x+imageFrame.size.width-masterFrame.size.width*0.02f;
-    mtcf.origin.y=imageFrame.origin.y+imageFrame.size.height-mtcf.size.height-masterFrame.size.height*0.05;
+    mtcf.origin.y=imageFrame.origin.y+imageFrame.size.height-mtcf.size.height-masterFrame.size.height*0.1;
     [_metadataTitleControl setFrame:mtcf];
     [self addControl:_metadataTitleControl];
     
@@ -160,7 +160,7 @@ void checkNil(NSObject *ctrl)
     BRDividerControl *div1 = [[BRDividerControl alloc]init];
     CGRect div1Frame = CGRectMake(mtcf.origin.x , 
                                  mtcf.origin.y-masterFrame.size.height*0.01f, 
-                                 masterFrame.size.width*0.64f, 
+                                 mtcf.size.width,//masterFrame.size.width*0.64f, 
                                  masterFrame.size.height*0.02f);
     [div1 setFrame:div1Frame];
     [self addControl:div1];
@@ -173,7 +173,7 @@ void checkNil(NSObject *ctrl)
     _summaryControl = [[BRTextControl alloc]init];
     CGRect summaryFrame = CGRectMake(mtcf.origin.x, 
                                      div1Frame.origin.y-94.,//masterFrame.size.height*0.118f,
-                                     masterFrame.size.width*0.64f, 
+                                     mtcf.size.width,//masterFrame.size.width*0.64f, 
                                      94.);//masterFrame.size.height*0.113f);
     [_summaryControl setFrame:summaryFrame];
     [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
@@ -187,8 +187,8 @@ void checkNil(NSObject *ctrl)
      */
     BRDividerControl *div2 = [[BRDividerControl alloc]init];
     CGRect div2Frame =CGRectMake(mtcf.origin.x , 
-                                 summaryFrame.origin.y-masterFrame.size.height*0.01f,
-                                 masterFrame.size.width*0.64f, 
+                                 summaryFrame.origin.y-[div2 recommendedHeight]*1.f,//masterFrame.size.height*0.01f,
+                                 mtcf.size.width,//masterFrame.size.width*0.64f, 
                                  masterFrame.size.height*0.02f);
     [div2 setFrame:div2Frame];
     [self addControl:div2];
@@ -200,7 +200,7 @@ void checkNil(NSObject *ctrl)
      *  Headers for information
      */
     NSArray *headers = [_info objectForKey:kSMFMovieHeaders];
-    float increment = 0.64f/(float)[headers count];
+    float increment = (mtcf.size.width/masterFrame.size.width)/(float)[headers count];
     //int counter=0;
     float lastOriginY=0.0f;
     for(int counter=0;counter<4;counter++)
@@ -378,7 +378,25 @@ void checkNil(NSObject *ctrl)
             [_buttons addObject:b];
         }
     }
+    BRTextControl *moviesControl =[[BRTextControl alloc] init];
+    [moviesControl setText:@"Movies" withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
+    CGRect mf;
+    mf.size = [moviesControl renderedSize];
+    mf.origin.x=masterFrame.size.width*0.1;
+    mf.origin.y=masterFrame.size.height*0.29f,
+    [moviesControl setFrame:mf];
+    [self addControl:moviesControl];
+    [moviesControl release];
     
+    BRDividerControl *div3 = [[BRDividerControl alloc]init];
+    
+    CGRect div3Frame =CGRectMake(mf.origin.x + mf.size.width+masterFrame.size.width*0.02f, 
+                                 mf.origin.y+(mf.size.height-[div3 recommendedHeight])/2.0f,
+                                 mtcf.origin.x+mtcf.size.width-(mf.origin.x + mf.size.width+masterFrame.size.width*0.02), 
+                                 [div3 recommendedHeight]);
+    [div3 setFrame:div3Frame];
+    [self addControl:div3];
+    [div3 release];
     
     
     

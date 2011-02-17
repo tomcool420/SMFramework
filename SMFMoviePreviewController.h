@@ -23,14 +23,20 @@
 -(NSArray *)buttons;
 -(NSString *)posterPath;
 @end
+
 @class SMFMoviePreviewController;
 @protocol SMFMoviePreviewControllerDelegate
+//If a delegate responds to a method... 
+//it needs to implement the sounds for selection itself
+//See SMFThemeInfo or BRSoundHandler
 -(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl;
 @optional
 -(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl;
 -(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index;
 -(void)controllerSwitchToNext:(SMFMoviePreviewController *)c ;
 -(void)controllerSwitchToPrevious:(SMFMoviePreviewController *)c ;
+-(void)controllerCanSwitchToNext:(SMFMoviePreviewController *)c ;
+-(void)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c;
 @end
 
 
