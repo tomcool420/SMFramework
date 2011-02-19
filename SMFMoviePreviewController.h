@@ -35,8 +35,8 @@
 -(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index;
 -(void)controllerSwitchToNext:(SMFMoviePreviewController *)c ;
 -(void)controllerSwitchToPrevious:(SMFMoviePreviewController *)c ;
--(void)controllerCanSwitchToNext:(SMFMoviePreviewController *)c ;
--(void)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c;
+-(BOOL)controllerCanSwitchToNext:(SMFMoviePreviewController *)c ;
+-(BOOL)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c;
 @end
 
 
