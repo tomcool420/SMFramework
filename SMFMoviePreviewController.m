@@ -114,10 +114,10 @@ void checkNil(NSObject *ctrl)
      *  The Poster
      */
     checkNil(_previewControl);
-    CGRect imageFrame = CGRectMake(masterFrame.origin.x+masterFrame.size.width*0.00f,
-                                   masterFrame.origin.y+masterFrame.size.height*0.20f,
-                                   masterFrame.size.width*0.32f,
-                                   masterFrame.size.height*0.83f);
+    CGRect imageFrame = CGRectMake(-100.f,//masterFrame.origin.x+masterFrame.size.width*0.00f,
+                                   164.f,//masterFrame.origin.y+masterFrame.size.height*0.20f,
+                                   masterFrame.size.width*0.48f,
+                                   masterFrame.size.height*0.843f);
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
 
     SMFBaseAsset *a  = [SMFBaseAsset asset];
@@ -137,10 +137,13 @@ void checkNil(NSObject *ctrl)
     [_metadataTitleControl setTitle:[_info objectForKey:kSMFMovieTitle]];
     [_metadataTitleControl setTitleSubtext:[_info objectForKey:kSMFMovieSubtitle]];
     [_metadataTitleControl setRating:[_info objectForKey:kSMFMovieRating]];
-    CGRect mtcf;
-    mtcf.size=CGSizeMake(830., 50);
-    mtcf.origin.x=imageFrame.origin.x+imageFrame.size.width-masterFrame.size.width*0.02f;
-    mtcf.origin.y=imageFrame.origin.y+imageFrame.size.height-mtcf.size.height-masterFrame.size.height*0.1;
+    CGRect mtcf=CGRectMake(masterFrame.size.width*0.29766f, 
+                           masterFrame.size.height*0.875f, 
+                           masterFrame.size.width*0.648f,
+                           masterFrame.size.height*0.0695);
+//    mtcf.size=CGSizeMake(830., 50);
+//    mtcf.origin.x=masterFrame.size.width*0.29766f; //381 on a 1280p wide
+//    mtcf.origin.y=masterFrame.size.width*0.875f;
     [_metadataTitleControl setFrame:mtcf];
     [self addControl:_metadataTitleControl];
     
@@ -159,9 +162,9 @@ void checkNil(NSObject *ctrl)
      */
     BRDividerControl *div1 = [[BRDividerControl alloc]init];
     CGRect div1Frame = CGRectMake(mtcf.origin.x , 
-                                 mtcf.origin.y-masterFrame.size.height*0.01f, 
+                                 mtcf.origin.y-masterFrame.size.height*(10.f/720.f), 
                                  mtcf.size.width,//masterFrame.size.width*0.64f, 
-                                 masterFrame.size.height*0.02f);
+                                 masterFrame.size.height*(10.f/720.f));
     [div1 setFrame:div1Frame];
     [self addControl:div1];
     [div1 release];
@@ -172,9 +175,9 @@ void checkNil(NSObject *ctrl)
     checkNil(_summaryControl);
     _summaryControl = [[BRTextControl alloc]init];
     CGRect summaryFrame = CGRectMake(mtcf.origin.x, 
-                                     div1Frame.origin.y-94.,//masterFrame.size.height*0.118f,
+                                     div1Frame.origin.y-masterFrame.size.height*(94.f/720.f),//masterFrame.size.height*0.118f,
                                      mtcf.size.width,//masterFrame.size.width*0.64f, 
-                                     94.);//masterFrame.size.height*0.113f);
+                                     masterFrame.size.height*(94.f/720.f));//masterFrame.size.height*0.113f);
     [_summaryControl setFrame:summaryFrame];
     [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
          withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
@@ -187,9 +190,9 @@ void checkNil(NSObject *ctrl)
      */
     BRDividerControl *div2 = [[BRDividerControl alloc]init];
     CGRect div2Frame =CGRectMake(mtcf.origin.x , 
-                                 summaryFrame.origin.y-[div2 recommendedHeight]*1.f,//masterFrame.size.height*0.01f,
+                                 summaryFrame.origin.y-10.f/720.f*masterFrame.size.height,//masterFrame.size.height*0.01f,
                                  mtcf.size.width,//masterFrame.size.width*0.64f, 
-                                 masterFrame.size.height*0.02f);
+                                 masterFrame.size.height*(10.f/720.f));
     [div2 setFrame:div2Frame];
     [self addControl:div2];
     [div2 release];
