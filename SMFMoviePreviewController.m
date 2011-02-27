@@ -483,6 +483,17 @@ void checkNil(NSObject *ctrl)
     if (remoteAction==kBREventRemoteActionPlay && 
         self.delegate!=nil && 
         action.value==1 && 
+        [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)]&&
+        [self.delegate respondsToSelector:@selector(controller:buttonSelectedAtIndex:)]) {
+        id selectedC = [self focusedControl];
+        for (int j=0;j<[_buttons count];j++) {
+            if([_buttons objectAtIndex:j]==selectedC)
+                [self.delegate controller:self buttonSelectedAtIndex:j];
+        }
+    }
+    if (remoteAction==kBREventRemoteActionPlay && 
+        self.delegate!=nil && 
+        action.value==1 && 
         [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)])
     {
         [self.delegate controller:self selectedControl:[self focusedControl]];
