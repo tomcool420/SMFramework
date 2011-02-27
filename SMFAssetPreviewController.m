@@ -19,7 +19,6 @@ static NSString * const kSMFMovieRating = @"rating";
 @synthesize asset;
 -(NSMutableDictionary *)getInformation
 {
-    
     NSMutableDictionary *d = [[NSMutableDictionary alloc]initWithObjectsAndKeys:
                               @"",kSMFMovieTitle,
                               @"",kSMFMovieSubtitle,

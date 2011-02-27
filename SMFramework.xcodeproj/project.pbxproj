@@ -35,6 +35,10 @@
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		DD002E5D1301DD52003EA17E /* SMFAssetPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD002E5B1301DD52003EA17E /* SMFAssetPreviewController.h */; };
 		DD002E5E1301DD52003EA17E /* SMFAssetPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD002E5C1301DD52003EA17E /* SMFAssetPreviewController.m */; };
+		DD003BD9130B0137003EA17E /* SMFPhotoMediaAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = DD003BD7130B0137003EA17E /* SMFPhotoMediaAsset.h */; };
+		DD003BDA130B0137003EA17E /* SMFPhotoMediaAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DD003BD8130B0137003EA17E /* SMFPhotoMediaAsset.m */; };
+		DD003CDE13116678003EA17E /* SMFControllerPasscodeController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD003CDC13116678003EA17E /* SMFControllerPasscodeController.h */; };
+		DD003CDF13116678003EA17E /* SMFControllerPasscodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD003CDD13116678003EA17E /* SMFControllerPasscodeController.m */; };
 		DD7A9EC512FDF1EE00AFF8C3 /* SMFFolderBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */; };
 		DD7A9EC612FDF1EE00AFF8C3 /* SMFScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = DDABC41B127877B3001F026B /* SMFScreenCapture.m */; };
 		DD7A9EC712FDF1EE00AFF8C3 /* SMFFolderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */; };
@@ -471,6 +475,10 @@
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		DD002E5B1301DD52003EA17E /* SMFAssetPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFAssetPreviewController.h; sourceTree = "<group>"; };
 		DD002E5C1301DD52003EA17E /* SMFAssetPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFAssetPreviewController.m; sourceTree = "<group>"; };
+		DD003BD7130B0137003EA17E /* SMFPhotoMediaAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFPhotoMediaAsset.h; sourceTree = "<group>"; };
+		DD003BD8130B0137003EA17E /* SMFPhotoMediaAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFPhotoMediaAsset.m; sourceTree = "<group>"; };
+		DD003CDC13116678003EA17E /* SMFControllerPasscodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFControllerPasscodeController.h; sourceTree = "<group>"; };
+		DD003CDD13116678003EA17E /* SMFControllerPasscodeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFControllerPasscodeController.m; sourceTree = "<group>"; };
 		DD0F805B127CEF6700277D06 /* SMFFolderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFFolderDelegate.h; sourceTree = "<group>"; };
 		DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFFolderDelegate.m; sourceTree = "<group>"; };
 		DD0F80B8127CF99A00277D06 /* SMFThemeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFThemeInfo.h; sourceTree = "<group>"; };
@@ -1052,6 +1060,8 @@
 				DD145D9812B48F6500FA8984 /* SMFImageAsset.m */,
 				DD1DCBC912A3384800907459 /* SMFMovieAsset.h */,
 				DD1DCBCA12A3384800907459 /* SMFMovieAsset.m */,
+				DD003BD7130B0137003EA17E /* SMFPhotoMediaAsset.h */,
+				DD003BD8130B0137003EA17E /* SMFPhotoMediaAsset.m */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -1077,6 +1087,8 @@
 				DD82B56112FFBC75007221FC /* SMFMoviePreviewController.m */,
 				DD002E5B1301DD52003EA17E /* SMFAssetPreviewController.h */,
 				DD002E5C1301DD52003EA17E /* SMFAssetPreviewController.m */,
+				DD003CDC13116678003EA17E /* SMFControllerPasscodeController.h */,
+				DD003CDD13116678003EA17E /* SMFControllerPasscodeController.m */,
 			);
 			name = MenuControllers;
 			sourceTree = "<group>";
@@ -1909,6 +1921,8 @@
 				DD82B89213007C7D007221FC /* WSLogging.h in Headers */,
 				DD82BE0F1300A8AB007221FC /* SMFControlFactory.h in Headers */,
 				DD002E5D1301DD52003EA17E /* SMFAssetPreviewController.h in Headers */,
+				DD003BD9130B0137003EA17E /* SMFPhotoMediaAsset.h in Headers */,
+				DD003CDE13116678003EA17E /* SMFControllerPasscodeController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2055,6 +2069,8 @@
 				DD82B56212FFBC75007221FC /* SMFMoviePreviewController.m in Sources */,
 				DD82BE101300A8AB007221FC /* SMFControlFactory.m in Sources */,
 				DD002E5E1301DD52003EA17E /* SMFAssetPreviewController.m in Sources */,
+				DD003BDA130B0137003EA17E /* SMFPhotoMediaAsset.m in Sources */,
+				DD003CDF13116678003EA17E /* SMFControllerPasscodeController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

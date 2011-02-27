@@ -16,6 +16,7 @@
     BOOL _alwaysShowTitles;
 }
 +(SMFControlFactory *)posterControlFactory;
++(SMFControlFactory *)standardFactory;
 @property (assign)BOOL _poster;
 @property (assign)BOOL _alwaysShowTitles;
 -(BRControl *)controlForImage:(BRImage *)image title:(NSString *)title;

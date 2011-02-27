@@ -263,10 +263,12 @@ void checkNil(NSObject *ctrl)
                     }
                     else if([[objects objectAtIndex:i] isKindOfClass:[BRImage class]])
                     {
-                        NSLog(@"obj %@ %i",[objects objectAtIndex:i],i);
                         ctrl = [[BRImageControl alloc]init];
                         [(BRImageControl *)ctrl setImage:[objects objectAtIndex:i]];
+                        float aspectRatio = [(BRImageControl *)ctrl aspectRatio];
                         r.size=[(BRImageControl *)ctrl pixelBounds];
+                        r.size.height=22.f;
+                        r.size.width=r.size.height*aspectRatio;
                         if (r.size.width+r.origin.x>maxX)
                         {
                             float rescaleFactor=r.size.width/(maxX-r.origin.x);
@@ -316,6 +318,9 @@ void checkNil(NSObject *ctrl)
                     obj = [[BRImageControl alloc]init];
                     [(BRImageControl *)obj setImage:[current objectAtIndex:objcount]];
                     objFrame.size=[(BRImageControl *)obj pixelBounds];
+                    float aspectRatio = [(BRImageControl *)obj aspectRatio];
+                    objFrame.size.height=24.f;
+                    objFrame.size.width=objFrame.size.height*aspectRatio;
                     if (objFrame.size.width>(masterFrame.size.width*increment*0.95f))
                     {
                         float rescaleFactor=objFrame.size.width/(masterFrame.size.width*increment*0.95f);

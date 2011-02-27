@@ -17,7 +17,9 @@
 - (id)popupTitleForRow:(long)row;	
 - (long)popupDefaultIndex;
 @end
+
 @protocol SMFListDropShadowDelegate
+
 @optional
 - (void)popupItemSelected:(long)row;
 - (void)popup:(id)p itemSelected:(long)row;

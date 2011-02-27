@@ -192,11 +192,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFDefaultEvents,sharedDefaults)
                                                       kSMFEventDefaultSetup,
                                                       kSMFEventDefaultSlideshow,
                                                       nil]];
-    [[SMFEventManager sharedManager]setRemoteAction:63265 forName:kSMFEventDefaultScreenshot];
-    [[SMFEventManager sharedManager]setRemoteAction:63266 forName:kSMFEventDefaultRestartLowtide];
-    [[SMFEventManager sharedManager]setRemoteAction:63267 forName:kSMFEventDefaultSlideshow];
-    [[SMFEventManager sharedManager]setRemoteAction:18 forName:kSMFEventDefaultScreenshot];
-    [[SMFEventManager sharedManager]setRemoteAction:15 forName:kSMFEventDefaultScreenshot];
+//    [[SMFEventManager sharedManager]setRemoteAction:63265 forName:kSMFEventDefaultScreenshot];
+//    [[SMFEventManager sharedManager]setRemoteAction:63266 forName:kSMFEventDefaultRestartLowtide];
+//    [[SMFEventManager sharedManager]setRemoteAction:63267 forName:kSMFEventDefaultSlideshow];
+//    [[SMFEventManager sharedManager]setRemoteAction:18 forName:kSMFEventDefaultScreenshot];
+//    [[SMFEventManager sharedManager]setRemoteAction:15 forName:kSMFEventDefaultScreenshot];
 
     [[SMFEventManager sharedManager]setKey:@"=" forName:kSMFEventDefaultSetup];
     return self;

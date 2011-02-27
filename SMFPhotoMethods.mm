@@ -9,6 +9,7 @@
 #import "SMFPhotoMethods.h"
 #import "Classes/BackRowExtras.h"
 #import "SMFBaseAsset.h"
+#import "SMFPhotoMediaAsset.h"
 
 @implementation SMFPhotoMethods
 static NSArray *coverArtExtention=nil;
@@ -76,6 +77,8 @@ static NSArray *coverArtExtention=nil;
 		NSString *idStr = [contents objectAtIndex:i];
 		if([coverArtExtention containsObject:[[idStr pathExtension] lowercaseString]])
 		{
+            SMFPhotoMediaAsset *asset = [[SMFPhotoMediaAsset alloc]initWithPath:[path stringByAppendingPathComponent:idStr]];
+            [asset setTitle:[idStr stringByDeletingPathExtension]];
 //			BRPhotoMediaAsset * asset = [[BRPhotoMediaAsset alloc] init];
 //			[asset setFullURL:[path stringByAppendingPathComponent:idStr]];
 //			[asset setThumbURL:[path stringByAppendingPathComponent:idStr]];
@@ -83,10 +86,8 @@ static NSArray *coverArtExtention=nil;
 //			[asset setIsLocal:YES];
 //			[assets addObject:asset];
 //            [asset release];
-            SMFBaseAsset *asset = [SMFBaseAsset asset];
-            [asset setCoverArt:[BRImage imageWithPath:[path stringByAppendingPathComponent:idStr]]];
-            [asset setTitle:[idStr stringByDeletingPathExtension]];
             [assets addObject:asset];
+            [asset release];
 		}
 	}
 	return assets;

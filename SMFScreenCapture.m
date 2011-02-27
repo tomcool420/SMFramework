@@ -15,6 +15,7 @@
 #import "SMFPhotoMethods.h"
 #import "SMFEventConfiguration.h"
 #import "SMFQueryMenu.h"
+#import <IOSurface/IOSurface.h>
 #define testDomain (CFStringRef)@"org.tomcool.test"
 @implementation SMFScreenCapture
 SYNTHESIZE_SINGLETON_FOR_CLASS(SMFScreenCapture,sharedInstance)
@@ -107,6 +108,185 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFScreenCapture,sharedInstance)
     CGImageRelease(cgImage);
     //[UIImageJPEGRepresentation(img2,10.0) writeToFile:@"/var/mobile/Library/Preferences/image2.jpg" atomically:YES];
     return [UIImagePNGRepresentation(img2) autorelease];
+}
+static NSArray * ReportIOSurfaces(int minWidth, int minHeight, int searchNumber)
+{
+    NSMutableArray *a = [[NSMutableArray alloc]init];
+    for(IOSurfaceID searchId = 0 ; searchId < searchNumber; searchId++ )
+    {
+        IOSurfaceRef ref = IOSurfaceLookup(searchId);
+        
+        if (ref) 
+        {
+            uint32_t width = IOSurfaceGetWidth(ref);
+            uint32_t height = IOSurfaceGetHeight(ref);
+            OSType pixFormat = IOSurfaceGetPixelFormat(ref);
+            char formatStr[5];
+            int i;
+            for(i=0; i<4; i++ ) {
+                formatStr[i] = ((char*)&pixFormat)[3-i];
+            }
+            formatStr[4]=0;
+            if (width > minWidth && height > minHeight/*&& seed == surfaceSeedCounter*/)
+            {
+                uint32_t bytesPerElement = IOSurfaceGetBytesPerElement(ref);
+                uint32_t bytesPerRow = IOSurfaceGetBytesPerRow(ref);
+                int rowBytesLeftover = (int)bytesPerRow - (int)width*bytesPerElement;
+                [a addObject:[NSString stringWithFormat:@"  [?] id=%d ref=0x%08x base=0x%08x (%d x %d) seed=%d format='%s' BpE=%d rowPad=%d planes:%d\n",
+                       searchId,ref,IOSurfaceGetBaseAddress(ref),width,height,IOSurfaceGetSeed(ref),formatStr,
+                       bytesPerElement,rowBytesLeftover,IOSurfaceGetPlaneCount(ref),nil]];
+//                int planeCount= IOSurfaceGetPlaneCount(ref);
+//                if (planeCount>0)
+//                    ReportIOPlanes(ref);
+            }
+        }
+    }
+    return [a autorelease];
+}
+NSData *dataForImage(UIImage *image, NSString *path)
+{
+    NSData *imageData=nil;
+    if ([[path pathExtension] localizedCaseInsensitiveCompare:@"png"]==NSOrderedSame) 
+        imageData=UIImagePNGRepresentation(image);
+    if ([[path pathExtension] localizedCaseInsensitiveCompare:@"jpg"]==NSOrderedSame ||
+        [[path pathExtension] localizedCaseInsensitiveCompare:@"jpeg"]==NSOrderedSame)
+        imageData=UIImageJPEGRepresentation(image,1.0);
+    return imageData;
+}
+NSData *dataForCGImage(CGImageRef img, NSString *path)
+{
+    UIImage *realImage=[[UIImage alloc]initWithCGImage:img];
+    NSData *d = dataForImage(realImage,path);
+    [realImage release];
+    return d;
+}
+-(NSArray *)reportIOSurfacesWidth:(int) width height:(int)height
+{
+    NSArray *iosurfaces = ReportIOSurfaces(width, height, 200);
+    for (NSString *s in iosurfaces)
+    {
+        NSLog(@"%@",s);
+    }
+    return iosurfaces;
+}
+-(NSArray *)reportIOSurfaces
+{
+    NSArray *iosurfaces = ReportIOSurfaces(50, 50, 200);
+    for (NSString *s in iosurfaces)
+    {
+        NSLog(@"%@",s);
+    }
+    return iosurfaces;
+}
+static int IOSurfaceAcceleratorSave(NSString *path, IOSurfaceID searchId,int minWidth, int minHeight, BOOL tiles)
+{
+    IOSurfaceRef ref = IOSurfaceLookup(searchId);
+    uint32_t aseed;
+    IOSurfaceLock(ref, kIOSurfaceLockReadOnly, &aseed);
+    uint32_t width = IOSurfaceGetWidth(ref);
+    uint32_t height = IOSurfaceGetHeight(ref);
+    OSType pixFormat = IOSurfaceGetPixelFormat(ref);
+    char formatStr[5];
+    for(int i=0; i<4; i++ ) {
+        formatStr[i] = ((char*)&pixFormat)[3-i];
+    }
+    NSString *s = [NSString stringWithFormat:@"%c%c%c%c",((char*)&pixFormat)[3],((char*)&pixFormat)[2],((char*)&pixFormat)[1],((char*)&pixFormat)[0],nil];
+    //formatStr[4]='\0';
+   // NSString *s = [NSString stringWithCString:formatStr encoding:NSUTF8StringEncoding];
+//    if ([s length]>4) {
+//        NSLog(@"length: %i,%@",[s length],[s substringToIndex:2]);
+//        s=[s substringToIndex:4];
+//       
+//    }
+    if (![s isEqualToString:@"BGRA"] && ![s isEqualToString:@"ARGB"]) {
+        NSLog(@"Error: Only BGRA/ARGB surfaces supported for now");
+        return 1;
+    }
+    if (width<minWidth) {
+        printf("Error: surface width < minimum width\n");
+        printf("Please Specify minimum width with -w or --width\n");
+        return 2;
+    }
+    if (height<minHeight) {
+        printf("Error: surface height < minimum height\n");
+        printf("Please Specify minimum width with -h or --height\n");
+        return 2;
+    }
+    //printSurfaceInfo(ref);
+#ifdef DEBUG
+    NSDate *startTime = [NSDate date];
+#endif
+    IOSurfaceAcceleratorRef accel=nil;
+    IOSurfaceAcceleratorCreate(NULL,NULL,&accel);
+    if (accel==nil) {
+        printf("accelerator was not created");
+        return 3;
+    }
+#ifdef DEBUG
+    NSTimeInterval rearrangeTime=-[startTime timeIntervalSinceNow];
+#endif
+    int pitch = width * 4, allocSize = 4 * width * height;
+    int bPE = 4;
+    char pixelFormat[4] = {'A', 'R', 'G', 'B'};
+    CFMutableDictionaryRef dict;
+    dict = CFDictionaryCreateMutable(kCFAllocatorDefault, 0,
+                                     &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+    CFDictionarySetValue(dict, kIOSurfaceIsGlobal, kCFBooleanTrue);
+    //CFDictionarySetValue(dict, kIOSurfaceMemoryRegion, (CFStringRef)@"PurpleEDRAM");
+    CFDictionarySetValue(dict, kIOSurfaceBytesPerRow,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &pitch));
+    CFDictionarySetValue(dict, kIOSurfaceBytesPerElement,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &bPE));
+    CFDictionarySetValue(dict, kIOSurfaceWidth,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &width));
+    CFDictionarySetValue(dict, kIOSurfaceHeight,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &height));
+    CFDictionarySetValue(dict, kIOSurfacePixelFormat,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, pixelFormat));
+    CFDictionarySetValue(dict, kIOSurfaceAllocSize,
+                         CFNumberCreate(kCFAllocatorDefault, kCFNumberSInt32Type, &allocSize));
+    IOSurfaceRef surf = IOSurfaceCreate(dict);
+    
+    CFDictionaryRef ed = (CFDictionaryRef) [[NSDictionary dictionaryWithObjectsAndKeys:nil] retain];
+#ifdef DEBUG
+    NSTimeInterval createTime=-[startTime timeIntervalSinceNow];
+#endif
+    IOSurfaceAcceleratorTransferSurface(accel,ref,surf,ed,NULL);
+#ifdef DEBUG
+    NSTimeInterval convertTime=-[startTime timeIntervalSinceNow]-createTime;
+#endif
+    IOSurfaceUnlock(ref,kIOSurfaceLockReadOnly,&aseed);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, IOSurfaceGetBaseAddress(surf), (width * height * 4), NULL);
+    CGImageRef cgImage=CGImageCreate(width, height, 8,
+                                     8*4, IOSurfaceGetBytesPerRow(surf),
+                                     CGColorSpaceCreateDeviceRGB(), kCGImageAlphaNoneSkipFirst |kCGBitmapByteOrder32Little,
+                                     provider, NULL,
+                                     YES, kCGRenderingIntentDefault);
+    NSData *imageData = dataForCGImage(cgImage,path);
+    if (imageData==nil) {
+        printf("Error: Problem with conversion to NSData: exiting...\n");
+        return 3;
+    }
+    BOOL d = [imageData writeToFile:path atomically:YES];
+    if (d) {
+        NSLog("IOSurface was successfully written to %@",path);
+    }
+    else {
+        NSLog(@"image not saved");
+    }
+
+#ifdef DEBUG
+    NSTimeInterval finishTime=-[startTime timeIntervalSinceNow];
+    printf("times %lf %lf %lf\n",createTime,convertTime,finishTime);
+#endif
+    return 0;
+    
+}
+-(void)saveSurface:(int)searchID
+{
+    NSLog(@"saving");
+    int i = IOSurfaceAcceleratorSave([NSHomeDirectory() stringByAppendingPathComponent:@"hello.png"],(IOSurfaceID)searchID,50,50,NO);
+    NSLog(@"save status: %i",i);
 }
 +(NSData *)controlPlaneData
 {

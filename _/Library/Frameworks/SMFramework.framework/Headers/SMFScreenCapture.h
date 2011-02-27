@@ -17,5 +17,6 @@
 +(void)saveScreenToFile:(NSString *)path;
 +(NSData *)pngScreenData;
 +(NSData *)controlPlaneData;
+-(NSArray *)reportIOSurfaces;
 
 @end

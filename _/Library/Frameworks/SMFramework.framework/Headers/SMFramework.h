@@ -25,6 +25,7 @@
 #import "SMFCenteredMenuController.h"
 #import "SMFMediaPreview.h"
 #import "SMFBaseAsset.h"
+#import "SMFPhotoMediaAsset.h"
 //#import "SMFController.h"
 #import "SMFFolderBrowser.h"
 #import "SMFPasscodeController.h"

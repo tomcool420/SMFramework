@@ -44,6 +44,7 @@ the generation of a class list and an automatic constructor.
 //#import "/opt/theos/include/BackRow/BackRow.h"
 #import "../SMFramework.h"
 #import "../SMFCommonTools.h"
+#import "../SMFControllerPasscodeController.h"
 %hook BRApplianceManager
 //- (void)_loadApplianceAtPath:(id)path	// 0x315924f1
 //{
@@ -68,7 +69,7 @@ the generation of a class list and an automatic constructor.
 %hook BRAccount
 - (id)initWithAccountName:(id)accountName
 {
-    NSLog(@"Seatbelt status: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+    //NSLog(@"Seatbelt status: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
     if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
     {
         NSLog(@"Seatbelt is disabled ... stopping account from starting");
@@ -78,7 +79,7 @@ the generation of a class list and an automatic constructor.
 }
 -(id)initWithCoder:(id)coder
 {
-     NSLog(@"Seatbelt status coder: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+     //NSLog(@"Seatbelt status coder: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
     if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
     {
         NSLog(@"Seatbelt is disabled ... stopping account from starting");
@@ -88,7 +89,7 @@ the generation of a class list and an automatic constructor.
 }
 -(id)init
 {
-     NSLog(@"Seatbelt status init: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
+    // NSLog(@"Seatbelt status init: %d",[[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]);
     if([[SMFCommonTools sharedInstance] syscallSeatbeltEnabled]!=1)
     {
         NSLog(@"Seatbelt is disabled ... stopping account from starting");
@@ -161,34 +162,51 @@ the generation of a class list and an automatic constructor.
 }
 %end*/
 
-%hook BRDropShadowControl
-- (void)setContent:(id)content
-{
-NSLog(@"content: %@",content);
-if([content respondsToSelector:@selector(content)])
-    NSLog(@"content content: %@",[content content]);
-NSLog(@"controls: %@",[content controls]);
-%orig;
-%log;
+//%hook BRDropShadowControl
+//- (void)setContent:(id)content
+//{
+//NSLog(@"content: %@",content);
+//if([content respondsToSelector:@selector(content)])
+//    NSLog(@"content content: %@",[content content]);
+//NSLog(@"controls: %@",[content controls]);
+//%orig;
+//%log;
+//
+//}
+//- (void)setFrame:(CGRect)frame
+//{
+//%log;
+//return %orig;
+//}
+//- (id)init
+//{
+//%log;
+//return %orig;
+//
+//
+//}
 
-}
-- (void)setFrame:(CGRect)frame
-{
-%log;
-return %orig;
-}
-- (id)init
-{
-%log;
-return %orig;
+//%end
 
-
-}
-
-%end
-
+//%hook BRControllerStack
+//-(void)pushController:(BRController*)controller
+//{
+//    %log;
+//    BRController *ctrl = [self peekController];
+//    if([ctrl isKindOfClass:[BRMainMenuController class]])
+//    {
+//        
+//        BRMainMenuControl *mm = MSHookIvar<BRMainMenuControl*>(ctrl,"_browser");
+//        id<BRAppliance> active = MSHookIvar<id>(mm,"_currentAppliance");
+//        %orig([SMFControllerPasscodeController controllerPasscodeControllerForController:controller withPasscode:0000]);
+//    }
+//    else
+//        %orig;
+//}
+//%end
 %hook BRWindow
-+ (BOOL)dispatchEvent:(id)event { 
++ (BOOL)dispatchEvent:(id)event {
+    //%log;
     if([[SMFEventManager sharedManager]actionDefinedForAction:[event remoteAction]])
     {
         return [[SMFEventManager sharedManager]callEventForRemoteAction:[event remoteAction]];
