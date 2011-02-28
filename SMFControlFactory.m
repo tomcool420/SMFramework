@@ -12,6 +12,8 @@
 @implementation SMFControlFactory
 @synthesize _poster;
 @synthesize _alwaysShowTitles;
+@synthesize favorProxy=_favorProxy;
+@synthesize defaultImage=_defaultImage;
 +(id)mainMenuFactory
 {
     return [[[SMFControlFactory alloc] initForMainMenu:YES] autorelease];
@@ -33,8 +35,15 @@
     self = [super initForMainMenu:arg1];
     _mainmenu = arg1;
     self._poster=NO;
+    self.defaultImage=nil;
+    self.favorProxy=NO;
     self._alwaysShowTitles=NO;
     return self;
+}
+-(void)dealloc
+{
+    self.defaultImage=nil;
+    [super dealloc];
 }
 -(id)controlForData:(id)arg1 currentControl:(id)arg2 requestedBy:(id)arg3
 {
@@ -53,7 +62,10 @@
     else if([arg1 isKindOfClass:[BRImageProxyProvider class]])
     {
         BRBaseMediaAsset *a = [[arg1 dataAtIndex:0]asset];
-        if ([a respondsToSelector:@selector(coverArt)]) {
+        if (self.favorProxy) {
+            returnObj = [self controlForImageProxy:[arg1 dataAtIndex:0] title:[a title]];
+        }
+        else if ([a respondsToSelector:@selector(coverArt)]) {
             returnObj= [self controlForImage:[(BRPhotoMediaAsset *)a coverArt] title:[a title]];
         }
         else 
@@ -66,7 +78,11 @@
         NSString *t = [(BRPhotoMediaAsset *)arg1 title];
         if (t==nil)
             t=[[[arg1 coverArtURL]lastPathComponent] stringByDeletingPathExtension];
-        returnObj = [self controlForImage:[arg1 coverArt] title:t];
+        if (self.favorProxy && [arg1 respondsToSelector:@selector(imageProxy)]) {
+            returnObj = [self controlForImageProxy:[arg1 imageProxy] title:t];
+        }
+        else
+            returnObj = [self controlForImage:[arg1 coverArt] title:t];
     }
     else if([arg1 isKindOfClass:[BRBaseMediaAsset class]])
     {
@@ -127,6 +143,29 @@
         return returnObj;
     }
 }
+-(BRControl *)controlForImageProxy:(BRURLImageProxy *)imageProxy title:(NSString *)title
+{
+    if (_poster==YES) {
+        BRPosterControl *returnObj=[[BRPosterControl alloc] init];
+        returnObj.posterStyle = 0;
+        returnObj.title = [[NSAttributedString alloc]initWithString:title attributes:[[BRThemeInfo sharedTheme] menuItemSmallTextAttributes]];
+        returnObj.imageProxy=imageProxy;
+        returnObj.defaultImage=self.defaultImage;
+        returnObj.alwaysShowTitles=self._alwaysShowTitles;
+        returnObj.posterBorderWidth=1.f;
+        returnObj.titleWidthScale=1.3999999761581421;
+        returnObj.titleVerticalOffset=-0.054999999701976776;
+        returnObj.reflectionAmount=0.14000000059604645;
+        return returnObj;
+    }
+    else {
+        BRAsyncImageControl *returnObj = [BRAsyncImageControl imageControlWithImageProxy:imageProxy];
+#warning did not test this one, but seemed to make sense for it to use the proxy too ^^
+        [returnObj setAcceptsFocus:YES];
+        return returnObj;
+    }
+}
+
 @end
 @implementation SMFPhotoControlFactory
 @end
