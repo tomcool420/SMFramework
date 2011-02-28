@@ -7,5 +7,5 @@ Misc
 .theos
 _/*
 obj/*.m.o
-
+*SMFramework.xcodeproj/kevinbradley.*
 
