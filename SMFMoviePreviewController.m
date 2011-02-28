@@ -387,7 +387,12 @@ void checkNil(NSObject *ctrl)
         }
     }
     BRTextControl *moviesControl =[[BRTextControl alloc] init];
-    [moviesControl setText:@"Movies" withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
+    NSString *title=@"";
+    if([self.datasource respondsToSelector:@selector(shelfTitle)])
+        title=[self.datasource shelfTitle];
+    else
+        title=@"Movies";
+    [moviesControl setText:title withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
     CGRect mf;
     mf.size = [moviesControl renderedSize];
     mf.origin.x=masterFrame.size.width*0.1;

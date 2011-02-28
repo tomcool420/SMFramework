@@ -19,7 +19,9 @@
 -(NSString *)rating;
 -(BRImage *)coverArt;
 -(BRPhotoDataStoreProvider *)providerForShelf;
+
 @optional
+-(NSString *)shelfTitle;
 -(NSArray *)buttons;
 -(NSString *)posterPath;
 @end
