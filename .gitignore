@@ -1,11 +1,12 @@
 build
 ._*
 *.deb
-obj/*
+obj*
 .debmake
 Misc
 *.DS_Store
 .theos
 _/*
-*.o
+obj/*.m.o
+
 
