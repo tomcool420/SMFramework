@@ -7,5 +7,5 @@ Misc
 *.DS_Store
 .theos
 _/*
-
+*.o
 
