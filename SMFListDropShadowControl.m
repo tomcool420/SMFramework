@@ -88,6 +88,7 @@
 }
 -(void)itemSelected:(long)selected
 {
+
     if (cDelegate && [cDelegate respondsToSelector:@selector(popup:itemSelected:)])
         [cDelegate popup:self itemSelected:selected];
     else if (cDelegate && [cDelegate respondsToSelector:@selector(popupItemSelected:)]) {
@@ -99,6 +100,7 @@
 }
 -(BOOL)brEventAction:(BREvent*)event
 {
+
     int remoteAction = [event remoteAction];
     switch (remoteAction)
     {

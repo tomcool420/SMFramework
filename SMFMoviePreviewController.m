@@ -12,6 +12,7 @@
 #import "SMFMoviePreviewController.h"
 #import "SMFDefines.h"
 #import "SMFBaseAsset.h"
+#import "SMFListDropShadowControl.h"
 static NSString * const kSMFMovieTitle = @"title";
 static NSString * const kSMFMovieSubtitle = @"substitle";
 static NSString * const kSMFMovieSummary = @"summary";
@@ -483,6 +484,11 @@ void checkNil(NSObject *ctrl)
             return YES;
         }
     }
+	if([[self focusedControl] isKindOfClass:[SMFListDropShadowControl class]])
+	{
+		return [super brEventAction:action];
+	}
+	
     if (self.delegate && [self.delegate conformsToProtocol:@protocol(SMFMoviePreviewControllerDelegate)]) {
     }
     if (remoteAction==kBREventRemoteActionPlay && 

@@ -1,7 +1,6 @@
 build
 ._*
 *.deb
-obj*
 .debmake
 Misc
 *.DS_Store
