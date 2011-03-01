@@ -10,14 +10,24 @@
 #import "SMFProgressBarControl.h"
 
 @interface SMFComplexDropShadowControl : BRDropShadowControl {
-    BRPanelControl *_panel;
+    BRControl *_bg;
     BRScrollingTextBoxControl *_scrolling;
     BRWaitSpinnerControl *_spinner;
     SMFProgressBarControl *_progress;
+    BRMetadataTitleControl *_titleControl;
     BOOL    _pbShows;
     BOOL    _blocking;
     BOOL    _showWaitSpinner;
+    NSString *_title;
+    NSString *_subtitle;
+    NSMutableString *_text;
+    BRListControl *_list;
 }
+@property(retain)NSString *title;
+@property(retain)NSString *subtitle;
+@property(readonly,assign)SMFProgressBarControl *progress;
+
+
 -(void)appendToText:(NSString *)t;
 -(void)addToController:(BRController *)ctrl;
 
@@ -28,4 +38,5 @@
 
 -(void)setBlocking:(BOOL)blocking;
 -(BOOL)blocking;
+-(id)attributedStringForString:(NSString*)s;
 @end
