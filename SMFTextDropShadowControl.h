@@ -11,8 +11,11 @@
 
 @interface SMFTextDropShadowControl : BRDropShadowControl {
     NSMutableString *_text;
+    NSMutableAttributedString *_att;
     BRScrollingTextBoxControl *_scrolling;
+    BRListControl *_list;
 }
 @property (readwrite,retain)NSMutableString *text;
+@property (readonly,assign)NSMutableAttributedString *attributedString;
 -(void)appendToText:(NSString *)t;
 @end
