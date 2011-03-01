@@ -14,6 +14,7 @@
 @synthesize title=_title;
 @synthesize subtitle=_subtitle;
 @synthesize progress=_progress;
+@synthesize blocking=_blocking;
 -(id)init
 {
     self=[super init];
@@ -77,12 +78,66 @@
     [super controlWasActivated];
     [self reload];
 }
+-(void)setShowsProgressBar:(BOOL)shows
+{
+    [_progress setHidden:!shows];
+    _pbShows=shows;
+}
+-(BOOL)showsProgressBar
+{
+    return _pbShows;
+}
+-(void)setShowsWaitSpinner:(BOOL)shows
+{
+    [_spinner setHidden:!shows];
+    _showWaitSpinner=shows;
+}
+-(BOOL)brEventAction:(BREvent*)event
+{
+    
+    int remoteAction = [event remoteAction];
+    switch (remoteAction)
+    {
+        case kBREventRemoteActionMenu:
+            [self removeFromParent];
+            return YES;
+            break;
+        case kBREventRemoteActionUp:
+            if (event.value==1) {
+                if ([_list selection]==0)
+                {
+                    [_list setSelection:([_list dataCount]-1)];
+                    return YES;
+                }
+            }
+            break;
+        case kBREventRemoteActionDown:
+            if (event.value==1) {
+                if ([_list selection]==([_list dataCount]-1)) {
+                    return YES;
+                }
+            }
+            break;
+    }
+    return [super brEventAction:event];
+}
+-(BOOL)showsWaitSpinner
+{
+    return _showWaitSpinner;
+}
 -(void)dealloc
 {
     [_titleControl release];
+    _titleControl=nil;
     [_bg release];
+    _bg=nil;
     [_scrolling release];
+    _scrolling=nil;
     [_progress release];
+    _progress=nil;
+    [_spinner release];
+    _spinner = nil;
+    
     _list=nil;
     self.title=nil;
     self.subtitle=nil;
