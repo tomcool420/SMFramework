@@ -27,7 +27,7 @@
         while (fgets(line, sizeof line, fp))
         {
             NSString *s = [NSString stringWithCString:line encoding:NSUTF8StringEncoding];
-            NSLog(@"s: %@",s);
+//            NSLog(@"s: %@",s);
             [self performSelectorOnMainThread:@selector(appendToText:) withObject:[s stringByAppendingString:@"\n"] waitUntilDone:YES];
         }
     }
