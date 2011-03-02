@@ -22,11 +22,13 @@
 }
 -(void)controlWasActivated
 {
+
     [super controlWasActivated];
     [self performSelectorInBackground:@selector(runProcess) withObject:nil];
 }
 -(int)runProcess
 {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     char line[200];
     
     FILE* fp = popen([ap UTF8String], "r");
@@ -40,8 +42,21 @@
             [self performSelectorOnMainThread:@selector(appendToText:) withObject:[s stringByAppendingString:@"\n"] waitUntilDone:YES];
         }
     }
+
     returnCode = pclose(fp);
     finished =YES;
+    
+
+	
+		if (closeValue == 0)
+		{
+			[self updateSubtitle:@"iCanHazSuccess"];
+		} else {
+			[self updateSubtitle:@"iCanHazFail"];
+		}
+		
+	
+	[pool release];
     return returnCode;
 }
 @end
