@@ -26,7 +26,7 @@
 @property(retain)NSString *title;
 @property(retain)NSString *subtitle;
 @property(readonly,assign)SMFProgressBarControl *progress;
-
+@property(readwrite,assign)BOOL blocking;
 
 -(void)appendToText:(NSString *)t;
 -(void)addToController:(BRController *)ctrl;

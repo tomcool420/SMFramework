@@ -8,6 +8,7 @@
 
 #import "SMFComplexDropShadowControl.h"
 #import "SMFThemeInfo.h"
+#import "SMFDefines.h"
 #import <substrate.h>
 
 @implementation SMFComplexDropShadowControl
@@ -31,7 +32,7 @@
     self.title=@"Installing SMFramework";
     self.subtitle=@"org.tomcool.smframework";
     [self setContent:_bg];
-    _text=[[NSMutableString alloc] initWithString:@"Hello\nBye\n.\n."];
+    _text=[[NSMutableString alloc] initWithString:@""];
     return self;
 }
 -(void)addToController:(BRController *)ctrl

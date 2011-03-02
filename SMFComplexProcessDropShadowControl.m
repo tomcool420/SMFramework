@@ -13,11 +13,13 @@
 @synthesize ap;
 -(void)controlWasActivated
 {
+
     [super controlWasActivated];
     [self performSelectorInBackground:@selector(runProcess) withObject:nil];
 }
 -(void)runProcess
 {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     char line[200];
     
     FILE* fp = popen([ap UTF8String], "r");
@@ -32,5 +34,6 @@
         }
     }
     pclose(fp);
+	[pool release];
 }
 @end
