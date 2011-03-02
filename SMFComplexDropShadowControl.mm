@@ -16,6 +16,7 @@
 @synthesize subtitle=_subtitle;
 @synthesize progress=_progress;
 @synthesize blocking=_blocking;
+@synthesize delegate;
 -(id)init
 {
     self=[super init];

@@ -22,11 +22,13 @@
     NSString *_subtitle;
     NSMutableString *_text;
     BRListControl *_list;
+    NSObject *delegate;
 }
 @property(retain)NSString *title;
 @property(retain)NSString *subtitle;
 @property(readonly,assign)SMFProgressBarControl *progress;
 @property(readwrite,assign)BOOL blocking;
+@property(readwrite,assign)NSObject *delegate;
 
 -(void)appendToText:(NSString *)t;
 -(void)addToController:(BRController *)ctrl;
