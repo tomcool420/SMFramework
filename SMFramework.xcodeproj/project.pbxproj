@@ -43,6 +43,10 @@
 		DD5FD5C0131C5005004A6D5C /* SMFBookcaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5FD5BC131C5005004A6D5C /* SMFBookcaseController.m */; };
 		DD5FD5C1131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5FD5BD131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.h */; };
 		DD5FD5C2131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5FD5BE131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.m */; };
+		DD5FD696131C8D8F004A6D5C /* SMFComplexDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5FD694131C8D8F004A6D5C /* SMFComplexDropShadowControl.h */; };
+		DD5FD697131C8D8F004A6D5C /* SMFComplexDropShadowControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD5FD695131C8D8F004A6D5C /* SMFComplexDropShadowControl.mm */; };
+		DD5FD723131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5FD721131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.h */; };
+		DD5FD724131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5FD722131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.m */; };
 		DD7A9EC512FDF1EE00AFF8C3 /* SMFFolderBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FA1273784800192ADD /* SMFFolderBrowser.m */; };
 		DD7A9EC612FDF1EE00AFF8C3 /* SMFScreenCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = DDABC41B127877B3001F026B /* SMFScreenCapture.m */; };
 		DD7A9EC712FDF1EE00AFF8C3 /* SMFFolderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0F805C127CEF6700277D06 /* SMFFolderDelegate.m */; };
@@ -460,7 +464,7 @@
 		DD8B8F2612FE1ECA00971B0A /* SMFPopup.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD8B8F2512FE1ECA00971B0A /* SMFPopup.mm */; };
 		DD96C894129B606B002C5144 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDABC43612787C91001F026B /* UIKit.framework */; };
 		DDACF747131B2E9400D10DB7 /* SMFTextDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = DDACF745131B2E9400D10DB7 /* SMFTextDropShadowControl.h */; };
-		DDACF748131B2E9400D10DB7 /* SMFTextDropShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.m */; };
+		DDACF748131B2E9400D10DB7 /* SMFTextDropShadowControl.mm in Sources */ = {isa = PBXBuildFile; fileRef = DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.mm */; };
 		DDDC7DAF12731D1F00192ADD /* SMFMediaMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC7DAE12731D1F00192ADD /* SMFMediaMenuController.m */; };
 		DDDC80EB127375CE00192ADD /* SMFCenteredMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80EA127375CE00192ADD /* SMFCenteredMenuController.m */; };
 		DDDC80FD1273902A00192ADD /* SMFBaseAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDC80FC1273902A00192ADD /* SMFBaseAsset.m */; };
@@ -515,6 +519,10 @@
 		DD5FD5BC131C5005004A6D5C /* SMFBookcaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFBookcaseController.m; sourceTree = "<group>"; };
 		DD5FD5BD131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFBookcaseDelegateAndDatasourceExample.h; sourceTree = "<group>"; };
 		DD5FD5BE131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFBookcaseDelegateAndDatasourceExample.m; sourceTree = "<group>"; };
+		DD5FD694131C8D8F004A6D5C /* SMFComplexDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFComplexDropShadowControl.h; sourceTree = "<group>"; };
+		DD5FD695131C8D8F004A6D5C /* SMFComplexDropShadowControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFComplexDropShadowControl.mm; sourceTree = "<group>"; };
+		DD5FD721131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFComplexProcessDropShadowControl.h; sourceTree = "<group>"; };
+		DD5FD722131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFComplexProcessDropShadowControl.m; sourceTree = "<group>"; };
 		DD7A9EF712FDFEEE00AFF8C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DD82A41E12FF1519007221FC /* SMFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SMFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD82B56012FFBC75007221FC /* SMFMoviePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMoviePreviewController.h; sourceTree = "<group>"; };
@@ -886,7 +894,7 @@
 		DDABC43312787C85001F026B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DDABC43612787C91001F026B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDACF745131B2E9400D10DB7 /* SMFTextDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFTextDropShadowControl.h; sourceTree = "<group>"; };
-		DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFTextDropShadowControl.m; sourceTree = "<group>"; };
+		DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SMFTextDropShadowControl.mm; sourceTree = "<group>"; };
 		DDAE5B9F127DB3580038574E /* SMFClockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFClockController.h; sourceTree = "<group>"; };
 		DDAE5BA0127DB3580038574E /* SMFClockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFClockController.m; sourceTree = "<group>"; };
 		DDAE5BD2127E0DE00038574E /* SMFEventManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFEventManager.h; sourceTree = "<group>"; };
@@ -989,6 +997,7 @@
 				DD145D9C12B4A52900FA8984 /* MenuControllers */,
 				DD145D9912B48F8100FA8984 /* Assets */,
 				DDCB54C9128CA1EC0045529A /* NSTask.h */,
+				DD5FD68B131C8B9D004A6D5C /* ShadowPopups */,
 				DDDC80FE1273909900192ADD /* SMFMediaPreview.h */,
 				DDDC80FF1273909900192ADD /* SMFMediaPreview.mm */,
 				DDDC80F91273784800192ADD /* SMFFolderBrowser.h */,
@@ -1016,12 +1025,8 @@
 				DD96C83B129B5C99002C5144 /* SMFColorSelectionMenu.m */,
 				DD2C4CE412ADC78C00A83159 /* SMFPreferences.h */,
 				DD2C4CE512ADC78C00A83159 /* SMFPreferences.m */,
-				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
-				DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */,
 				DD82BE0D1300A8AB007221FC /* SMFControlFactory.h */,
 				DD82BE0E1300A8AB007221FC /* SMFControlFactory.m */,
-				DDACF745131B2E9400D10DB7 /* SMFTextDropShadowControl.h */,
-				DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.m */,
 				DD5FD5BB131C5005004A6D5C /* SMFBookcaseController.h */,
 				DD5FD5BC131C5005004A6D5C /* SMFBookcaseController.m */,
 				DD5FD5BD131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.h */,
@@ -1172,6 +1177,21 @@
 				DD5379E912BE78930022849E /* SMFSettingPreferences.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		DD5FD68B131C8B9D004A6D5C /* ShadowPopups */ = {
+			isa = PBXGroup;
+			children = (
+				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
+				DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */,
+				DDACF745131B2E9400D10DB7 /* SMFTextDropShadowControl.h */,
+				DDACF746131B2E9400D10DB7 /* SMFTextDropShadowControl.mm */,
+				DD5FD694131C8D8F004A6D5C /* SMFComplexDropShadowControl.h */,
+				DD5FD695131C8D8F004A6D5C /* SMFComplexDropShadowControl.mm */,
+				DD5FD721131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.h */,
+				DD5FD722131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.m */,
+			);
+			name = ShadowPopups;
 			sourceTree = "<group>";
 		};
 		DD82B5E013007C7C007221FC /* AppleTV */ = {
@@ -1944,6 +1964,8 @@
 				DDACF747131B2E9400D10DB7 /* SMFTextDropShadowControl.h in Headers */,
 				DD5FD5BF131C5005004A6D5C /* SMFBookcaseController.h in Headers */,
 				DD5FD5C1131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.h in Headers */,
+				DD5FD696131C8D8F004A6D5C /* SMFComplexDropShadowControl.h in Headers */,
+				DD5FD723131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2092,9 +2114,11 @@
 				DD002E5E1301DD52003EA17E /* SMFAssetPreviewController.m in Sources */,
 				DD003BDA130B0137003EA17E /* SMFPhotoMediaAsset.m in Sources */,
 				DD003CDF13116678003EA17E /* SMFControllerPasscodeController.m in Sources */,
-				DDACF748131B2E9400D10DB7 /* SMFTextDropShadowControl.m in Sources */,
+				DDACF748131B2E9400D10DB7 /* SMFTextDropShadowControl.mm in Sources */,
 				DD5FD5C0131C5005004A6D5C /* SMFBookcaseController.m in Sources */,
 				DD5FD5C2131C5005004A6D5C /* SMFBookcaseDelegateAndDatasourceExample.m in Sources */,
+				DD5FD697131C8D8F004A6D5C /* SMFComplexDropShadowControl.mm in Sources */,
+				DD5FD724131CAE55004A6D5C /* SMFComplexProcessDropShadowControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
