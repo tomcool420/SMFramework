@@ -8,8 +8,8 @@
 
 #import "SMFComplexProcessDropShadowControl.h"
 
-@interface SMFComplexProcessDropShadowControl ()
--(void)processFinished:(NSString *)s;
+@interface NSObject (smfcpdsc)
+-(void)process:(SMFComplexProcessDropShadowControl *)p ended:(NSString *)s;
 
 @end
 
@@ -51,8 +51,8 @@
     finished =YES;
     
 
-	if ([self.delegate respondsToSelector:@selector(processFinished:)]) {
-        [self.delegate processFinished:ap];
+	if ([self.delegate respondsToSelector:@selector(process:ended:)]) {
+        [self.delegate process:self ended:ap];
     }
 		
 	
