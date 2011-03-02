@@ -8,6 +8,10 @@
 
 #import "SMFComplexProcessDropShadowControl.h"
 
+@interface SMFComplexProcessDropShadowControl ()
+-(void)processFinished:(NSString *)s;
+
+@end
 
 @implementation SMFComplexProcessDropShadowControl
 @synthesize ap;
@@ -47,13 +51,9 @@
     finished =YES;
     
 
-	
-		if (closeValue == 0)
-		{
-			[self updateSubtitle:@"iCanHazSuccess"];
-		} else {
-			[self updateSubtitle:@"iCanHazFail"];
-		}
+	if ([self.delegate respondsToSelector:@selector(processFinished:)]) {
+        [self.delegate processFinished:ap];
+    }
 		
 	
 	[pool release];
