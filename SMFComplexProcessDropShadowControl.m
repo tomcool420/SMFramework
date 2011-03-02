@@ -33,7 +33,16 @@
             [self performSelectorOnMainThread:@selector(appendToText:) withObject:[s stringByAppendingString:@"\n"] waitUntilDone:YES];
         }
     }
-    pclose(fp);
+   int closeValue = pclose(fp);
+	
+		if (closeValue == 0)
+		{
+			[self updateSubtitle:@"iCanHazSuccess"];
+		} else {
+			[self updateSubtitle:@"iCanHazFail"];
+		}
+		
+	
 	[pool release];
 }
 @end
