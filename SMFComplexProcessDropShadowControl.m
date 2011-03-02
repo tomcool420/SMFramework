@@ -11,17 +11,26 @@
 
 @implementation SMFComplexProcessDropShadowControl
 @synthesize ap;
+@synthesize returnCode;
+@synthesize finished;
+-(id)init
+{
+    self=[super init];
+    returnCode=YES;
+    finished=NO;
+    return self;
+}
 -(void)controlWasActivated
 {
     [super controlWasActivated];
     [self performSelectorInBackground:@selector(runProcess) withObject:nil];
 }
--(void)runProcess
+-(int)runProcess
 {
     char line[200];
     
     FILE* fp = popen([ap UTF8String], "r");
-    NSMutableArray *lines = [[NSMutableArray alloc]init];
+//    NSMutableArray *lines = [[NSMutableArray alloc]init];
     if (fp)
     {
         while (fgets(line, sizeof line, fp))
@@ -31,6 +40,8 @@
             [self performSelectorOnMainThread:@selector(appendToText:) withObject:[s stringByAppendingString:@"\n"] waitUntilDone:YES];
         }
     }
-    pclose(fp);
+    returnCode = pclose(fp);
+    finished =YES;
+    return returnCode;
 }
 @end
