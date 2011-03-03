@@ -42,4 +42,5 @@
 -(BOOL)blocking;
 -(id)attributedStringForString:(NSString*)s;
 - (void)updateSubtitle:(NSString *)t;
+- (void)updateTitle:(NSString *)t;
 @end

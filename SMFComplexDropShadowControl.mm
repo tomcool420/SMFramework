@@ -130,10 +130,16 @@
     return _showWaitSpinner;
 }
 
+- (void)updateTitle:(NSString *)t
+{
+	_title = t;
+	[self reload];
+}
 
 - (void)updateSubtitle:(NSString *)t
 {
-	[_titleControl setTitleSubtext:t];
+	_subtitle = t;
+	[self reload];
 }
 
 -(void)dealloc
