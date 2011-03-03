@@ -14,7 +14,7 @@
     BOOL finished;
     int returnCode;
 }
-@property (readwrite,retain)NSString *ap;
+@property (readwrite,copy)NSString *ap;
 @property (readonly) int returnCode;
 @property (readonly) BOOL finished;
 @end

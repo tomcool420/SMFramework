@@ -39,7 +39,7 @@ static NSString * const kSMFMovieRating = @"rating";
         t = [self.asset mediaSummary];
         if (t!=nil)  {[d setObject:t forKey:kSMFMovieSummary];}
         if ([asset respondsToSelector:@selector(coverArt)]) {
-            BRImage *i = [self.asset coverArt];
+            BRImage *i = [(BRPhotoMediaAsset *)self.asset coverArt];
             if (i==nil) [d setObject:i forKey:kSMFMoviePoster];
         }
         

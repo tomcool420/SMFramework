@@ -347,7 +347,7 @@ void checkNil(NSObject *ctrl)
     checkNil(_buttons);
 
     _buttons=[[NSMutableArray alloc]init];
-    NSArray *buttons=[NSArray array];
+    NSArray *buttons=nil;//[NSArray array];
     if ([self.datasource respondsToSelector:@selector(buttons)]) {
         buttons = [self.datasource buttons];
     }

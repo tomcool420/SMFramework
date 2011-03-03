@@ -30,6 +30,11 @@
     [super controlWasActivated];
     [self performSelectorInBackground:@selector(runProcess) withObject:nil];
 }
+-(void)dealloc
+{
+    self.ap=nil;
+    [super dealloc];
+}
 -(int)runProcess
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

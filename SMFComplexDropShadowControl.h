@@ -24,8 +24,12 @@
     BRListControl *_list;
     NSObject *delegate;
 }
-@property(retain)NSString *title;
-@property(retain)NSString *subtitle;
+/*
+ *  If you want to change the title and subtitle while the control is up,
+ *  you can just change the two properties
+ */
+@property(copy)NSString *title;
+@property(copy)NSString *subtitle;
 @property(readonly,assign)SMFProgressBarControl *progress;
 @property(readwrite,assign)BOOL blocking;
 @property(readwrite,assign)NSObject *delegate;
@@ -41,6 +45,6 @@
 -(void)setBlocking:(BOOL)blocking;
 -(BOOL)blocking;
 -(id)attributedStringForString:(NSString*)s;
-- (void)updateSubtitle:(NSString *)t;
-- (void)updateTitle:(NSString *)t;
+-(void)updateHeader;
+
 @end

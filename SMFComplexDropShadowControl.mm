@@ -34,6 +34,8 @@
     self.subtitle=@" ";
     [self setContent:_bg];
     _text=[[NSMutableString alloc] initWithString:@" "];
+    [self addObserver:self forKeyPath:@"title" options:0 context:nil];
+    [self addObserver:self forKeyPath:@"subtitle" options:0 context:nil];
     return self;
 }
 -(void)addToController:(BRController *)ctrl
@@ -45,6 +47,20 @@
     [ctrl setFocusedControl:self];
     [ctrl _setFocus:self];
 
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)o change:(NSDictionary *)change context:(void *)context
+{
+    if (o==self && [keyPath isEqualToString:@"title"]) {
+        NSLog(@"changing title");
+        [_titleControl setTitle:_title];
+        [_titleControl layoutSubcontrols];
+    }
+    else if(o==self && [keyPath isEqualToString:@"subtitle"])
+    {
+        NSLog(@"changing subtitle");
+        [_titleControl setTitleSubtext:_subtitle];
+        [_titleControl layoutSubcontrols];
+    }
 }
 -(void)reload
 {
@@ -129,18 +145,23 @@
 {
     return _showWaitSpinner;
 }
-
-- (void)updateTitle:(NSString *)t
+-(void)updateHeader
 {
-	_title = t;
-	[self reload];
+    [_titleControl setTitle:_title];
+    [_titleControl setTitleSubtext:_subtitle];
+    [_titleControl layoutSubcontrols];
 }
-
-- (void)updateSubtitle:(NSString *)t
-{
-	_subtitle = t;
-	[self reload];
-}
+//- (void)updateTitle:(NSString *)t
+//{
+//	_title = t;
+//	[self reload];
+//}
+//
+//- (void)updateSubtitle:(NSString *)t
+//{
+//	_subtitle = t;
+//	[self reload];
+//}
 
 -(void)dealloc
 {
@@ -156,6 +177,8 @@
     _spinner = nil;
     
     _list=nil;
+    [self removeObserver:self forKeyPath:@"title"];
+    [self removeObserver:self forKeyPath:@"subtitle"];
     self.title=nil;
     self.subtitle=nil;
     [super dealloc];

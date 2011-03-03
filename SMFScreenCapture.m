@@ -269,7 +269,7 @@ static int IOSurfaceAcceleratorSave(NSString *path, IOSurfaceID searchId,int min
     }
     BOOL d = [imageData writeToFile:path atomically:YES];
     if (d) {
-        NSLog("IOSurface was successfully written to %@",path);
+        NSLog(@"IOSurface was successfully written to %@",path);
     }
     else {
         NSLog(@"image not saved");

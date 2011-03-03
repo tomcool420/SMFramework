@@ -156,11 +156,11 @@
         returnObj.titleWidthScale=1.3999999761581421;
         returnObj.titleVerticalOffset=-0.054999999701976776;
         returnObj.reflectionAmount=0.14000000059604645;
-        return returnObj;
+        return [returnObj autorelease];
     }
     else {
         BRAsyncImageControl *returnObj = [BRAsyncImageControl imageControlWithImageProxy:imageProxy];
-#warning did not test this one, but seemed to make sense for it to use the proxy too ^^
+//#warning did not test this one, but seemed to make sense for it to use the proxy too ^^
         [returnObj setAcceptsFocus:YES];
         return returnObj;
     }
