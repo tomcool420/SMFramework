@@ -19,7 +19,7 @@
 @synthesize datasource;
 
 -(id)init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		_shelfControls = [[NSMutableArray alloc] init];
 		_shelfTitles = [[NSMutableArray alloc] init];
 	}

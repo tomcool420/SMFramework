@@ -18,6 +18,39 @@
 			name = thePlugin;
 			productName = thePlugin;
 		};
+		DDBACDAB1321F9CD0000597B /* installatv */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DDBACDAE1321F9EB0000597B /* Build configuration list for PBXAggregateTarget "installatv" */;
+			buildPhases = (
+				DDBACDAA1321F9CD0000597B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = installatv;
+			productName = installatv;
+		};
+		DDBACDB01321F9FE0000597B /* installtest */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DDBACDBF1321FAAA0000597B /* Build configuration list for PBXAggregateTarget "installtest" */;
+			buildPhases = (
+				DDBACDAF1321F9FE0000597B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = installtest;
+			productName = Untitled;
+		};
+		DDBACDB41321FA230000597B /* clean */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DDBACDC01321FAAA0000597B /* Build configuration list for PBXAggregateTarget "clean" */;
+			buildPhases = (
+				DDBACDB31321FA230000597B /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = clean;
+			productName = clean;
+		};
 		DDDC81991273B9B800192ADD /* Install */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = DDDC819C1273B9D600192ADD /* Build configuration list for PBXAggregateTarget "Install" */;
@@ -2014,6 +2047,9 @@
 				8D5B49AC048680CD000E48DA /* SMFramework */,
 				875A8234126FFBA400ECADC2 /* thePlugin */,
 				DDDC81991273B9B800192ADD /* Install */,
+				DDBACDAB1321F9CD0000597B /* installatv */,
+				DDBACDB01321F9FE0000597B /* installtest */,
+				DDBACDB41321FA230000597B /* clean */,
 			);
 		};
 /* End PBXProject section */
@@ -2057,6 +2093,45 @@
 			shellPath = /bin/sh;
 			shellScript = "export THEOS=/opt/theos\n$THEOS/bin/logos.pl $SRCROOT/SMFPopup.xm > $SRCROOT/SMFPopup.mm";
 		};
+		DDBACDAA1321F9CD0000597B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ~/.profile\nmake -j 4 installatv";
+		};
+		DDBACDAF1321F9FE0000597B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ~/.profile\nmake -j 4 installtest";
+		};
+		DDBACDB31321FA230000597B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ~/.profile\nmake clean";
+		};
 		DDDC81981273B9B800192ADD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2068,7 +2143,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "source ~/.profile\nmake -j 2 clean package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
+			shellScript = "source ~/.profile\nmake -j 4 package install\nrm -rf Headers\nmkdir Headers\ncp *.h Headers/";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2253,6 +2328,69 @@
 			};
 			name = Release;
 		};
+		DDBACDAC1321F9CD0000597B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = installatv;
+			};
+			name = Debug;
+		};
+		DDBACDAD1321F9CD0000597B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = installatv;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DDBACDB11321F9FE0000597B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Untitled;
+			};
+			name = Debug;
+		};
+		DDBACDB21321F9FE0000597B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Untitled;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		DDBACDB51321FA240000597B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = clean;
+			};
+			name = Debug;
+		};
+		DDBACDB61321FA240000597B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = clean;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		DDDC819A1273B9B800192ADD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2300,6 +2438,33 @@
 			buildConfigurations = (
 				875A8235126FFBA400ECADC2 /* Debug */,
 				875A8236126FFBA400ECADC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDBACDAE1321F9EB0000597B /* Build configuration list for PBXAggregateTarget "installatv" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDBACDAC1321F9CD0000597B /* Debug */,
+				DDBACDAD1321F9CD0000597B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDBACDBF1321FAAA0000597B /* Build configuration list for PBXAggregateTarget "installtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDBACDB11321F9FE0000597B /* Debug */,
+				DDBACDB21321F9FE0000597B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDBACDC01321FAAA0000597B /* Build configuration list for PBXAggregateTarget "clean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDBACDB51321FA240000597B /* Debug */,
+				DDBACDB61321FA240000597B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
