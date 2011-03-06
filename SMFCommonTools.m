@@ -67,9 +67,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCommonTools,sharedInstance)
 }
 +(id)popupControlWithDictionary:(NSDictionary *)dict
 {
-    
-    if (image==nil) 
-        return nil;
+
     id ctrl =[[NSClassFromString(@"SMFPopupInfo") alloc] init];
     [ctrl setObject:dict];
     return [ctrl autorelease];

@@ -31,7 +31,7 @@ typedef enum _popupPosition{
  *  Returns a SMFPopupInfo to show using showPopup
  *  @arg1: a NSDictionary with keys Image (BRImage) and Lines (NSArray of NSStrings)
  */
-+(id)popupControlWithDictionary:(NSDictionary *)dict
++(id)popupControlWithDictionary:(NSDictionary *)dict;
 
 
 /*
