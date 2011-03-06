@@ -43,3 +43,11 @@
 #import "SMFPreferences.h"
 #import "SMFImageAsset.h"
 #import "SMFMoviePreviewController.h"
+#import "SMFInvocationCenteredMenuController.h"
+
+#import "SMFListDropShadowControl.h"
+#import "SMFTextDropShadowControl.h"
+#import "SMFComplexDropShadowControl.h"
+#import "SMFComplexProcessDropShadowControl.h"
+
+#import "SMFPopup.h"
