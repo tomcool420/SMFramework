@@ -373,6 +373,9 @@ void checkNil(NSObject *ctrl)
                                    masterFrame.origin.y + masterFrame.size.height *0.32f,
                                    masterFrame.size.height*0.15, 
                                    masterFrame.size.height*0.15f);
+
+    CGRect firstButtonFrame = CGRectZero;
+	CGRect lastButtonFrame = CGRectZero;
     int button=0;
     for(int i=0;i<[buttons count];i++)
     {
@@ -385,8 +388,68 @@ void checkNil(NSObject *ctrl)
             [self addControl:b];
             button++;
             [_buttons addObject:b];
+            			
+			if (i == 0) {
+				firstButtonFrame = f;
+			} else if (i == [buttons count]-1) {
+				lastButtonFrame = f;
+			}
+
         }
     }
+    	
+	/*
+     *  Next/Previous arrows
+     */
+	checkNil(_previousArrowImageControl);
+	checkNil(_nextArrowImageControl);
+	
+	if ([buttons count] > 0) { //if there are no buttons, we cannot go next/previous
+		float margin = 20.0f;
+		//next/previous arrows	
+		if ([self.delegate respondsToSelector:@selector(controllerCanSwitchToPrevious:)]) {
+			//draw previous arrow
+			_previousArrowImageControl = [[BRImageControl alloc] init];
+			if (_previousArrowTurnedOn) {
+				[self switchPreviousArrowOn];
+			} else {
+				[self switchPreviousArrowOff];
+			}
+			
+			CGRect objFrame = firstButtonFrame;
+			objFrame.origin.x -= [_previousArrowImageControl.image pixelBounds].width + margin;
+			objFrame.origin.y += (objFrame.size.height/2) - ([_previousArrowImageControl.image pixelBounds].height / 2);
+			objFrame.size.height = [_previousArrowImageControl.image pixelBounds].height;
+			objFrame.size.width = [_previousArrowImageControl.image pixelBounds].width;
+			[_previousArrowImageControl setFrame:objFrame];
+			
+			//rotate imageview so arrow points in the right direction
+			CGAffineTransform cgCTM = CGAffineTransformMakeRotation(M_PI);
+			_previousArrowImageControl.affineTransform = cgCTM;
+			
+			[self addControl:_previousArrowImageControl];
+		}
+		if ([self.delegate respondsToSelector:@selector(controllerCanSwitchToNext:)]) {
+			//draw next arrow
+			_nextArrowImageControl = [[BRImageControl alloc] init];
+			if (_nextArrowTurnedOn) {
+				[self switchNextArrowOn];
+			} else {
+				[self switchNextArrowOff];
+			}
+			
+			CGRect objFrame = lastButtonFrame;
+			objFrame.origin.x += lastButtonFrame.size.width + margin;
+			objFrame.origin.y += (objFrame.size.height/2) - ([_nextArrowImageControl.image pixelBounds].height / 2);
+			objFrame.size.height = [_nextArrowImageControl.image pixelBounds].height;
+			objFrame.size.width = [_nextArrowImageControl.image pixelBounds].width;
+			[_nextArrowImageControl setFrame:objFrame];
+			
+			[self addControl:_nextArrowImageControl];
+		}
+	}
+	
+
     BRTextControl *moviesControl =[[BRTextControl alloc] init];
     NSString *title=@"";
     if([self.datasource respondsToSelector:@selector(shelfTitle)])
@@ -471,6 +534,42 @@ void checkNil(NSObject *ctrl)
     
     [_summaryControl layoutSubcontrols];
 }
+-(void)switchPreviousArrowOn 
+{
+	_previousArrowTurnedOn = YES; //used to retain arrow state if view is reloaded
+	if (_previousArrowImageControl) {
+		BRImage *arrowImageON = [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"Arrow_ON" ofType:@"png"]];
+		_previousArrowImageControl.image = arrowImageON;
+		[_previousArrowImageControl setNeedsLayout];
+	}
+}
+-(void)switchPreviousArrowOff 
+{
+	_previousArrowTurnedOn = NO; //used to retain arrow state if view is reloaded
+	if (_previousArrowImageControl) {
+		BRImage *arrowImageOFF = [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"Arrow_OFF" ofType:@"png"]];
+		_previousArrowImageControl.image = arrowImageOFF;
+		[_previousArrowImageControl setNeedsLayout];
+	}
+}
+-(void)switchNextArrowOn 
+{
+	_nextArrowTurnedOn = YES; //used to retain arrow state if view is reloaded
+	if (_nextArrowImageControl) {
+		BRImage *arrowImageON = [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"Arrow_ON" ofType:@"png"]];
+		_nextArrowImageControl.image = arrowImageON;
+		[_nextArrowImageControl setNeedsLayout];
+	}
+}
+-(void)switchNextArrowOff 
+{
+	_nextArrowTurnedOn = NO; //used to retain arrow state if view is reloaded
+	if (_nextArrowImageControl) {
+		BRImage *arrowImageOFF = [BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"Arrow_OFF" ofType:@"png"]];
+		_nextArrowImageControl.image = arrowImageOFF;
+		[_nextArrowImageControl setNeedsLayout];
+	}
+}
 -(BOOL)brEventAction:(BREvent *)action
 {
     BRControl *c = [self focusedControl];
@@ -550,6 +649,8 @@ void checkNil(NSObject *ctrl)
     self.datasource=nil;
     [_shelfControl release];
     [_buttons release];
+    checkNil(_previousArrowImageControl);
+	checkNil(_nextArrowImageControl);
     checkNil(_info);
     checkNil(_summaryControl);
     [super dealloc];
@@ -648,5 +749,35 @@ void checkNil(NSObject *ctrl)
     [buttons addObject:b];
     return [buttons autorelease];
     
+}
+#pragma mark delegate methods (examples)
+-(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl {
+	NSLog(@"controller of type %@ selected", [ctrl class]);
+}
+//optional
+-(void)controller:(SMFMoviePreviewController *)c buttonSelectedAtIndex:(int)index {
+	NSLog(@"button at index %d selected", index);
+}
+-(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl {
+	NSLog(@"controller of type %@ focused", [newControl class]);	
+}
+-(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index {
+	NSLog(@"last index of shelf was %d", index);	
+}
+-(void)controllerSwitchToNext:(SMFMoviePreviewController *)c {
+	//flash arrow on, then off
+	[c switchNextArrowOn];
+	[c performSelector:@selector(switchNextArrowOff) withObject:nil afterDelay:0.7f];
+}
+-(void)controllerSwitchToPrevious:(SMFMoviePreviewController *)c {
+	//flash arrow on, then off
+	[c switchPreviousArrowOn];
+	[c performSelector:@selector(switchPreviousArrowOff) withObject:nil afterDelay:0.7f];
+}
+-(BOOL)controllerCanSwitchToNext:(SMFMoviePreviewController *)c {
+	return YES;
+}
+-(BOOL)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c {
+	return YES;	
 }
 @end

@@ -48,6 +48,8 @@
     BRMetadataTitleControl *_metadataTitleControl;
     BRTextControl       * _summaryControl;
     NSMutableArray             * _buttons;
+    BRImageControl		*_previousArrowImageControl;
+	BRImageControl		*_nextArrowImageControl;
     BRMediaShelfControl *_shelfControl;
     BRCoverArtPreviewControl *_previewControl;
     NSMutableDictionary        *_info;
@@ -56,6 +58,8 @@
     BOOL                _summaryToggled;
     BRDividerControl    *_div3;
     BRTextControl       *_alsoWatched;
+    BOOL				_previousArrowTurnedOn;
+	BOOL				_nextArrowTurnedOn;
 }
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
 @property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
@@ -75,4 +79,8 @@
 -(void)reload;
 -(void)reloadShelf;
 -(void)toggleLongSummary;
+-(void)switchPreviousArrowOn;
+-(void)switchPreviousArrowOff;
+-(void)switchNextArrowOn;
+-(void)switchNextArrowOff;
 @end
