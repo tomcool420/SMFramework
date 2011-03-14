@@ -80,7 +80,7 @@ void logFrame(CGRect frame)
             if (t!=nil)  {[d setObject:t forKey:kSMFMoviePosterPath];}
         }
         
-       
+		
         t = [self.datasource rating];
         if (t!=nil)  {[d setObject:t forKey:kSMFMovieRating];}
     }
@@ -96,7 +96,7 @@ void checkNil(NSObject *ctrl)
 }
 -(void)reload
 {
-
+	
     //[self _removeAllControls];
     for (BRControl *c in [self controls]) {
         if (c!=_shelfControl) {
@@ -120,13 +120,13 @@ void checkNil(NSObject *ctrl)
                                    masterFrame.size.width*0.48f,
                                    masterFrame.size.height*0.843f);
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
-
+	
     SMFBaseAsset *a  = [SMFBaseAsset asset];
     [a setCoverArt:[_info objectForKey:kSMFMoviePoster]];
     BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:a];
     [_previewControl setImageProxy:proxy];
     [proxy release];
-
+	
     [_previewControl setFrame:imageFrame];
     [self addControl:_previewControl];
     
@@ -142,20 +142,20 @@ void checkNil(NSObject *ctrl)
                            masterFrame.size.height*0.875f, 
                            masterFrame.size.width*0.648f,
                            masterFrame.size.height*0.0695);
-//    mtcf.size=CGSizeMake(830., 50);
-//    mtcf.origin.x=masterFrame.size.width*0.29766f; //381 on a 1280p wide
-//    mtcf.origin.y=masterFrame.size.width*0.875f;
+	//    mtcf.size=CGSizeMake(830., 50);
+	//    mtcf.origin.x=masterFrame.size.width*0.29766f; //381 on a 1280p wide
+	//    mtcf.origin.y=masterFrame.size.width*0.875f;
     [_metadataTitleControl setFrame:mtcf];
     [self addControl:_metadataTitleControl];
     
-
+	
     //[self addControl:_titleControl];
     
     
     /*
      *  The Subtitle
      */
-
+	
     //[self addControl:_subtitleControl];
     
     /*
@@ -163,9 +163,9 @@ void checkNil(NSObject *ctrl)
      */
     BRDividerControl *div1 = [[BRDividerControl alloc]init];
     CGRect div1Frame = CGRectMake(mtcf.origin.x , 
-                                 mtcf.origin.y-masterFrame.size.height*(10.f/720.f), 
-                                 mtcf.size.width,//masterFrame.size.width*0.64f, 
-                                 masterFrame.size.height*(10.f/720.f));
+								  mtcf.origin.y-masterFrame.size.height*(10.f/720.f), 
+								  mtcf.size.width,//masterFrame.size.width*0.64f, 
+								  masterFrame.size.height*(10.f/720.f));
     [div1 setFrame:div1Frame];
     [self addControl:div1];
     [div1 release];
@@ -181,7 +181,7 @@ void checkNil(NSObject *ctrl)
                                      masterFrame.size.height*(94.f/720.f));//masterFrame.size.height*0.113f);
     [_summaryControl setFrame:summaryFrame];
     [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
-         withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
+			  withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
     [_summaryControl setBackgroundColor:[[SMFThemeInfo sharedTheme]blackColor]];
     
     
@@ -198,8 +198,8 @@ void checkNil(NSObject *ctrl)
     [self addControl:div2];
     [div2 release];
     
-
-
+	
+	
     /*
      *  Headers for information
      */
@@ -294,7 +294,7 @@ void checkNil(NSObject *ctrl)
                         [ctrl release];
                         x=r.origin.x+r.size.width;
                     }
-
+					
                 }
             }
             else {
@@ -343,9 +343,9 @@ void checkNil(NSObject *ctrl)
         }
     }
     
-
+	
     checkNil(_buttons);
-
+	
     _buttons=[[NSMutableArray alloc]init];
     NSArray *buttons=nil;//[NSArray array];
     if ([self.datasource respondsToSelector:@selector(buttons)]) {
@@ -368,12 +368,12 @@ void checkNil(NSObject *ctrl)
         [buttons autorelease];
         
     }
-
+	
     CGRect previewFrame=CGRectMake(masterFrame.origin.x + masterFrame.size.width*0.42f, 
                                    masterFrame.origin.y + masterFrame.size.height *0.32f,
                                    masterFrame.size.height*0.15, 
                                    masterFrame.size.height*0.15f);
-
+	
     CGRect firstButtonFrame = CGRectZero;
 	CGRect lastButtonFrame = CGRectZero;
     int button=0;
@@ -388,68 +388,74 @@ void checkNil(NSObject *ctrl)
             [self addControl:b];
             button++;
             [_buttons addObject:b];
-            			
+			
 			if (i == 0) {
 				firstButtonFrame = f;
 			} else if (i == [buttons count]-1) {
 				lastButtonFrame = f;
 			}
-
+			
         }
     }
-    	
+	
 	/*
      *  Next/Previous arrows
      */
 	checkNil(_previousArrowImageControl);
 	checkNil(_nextArrowImageControl);
 	
+	float arrowImageControlMargin = 20.0f;
 	if ([buttons count] > 0) { //if there are no buttons, we cannot go next/previous
-		float margin = 20.0f;
 		//next/previous arrows	
 		if ([self.delegate respondsToSelector:@selector(controllerCanSwitchToPrevious:)]) {
-			//draw previous arrow
-			_previousArrowImageControl = [[BRImageControl alloc] init];
-			if (_previousArrowTurnedOn) {
-				[self switchPreviousArrowOn];
-			} else {
-				[self switchPreviousArrowOff];
+			//does respond
+			if ([self.delegate controllerCanSwitchToPrevious:self]) {
+				//draw previous arrow
+				_previousArrowImageControl = [[BRImageControl alloc] init];
+				if (_previousArrowTurnedOn) {
+					[self switchPreviousArrowOn];
+				} else {
+					[self switchPreviousArrowOff];
+				}
+				
+				CGRect objFrame = firstButtonFrame;
+				objFrame.origin.x -= [_previousArrowImageControl.image pixelBounds].width + arrowImageControlMargin;
+				objFrame.origin.y += (objFrame.size.height/2) - ([_previousArrowImageControl.image pixelBounds].height / 2);
+				objFrame.size.height = [_previousArrowImageControl.image pixelBounds].height;
+				objFrame.size.width = [_previousArrowImageControl.image pixelBounds].width;
+				[_previousArrowImageControl setFrame:objFrame];
+				
+				//rotate imageview so arrow points in the right direction
+				CGAffineTransform cgCTM = CGAffineTransformMakeRotation(M_PI);
+				_previousArrowImageControl.affineTransform = cgCTM;
+				
+				[self addControl:_previousArrowImageControl];
 			}
-			
-			CGRect objFrame = firstButtonFrame;
-			objFrame.origin.x -= [_previousArrowImageControl.image pixelBounds].width + margin;
-			objFrame.origin.y += (objFrame.size.height/2) - ([_previousArrowImageControl.image pixelBounds].height / 2);
-			objFrame.size.height = [_previousArrowImageControl.image pixelBounds].height;
-			objFrame.size.width = [_previousArrowImageControl.image pixelBounds].width;
-			[_previousArrowImageControl setFrame:objFrame];
-			
-			//rotate imageview so arrow points in the right direction
-			CGAffineTransform cgCTM = CGAffineTransformMakeRotation(M_PI);
-			_previousArrowImageControl.affineTransform = cgCTM;
-			
-			[self addControl:_previousArrowImageControl];
 		}
 		if ([self.delegate respondsToSelector:@selector(controllerCanSwitchToNext:)]) {
-			//draw next arrow
-			_nextArrowImageControl = [[BRImageControl alloc] init];
-			if (_nextArrowTurnedOn) {
-				[self switchNextArrowOn];
-			} else {
-				[self switchNextArrowOff];
+			//does respond
+			if ([self.delegate controllerCanSwitchToNext:self]) {
+				//draw next arrow
+				_nextArrowImageControl = [[BRImageControl alloc] init];
+				if (_nextArrowTurnedOn) {
+					[self switchNextArrowOn];
+				} else {
+					[self switchNextArrowOff];
+				}
+				
+				CGRect objFrame = lastButtonFrame;
+				objFrame.origin.x += lastButtonFrame.size.width + arrowImageControlMargin;
+				objFrame.origin.y += (objFrame.size.height/2) - ([_nextArrowImageControl.image pixelBounds].height / 2);
+				objFrame.size.height = [_nextArrowImageControl.image pixelBounds].height;
+				objFrame.size.width = [_nextArrowImageControl.image pixelBounds].width;
+				[_nextArrowImageControl setFrame:objFrame];
+				
+				[self addControl:_nextArrowImageControl];
 			}
-			
-			CGRect objFrame = lastButtonFrame;
-			objFrame.origin.x += lastButtonFrame.size.width + margin;
-			objFrame.origin.y += (objFrame.size.height/2) - ([_nextArrowImageControl.image pixelBounds].height / 2);
-			objFrame.size.height = [_nextArrowImageControl.image pixelBounds].height;
-			objFrame.size.width = [_nextArrowImageControl.image pixelBounds].width;
-			[_nextArrowImageControl setFrame:objFrame];
-			
-			[self addControl:_nextArrowImageControl];
 		}
 	}
 	
-
+	
     BRTextControl *moviesControl =[[BRTextControl alloc] init];
     NSString *title=@"";
     if([self.datasource respondsToSelector:@selector(shelfTitle)])
@@ -503,7 +509,7 @@ void checkNil(NSObject *ctrl)
     [_shelfControl setFrame:gframe];
     [self addControl:_shelfControl];
     
-
+	
     
     
 }
@@ -612,18 +618,26 @@ void checkNil(NSObject *ctrl)
     else if(action.value==1 && self.delegate!=nil)
     {
         if ((remoteAction==kBREventRemoteActionRight || 
-            remoteAction==kBREventRemoteActionSwipeRight) &&
-            [self.delegate respondsToSelector:@selector(controllerSwitchToNext:)] &&
+			 remoteAction==kBREventRemoteActionSwipeRight) &&
+            [self.delegate respondsToSelector:@selector(controllerCanSwitchToNext:)] &&
             [self focusedControl]==[_buttons lastObject]) {
-            [self.delegate controllerSwitchToNext:self];
-            return YES;
+			if ([self.delegate controllerCanSwitchToNext:self]) {
+				if ([self.delegate respondsToSelector:@selector(controllerSwitchToNext:)]) {
+					[self.delegate controllerSwitchToNext:self];
+					return YES;
+				}
+			}
         }
         else if((remoteAction==kBREventRemoteActionLeft || 
                  remoteAction==kBREventRemoteActionSwipeLeft) &&
-                [self.delegate respondsToSelector:@selector(controllerSwitchToPrevious:)] &&
-                [self focusedControl]==[_buttons objectAtIndex:0]){
-            [self.delegate controllerSwitchToPrevious:self];
-            return YES;
+                [self.delegate respondsToSelector:@selector(controllerCanSwitchToPrevious:)] &&
+                [self focusedControl]==[_buttons objectAtIndex:0]) {
+			if ([self.delegate controllerCanSwitchToPrevious:self]) {
+				if ([self.delegate respondsToSelector:@selector(controllerSwitchToPrevious:)]) {
+					[self.delegate controllerSwitchToPrevious:self];
+					return YES;
+				}
+			}
         }
     }
     BOOL b=[super brEventAction:action];
@@ -635,14 +649,14 @@ void checkNil(NSObject *ctrl)
         if (delegate!=nil && [delegate respondsToSelector:@selector(controller:switchedFocusTo:)]) {
             [delegate controller:self switchedFocusTo:d];
         }
-
+		
     }
     return b;
-        
+	
 }
 -(void)dealloc
 {
-
+	
     [_previewControl release];
     [_metadataTitleControl release];
     self.datasource=nil;
@@ -727,25 +741,25 @@ void checkNil(NSObject *ctrl)
 {
     NSMutableArray *buttons = [[NSMutableArray alloc]init];
     BRButtonControl* b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
-                                                        subtitle:@"Preview" 
-                                                           badge:nil];
+													   subtitle:@"Preview" 
+														  badge:nil];
     [buttons addObject:b];
     
     b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
-                                       subtitle:@"Play"
-                                          badge:nil];
+									  subtitle:@"Play"
+										 badge:nil];
     
     [buttons addObject:b];
     
     b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
-                                       subtitle:@"Queue" 
-                                          badge:nil];
+									  subtitle:@"Queue" 
+										 badge:nil];
     
     [buttons addObject:b];
     
     b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
-                                       subtitle:@"More" 
-                                          badge:nil];
+									  subtitle:@"More" 
+										 badge:nil];
     [buttons addObject:b];
     return [buttons autorelease];
     
