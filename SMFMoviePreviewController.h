@@ -42,7 +42,12 @@
 -(BOOL)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c;
 @end
 
-
+/**
+ *An intensely intricate but extremely flexible way of displaying data on screen.
+ *Based from Apple's way of displaying previews for movies.
+ *Used in both Plex (displaying Movies) and nitoTV displaying packages.
+ *Requires the use of a datasource to layout the data and a delegate to receive the messages
+ */
 
 @interface SMFMoviePreviewController : BRController<SMFMoviePreviewControllerDatasource> {
     BRMetadataTitleControl *_metadataTitleControl;
@@ -61,13 +66,41 @@
     BOOL				_previousArrowTurnedOn;
 	BOOL				_nextArrowTurnedOn;
 }
+///---
+///@name properties
+///---
+/**
+ *the datasource object
+ *@note needs to conform to SMFMoviePreviewControllerDatasource
+ */
 @property (retain)NSObject<SMFMoviePreviewControllerDatasource>*datasource;
+/**
+ *the delegate object
+ *@note needs to conform to SMFMoviePreviewControllerDelegate
+ */
 @property (retain)NSObject<SMFMoviePreviewControllerDelegate>*delegate;
+
+///---
+///@name deprecated properties
+///---
+/**
+ *The shelf object. it is readonly but can be used to get the position 
+ *of the item selected
+ *@bug this property is deprecated, use shelfControl instead
+ */
 @property (readonly)BRMediaShelfControl *_shelfControl;
+/**
+ *The buttons displayed on screen
+ *@note same as buttons
+ *@bug deprecated use buttons instead
+ */
 @property (readonly)NSMutableArray *_buttons;
 
 +(NSDictionary *)columnHeaderAttributes;
 +(NSDictionary *)columnLabelAttributes;
+///---
+///@name Example Delegate Methods
+///---
 -(NSString *)title;
 -(NSString *)subtitle;
 -(NSString *)summary;
