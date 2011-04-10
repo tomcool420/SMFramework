@@ -5,6 +5,8 @@
 //  Created by Thomas Cool on 10/23/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
+
+#define __APPLE_TV__ 1
 #import <Backrow/Backrow.h>
 /*
  *   Protocols
