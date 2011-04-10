@@ -45,9 +45,9 @@
 	[_options release];
 	[super dealloc];
 }
--(id)everyLoad
+-(void)everyLoad
 {
-    return self;
+    return;
 }
 -(void)showPopup
 {
