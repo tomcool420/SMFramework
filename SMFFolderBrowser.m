@@ -7,7 +7,7 @@
 //
 
 
-
+#import <Foundation/Foundation.h>
 #import "SMFFolderBrowser.h"
 #import "SMFBaseAsset.h"
 #import "SMFMediaPreview.h"
@@ -37,7 +37,6 @@
         BRImageAndSyncingPreviewController *p = [[BRImageAndSyncingPreviewController alloc] init];
         [p setImage:img];
         return [p autorelease];
-        
     }
     if (separate && (row-[_folders count])<([_files count])) {
         NSString *f = [_files objectAtIndex:(row-[_folders count])];
