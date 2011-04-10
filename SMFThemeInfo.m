@@ -48,7 +48,12 @@ static SMFThemeInfo *sharedTheme = nil;
 - (NSUInteger)retainCount           { return NSUIntegerMax;}
 - (void)release                     {} 
 - (id)autorelease                   { return self; }
-
+-(NSDictionary *)attributesWithoutShadowForAttributes:(NSDictionary *)attributes
+{
+    NSMutableDictionary *att = [[attributes mutableCopy] autorelease];
+    [att setObject:(id)[self clearColor] forKey:@"BRShadowColor"];
+    return att;
+}
 -(BRImage *)selectedImage
 {
     return [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"selsettings" ofType:@"png"]];
@@ -148,6 +153,10 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
 -(CGColorRef)yellowColor
 {
     return [self colorWithRed:red[12] withGreen:green[12] withBlue:blue[12] withAlpha:1.0];
+}
+-(CGColorRef)clearColor
+{
+    return [self colorWithRed:0.0 withGreen:0.0 withBlue:0.0 withAlpha:0.0];
 }
 -(BRImage *)oneStar
 {
