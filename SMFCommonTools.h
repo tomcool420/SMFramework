@@ -15,55 +15,80 @@ typedef enum _popupPosition{
     kSMFPopupTopFarLeft     =5,
     kSMFPopupBottomFarLeft  =6
 } PopupPosition;
+/**
+ *A Compilation of methods to use for popups and other stuff
+ */
 @interface SMFCommonTools : NSObject {
 
 }
+///---
+///@name getting the shared object
+///---
+/**
+ *@return the shared objectec
+ */
 +(SMFCommonTools *)sharedInstance;
+///---
+///@name Popups
+///---
 
-/*
- *  Returns a SMFPopupInfo to show using showPopup
- *  @arg1: an NSArray with 1-3 NSStrings inside (can be nil)
- *  @arg2: a BRImage (cannot be nil)
+/**
+ *@return an SMFPopupInfo object to show using showPopup
+ *@param array an NSArray with 1-3 NSStrings inside (can be nil)
+ *@param image a BRImage (cannot be nil)
+ *@note Important: image must not be nil
+ *@see showPopup:
  */
 +(id)popupControlWithLines:(NSArray *)array andImage:(BRImage *)image;
 
-/*
- *  Returns a SMFPopupInfo to show using showPopup
- *  @arg1: a NSDictionary with keys Image (BRImage) and Lines (NSArray of NSStrings)
+/**
+ *@returns a SMFPopupInfo to show using showPopup
+ *@param dict a NSDictionary with keys `@"Image"` (BRImage) and `@"Lines"` (NSArray of NSStrings)
+ *@see showPopup:
  */
 +(id)popupControlWithDictionary:(NSDictionary *)dict;
 
 
-/*
- *  Displays a popup using the BRPopupManager
- *  @arg1: a popup created using popupControlwithLines:andImage:
+/**
+ *Displays a popup using the BRPopupManager
+ *@param popup a popup created using popupControlwithLines:andImage: or popupControlWithDictionary:
+ *Calls `[SMFCommonTools showPopup:popup withTimeout:8 withPosition:6 withSize:CGSizeMake(0.9,0.15)];`
+ *@see showPopup:withTimeout:withPosition:withSize:
+ *  
  */
 +(void)showPopup:(id)popup;
 
-/*
- *  Displays a popup using the BRPopupManager
- *  adds more customizability to the +(void)showPopup: method
- *  @arg1: a popup created using popupControlwithLines:andImage:
- *  @arg2: timeout in seconds
- *  @arg3: a position integer (needs more detail)
- *  @arg4: CGSize (relative size)
+/**
+ *Displays a popup using the BRPopupManager
+ *adds more customizability to the +(void)showPopup: method
+ *
+ *@param popup a popup created using popupControlwithLines:andImage:
+ *@param timeout display duration in seconds (integer)
+ *@param position a position integer
+ *@param size CGSize confusing
+ *
  */
 +(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withSize:(CGSize)size;
-/*
+/**
  *  Displays a popup using the BRPopupManager
  *  adds more customizability to the +(void)showPopup: method
- *  @arg1: a popup created using popupControlwithLines:andImage:
- *  @arg2: timeout in seconds
- *  @arg3: a position integer (needs more detail)
- *  @arg4: width
- *  @arg5: height
+ *@param popup a popup created using popupControlwithLines:andImage:
+ *@param timeout display duration in seconds
+ *@param position a position integer (see showPopup:withTimeout:withPosition:withSize:)
+ *@param width a relative width
+ *@param height a relative height
+ *@see showPopup:withTimeout:withPosition:withSize:
  */
 +(void)showPopup:(id)popup withTimeout:(int)timeout withPosition:(PopupPosition)position withWidth:(float)width withHeight:(float)height;
 
-/*
+
+///---
+///@name Processes
+///---
+/**
  *  Runs a task with popen parsing the output
- *  @arg1:   the call to be passed. eg: @"/usr/bin/screencapture -s 10"
- *  @return: returns the output text from the call seperated into lines into an array
+ *@param call   the call to be passed. eg: @"/usr/bin/screencapture -s 10"
+ *  @return the output text from the call seperated into lines into an array
  */
 -(NSArray *)returnForProcess:(NSString *)call;
 
