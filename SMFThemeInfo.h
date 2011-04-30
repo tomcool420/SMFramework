@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 10/30/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
-#import <Backrow/Backrow.h>
+#import <Backrow/BackRow.h>
 #import "SynthesizeSingleton.h"
 /**
  *Convenience Methods with images, colors, logos, sounds and more
@@ -162,6 +162,13 @@
  */
 -(CGColorRef)colorWithRed:(float)r withGreen:(float)g withBlue:(float)b withAlpha:(float)a;
 
+/**
+ *Creates a color from the html color format
+ *
+ *@param n a positive integer representing the color
+ *@return autoreleased CGColorRef
+ */
+-(CGColorRef)colorFromHTMLColor:(int)n;
 ///-----
 /// @name Attributes
 ///-----

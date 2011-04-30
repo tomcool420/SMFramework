@@ -7,7 +7,9 @@
 //
 
 #import "SMFThemeInfo.h"
-
+//#import "BRImage.h"
+//#import "BackRow.h"
+//#import "BRMediaMenuController.h"
 //static float red[]=  {0.0,0.0,0.6,0.0,0.33,0.0,0.66,1.0,1.0,0.5,1.0,1.0,1.0};
 //static float green[]={0.0,0.0,0.4,1.0,0.33,1.0,0.66,0.0,0.5,0.0,0.0,1.0,1.0};
 //static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
@@ -17,6 +19,7 @@ static SMFThemeInfo *sharedTheme = nil;
 
 + (SMFThemeInfo *)sharedTheme 
 { 
+
 	@synchronized(self) 
 	{ 
 		if (sharedTheme == nil) 
@@ -24,7 +27,6 @@ static SMFThemeInfo *sharedTheme = nil;
 			sharedTheme = [[self alloc] init]; 
 		} 
 	} 
-    
 	return sharedTheme; 
 } 
 
@@ -98,6 +100,10 @@ static SMFThemeInfo *sharedTheme = nil;
     CGColorSpaceRelease(rgb);
     [(id)color autorelease];
     return color;
+}
+-(CGColorRef)colorFromHTMLColor:(int)c
+{
+    return [self colorWithRed:((c>>16)&0xFF)/255.0 withGreen:((c>>8)&0xFF)/255.0 withBlue:(c & 0xFF)/255.0 withAlpha:1.0];
 }
 static float red[]=  {0.0,0.0,0.6,0.0,0.33,0.0,0.66,1.0,1.0,0.5,1.0,1.0,1.0};
 static float green[]={0.0,0.0,0.4,1.0,0.33,1.0,0.66,0.0,0.5,0.0,0.0,1.0,1.0};
