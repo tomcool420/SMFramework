@@ -63,6 +63,16 @@
     CFPreferencesSetAppValue((CFStringRef)defaultName, (CFNumberRef)[NSNumber numberWithInteger:value], (CFStringRef)_applicationID);
     [self synchronize];
 }
+-(void)setDouble:(double)value forKey:(NSString *)defaultName
+{
+    CFPreferencesSetAppValue((CFStringRef)defaultName, (CFNumberRef)[NSNumber numberWithDouble:value], (CFStringRef)_applicationID);
+    [self synchronize];
+}
+-(void)setFloat:(float)value forKey:(NSString *)defaultName
+{
+    CFPreferencesSetAppValue((CFStringRef)defaultName, (CFNumberRef)[NSNumber numberWithFloat:value], (CFStringRef)_applicationID);
+    [self synchronize];
+}
 -(BOOL)boolForKey:(NSString *)defaultName
 {
     id obj = [self objectForKey:defaultName];
@@ -76,6 +86,20 @@
     if(obj!=nil && [obj respondsToSelector:@selector(integerValue)])
         return [obj integerValue];
     return [[_registrationDictionary objectForKey:defaultName] integerValue];
+}
+-(double)doubleForKey:(NSString *)defaultName
+{
+    id obj = [self objectForKey:defaultName];
+    if(obj!=nil && [obj respondsToSelector:@selector(doubleValue)])
+        return [obj floatValue];
+    return [[_registrationDictionary objectForKey:defaultName] doubleValue];
+}
+-(float)floatForKey:(NSString *)defaultName
+{
+    id obj = [self objectForKey:defaultName];
+    if(obj!=nil && [obj respondsToSelector:@selector(floatValue)])
+        return [obj floatValue];
+    return [[_registrationDictionary objectForKey:defaultName] floatValue];
 }
 
 -(void)registerDefaults:(NSDictionary *)registrationDictionary {
