@@ -17,6 +17,8 @@
 @synthesize title=_title;
 @synthesize longDescription=_description;
 @synthesize delegate=_delegate;
+@synthesize ctrl=_ctrl;
+@synthesize notificationName=_notificationName;
 +(SMFPrefsMenuItem *)itemWithType:(SMFPrefType)t forKey:(NSString *)k inPrefs:(NSUserDefaults *)p
 {
     return [SMFPrefsMenuItem itemWithType:t forKey:k inPrefs:p withTitle:nil withDescription:nil];
@@ -70,13 +72,13 @@
     }
     return @"";
 }
--(SMFMenuItem *)menuItem
+-(BRMenuItem *)menuItem
 {
     SMFMenuItem *mi = [SMFMenuItem menuItem];
     [mi setTitle:[self titleText]];
     if (self.type==kSMFPrefTypeColor) {
         NSMutableDictionary *d = [[[[BRThemeInfo sharedTheme] menuItemSmallTextAttributes] mutableCopy]autorelease];
-        [d setObject:[[SMFThemeInfo sharedTheme]colorFromHTMLColor:[self.preferences integerForKey:self.key]] forKey:@"CTForegroundColor"];
+        [d setObject:(id)[[SMFThemeInfo sharedTheme]colorFromHTMLColor:[self.preferences integerForKey:self.key]] forKey:@"CTForegroundColor"];
         [mi setRightJustifiedText:[self itemText] withAttributes:d];
     }
     else {
@@ -107,6 +109,26 @@
             [[[BRApplicationStackManager singleton]stack] pushController:c];
         }
             break;
+        case kSMFPrefTypeController:
+        {
+            if (self.ctrl!=nil) {
+                [[[BRApplicationStackManager singleton]stack]pushController:self.ctrl];
+            }
+        }
+            break;
+        case kSMFPrefTypeNumber:
+        case kSMFPrefTypeDouble:
+        {
+            BRTextEntryController *c = [[[BRTextEntryController alloc]init]autorelease];
+            [c setTitle:[self titleText]];
+            [c setPrimaryInfoText:@"Please enter a number, decimal sign is a \".\"" withAttributes:[[BRThemeInfo sharedTheme]promptCenteredTextAttributes]];
+            [c setTextFieldDelegate:self];
+            [c setInitialTextEntryText:[NSString stringWithFormat:@"%@",[self.preferences objectForKey:self.key],nil]];
+            [c setTextEntryStyle:1];
+            [[[BRApplicationStackManager singleton]stack]pushController:c];
+            
+        }
+            break;
         default:
             break;
     }
@@ -120,9 +142,27 @@
 -(void)textDidEndEditing:(id)text
 {
     NSString *t = [text stringValue];
-    if (self.type==kSMFPrefTypeString) {
-        [self.preferences setObject:t forKey:self.key];
+    
+    switch (self.type) {
+        case kSMFPrefTypeString:
+            [self.preferences setObject:t forKey:self.key];
+            break;
+        case kSMFPrefTypeNumber:
+        case kSMFPrefTypeDouble:
+        {
+            double a=0.0;
+            NSScanner *s = [NSScanner scannerWithString:t];
+            [s scanDouble:&a];
+            [self.preferences setObject:[NSNumber numberWithDouble:a] forKey:self.key];
+        }
+            break;
+        default:
+            break;
     }
+    if (self.type==kSMFPrefTypeString) {
+        
+    }
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(list)]) {
         [[self.delegate list]reload];
     }
@@ -136,6 +176,7 @@
     self.title=nil;
     self.longDescription=nil;
     self.delegate=nil;
+    self.ctrl=nil;
     [super dealloc];
 }
 

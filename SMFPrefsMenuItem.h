@@ -21,7 +21,8 @@ typedef enum _SMFPrefType{
     kSMFPrefTypeArray,
     kSMFPrefTypeCustom,
     kSMFPrefTypeColor,
-    kSMFPrefTypeNumber
+    kSMFPrefTypeNumber,
+    kSMFPrefTypeController,
 }SMFPrefType;
 
 
@@ -33,13 +34,17 @@ typedef enum _SMFPrefType{
     NSString *      _title;
     NSString *      _description;
     id              _delegate;
+    BRController *  _ctrl;
+    NSString *      _notificationName;
 }
 @property (assign) SMFPrefType type;
 @property (copy) NSString *key;
 @property (assign) NSUserDefaults *preferences;
 @property (copy) NSString *title;
 @property (copy) NSString *longDescription;
+@property (retain) BRController *ctrl;
 @property (assign) id delegate;
+@property (retain) NSString *notificationName;
 +(SMFPrefsMenuItem *)itemWithType:(SMFPrefType)t forKey:(NSString *)k inPrefs:(NSUserDefaults *)p;
 +(SMFPrefsMenuItem *)itemWithType:(SMFPrefType)t forKey:(NSString *)k inPrefs:(NSUserDefaults *)p withTitle:(NSString *)s withDescription:(NSString *)d;
 

@@ -6,7 +6,7 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
-#import <Backrow/Backrow.h>
+#import <BackRow/BackRow.h>
 
 
 @protocol SMFSettingPreferences
