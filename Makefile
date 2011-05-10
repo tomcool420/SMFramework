@@ -13,7 +13,8 @@ SMFramework_FILES += SMFPhotoMethods.mm SMFQueryMenu.m SMFProgressBarControl.m S
 SMFramework_FILES += SMFPreferences.m SMFProgressBarMenuItem.m SMFImageAsset.m SMFDebAsset.m
 SMFramework_FILES += NSArray_SMF.m SMFViewMenuController.m SMFListDropShadowControl.m SMFControllerPasscodeController.m SMFTextDropShadowControl.mm
 SMFramework_FILES += Example/SMFGridController.m SMFMoviePreviewController.m SMFControlFactory.m SMFAssetPreviewController.m SMFPhotoMediaAsset.m
-SMFramework_FILES += SMFBookcaseController.m SMFBookcaseDelegateAndDatasourceExample.m SMFComplexDropShadowControl.mm SMFComplexProcessDropShadowControl.m
+SMFramework_FILES += SMFBookcaseController.m SMFBookcaseDelegateAndDatasourceExample.m SMFComplexDropShadowControl.mm SMFComplexProcessDropShadowControl.m SMFPrefsMenuItem.m
+SMFramework_FILES += SMFDictionaryEditor.m SMFDictionaryObjectEditor.m SMFCustomQueryMenu.m SMFPrefsSelectionItem.m
 SMFramework_INSTALL_PATH = /Library/Frameworks
 #SMFramework_BUNDLE_EXTENSION = framework
 SMFramework_LDFLAGS = -undefined dynamic_lookup -framework UIKit -framework ImageIO#-L$(FW_PROJECT_DIR) -lBackRow
@@ -25,7 +26,7 @@ SUBPROJECTS = eventcatcher
 include $(FW_MAKEDIR)/framework.mk
 include $(FW_MAKEDIR)/aggregate.mk
 after-install::
-	ssh root@$(FW_DEVICE_IP) killall AppleTV
+	ssh root@$(FW_DEVICE_IP) killall -9 AppleTV
 	
 after-SMFramework-stage::
 	rm -rf "Headers"
