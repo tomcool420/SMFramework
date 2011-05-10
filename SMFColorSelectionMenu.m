@@ -74,9 +74,10 @@ static float blue[] ={0.0,1.0,0.2,1.0,0.33,0.0,0.66,1.0,0.0,0.5,0.0,1.0,0.0};
 }
 -(void)itemSelected:(long)selected
 {
+    NSLog(@"sending message to delegate 0");
     if ([self.delegate conformsToProtocol:@protocol(SMFColorSelectionDelegate)]) 
     {
-        
+        NSLog(@"sending message to delegate 1");
         NSArray *colorArray = [NSArray arrayWithObjects:
                                SMFFloat(red[selected]),
                                SMFFloat(green[selected]),

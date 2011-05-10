@@ -10,7 +10,9 @@
 
 
 @implementation SMFQueryMenu
-
+@synthesize items=_items;
+@synthesize delegate=_delegate;
+@synthesize predicate=_predicate;
 -(id)init;
 {
     self=[super init];
@@ -29,14 +31,7 @@
     [self setListTitle:@"Time Zone"]; 
     return self;
 }
--(void)setDelegate:(id<SMFQueryDelegate>)d
-{
-    _delegate=d;
-}
--(id<SMFQueryDelegate>)delegate
-{
-    return _delegate;
-}
+
 -(void)reloadItems
 {
     NSString *filter = [[[_entryControl textField]stringValue] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
