@@ -204,6 +204,38 @@ the generation of a class list and an automatic constructor.
 //        %orig;
 //}
 //%end
+%hook BRTabControl
+-(void)setFrame:(CGRect )frame
+{
+    %log;
+    %orig;
+}
+%end
+%hook BRTabControlItem
+
+-(void)setLabel:(id)label
+{
+    %log;
+    %orig;
+}
+-(void)setLabelAttributes:(id)labelAttributes
+{
+    %log;
+    %orig;
+}
+-(void)setLabelIdentifier:(id)identifier
+{
+    %log;
+    %orig;
+}
+%end
+%hook BRControllerStack
+-(void)pushController:(id)controller
+{
+    %log;
+    %orig;
+}
+%end
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event {
     //%log;
@@ -253,6 +285,8 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     
 }
 %end
+
+
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
