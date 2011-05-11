@@ -7,12 +7,13 @@
 //
 
 #import "SMFControllerPasscodeController.h"
-
+//#import "BRThemeInfo.h"
 
 @implementation SMFControllerPasscodeController
 @synthesize blockedController;
 +(SMFControllerPasscodeController *)controllerPasscodeControllerForController:(BRController *)controller withPasscode:(int)passcode
 {
+    [BRThemeInfo sharedTheme];
     SMFControllerPasscodeController * c = [[[SMFControllerPasscodeController alloc]initForController:controller withPasscode:passcode] autorelease];
     return c;
 }

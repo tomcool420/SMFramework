@@ -7,7 +7,7 @@
 //
 
 #import "SMFMoviePreviewController.h"
-#import <Backrow/Backrow.h>
+#import <BackRow/BackRow.h>
 
 @interface SMFAssetPreviewController : SMFMoviePreviewController {
     BRBaseMediaAsset * asset;

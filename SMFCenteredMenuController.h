@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Backrow/Backrow.h>
+#import <BackRow/BackRow.h>
 #import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"
 #import "SMFDefines.h"

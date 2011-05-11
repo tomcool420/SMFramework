@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 2/27/10.
 //  Copyright 2010 Thomas Cool. All rights reserved.
 //
-#import <Backrow/Backrow.h>
+#import <BackRow/BackRow.h>
 #import "SMFCenteredMenuController.h"
 
 @class SMFCenteredMenuController;

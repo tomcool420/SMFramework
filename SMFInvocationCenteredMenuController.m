@@ -7,7 +7,7 @@
 //
 
 #import "SMFInvocationCenteredMenuController.h"
-
+//#import "BRThemeInfo.h"
 @implementation SMFInvocationCenteredMenuController
 -(id)initWithTitles:(NSArray *)titles withInvocations:(NSArray *)invocations withTitle:(NSString *)title withDescription:(NSString *)description
 {
