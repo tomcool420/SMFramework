@@ -8,7 +8,7 @@
 
 #import "SMFPhotoMethods.h"
 #import "SMFThemeInfo.h"
-#import <Backrow/Backrow.h>
+#import <BackRow/BackRow.h>
 @class BRControl;
 @protocol SMFMoviePreviewControllerDatasource
 -(NSString *)title;
@@ -65,6 +65,7 @@
     BRTextControl       *_alsoWatched;
     BOOL				_previousArrowTurnedOn;
 	BOOL				_nextArrowTurnedOn;
+    NSMutableArray      *_hideList;
 }
 ///---
 ///@name properties

@@ -99,6 +99,11 @@ void checkNil(NSObject *ctrl)
 {
 	
     //[self _removeAllControls];
+    if (_hideList!=nil) {
+        [_hideList release];
+        _hideList=nil;
+    }
+    _hideList=[[NSMutableArray alloc] init];
     for (BRControl *c in [self controls]) {
         if (c!=_shelfControl) {
             [c removeFromParent];
@@ -183,7 +188,7 @@ void checkNil(NSObject *ctrl)
     [_summaryControl setFrame:summaryFrame];
     [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
 			  withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
-    [_summaryControl setBackgroundColor:[[SMFThemeInfo sharedTheme]blackColor]];
+    //[_summaryControl setBackgroundColor:[[SMFThemeInfo sharedTheme]blackColor]];
     
     
     
@@ -197,6 +202,7 @@ void checkNil(NSObject *ctrl)
                                  masterFrame.size.height*(10.f/720.f));
     [div2 setFrame:div2Frame];
     [self addControl:div2];
+    [_hideList addObject:div2];
     [div2 release];
     
 	
@@ -221,6 +227,7 @@ void checkNil(NSObject *ctrl)
         lastOriginY=headFrame.origin.y;
         [head setFrame:headFrame];
         [self addControl:head];
+        [_hideList addObject:head];
         [head release];
     }
     /*
@@ -293,6 +300,7 @@ void checkNil(NSObject *ctrl)
                         [ctrl setFrame:r];
                         [self addControl:ctrl];
                         [ctrl release];
+                        [_hideList addObject:ctrl];
                         x=r.origin.x+r.size.width;
                     }
 					
@@ -337,6 +345,7 @@ void checkNil(NSObject *ctrl)
                 tempY=objFrame.origin.y;
                 [obj setFrame:objFrame];
                 [self addControl:obj];
+                [_hideList addObject:obj];
                 [obj release];
                 
             }
@@ -530,11 +539,16 @@ void checkNil(NSObject *ctrl)
         f.origin.y=f.origin.y+(lh-sh);
         f.size.height=sh;
         _summaryToggled=NO;
+        for (BRControl *c in _hideList)
+            [c setHidden:NO];
+
     }
     else {
         f.origin.y=f.origin.y-(lh-sh);
         f.size.height=lh;
         _summaryToggled=YES;
+        for (BRControl *c in _hideList)
+            [c setHidden:YES];
     }
     [_summaryControl setFrame:f];
     
@@ -668,6 +682,7 @@ void checkNil(NSObject *ctrl)
 	checkNil(_nextArrowImageControl);
     checkNil(_info);
     checkNil(_summaryControl);
+    checkNil(_hideList);
     [super dealloc];
 }
 #pragma mark datasource methods
