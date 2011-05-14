@@ -139,7 +139,27 @@
 	[super _updateMetadataLayer];
 	[self doPopulation];
 }
-
+- (void)setTopRightImage:(BRImage *)i
+{
+    BRMetadataControl *metaLayer = [self metadataControl];
+    [metaLayer setTopRightImage:i];
+}
+-(void)setCopyright:(id)i
+{
+    [[self metadataControl]setCopyright:i];
+}
+-(void)setRating:(id)i
+{
+    [[self metadataControl]setRating:i];
+}
+-(void)setStarRating:(id)i
+{
+    [[self metadataControl]setStarRating:i];
+}
+-(void)setUserRating:(id)i
+{
+    [[self metadataControl]setUserRating:i];
+}
 - (void)doPopulation
 {
     //BRMetadataControl *metaLayer = [self gimmieMetadataLayer];

@@ -12,7 +12,7 @@
  *
  *
  */
-#import <Backrow/Backrow.h>
+#import <Backrow/BackRow.h>
 #import <Foundation/Foundation.h>
 #define METADATA_IMAGE_URL      @"ImageURL"
 #define METADATA_TITLE          @"Name"
@@ -78,6 +78,17 @@
  *@see setAsset:
  */
 -(SMFBaseAsset *)asset;
+
+
+-(void)setTopRightImage:(BRImage *)i;
+
+-(void)setCopyright:(id)i;
+
+-(void)setRating:(NSString *)i;
+
+-(void)setStarRating:(id)i;
+
+-(void)setUserRating:(id)i;
 
 
 @end
