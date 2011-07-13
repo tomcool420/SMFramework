@@ -5,14 +5,15 @@
 //  Created by Thomas Cool on 2/6/11.
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
-#import <Backrow/BRThemeInfo.h>
-#import <Backrow/BRController.h>
-#import <Backrow/BRControl.h>
+#import "Backrow/BRThemeInfo.h"
+#import "Backrow/BRController.h"
+#import "Backrow/BRControl.h"
 #import "SMFControlFactory.h"
 #import "SMFMoviePreviewController.h"
 #import "SMFDefines.h"
 #import "SMFBaseAsset.h"
 #import "SMFListDropShadowControl.h"
+#define NOSHELF
 static NSString * const kSMFMovieTitle = @"title";
 static NSString * const kSMFMovieSubtitle = @"substitle";
 static NSString * const kSMFMovieSummary = @"summary";
@@ -28,9 +29,15 @@ NSString * const kMoviePreviewControllerNewSelectedControl = @"kMoviePreviewCont
 @implementation SMFMoviePreviewController
 @synthesize delegate;
 @synthesize datasource;
-@synthesize _shelfControl;
+
+@synthesize shelfControl=_shelfControl;
+
 
 @synthesize _buttons;
+-(id)_shelfControl
+{
+    return _shelfControl;
+}
 +(NSDictionary *)columnHeaderAttributes
 {
     return [[BRThemeInfo sharedTheme]movieMetadataLabelAttributes];
@@ -97,6 +104,13 @@ void checkNil(NSObject *ctrl)
 }
 -(void)reload
 {
+//    Class $BRMediaShelfView = NSClassFromString(@"BRMediaShelfView");
+//    Class __BRMediaShelfControl = NSClassFromString(@"BRMediaShelfControl");
+    Class __BRProxyManager=NSClassFromString(@"BRProxyManager");
+    
+    if (__BRProxyManager !=nil)
+        _usingShelfView=YES;
+    
 	
     //[self _removeAllControls];
     if (_hideList!=nil) {
@@ -493,24 +507,68 @@ void checkNil(NSObject *ctrl)
     
     
     
-    BRCursorControl * hey = [[BRCursorControl alloc] init];
-    [self addControl:hey];
+    BRCursorControl * cursor = [[[BRCursorControl alloc] init] autorelease];
+    [self addControl:cursor];
     [self addControl:_summaryControl];
-    [hey release];
     
 }
+
+
 -(void)reloadShelf
 {
+
     if (_shelfControl!=nil) {
         [_shelfControl release];
         _shelfControl=nil;
     }
+
     CGRect masterFrame=[BRWindow interfaceFrame];
-    _shelfControl = [[BRMediaShelfControl alloc] init];
-    [_shelfControl setProvider:[self getProviderForShelf]];
-    [_shelfControl setColumnCount:8];
-    [_shelfControl setCentered:NO];
-    [_shelfControl setHorizontalGap:23];
+    
+    if(!_usingShelfView)
+    {
+        _shelfControl = [[NSClassFromString(@"BRMediaShelfControl") alloc] init];
+        [_shelfControl setProvider:[self getProviderForShelf]];
+        [_shelfControl setColumnCount:8];
+        [_shelfControl setCentered:NO];
+        [_shelfControl setHorizontalGap:23];
+    }
+    else
+    {
+        _shelfControl=[[BRMediaShelfView alloc]init];
+        [_shelfControl setCentered:YES];
+        if (_provider!=nil) {
+            [_provider release];
+            _provider=nil;
+        }
+        _provider=[[self getProviderForShelf] retain];
+        BRProviderDataSourceAdapter * adap = [[NSClassFromString(@"BRProviderDataSourceAdapter") alloc] init];
+        [adap setProviders:[NSArray arrayWithObject:_provider]];
+        NSLog(@"Provider: %@ %@",_provider,_provider.controlFactory);
+        [_provider.controlFactory setDefaultImage:[[BRThemeInfo sharedTheme]appleTVIcon]];
+        [adap setGridColumnCount:8];
+        if ([_shelfControl respondsToSelector:@selector(setColumnCount:)]) {
+            [_shelfControl setColumnCount:8];
+        }
+        
+        [_shelfControl setCentered:NO];
+        [_shelfControl setDataSource:adap];
+        [_shelfControl setDelegate:adap];
+        //[adap autorelease];
+        [_shelfControl reloadData];
+        
+        [_shelfControl setColumnCount:8];
+        [_shelfControl setHorizontalGap:33];
+        [_shelfControl setReadyToDisplay];
+        [_shelfControl layoutSubcontrols];
+        [_shelfControl loadWithCompletionBlock:nil];
+        //[_shelfControl scrollingCompleted];
+        
+        
+        
+        
+        
+        
+    }
     //    [_shelfControl setCoverflowMargin:.021746988594532013];
     CGRect gframe=CGRectMake(masterFrame.size.width*0.00, 
                              masterFrame.origin.y+masterFrame.size.height*0.04f, 
@@ -518,16 +576,24 @@ void checkNil(NSObject *ctrl)
                              masterFrame.size.height*0.24f);
     [_shelfControl setFrame:gframe];
     [self addControl:_shelfControl];
+
     
 	
     
     
 }
--(void)controlWasActivated
+-(void)wasPushed
 {
     [self reload];
     [self reloadShelf];
+}
+-(void)controlWasActivated
+{
+
+    //[_shelfControl _loadControlWithStartIndex:0 start:YES];
     [super controlWasActivated];
+//    if([_shelfControl respondsToSelector:@selector(_loadControlWithStartIndex:start:)])
+//        [_shelfControl _loadControlWithStartIndex:0 start:YES];
 }
 -(void)toggleLongSummary
 {
@@ -593,8 +659,14 @@ void checkNil(NSObject *ctrl)
 }
 -(BOOL)brEventAction:(BREvent *)action
 {
+//    NSLog(@"shelf D D: %@ %@",_shelfControl.delegate,_shelfControl.dataSource);
+//    _shelfControl.dataSource=self;
     BRControl *c = [self focusedControl];
-    long shelfIndex = [_shelfControl focusedIndex];
+    long shelfIndex=1;
+//    if(!_usingShelfView)
+//    {
+//        long shelfIndex=[_shelfControl focusedIndex];
+//    }
     if ([[self stack] peekController]!=self)
         return [super brEventAction:action];
     int remoteAction = [action remoteAction];
@@ -675,139 +747,18 @@ void checkNil(NSObject *ctrl)
     [_previewControl release];
     [_metadataTitleControl release];
     self.datasource=nil;
-    self.datasource=nil;
+    self.delegate=nil;
+
     [_shelfControl release];
+
     [_buttons release];
     checkNil(_previousArrowImageControl);
 	checkNil(_nextArrowImageControl);
     checkNil(_info);
     checkNil(_summaryControl);
     checkNil(_hideList);
+    checkNil(_provider);
     [super dealloc];
 }
-#pragma mark datasource methods
--(NSString *)title
-{
-    return @"Awesomeness";
-}
--(NSString *)subtitle
-{
-    return @"An AwkwardTV Production";
-}
--(NSString *)summary
-{
-    return @"Awesomeness, a history of development on the AppleTV. from tragedy to comedy, from whining to bitching, from compliments to insults: the History of the AppleTV in 5 acts. Complete with exta bashing, QQ and whining";
-}
--(NSArray *)headers
-{
-    return [NSArray arrayWithObjects:@"Details",@"Actors",@"Director",@"Producers",nil];
-}
--(NSArray *)columns
-{
-    NSArray *actors = [NSArray arrayWithObjects:@"|bile|",@"davilla",@"erica",@"mringwal",@"tomcool",nil];
-    NSArray *directors = [NSArray arrayWithObjects:@"macTijn",@" ",
-                          [[[NSAttributedString alloc]initWithString:@"Art Director" 
-                                                          attributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]]autorelease],
-                          @"Leddy",nil];
-    NSArray *producers = [NSArray arrayWithObjects:@"Alan Quatermain",@"gbooker",@"DHowett",nil];
-    BRImage *i = [[BRThemeInfo sharedTheme] hdBadge];
-    NSArray *details = [NSArray arrayWithObjects:
-                        @"Action & Comedy",
-                        @"Released: 2010",
-                        [NSArray arrayWithObjects:
-                         i,
-                         [[[NSAttributedString alloc] initWithString:@" 2" attributes:[[BRThemeInfo sharedTheme]metadataTitleAttributes]]autorelease],
-                         i,nil],
-                        @"Run Time: Years",
-                        [[SMFThemeInfo sharedTheme]fourPointFiveStars],
-                        nil];
-    NSArray *objects = [NSArray arrayWithObjects:details,actors,directors,producers,nil];
-    return objects;
-}
--(NSString *)rating
-{
-    return @"R";
-}
--(BRImage *)coverArt
-{
-    return [BRImage imageWithPath:[self posterPath]];
-}
--(NSString *)posterPath
-{
-    return [[NSBundle bundleForClass:[self class]]pathForResource:@"poster" ofType:@"jpg"];
-}
--(BRPhotoDataStoreProvider *)providerForShelf
-{
-    NSSet *_set = [NSSet setWithObject:[BRMediaType photo]];
-    NSPredicate *_pred = [NSPredicate predicateWithFormat:@"mediaType == %@",[BRMediaType photo]];
-    BRDataStore *store = [[BRDataStore alloc] initWithEntityName:@"Hello" predicate:_pred mediaTypes:_set];
-    NSArray *assets = [SMFPhotoMethods mediaAssetsForPath:[[NSBundle bundleForClass:[self class]]pathForResource:@"Posters" ofType:@""]];
-    for (id a in assets) {
-        [store addObject:a];
-    }
-    
-    //id dSPfCClass = NSClassFromString(@"BRPhotoDataStoreProvider");
-    
-    id tcControlFactory = [BRPosterControlFactory factory];
-    id provider    = [BRPhotoDataStoreProvider providerWithDataStore:store controlFactory:tcControlFactory];
-    [store release];
-    return provider; 
-}
--(NSArray *)buttons
-{
-    NSMutableArray *buttons = [[NSMutableArray alloc]init];
-    BRButtonControl* b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
-													   subtitle:@"Preview" 
-														  badge:nil];
-    [buttons addObject:b];
-    
-    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
-									  subtitle:@"Play"
-										 badge:nil];
-    
-    [buttons addObject:b];
-    
-    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
-									  subtitle:@"Queue" 
-										 badge:nil];
-    
-    [buttons addObject:b];
-    
-    b = [BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
-									  subtitle:@"More" 
-										 badge:nil];
-    [buttons addObject:b];
-    return [buttons autorelease];
-    
-}
-#pragma mark delegate methods (examples)
--(void)controller:(SMFMoviePreviewController *)c selectedControl:(BRControl *)ctrl {
-	NSLog(@"controller of type %@ selected", [ctrl class]);
-}
-//optional
--(void)controller:(SMFMoviePreviewController *)c buttonSelectedAtIndex:(int)index {
-	NSLog(@"button at index %d selected", index);
-}
--(void)controller:(SMFMoviePreviewController *)c switchedFocusTo:(BRControl *)newControl {
-	NSLog(@"controller of type %@ focused", [newControl class]);	
-}
--(void)controller:(SMFMoviePreviewController *)c shelfLastIndex:(long)index {
-	NSLog(@"last index of shelf was %d", index);	
-}
--(void)controllerSwitchToNext:(SMFMoviePreviewController *)c {
-	//flash arrow on, then off
-	[c switchNextArrowOn];
-	[c performSelector:@selector(switchNextArrowOff) withObject:nil afterDelay:0.7f];
-}
--(void)controllerSwitchToPrevious:(SMFMoviePreviewController *)c {
-	//flash arrow on, then off
-	[c switchPreviousArrowOn];
-	[c performSelector:@selector(switchPreviousArrowOff) withObject:nil afterDelay:0.7f];
-}
--(BOOL)controllerCanSwitchToNext:(SMFMoviePreviewController *)c {
-	return YES;
-}
--(BOOL)controllerCanSwitchToPrevious:(SMFMoviePreviewController *)c {
-	return YES;	
-}
+
 @end
