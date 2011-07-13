@@ -6,8 +6,8 @@
 //
 
 #import "SMFBookcaseDelegateAndDatasourceExample.h"
-#import <SMFramework/SMFramework.h>
-
+#import "SMFramework.h"
+#import "BRMediaShelfView_SMF.h"
 #define DEFAULT_IMAGES_PATH		@"/System/Library/PrivateFrameworks/AppleTV.framework/DefaultFlowerPhotos/"
 
 //storeRentalPlaceholderImage is part of the AppleTV headers, so it will be available at runtime
@@ -47,6 +47,7 @@
 //optional
 - (BRImage *)headerIconForBookcaseController:(SMFBookcaseController *)bookcaseController {
 	return nil; //should be an image roughly 120 wide x 60 high
+
 }
 
 - (NSString *)bookcaseController:(SMFBookcaseController *)bookcaseController titleForShelfAtIndex:(NSInteger)index {
@@ -73,23 +74,23 @@
 
 #pragma mark -
 #pragma mark SMFBookcaseControllerDelegate Methods
--(BOOL)bookcaseController:(SMFBookcaseController *)bookcaseController allowSelectionForShelf:(BRMediaShelfControl *)shelfControl atIndex:(NSInteger)index {
+
+-(BOOL)bookcaseController:(SMFBookcaseController *)bookcaseController allowSelectionForShelf:(BRMediaShelfView *)shelfControl atIndex:(NSInteger)index {
 	BOOL allow = YES;
 	if (index == 0) {
 		allow = NO; //no selections in the topmost shelf
 	}
 	return allow;
 }
-
 //optional
--(void)bookcaseController:(SMFBookcaseController *)bookcaseController selectionWillOccurInShelf:(BRMediaShelfControl *)shelfControl atIndex:(NSInteger)index {
+-(void)bookcaseController:(SMFBookcaseController *)bookcaseController selectionWillOccurInShelf:(BRMediaShelfView *)shelfControl atIndex:(NSInteger)index {
 	//will only get executed if the selection was allowed
 	NSInteger indexOfItemSelected = [shelfControl focusedIndex];
 	
 	NSLog(@"selection for bookcase: [%@] in shelf [%@] at index [%d] at item [%d] is about to occur", bookcaseController, shelfControl, index, indexOfItemSelected);
 }
 
--(void)bookcaseController:(SMFBookcaseController *)bookcaseController selectionDidOccurInShelf:(BRMediaShelfControl *)shelfControl atIndex:(NSInteger)index {
+-(void)bookcaseController:(SMFBookcaseController *)bookcaseController selectionDidOccurInShelf:(BRMediaShelfView *)shelfControl atIndex:(NSInteger)index {
 	//will only get executed if the selection was allowed
 	
 	NSInteger indexOfItemSelected = [shelfControl focusedIndex];

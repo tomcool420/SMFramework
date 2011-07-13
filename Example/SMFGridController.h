@@ -6,7 +6,7 @@
 //  Copyright 2009 Thomas Cool. All rights reserved.
 //
 
-#import <Backrow/Backrow.h>
+#import "../Backrow/AppleTV.h"
 
 
 @interface SMFGridController : BRController {
