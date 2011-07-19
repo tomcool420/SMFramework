@@ -62,22 +62,11 @@
             }
         }
     }
+
     return [super previewControlForItem:row];
 }
 
-//- (id) previewControlForItem: (long) item
-//{
-//	////NSLog(@"%@ %s", self, _cmd);
-//	SMFBaseAsset	*meta = [[SMFBaseAsset alloc] init];
-//	[meta setTitle:[_paths objectAtIndex:item]];
-//	[meta setCoverArt:[[BRThemeInfo sharedTheme] appleTVImage]];
-//    [meta setSummary:[_paths objectAtIndex:item]];
-//	BRMetadataPreviewControl *obj = [[BRMetadataPreviewControl alloc] init];
-//	[obj setShowsMetadataImmediately:NO];
-//	[obj setAsset:meta];
-//    [meta release];
-//	return [obj autorelease];
-//}
+
 + (void)setString:(NSString *)inputString forKey:(NSString *)theKey inDomain:(NSString *)theDomain
 {
 	CFPreferencesSetAppValue((CFStringRef)theKey, (CFStringRef)inputString, (CFStringRef)theDomain);
