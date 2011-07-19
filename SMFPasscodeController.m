@@ -96,6 +96,7 @@
                               [[BRThemeInfo sharedTheme] listIconHeight]);
     [header setFrame:frame];
 	[self addControl:header];
+    [header autorelease];
 	
 	
 	
@@ -111,6 +112,7 @@
 	frame.origin.x = (master.origin.x+master.size.width)*0.5f-frame.size.width*0.5f+master.origin.x;
 	[descriptionText setFrame: frame];
     [self addControl:descriptionText];
+    [descriptionText autorelease];
     
 	
 	
@@ -136,45 +138,35 @@
         [entryControl setInitialPasscode:str];
     }
     
-    /*
-     *  Delegate
-     */
-//    if(self.delegate==nil)
-//        [entryControl setDelegate:self];
-//    else 
-        [entryControl setDelegate:self];
-    
-	/*
-     *  Special Size for 1080i
-     */
-    
+    [entryControl setDelegate:self];
     frame.size = [entryControl preferredSizeFromScreenSize:master.size];
-
-//	if (![SMFCompatibilityMethods using1080i])
-//	{
-//		frame.size = [entryControl preferredSizeFromScreenSize:master.size];
-//	} else {
-//		frame.size = [entryControl preferredSizeFromScreenSize:[SMFCompatibilityMethods sizeFor1080i]];
-//	}
     frame.origin.y = master.origin.y + (master.size.height * 0.40f);
 	frame.origin.x = (master.size.width)*0.5f-frame.size.width*((float)self.boxes*0.5f)/((float)self.boxes+0.6f);
     [entryControl setFrame:frame];
     
     
     [self addControl:entryControl];
+    [entryControl autorelease];
 }
 #pragma mark entryControl Delegate Methods
 - (void) textDidChange: (id) sender
 {
-    if (delegate && [delegate respondsToSelector:@selector(textDidChange:)]) {
-        [delegate textDidChange:sender];
+    if (delegate ) {
+        if ([delegate respondsToSelector:@selector(passcodeTextDidChange:)]) 
+            [delegate passcodeTextDidChange:sender];
+        else if([delegate respondsToSelector:@selector(textDidChange:)])
+            [delegate textDidChange:sender];
+
     }
 }
 
 - (void) textDidEndEditing: (id) sender
 {
-    if (delegate && [delegate respondsToSelector:@selector(textDidEndEditing:)]) {
-        [delegate textDidEndEditing:sender];
+    if (delegate) {
+        if ([delegate respondsToSelector:@selector(passcodeTextDidEndEditing:)]) 
+            [delegate passcodeTextDidEndEditing:sender];
+        else if([delegate respondsToSelector:@selector(textDidEndEditing:)])
+            [delegate textDidEndEditing:sender];
     }
     else 
     {
