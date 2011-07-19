@@ -6,7 +6,7 @@
 //  Copyright 2011 Thomas Cool. All rights reserved.
 //
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFProgressBarControl.h"
 
 @interface SMFComplexDropShadowControl : BRDropShadowControl {

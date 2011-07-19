@@ -6,7 +6,7 @@
 //  Copyright 2011 Thomas Cool. All rights reserved.
 //
 
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 
 
 @protocol SMFPrefsMenuItemProtocol

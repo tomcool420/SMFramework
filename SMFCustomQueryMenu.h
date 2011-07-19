@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFMediaMenuController.h"
 typedef enum _kSMFSearchStatus
 {
