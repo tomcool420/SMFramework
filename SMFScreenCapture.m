@@ -7,8 +7,8 @@
 //
 
 #import "SMFScreenCapture.h"
-#import <UIKit/UIKit.h>
-#import <ImageIO/ImageIO.h>
+#import <UIKit/UIImage.h>
+//#import <ImageIO/ImageIO.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SMFEventManager.h"
 #import "SMFEvent.h"
@@ -217,7 +217,7 @@ static int IOSurfaceAcceleratorSave(NSString *path, IOSurfaceID searchId,int min
     NSDate *startTime = [NSDate date];
 #endif
     IOSurfaceAcceleratorRef accel=nil;
-    IOSurfaceAcceleratorCreate(NULL,NULL,&accel);
+    IOSurfaceAcceleratorCreate(NULL,0,&accel);
     if (accel==nil) {
         printf("accelerator was not created");
         return 3;
