@@ -8,7 +8,10 @@
 
 #import "SMFControlFactory.h"
 #import "SMFPhotoMethods.h"
-
+#import "SMFBaseAsset.h"
+@interface BRPosterControl (private)
++(BRPosterControl *)posterButtonWithImage:(id)image title:(id)title;
+@end
 @implementation SMFControlFactory
 @synthesize _poster;
 @synthesize _alwaysShowTitles;
@@ -47,9 +50,11 @@
 }
 -(id)controlForData:(id)arg1 currentControl:(id)arg2 requestedBy:(id)arg3
 {
+    NSLog(@"control for data: %@",arg1);
     id returnObj=nil;
     if([arg1 isKindOfClass:[SMFPhotoMediaCollection class]])
     {
+        NSLog(@"1");
         BRDataStore *store = [SMFPhotoMethods dataStoreForAssets:[arg1 mediaAssets]];
         BRPhotoControlFactory* controlFactory = [BRPhotoControlFactory mainMenuFactory];
         SMFPhotoCollectionProvider* provider    = [SMFPhotoCollectionProvider providerWithDataStore:store controlFactory:controlFactory];
@@ -61,6 +66,7 @@
     }
     else if([arg1 isKindOfClass:[BRImageProxyProvider class]])
     {
+        NSLog(@"2");
         BRBaseMediaAsset *a = [[arg1 dataAtIndex:0]asset];
         if (self.favorProxy) {
             returnObj = [self controlForImageProxy:[arg1 dataAtIndex:0] title:[a title]];
@@ -75,6 +81,7 @@
     }
     else if([arg1 isKindOfClass:[BRPhotoMediaAsset class]])
     {
+        NSLog(@"3");
         NSString *t = [(BRPhotoMediaAsset *)arg1 title];
         if (t==nil)
             t=[[[arg1 coverArtURL]lastPathComponent] stringByDeletingPathExtension];
@@ -86,6 +93,7 @@
     }
     else if([arg1 isKindOfClass:[BRBaseMediaAsset class]])
     {
+        NSLog(@"4");
         id proxy = nil;//[arg1 coverArt];
         if ([arg1 respondsToSelector:@selector(coverArt)]) {
             proxy=[arg1 coverArt];
@@ -95,14 +103,28 @@
         if (proxy==nil) 
             return nil;
         
-        if (self._poster=YES) {
+        if (self._poster==YES) {
             BRImage *img = nil;
             if ([proxy conformsToProtocol:@protocol(BRImageProxy)])
-                img=[proxy defaultImage];
+                returnObj=[BRPosterControl posterButtonWithImageProxy:proxy title:[arg1 title]];
             else if([proxy isKindOfClass:[BRImage class]])
+            {
                 img=proxy;
+                if (NSClassFromString(@"BRProxyManager")!=nil) {
+                    SMFBaseAsset *a = [SMFBaseAsset asset];
+                    [a setCoverArt:img];
+                    [a setTitle:[arg1 title]];
+                    NSObject<BRImageProxy>* p =[NSClassFromString(@"BRXMLImageProxy") imageProxyForAsset:a];
+                    returnObj=[BRPosterControl posterButtonWithImageProxy:p title:[arg1 title]];
+                }
+                else
+                    returnObj=[BRPosterControl posterButtonWithImage:img title:[arg1 title]];
                 
-            returnObj=[BRPosterControl posterButtonWithImage:img title:[arg1 title]];
+                
+            }
+
+            //returnObj=[BRPosterControl posterButtonWithImage:img title:[arg1 title]];
+            
             ((BRPosterControl *)returnObj).alwaysShowTitles=self._alwaysShowTitles;
         }
         else {
@@ -124,22 +146,34 @@
     
     
     //returning nothing is also acceptable only for main menu
+     NSLog(@"returning Image long %@",returnObj);
     return returnObj;
 }
 -(BRControl *)controlForImage:(BRImage *)image title:(NSString *)title
 {
     if (_poster==YES) {
-        BRPosterControl *returnObj=[BRPosterControl posterButtonWithImage:image title:title];
+        BRPosterControl *returnObj;
+        if (NSClassFromString(@"BRProxyManager")!=nil) {
+            SMFBaseAsset *a = [SMFBaseAsset asset];
+            [a setCoverArt:image];
+            [a setTitle:title];
+            NSObject<BRImageProxy>* p =[NSClassFromString(@"BRXMLImageProxy") imageProxyForAsset:a];
+            returnObj=[BRPosterControl posterButtonWithImageProxy:p title:title];
+        }
+        else
+            returnObj=[BRPosterControl posterButtonWithImage:image title:title];
         returnObj.alwaysShowTitles=self._alwaysShowTitles;
         returnObj.posterBorderWidth=1.f;
         returnObj.titleWidthScale=1.3999999761581421;
         returnObj.titleVerticalOffset=-0.054999999701976776;
         returnObj.reflectionAmount=0.14000000059604645;
+        NSLog(@"returning Image %@",returnObj);
         return returnObj;
     }
     else {
         BRAsyncImageControl *returnObj = [BRAsyncImageControl imageControlWithImage:image];
         [returnObj setAcceptsFocus:YES];
+         NSLog(@"returning Image %@",returnObj);
         return returnObj;
     }
 }
@@ -148,7 +182,7 @@
     if (_poster==YES) {
         BRPosterControl *returnObj=[[BRPosterControl alloc] init];
         returnObj.posterStyle = 0;
-        returnObj.title = [[NSAttributedString alloc]initWithString:title attributes:[[BRThemeInfo sharedTheme] menuItemSmallTextAttributes]];
+        returnObj.title = [[[NSAttributedString alloc]initWithString:title attributes:[[BRThemeInfo sharedTheme] menuItemSmallTextAttributes]]autorelease];
         returnObj.imageProxy=imageProxy;
         returnObj.defaultImage=self.defaultImage;
         returnObj.alwaysShowTitles=self._alwaysShowTitles;
