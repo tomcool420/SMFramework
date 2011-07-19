@@ -17,25 +17,25 @@
     [self setThumbURL:path];
     [self setCoverArtURL:path];
     [self setIsLocal:YES];
-    _title=[@"" retain];
+    __title=[@"" retain];
     return self;
     
 }
 -(NSString *)title
 {
-    return _title;
+    return __title;
 }
 -(void)setTitle:(NSString *)title
 {
     if (title==nil && ![title isKindOfClass:[NSString class]]) 
         return;
-    [_title release];
-    _title=nil;
-    _title=[title retain];
+    [__title release];
+    __title=nil;
+    __title=[title retain];
 }
 -(void)dealloc
 {
-    [_title release];
+    [__title release];
     [super dealloc];
 }
 @end
