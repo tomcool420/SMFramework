@@ -10,6 +10,7 @@
 #import "Classes/BackRowExtras.h"
 #import "SMFBaseAsset.h"
 #import "SMFPhotoMediaAsset.h"
+#import "Backrow/AppleTV.h"
 
 @implementation SMFPhotoMethods
 static NSArray *coverArtExtention=nil;
@@ -200,6 +201,9 @@ static NSArray *coverArtExtention=nil;
     return collection;
 }
 @end
+@interface BRFullScreenPhotoController (SMF)
+-(void)_startSlideshow;
+@end
 @implementation SMFPhotoBrowserController
 
 - (void)_handleSlideshowSelection:(id)arg1
@@ -227,7 +231,10 @@ static NSArray *coverArtExtention=nil;
     id<BRPhotoProviderForCollection> hello = MSHookIvar<id>(self, "_provider");
     id controller_three = [BRFullScreenPhotoController fullScreenPhotoControllerForProvider:hello/*[self provider]*/ startIndex:0];
     [[self stack] pushController:controller_three];
-    [controller_three _startSlideshow];
+    if ([controller_three respondsToSelector:@selector(_startSlideshow)]) {
+        [controller_three _startSlideshow];
+    }
+    
     //[[BRMediaPlayerManager singleton] presentMediaAssetAtIndex:0 inCollection:[SMImageReturns photoCollectionForPath:[SMPreferences photoFolderPath]] options:nil];
     //[[BRFullScreenPhotoController fullScreenPhotoControllerForProvider: startIndex:0] ]
 }
