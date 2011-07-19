@@ -113,4 +113,8 @@
     _delegate=nil;
     [super dealloc];
 }
+-(void)startFiltering:(NSString *)filterString
+{
+    
+}
 @end
