@@ -7,7 +7,7 @@
 //
 
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 
 @interface SMFPreferences : NSUserDefaults {
 	NSString * _applicationID;
