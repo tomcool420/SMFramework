@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 10/22/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
-#import <BackRow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import <Foundation/Foundation.h>
 #import "SMFDefines.h"
 /**

@@ -6,12 +6,30 @@
 //  Copyright 2009,2010 Thomas Cool. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import <BackRow/BackRow.h>
+#import "Backrow/AppleTV.h"
 @class BRHeaderControl, BRTextControl,BRScrollingTextControl, BRImageControl, BRPasscodeEntryControl, BRDisplayManager;
+/**
+ *Delegate protocol for SMFPasscodeController
+ */
 @protocol SMFPasscodeControllerDelegate
-- (void) textDidEndEditing: (id) sender;
+/**
+ *Message sent when the user selects "enter" on the passcode
+ *@param sender an object to with -(NSString *)stringValue can be called on
+ *@see passcodeTextDidChange:
+ */
+- (void) passcodeTextDidEndEditing:(id)sender;
+
 @optional
-- (void) textDidChange: (id) sender;
+/**
+ *Message sent anytime something changes
+ *@param sender an object to with -(NSString *)stringValue can be called on
+ *@see passcodeTextDidEndEditing:
+ */
+- (void) passcodeTextDidChange: (id) sender;
+
+
+- (void) textDidChange: (id) sender DEPRECATED_ATTRIBUTE;
+- (void) textDidEndEditing: (id) sender DEPRECATED_ATTRIBUTE;
 @end
 
 /**

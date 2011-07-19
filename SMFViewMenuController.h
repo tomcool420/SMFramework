@@ -6,7 +6,7 @@
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
 
-#import <BackRow/BackRow.h>
+#import "Backrow/AppleTV.h"
 
 /*
  *  DO NOT USE YET

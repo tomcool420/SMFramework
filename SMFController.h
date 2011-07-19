@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 11/30/09.
 //  Copyright 2009 Thomas Cool. All rights reserved.
 //
-#import <BackRow/BackRow.h>
+#import "Backrow/AppleTV.h"
 @interface BRController (Compat)
 
 -(CGRect)frame;
@@ -23,11 +23,11 @@
     BRImage *                   _image;
     BRImageControl *            _imageControl;
 }
-/*
- *  Used to disable the screen 
- */
-- (void) disableScreenSaver;
-- (void) enableScreenSaver;
+///*
+// *  Used to disable the screen 
+// */
+//- (void) disableScreenSaver;
+//- (void) enableScreenSaver;
 /*
  *  getMasterFrame returns the Controller frame actually used to add the controls to.
  */

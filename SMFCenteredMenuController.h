@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <BackRow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFMediaMenuController.h"
 #import "SMFMenuController.h"
 #import "SMFDefines.h"

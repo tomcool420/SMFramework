@@ -12,7 +12,16 @@
 #import "Backrow/AppleTV.h"
 #import "SMFMoviePreviewDelegateDatasource.h"
 @class BRControl,BRMediaShelfView;
-
+extern NSString * const kSMFMoviePreviewTitle ;
+extern NSString * const kSMFMoviePreviewSubtitle;
+extern NSString * const kSMFMoviePreviewSummary;
+extern NSString * const kSMFMoviePreviewPosterPath;
+extern NSString * const kSMFMoviePreviewPoster;
+extern NSString * const kSMFMoviePreviewHeaders;
+extern NSString * const kSMFMoviePreviewColumns;
+extern NSString * const kSMFMoviePreviewRating;
+extern NSString * const kMoviePreviewControllerSelectionChanged;
+extern NSString * const kMoviePreviewControllerNewSelectedControl;
 
 /**
  *An intensely intricate but extremely flexible way of displaying data on screen.
@@ -29,6 +38,7 @@
 	BRImageControl		*_nextArrowImageControl;
 
     id _shelfControl;
+    id _adap;
 
     BRCoverArtPreviewControl *_previewControl;
     NSMutableDictionary        *_info;

@@ -8,7 +8,7 @@
 //  Updated by nito 08-20-08 - works in 2.x
 //  Updated by Thomas 2-2-10 - allows for different aspect Ratios
 //  Updated by Thomas 14-11-10 - ATV2 fixes
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 @class BRProgressBarWidget;
 
 @interface SMFProgressBarControl : BRControl
