@@ -13,17 +13,19 @@
 #import "SMFDefines.h"
 #import "SMFBaseAsset.h"
 #import "SMFListDropShadowControl.h"
+#import "SMFCompatibility.h"
+#import "SMFMoviePreviewDelegateDatasource.h"
 #define NOSHELF
-static NSString * const kSMFMovieTitle = @"title";
-static NSString * const kSMFMovieSubtitle = @"substitle";
-static NSString * const kSMFMovieSummary = @"summary";
-static NSString * const kSMFMoviePosterPath = @"posterPath";
-static NSString * const kSMFMoviePoster = @"poster";
-static NSString * const kSMFMovieHeaders = @"headers";
-static NSString * const kSMFMovieColumns = @"columns";
-static NSString * const kSMFMovieRating = @"rating";
-NSString * const kMoviePreviewControllerSelectionChanged = @"kMoviePreviewControllerSelectionChanged";
-NSString * const kMoviePreviewControllerNewSelectedControl = @"kMoviePreviewControllerNewSelectedControl";
+ NSString * const kSMFMoviePreviewTitle = @"title";
+ NSString * const kSMFMoviePreviewSubtitle = @"substitle";
+ NSString * const kSMFMoviePreviewSummary = @"summary";
+ NSString * const kSMFMoviePreviewPosterPath = @"posterPath";
+ NSString * const kSMFMoviePreviewPoster = @"poster";
+ NSString * const kSMFMoviePreviewHeaders = @"headers";
+ NSString * const kSMFMoviePreviewColumns = @"columns";
+ NSString * const kSMFMoviePreviewRating = @"rating";
+ NSString * const kMoviePreviewControllerSelectionChanged = @"kMoviePreviewControllerSelectionChanged";
+ NSString * const kMoviePreviewControllerNewSelectedControl = @"kMoviePreviewControllerNewSelectedControl";
 
 
 @implementation SMFMoviePreviewController
@@ -58,39 +60,41 @@ void logFrame(CGRect frame)
 -(NSMutableDictionary *)getInformation
 {
     NSMutableDictionary *d = [[NSMutableDictionary alloc]initWithObjectsAndKeys:
-                              @"",kSMFMovieTitle,
-                              @"",kSMFMovieSubtitle,
-                              @"(no summary)",kSMFMovieSummary,
-                              [NSArray array],kSMFMovieHeaders,
-                              [NSArray array],kSMFMovieColumns,
-                              [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"]],kSMFMoviePoster,
-                              @"",kSMFMoviePosterPath,
-                              @"pg",kSMFMovieRating,
+                              @"",kSMFMoviePreviewTitle,
+                              @"",kSMFMoviePreviewSubtitle,
+                              @"(no summary)",kSMFMoviePreviewSummary,
+                              [NSArray array],kSMFMoviePreviewHeaders,
+                              [NSArray array],kSMFMoviePreviewColumns,
+                              [BRImage imageWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"colorAppleTVNameImage" ofType:@"png"]],kSMFMoviePreviewPoster,
+                              @"",kSMFMoviePreviewPosterPath,
+                              @"pg",kSMFMoviePreviewRating,
                               nil];
-    if (self.datasource!=nil && [self.datasource conformsToProtocol:@protocol(SMFMoviePreviewControllerDatasource)]) {
+    NSLog(@"get information %@",self.datasource);
+    if (self.datasource!=nil /*&& [self.datasource conformsToProtocol:@protocol(SMFMoviePreviewControllerDatasource)]*/) {
+        NSLog(@"conforms to protocol");
         NSString *t = [self.datasource title];
-        if (t!=nil)  {[d setObject:t forKey:kSMFMovieTitle];}
+        if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewTitle];}
         t = [self.datasource subtitle];
-        if (t!=nil)  {[d setObject:t forKey:kSMFMovieSubtitle];}         
+        if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewSubtitle];}         
         t = [self.datasource summary];
-        if (t!=nil)  {[d setObject:t forKey:kSMFMovieSummary];}         
+        if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewSummary];}         
         NSArray *a = [self.datasource headers];
-        if (a!=nil)  {[d setObject:a forKey:kSMFMovieHeaders];}         
+        if (a!=nil)  {[d setObject:a forKey:kSMFMoviePreviewHeaders];}         
         a = [self.datasource columns];
-        if (a!=nil)  {[d setObject:a forKey:kSMFMovieColumns];} 
+        if (a!=nil)  {[d setObject:a forKey:kSMFMoviePreviewColumns];} 
         if ([self.datasource respondsToSelector:@selector(coverArt)]) {
             BRImage *i = [self.datasource coverArt];
-            if (i!=nil)  {[d setObject:i forKey:kSMFMoviePoster];}
+            if (i!=nil)  {[d setObject:i forKey:kSMFMoviePreviewPoster];}
         }
         else if([self.datasource respondsToSelector:@selector(posterPath)])
         {
             t = [self.datasource posterPath];
-            if (t!=nil)  {[d setObject:t forKey:kSMFMoviePosterPath];}
+            if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewPosterPath];}
         }
         
 		
         t = [self.datasource rating];
-        if (t!=nil)  {[d setObject:t forKey:kSMFMovieRating];}
+        if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewRating];}
     }
     return [d autorelease];
     
@@ -142,7 +146,7 @@ void checkNil(NSObject *ctrl)
     _previewControl =[[BRCoverArtPreviewControl alloc]init];
 	
     SMFBaseAsset *a  = [SMFBaseAsset asset];
-    [a setCoverArt:[_info objectForKey:kSMFMoviePoster]];
+    [a setCoverArt:[_info objectForKey:kSMFMoviePreviewPoster]];
     BRPhotoImageProxy *proxy = [[BRPhotoImageProxy alloc] initWithAsset:a];
     [_previewControl setImageProxy:proxy];
     [proxy release];
@@ -153,11 +157,12 @@ void checkNil(NSObject *ctrl)
     /*
      *  The Title
      */
+    NSLog(@"1");
     checkNil(_metadataTitleControl);
     _metadataTitleControl=[[BRMetadataTitleControl alloc]init];
-    [_metadataTitleControl setTitle:[_info objectForKey:kSMFMovieTitle]];
-    [_metadataTitleControl setTitleSubtext:[_info objectForKey:kSMFMovieSubtitle]];
-    [_metadataTitleControl setRating:[_info objectForKey:kSMFMovieRating]];
+    [_metadataTitleControl setTitle:[_info objectForKey:kSMFMoviePreviewTitle]];
+    [_metadataTitleControl setTitleSubtext:[_info objectForKey:kSMFMoviePreviewSubtitle]];
+    [_metadataTitleControl setRating:[_info objectForKey:kSMFMoviePreviewRating]];
     CGRect mtcf=CGRectMake(masterFrame.size.width*0.29766f, 
                            masterFrame.size.height*0.875f, 
                            masterFrame.size.width*0.648f,
@@ -200,7 +205,7 @@ void checkNil(NSObject *ctrl)
                                      mtcf.size.width,//masterFrame.size.width*0.64f, 
                                      masterFrame.size.height*(94.f/720.f));//masterFrame.size.height*0.113f);
     [_summaryControl setFrame:summaryFrame];
-    [_summaryControl setText:[_info  objectForKey:kSMFMovieSummary]
+    [_summaryControl setText:[_info  objectForKey:kSMFMoviePreviewSummary]
 			  withAttributes:[[BRThemeInfo sharedTheme]metadataSummaryFieldAttributes]];
     //[_summaryControl setBackgroundColor:[[SMFThemeInfo sharedTheme]blackColor]];
     
@@ -219,16 +224,17 @@ void checkNil(NSObject *ctrl)
     [_hideList addObject:div2];
     [div2 release];
     
-	
+	NSLog(@"2");
 	
     /*
      *  Headers for information
      */
-    NSArray *headers = [_info objectForKey:kSMFMovieHeaders];
+    NSArray *headers = [_info objectForKey:kSMFMoviePreviewHeaders];
     float increment = (mtcf.size.width/masterFrame.size.width)/(float)[headers count];
     //int counter=0;
     float lastOriginY=0.0f;
-    for(int counter=0;counter<4;counter++)
+    NSLog(@"obj: %@",headers);
+    for(int counter=0;counter<[headers count];counter++)
     {
         BRTextControl *head = [[BRTextControl alloc]init];
         [head setText:[headers objectAtIndex:counter] withAttributes:[SMFMoviePreviewController columnHeaderAttributes] ];
@@ -247,7 +253,8 @@ void checkNil(NSObject *ctrl)
     /*
      *  Main Information
      */
-    NSArray *objects = [_info objectForKey:kSMFMovieColumns];
+    NSLog(@"3");
+    NSArray *objects = [_info objectForKey:kSMFMoviePreviewColumns];
     for (int counter=0; counter<[objects count]; counter++) {
         NSArray *current = [objects objectAtIndex:counter];
         int maxObj = [current count]>5?5:[current count];
@@ -366,30 +373,29 @@ void checkNil(NSObject *ctrl)
             
         }
     }
-    
-	
+    NSLog(@"buttons");
     checkNil(_buttons);
 	
     _buttons=[[NSMutableArray alloc]init];
-    NSArray *buttons=nil;//[NSArray array];
+    NSArray *tbuttons=nil;//[NSArray array];
     if ([self.datasource respondsToSelector:@selector(buttons)]) {
-        buttons = [self.datasource buttons];
+        tbuttons = [self.datasource buttons];
     }
     else {
-        buttons=[[NSMutableArray alloc]init];
-        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
+        tbuttons=[[NSMutableArray alloc]init];
+        [(NSMutableArray *)tbuttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]previewActionImage] 
                                                                            subtitle:@"Preview" 
                                                                               badge:nil]];
-        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
+        [(NSMutableArray *)tbuttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]playActionImage] 
                                                                            subtitle:@"Play" 
                                                                               badge:nil]];
-        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
+        [(NSMutableArray *)tbuttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]queueActionImage] 
                                                                            subtitle:@"Queue" 
                                                                               badge:nil]];
-        [(NSMutableArray *)buttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
+        [(NSMutableArray *)tbuttons addObject:[BRButtonControl actionButtonWithImage:[[BRThemeInfo sharedTheme]rateActionImage] 
                                                                            subtitle:@"More" 
                                                                               badge:nil]];
-        [buttons autorelease];
+        [tbuttons autorelease];
         
     }
 	
@@ -401,9 +407,9 @@ void checkNil(NSObject *ctrl)
     CGRect firstButtonFrame = CGRectZero;
 	CGRect lastButtonFrame = CGRectZero;
     int button=0;
-    for(int i=0;i<[buttons count];i++)
+    for(int i=0;i<[tbuttons count];i++)
     {
-        id b = [buttons objectAtIndex:i];
+        id b = [tbuttons objectAtIndex:i];
         if([b isKindOfClass:[BRButtonControl class]])
         {
             CGRect f = previewFrame;
@@ -415,7 +421,7 @@ void checkNil(NSObject *ctrl)
 			
 			if (i == 0) {
 				firstButtonFrame = f;
-			} else if (i == [buttons count]-1) {
+			} else if (i == [tbuttons count]-1) {
 				lastButtonFrame = f;
 			}
 			
@@ -429,7 +435,7 @@ void checkNil(NSObject *ctrl)
 	checkNil(_nextArrowImageControl);
 	
 	float arrowImageControlMargin = 20.0f;
-	if ([buttons count] > 0) { //if there are no buttons, we cannot go next/previous
+	if ([tbuttons count] > 0) { //if there are no buttons, we cannot go next/previous
 		//next/previous arrows	
 		if ([self.delegate respondsToSelector:@selector(controllerCanSwitchToPrevious:)]) {
 			//does respond
@@ -478,7 +484,7 @@ void checkNil(NSObject *ctrl)
 			}
 		}
 	}
-	
+	NSLog(@"end buttons");
 	
     BRTextControl *moviesControl =[[BRTextControl alloc] init];
     NSString *title=@"";
@@ -524,7 +530,7 @@ void checkNil(NSObject *ctrl)
 
     CGRect masterFrame=[BRWindow interfaceFrame];
     
-    if(!_usingShelfView)
+    if(![SMF_COMPAT usingFourPointFourPlus])
     {
         _shelfControl = [[NSClassFromString(@"BRMediaShelfControl") alloc] init];
         [_shelfControl setProvider:[self getProviderForShelf]];
@@ -541,18 +547,18 @@ void checkNil(NSObject *ctrl)
             _provider=nil;
         }
         _provider=[[self getProviderForShelf] retain];
-        BRProviderDataSourceAdapter * adap = [[NSClassFromString(@"BRProviderDataSourceAdapter") alloc] init];
-        [adap setProviders:[NSArray arrayWithObject:_provider]];
+        _adap = [[NSClassFromString(@"BRProviderDataSourceAdapter") alloc] init];
+        [_adap setProviders:[NSArray arrayWithObject:_provider]];
         NSLog(@"Provider: %@ %@",_provider,_provider.controlFactory);
         [_provider.controlFactory setDefaultImage:[[BRThemeInfo sharedTheme]appleTVIcon]];
-        [adap setGridColumnCount:8];
+        [_adap setGridColumnCount:8];
         if ([_shelfControl respondsToSelector:@selector(setColumnCount:)]) {
             [_shelfControl setColumnCount:8];
         }
         
         [_shelfControl setCentered:NO];
-        [_shelfControl setDataSource:adap];
-        [_shelfControl setDelegate:adap];
+        [_shelfControl setDataSource:_adap];
+        [_shelfControl setDelegate:_adap];
         //[adap autorelease];
         [_shelfControl reloadData];
         
@@ -663,10 +669,6 @@ void checkNil(NSObject *ctrl)
 //    _shelfControl.dataSource=self;
     BRControl *c = [self focusedControl];
     long shelfIndex=1;
-//    if(!_usingShelfView)
-//    {
-//        long shelfIndex=[_shelfControl focusedIndex];
-//    }
     if ([[self stack] peekController]!=self)
         return [super brEventAction:action];
     int remoteAction = [action remoteAction];
@@ -752,6 +754,7 @@ void checkNil(NSObject *ctrl)
     [_shelfControl release];
 
     [_buttons release];
+    checkNil(_adap);
     checkNil(_previousArrowImageControl);
 	checkNil(_nextArrowImageControl);
     checkNil(_info);
