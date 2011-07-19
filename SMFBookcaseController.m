@@ -8,7 +8,8 @@
 #import "SMFBookcaseController.h"
 #import "SMFDefines.h"
 #import "SMFThemeInfo.h"
-#import <Backrow/BRThemeInfo.h>
+#import "Backrow/BRThemeInfo.h"
+#import "SMFramework.h"
 
 @interface SMFBookcaseController (private)
 - (void)selectEventOccured;
@@ -22,6 +23,7 @@
 	if ((self = [super init])) {
 		_shelfControls = [[NSMutableArray alloc] init];
 		_shelfTitles = [[NSMutableArray alloc] init];
+        _shelfAdapters=[[NSMutableArray alloc]init];
 	}
 	return self;
 }
@@ -32,6 +34,8 @@
     [_shelfControls release];
 	[_shelfTitles release];
 	[_panelControl release];
+    [_shelfAdapters release];
+    _shelfAdapters=nil;
 	
     [super dealloc];
 }
@@ -45,9 +49,11 @@
 }
 
 - (void)rebuildBookcase {
+
 	[self _removeAllControls];
 	[_shelfControls removeAllObjects];
 	[_shelfTitles removeAllObjects];
+    [_shelfAdapters removeAllObjects];
 	
 	numberOfShelfControls = [self.datasource numberOfShelfsInBookcaseController:self];
 	if (numberOfShelfControls < 1) {
@@ -117,15 +123,37 @@
 		if (title) [dividerLine setLabel:title withAttributes:[[BRThemeInfo sharedTheme] boxTitleAttributesForRelated:NO]];
 		
 		//============================ SHELF ============================
-		BRMediaShelfControl *shelfControl = [[BRMediaShelfControl alloc] init];
-		[shelfControl setProvider:[self.datasource bookcaseController:self datastoreProviderForShelfAtIndex:i]];
+		BRMediaShelfView * shelfControl;
+        if ([SMF_COMPAT usingFourPointFourPlus]) {
+            shelfControl=[[BRMediaShelfView alloc]init];
+            BRProviderDataSourceAdapter * adap = [[NSClassFromString(@"BRProviderDataSourceAdapter") alloc] init];
+            [adap setProviders:[NSArray arrayWithObject:[self.datasource bookcaseController:self datastoreProviderForShelfAtIndex:i]]];
+            [shelfControl setDelegate:adap];
+            [shelfControl setDataSource:adap];
+            [_shelfAdapters addObject:adap];
+            [adap release];
+            //[adap autorelease];
+            
+        }
+        else
+        {
+            shelfControl=[[NSClassFromString(@"BRMediaShelfControl") alloc] init];
+            [(id)shelfControl setProvider:[self.datasource bookcaseController:self datastoreProviderForShelfAtIndex:i]];
+        }
+		
 		CGRect shelfFrame = shelfControl.frame;
 		shelfFrame.size.height = 215.0f;
 		[shelfControl setColumnCount:7];
 		[shelfControl setCentered:NO];
 		[shelfControl setHorizontalGap:23];
 		[shelfControl setCoverflowMargin:0.05000000074505806f];
+//        [shelfControl _forceDisplayTimerFired:nil];
+        [shelfControl loadWithCompletionBlock:nil];
+//        [shelfControl _loadControlsInRange:NSMakeRange(0, 3)];
+//        [shelfControl _loadControlWithStartIndex:0 start:YES];
+//        [shelfControl visibleScrollRectChanged];
 		[_shelfControls addObject:shelfControl];
+        
 		
 		
 		//============================ SHELF BOX ============================
@@ -145,6 +173,7 @@
 		[shelfBox release];
 		[shelfControl release];
 		[dividerLine release];
+        NSLog(@"end shelf box");
 	}
 	
 	//============================ BOTTOM SPACER ============================
@@ -169,6 +198,7 @@
 	[_scrollControl release];
 	
 	[self layoutSubcontrols];
+
 }
 
 - (void)refreshShelves {
@@ -178,10 +208,12 @@
 }
 
 - (void)refreshShelfAtIndex:(NSInteger)index {
+
 	if (index < [_shelfControls count] && index >= 0) {
-		BRMediaShelfControl *shelfControl = [_shelfControls objectAtIndex:index];
+		id shelfControl = [_shelfControls objectAtIndex:index];
 		[shelfControl reloadData];
 	}
+
 }
 
 -(BOOL)brEventAction:(BREvent *)action {
@@ -197,13 +229,23 @@
 
 //private
 - (void)selectEventOccured {
+
 	if (self.delegate) {
-		BRMediaShelfControl *focusedShelf = nil;
+		BRMediaShelfView *focusedShelf = nil;
 		id focusedBox = [_panelControl focusedControl];
 		id currentFocusedControl = [focusedBox focusedControl];
-		if (currentFocusedControl && [currentFocusedControl isKindOfClass:[BRMediaShelfControl class]]) {
-			focusedShelf = (BRMediaShelfControl *)currentFocusedControl;
-		}
+        if ([SMF_COMPAT usingFourPointFourPlus]) {
+            if (currentFocusedControl && [currentFocusedControl isKindOfClass:[BRMediaShelfView class]]) {
+                focusedShelf = (BRMediaShelfView *)currentFocusedControl;
+            }
+        }
+        else
+        {
+            if (currentFocusedControl && [currentFocusedControl isKindOfClass:[NSClassFromString(@"BRMediaShelfControl") class]]) {
+                focusedShelf = currentFocusedControl;
+            }
+        }
+
 		if (focusedShelf) {
 			int shelfIndex = [_shelfControls indexOfObject:focusedShelf];
 			if ([self.delegate bookcaseController:self allowSelectionForShelf:focusedShelf atIndex:shelfIndex]) {
@@ -220,6 +262,7 @@
 			}
 		}	
 	}
+
 }
 
 @end
