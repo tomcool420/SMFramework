@@ -14,6 +14,17 @@
 @implementation SMFDictionaryEditor
 @synthesize delegate;
 @synthesize key=_k;
+-(void)refresh
+{
+    [_keys release];
+    _keys =[[[_d allKeys] sortedArrayUsingSelector:@selector(compare:)] retain];
+    NSLog(@"keys: %@",_keys);
+    [[self list]removeDividers];
+    [[self list] addDividerAtIndex:0 withLabel:@"Keys"];
+    [[self list] addDividerAtIndex:[_keys count] withLabel:@"Options"];
+    [[self list]reload];
+    
+}
 -(id)previewControlForItem:(long)row
 {
     if (row<[_keys count]) 
@@ -67,17 +78,7 @@
 {
     return [[_d allKeys] count]+2;
 }
--(void)refresh
-{
-    [_keys release];
-    _keys =[[[_d allKeys] sortedArrayUsingSelector:@selector(compare:)] retain];
-    NSLog(@"keys: %@",_keys);
-    [[self list]removeDividers];
-    [[self list] addDividerAtIndex:0 withLabel:@"Keys"];
-    [[self list] addDividerAtIndex:[_keys count] withLabel:@"Options"];
-    [[self list]reload];
-    
-}
+
 -(id)titleForRow:(long)row
 {
     if (row<[_keys count]) {
@@ -122,8 +123,8 @@
         }
         else if(row==1)
         {
-            if (self.delegate && [self.delegate respondsToSelector:@selector(setObject:forKey:)]) {
-                [self.delegate setObject:_d forKey:self.key];
+            if (self.delegate!=nil && [self.delegate respondsToSelector:@selector(setObject:forKey:)]) {
+                [self.delegate setObject:_d forKey:(NSString *)self.key];
             }
             [[self stack]popController];
         }

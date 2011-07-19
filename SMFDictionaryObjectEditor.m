@@ -7,7 +7,7 @@
 //
 
 #import "SMFDictionaryObjectEditor.h"
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFramework.h"
 typedef enum _kSMFKe{
     kSMFEditorKey,
@@ -77,7 +77,7 @@ typedef enum _kSMFKe{
     [it setRightText:[self itemTextForRow:row]];
     return it;
 }
--(id)itemSelected:(long)selected
+-(void)itemSelected:(long)selected
 {
     lastItemSelected=selected;
     switch (selected) {
