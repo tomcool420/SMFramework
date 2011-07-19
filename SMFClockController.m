@@ -29,7 +29,7 @@
    withAttributes:[[BRThemeInfo sharedTheme]menuTitleTextAttributes]];
 
     [self setTimeZone:[NSTimeZone timeZoneWithName:@"America/Chicago"]];
-    [self setCurrentlocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [self setCurrentlocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]autorelease]];
     return self;
 }
 -(void)setColor:(UIColor *)c
