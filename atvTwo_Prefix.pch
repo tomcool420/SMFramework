@@ -2,9 +2,9 @@
 // Prefix header for all source files of the 'SMFramework' target in the 'SMFramework' project.
 //
 
-#ifdef __OBJC__
+
 //    #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 #import "SynthesizeSingleton.h"
-#endif
+
