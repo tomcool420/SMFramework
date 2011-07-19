@@ -83,7 +83,7 @@
     [_headerControl removeFromParent];
     if(_title == nil)
         _title = [@"Title" retain];
-    [_headerControl setTitle:_title];
+    //[_headerControl setTitle:_title];
     CGRect masterFrame = [self getMasterFrame];
     CGRect frame=masterFrame;
     frame.origin.y = frame.size.height * 0.82f;
