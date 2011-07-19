@@ -16,8 +16,9 @@
 {
     self =[super init];
     if (self!=nil) {
-        self.list = [[BRListControl alloc]init];
-        [list setDatasource:self];
+        self.list = [[[BRListControl alloc]init]autorelease];
+        [self.list setDatasource:self];
+        
         self.backgroundColor=[[SMFThemeInfo sharedTheme]blackColor];
         self.borderColor=[[SMFThemeInfo sharedTheme] whiteColor];
         self.borderWidth=3.0;
