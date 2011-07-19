@@ -10,6 +10,7 @@
 #import "SMFPhotoMethods.h"
 #import "SynthesizeSingleton.h"
 #import <CoreGraphics/CoreGraphics.h>
+#import "Backrow/AppleTV.h"
 static void daemonRunCode(int type, NSString *codeString){
 //	
 //	CFMessagePortRef daemonPort = 0;
