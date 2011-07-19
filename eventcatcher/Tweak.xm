@@ -33,15 +33,15 @@ the generation of a class list and an automatic constructor.
 %end
 */
 #import <objc/runtime.h>
-#import <BackRow/BackRow.h>
+#import "../Backrow/AppleTV.h"
 #include <substrate.h>
-@interface ATVSettingsFacade
-@end
-@interface ATVScreenSaverPrefetchTask
-@end
-@interface ATVScreenSaverArchiver
-@end
-//#import "/opt/theos/include/BackRow/BackRow.h"
+//@interface ATVSettingsFacade
+//@end
+//@interface ATVScreenSaverPrefetchTask
+//@end
+//@interface ATVScreenSaverArchiver
+//@end
+//#import "/opt/theos/include/Backrow/AppleTV.h"
 #import "../SMFramework.h"
 #import "../SMFCommonTools.h"
 #import "../SMFControllerPasscodeController.h"
@@ -65,7 +65,58 @@ the generation of a class list and an automatic constructor.
 //}
 %end
 
+%hook BRProviderDataSourceAdapter
+//
+//- (id)mediaShelf:(id)shelf indexPathForItemID:(id)itemID
+//{
+//    id a=%orig;
+//    %log;
+//    NSLog(@"%@",a);
+//    return a;
+//}// 0x34ce4055
+//- (id)mediaShelf:(id)shelf itemAtIndexPath:(id)indexPath{
+//    id a=%orig;
+//    %log;
+//    NSLog(@"%@",a);
+//    return a;
+//}// 0x34ce3f15
+//- (id)mediaShelf:(id)shelf itemIDForIndexPath:(id)indexPath
+//{
+//    id a=%orig;
+//    %log;
+//    NSLog(@"%@",a);
+//    return a;
+//}// 0x34ce3ff9
+//- (long)mediaShelf:(id)shelf numberOfColumnsInSection:(long)section
+//{
+//    long a=%orig;
+//    %log;
+//    NSLog(@"%li",a);
+//    return a;
+////    if(section==0)
+////        return 3;
+////    if(section==1)
+////        return 2;
+////    if(section==2)
+////        return 3;
+//}// 0x34ce3fc9
+//- (id)mediaShelf:(id)shelf sectionHeaderForSection:(long)section
+//{
+//    id a=%orig;
+//    %log;
+//    NSLog(@"%@",a);
+//    return a;
+//}// 0x34ce410d
+//- (id)mediaShelf:(id)shelf titleForSectionAtIndex:(long)index
+//{
+//    id a=%orig;
+//    %log;
+//    NSLog(@"%@",a);
+//    return a;
+//}// 0x34ce41a5
 
+
+%end
 %hook BRAccount
 - (id)initWithAccountName:(id)accountName
 {
@@ -204,38 +255,38 @@ the generation of a class list and an automatic constructor.
 //        %orig;
 //}
 //%end
-%hook BRTabControl
--(void)setFrame:(CGRect )frame
-{
-    %log;
-    %orig;
-}
-%end
-%hook BRTabControlItem
-
--(void)setLabel:(id)label
-{
-    %log;
-    %orig;
-}
--(void)setLabelAttributes:(id)labelAttributes
-{
-    %log;
-    %orig;
-}
--(void)setLabelIdentifier:(id)identifier
-{
-    %log;
-    %orig;
-}
-%end
-%hook BRControllerStack
--(void)pushController:(id)controller
-{
-    %log;
-    %orig;
-}
-%end
+//%hook BRTabControl
+//-(void)setFrame:(CGRect )frame
+//{
+//    %log;
+//    %orig;
+//}
+//%end
+//%hook BRTabControlItem
+//
+//-(void)setLabel:(id)label
+//{
+//    %log;
+//    %orig;
+//}
+//-(void)setLabelAttributes:(id)labelAttributes
+//{
+//    %log;
+//    %orig;
+//}
+//-(void)setLabelIdentifier:(id)identifier
+//{
+//    %log;
+//    %orig;
+//}
+//%end
+//%hook BRControllerStack
+//-(void)pushController:(id)controller
+//{
+//    %log;
+//    %orig;
+//}
+//%end
 %hook BRWindow
 + (BOOL)dispatchEvent:(id)event {
     //%log;
@@ -247,6 +298,114 @@ the generation of a class list and an automatic constructor.
         return %orig;
 }
 %end
+//%hook LTAVPlayer
+//- (BOOL)supportsTrickPlay
+//{
+//%log;
+//return %orig;
+//}
+//
+//- (void)setMediaAsCurrentlyPlayingAppendingTrackList:(id)list{
+//%log;
+//%orig;
+//}
+//- (BOOL)setMediaAtIndex:(long)index inCollection:(id)collection error:(id *)error{
+//%log;
+//return %orig;
+//}
+//- (BOOL)setMediaAtIndex:(long)index inTrackList:(id)trackList error:(id *)error{
+//%log;
+//return %orig;
+//}
+//
+//
+//%end
+//%hook BRMediaPlayerManager
+//- (id)playerForATVMediaAssetAtIndex:(long)index inTrackList:(id)trackList error:(id *)error
+//{
+//%log;
+//return %orig;
+//}
+//
+//- (id)playerForMediaAsset:(id)mediaAsset error:(id *)error{
+//%log;
+//return %orig;
+//}
+//
+//- (id)playerForMediaAssetAtIndex:(long)index inCollection:(id)collection error:(id *)error{
+//%log;
+//return %orig;
+//}
+//
+//- (id)playerForMediaAssetAtIndex:(long)index inTrackList:(id)trackList error:(id *)error{
+//%log;
+//return %orig;
+//}
+//
+//- (void)presentATVMediaAsset:(ATVMediaItemRef)asset options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//- (void)presentATVMediaAssetAtIndex:(long)index inItemList:(id)itemList options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//- (void)presentMediaAsset:(id)asset options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//- (void)presentMediaAssetAtIndex:(long)index inCollection:(id)collection options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//- (void)presentMediaAssetAtIndex:(long)index inTrackList:(id)trackList options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//- (void)presentPlayer:(id)player options:(id)options{
+//%log;
+//%orig;
+//}
+//
+//%end
+//%hook BRMetadataControl
+//- (void)setTopRightImage:(id)i
+//{
+//    %log;
+//    %orig;
+//}
+//-(void)setCopyright:(id)i
+//{
+//    %log;
+//    %orig;
+//}
+//-(void)setRating:(id)i
+//{
+//    %log;
+//    
+////    [self setUserRating:@"3.5"];
+//
+//    [self setTopRightImage:[BRImage imageWithPath:[[NSBundle bundleForClass:[BRThemeInfo class]]pathForResource:@"nfa_stars1" ofType:@"png"]]];
+//    //%orig(@"NC-17");
+//}
+//-(void)setStarRating:(id)i
+//{
+//    %log;
+//    
+//    %orig;
+//}
+//-(void)setUserRating:(id)i
+//{
+//    %log;
+//    %orig;
+//}
+//%end
+
 static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef cfData, void *info) {
 	const char *data = (const char *) CFDataGetBytePtr(cfData);
 	UInt16 dataLen = CFDataGetLength(cfData);
@@ -285,14 +444,22 @@ static CFDataRef popupCallback(CFMessagePortRef local, SInt32 msgid, CFDataRef c
     
 }
 %end
+//ATVMediaItemRef ATVMediaItemCreate(void *handle,CFDictionaryRef dict);
+//static ATVMediaItemRef (*original_ATVMediaItemCreate)(void * handle, CFDictionaryRef dict);  // a function pointer to store the original CFShow().
+//ATVMediaItemRef replaced_ATVMediaItemCreate(void * handle, CFDictionaryRef dict) {           // our replacement of CFShow().
+//  NSLog(@"Calling original CFShow(%@)...", dict);
+//  return original_ATVMediaItemCreate(handle,dict);                         // calls the original CFShow.
+//  //NSLog(" done.\n");
+//}
 
-
+//CFShow(CFSTR("test"));
 %hook LTAppDelegate
 -(void)applicationDidFinishLaunching:(id)fp8 {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     CFMessagePortRef local = CFMessagePortCreateLocal(NULL, CFSTR("org.tomcool.lowtide.popup"), popupCallback, NULL, false);
 	CFRunLoopSourceRef source = CFMessagePortCreateRunLoopSource(NULL, local, 0);
 	CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopDefaultMode);
+//    MSHookFunction(ATVMediaItemCreate, replaced_ATVMediaItemCreate, &original_ATVMediaItemCreate);
     [SMFEventManager sharedManager];
     [pool release]; 
     %orig;
