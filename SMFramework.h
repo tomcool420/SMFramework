@@ -7,7 +7,7 @@
 //
 
 #define __APPLE_TV__ 1
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 /*
  *   Protocols
  */
@@ -20,6 +20,8 @@
 /*
  *   Classes
  */
+#import "SMFCompatibility.h"
+#import "SMFCustomQueryMenu.h"
 #import "SMFListDropShadowControl.h"
 #import "SMFViewMenuController.h"
 #import "SMFMediaMenuController.h"
@@ -51,5 +53,7 @@
 #import "SMFTextDropShadowControl.h"
 #import "SMFComplexDropShadowControl.h"
 #import "SMFComplexProcessDropShadowControl.h"
+#import "SMFDictionaryEditor.h"
+#import "SMFControllerPasscodeController.h"
 
 #import "SMFPopup.h"

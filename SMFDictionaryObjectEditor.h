@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFMediaMenuController.h"
+#import "SMFDictionaryEditor.h"
 
 
 @interface SMFDictionaryObjectEditor : SMFMediaMenuController {
-    NSObject *delegate;
+    NSObject<SMFDictionaryEditorDelegate> *delegate;
     NSString *key;
     NSObject *obj;
     int lastItemSelected;
@@ -20,6 +21,6 @@
 }
 @property (retain)NSObject *obj;
 @property (retain)NSString *key;
-@property (assign)NSObject *delegate;
+@property (assign)NSObject<SMFDictionaryEditorDelegate> *delegate;
 -(id)initWithKey:(NSString *)k withObject:(NSObject *)obj withDelegate:(NSObject *)del;
 @end

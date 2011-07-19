@@ -7,7 +7,7 @@
 //
 
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 
 @interface SMFMovieAsset : BRXMLMediaAsset {
     BRImage *_image;

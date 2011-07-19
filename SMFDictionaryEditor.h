@@ -11,17 +11,18 @@
 @protocol SMFDictionaryEditorDelegate
 
 -(void)setObject:(NSObject *)obj forKey:(NSString *)key;
+-(BOOL)deleteObjectForKey:(NSString *)key;
 
 @end
 
 @interface SMFDictionaryEditor : SMFMediaMenuController {
     NSMutableDictionary *_d;
     NSArray *_keys;
-    id<SMFDictionaryEditorDelegate> delegate;
+    NSObject<SMFDictionaryEditorDelegate> *delegate;
     NSObject *_k;
 
 }
-@property (assign)id<SMFDictionaryEditorDelegate> delegate;
+@property (assign)NSObject<SMFDictionaryEditorDelegate> *delegate;
 @property (retain)NSObject *key;
 -(id)initWithDictionary:(NSDictionary *)d;
 -(id)initWithMutableDictionary:(NSMutableDictionary *)d inplace:(BOOL)inpl;

@@ -12,7 +12,7 @@
  *
  *
  */
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 #import <Foundation/Foundation.h>
 #define METADATA_IMAGE_URL      @"ImageURL"
 #define METADATA_TITLE          @"Name"
@@ -64,20 +64,20 @@
 - (id)coverArtForPath;
 - (void)setImage:(BRImage *)currentImage;
 - (void)setImagePath:(NSString *)path;
-/**
- *Add an Asset (SMFBaseAsset) to the preview.
- *
- *@param a the instance of SMFBaseAsset to add to the preview
- *@see asset
- */
--(void)setAsset:(SMFBaseAsset *)a;
-/**
- *The Asset containing all the information used to draw the preview
- *
- *@return the saved Asset
- *@see setAsset:
- */
--(SMFBaseAsset *)asset;
+///**
+// *Add an Asset (SMFBaseAsset) to the preview.
+// *
+// *@param a the instance of SMFBaseAsset to add to the preview
+// *@see asset
+// */
+//-(void)setAsset:(SMFBaseAsset *)a;
+///**
+// *The Asset containing all the information used to draw the preview
+// *
+// *@return the saved Asset
+// *@see setAsset:
+// */
+//-(SMFBaseAsset *)asset;
 
 
 -(void)setTopRightImage:(BRImage *)i;

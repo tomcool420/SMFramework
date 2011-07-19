@@ -6,7 +6,7 @@
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 
 
 @interface SMFControlFactory : BRPhotoControlFactory

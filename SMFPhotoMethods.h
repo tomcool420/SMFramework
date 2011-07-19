@@ -7,7 +7,7 @@
 //
 
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFControlFactory.h"
 /**
  *Convenience methods to work with pictures on ATV 2

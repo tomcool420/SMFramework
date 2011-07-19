@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 11/4/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 
 typedef enum _popupPosition{
     kSMFPopupCenterLeft     =0,
@@ -31,7 +31,6 @@ typedef enum _popupPosition{
 ///---
 ///@name Popups
 ///---
-
 /**
  *@return an SMFPopupInfo object to show using showPopup
  *@param array an NSArray with 1-3 NSStrings inside (can be nil)
