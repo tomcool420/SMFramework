@@ -7,7 +7,7 @@
 //
 
 #import "SMFPrefsMenuItem.h"
-#import <Backrow/BackRow.h>
+#import "Backrow/AppleTV.h"
 
 
 @implementation SMFPrefsMenuItem
