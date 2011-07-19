@@ -14,14 +14,7 @@
 @synthesize lastSearchedQuery=_lastSearchedQuery;
 @synthesize delegate=_delegate;
 @synthesize spinner =_spi;
--(id)previewControlForItem:(long)item
-{
-    if ([_entryControl isHidden]) {
-        return [SMFMediaPreview simplePreviewWithTitle:[self titleForRow:item] withSummary:nil withImage:[[BRThemeInfo sharedTheme]appleTVIcon]];
-    }
-    return nil;
-    
-}
+
 -(id)init;
 {
     self=[super init];
@@ -123,6 +116,16 @@
 {
     return (long)2;
 }
+-(void)controlWasActivated
+{
+    long count = [self itemCount];
+    if (count==0) {
+        [_entryControl setHidden:NO];
+        [self setFocusedControl:_entryControl];
+    }
+    [super controlWasActivated];
+    
+}
 -(id)itemForRow:(long)row
 {
     SMFMenuItem *menuItem= [SMFMenuItem menuItem];
@@ -143,5 +146,13 @@
 -(void)search:(NSString *)searchString
 {
     //Do Something
+}
+-(id)previewControlForItem:(long)item
+{
+    if ([_entryControl isHidden]) {
+        return [SMFMediaPreview simplePreviewWithTitle:[self titleForRow:item] withSummary:nil withImage:[[BRThemeInfo sharedTheme]appleTVIcon]];
+    }
+    return nil;
+    
 }
 @end
