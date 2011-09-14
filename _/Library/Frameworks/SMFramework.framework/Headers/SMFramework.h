@@ -5,7 +5,9 @@
 //  Created by Thomas Cool on 10/23/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
-#import <Backrow/Backrow.h>
+
+#define __APPLE_TV__ 1
+#import "Backrow/AppleTV.h"
 /*
  *   Protocols
  */
@@ -18,6 +20,8 @@
 /*
  *   Classes
  */
+#import "SMFCompatibility.h"
+#import "SMFCustomQueryMenu.h"
 #import "SMFListDropShadowControl.h"
 #import "SMFViewMenuController.h"
 #import "SMFMediaMenuController.h"
@@ -43,3 +47,13 @@
 #import "SMFPreferences.h"
 #import "SMFImageAsset.h"
 #import "SMFMoviePreviewController.h"
+#import "SMFInvocationCenteredMenuController.h"
+
+#import "SMFListDropShadowControl.h"
+#import "SMFTextDropShadowControl.h"
+#import "SMFComplexDropShadowControl.h"
+#import "SMFComplexProcessDropShadowControl.h"
+#import "SMFDictionaryEditor.h"
+#import "SMFControllerPasscodeController.h"
+
+#import "SMFPopup.h"

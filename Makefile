@@ -1,7 +1,7 @@
 GO_EASY_ON_ME=1
-SDKVERSION=5.0
-FW_DEVICE_IP=test.local
-#FW_DEVICE_IP=appletv.local
+SDKVERSION=4.3
+#FW_DEVICE_IP=test.local
+FW_DEVICE_IP=appletv.local
 first: clean package install
 include $(THEOS)/makefiles/common.mk
 
@@ -16,6 +16,7 @@ SMFramework_FILES +=  SMFMoviePreviewController.m SMFControlFactory.m SMFAssetPr
 SMFramework_FILES += SMFBookcaseController.m  SMFComplexDropShadowControl.mm SMFComplexProcessDropShadowControl.m SMFPrefsMenuItem.m
 SMFramework_FILES += SMFDictionaryEditor.m SMFDictionaryObjectEditor.m SMFCustomQueryMenu.m SMFPrefsSelectionItem.m
 SMFramework_FILES += BRMediaShelfView_SMF.m
+SMFramework_FILES += SMFDropShadowControl.m
 
 SMFramework_FILES += Example/SMFExamples.m Example/SMFMoviePreviewDelegateAndDatasourceExample.m Example/SMFBookcaseDelegateAndDatasourceExample.m Example/SMFGridController.m
 

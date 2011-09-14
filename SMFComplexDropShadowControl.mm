@@ -30,7 +30,7 @@
     self.backgroundColor=[[SMFThemeInfo sharedTheme]blackColor];
     self.borderColor=[[SMFThemeInfo sharedTheme] whiteColor];
     self.borderWidth=3.0;
-    self.title=@"Installing SMFramework";
+    self.title=@"								";
     self.subtitle=@" ";
     [self setContent:_bg];
     _text=[[NSMutableString alloc] initWithString:@" "];
@@ -38,26 +38,29 @@
     [self addObserver:self forKeyPath:@"subtitle" options:0 context:nil];
     return self;
 }
--(void)addToController:(BRController *)ctrl
-{
 
-    CGRect f = CGRectMake(256.0,72.0,768.0,576.0);//(s.width*0.2, s.height*0.1, s.width*0.6, s.height*0.8);
-    [self setFrame:f];
-    [ctrl addControl:self];
-    [ctrl setFocusedControl:self];
-    [ctrl _setFocus:self];
+	//this is taken care of by the superclass now
 
-}
+//-(void)addToController:(BRController *)ctrl
+//{
+//
+//    CGRect f = CGRectMake(256.0,72.0,768.0,576.0);//(s.width*0.2, s.height*0.1, s.width*0.6, s.height*0.8);
+//    [self setFrame:f];
+//    [ctrl addControl:self];
+//    [ctrl setFocusedControl:self];
+//    [ctrl _setFocus:self];
+//
+//}
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)o change:(NSDictionary *)change context:(void *)context
 {
     if (o==self && [keyPath isEqualToString:@"title"]) {
-        NSLog(@"changing title");
+			//  NSLog(@"changing title");
         [_titleControl setTitle:_title];
         [_titleControl layoutSubcontrols];
     }
     else if(o==self && [keyPath isEqualToString:@"subtitle"])
     {
-        NSLog(@"changing subtitle");
+			//   NSLog(@"changing subtitle");
         [_titleControl setTitleSubtext:_subtitle];
         [_titleControl layoutSubcontrols];
     }

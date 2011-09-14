@@ -1,4 +1,4 @@
-#line 1 "/Users/tomcool/DVLP/ATV2/SMFramework/SMFPopup.xm"
+#line 1 "/Users/kevinbradley/DVLP/SMFramework/SMFPopup.xm"
 
 
 
@@ -19,7 +19,7 @@
 #include <substrate.h>
 @class SMFPopupInfo; @class BRTrackInfoControl; 
 static Class $SMFPopupInfo; 
-#line 18 "/Users/tomcool/DVLP/ATV2/SMFramework/SMFPopup.xm"
+#line 18 "/Users/kevinbradley/DVLP/SMFramework/SMFPopup.xm"
 
 
 static id (*__ungrouped$SMFPopupInfo$_fetchCoverArt)(SMFPopupInfo*, SEL);static id $_ungrouped$SMFPopupInfo$_fetchCoverArt(SMFPopupInfo* self, SEL _cmd) {

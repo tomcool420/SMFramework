@@ -5,7 +5,7 @@
 //  Created by Thomas Cool on 10/31/10.
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 #import "SynthesizeSingleton.h"
 #import "SMFEvent.h"
 @protocol SMFEventDelegate
