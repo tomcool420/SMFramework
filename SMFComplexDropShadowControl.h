@@ -47,5 +47,6 @@
 -(BOOL)blocking;
 -(id)attributedStringForString:(NSString*)s;
 -(void)updateHeader;
+- (void)removeBlueLozenge;
 
 @end

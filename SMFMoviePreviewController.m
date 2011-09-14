@@ -253,7 +253,7 @@ void checkNil(NSObject *ctrl)
     /*
      *  Main Information
      */
-    NSLog(@"3");
+		//NSLog(@"3");
     NSArray *objects = [_info objectForKey:kSMFMoviePreviewColumns];
     for (int counter=0; counter<[objects count]; counter++) {
         NSArray *current = [objects objectAtIndex:counter];

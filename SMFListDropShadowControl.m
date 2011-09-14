@@ -24,6 +24,8 @@
 		self.backgroundColor=[[SMFThemeInfo sharedTheme]blackColor];
         self.borderColor=[[SMFThemeInfo sharedTheme] whiteColor];
         self.borderWidth=3.0;
+		self.inhibitsFocusForChildren = TRUE;
+		self.avoidsCursor = TRUE;
         [self setContent:self.list];
     }
     return self;
@@ -75,7 +77,7 @@
 -(void)controlWasActivated
 {    
 //    [list setSelection:0];
-    [self setFocusedControl:list];
+	[self setFocusedControl:list];
     [self _setFocus:list];
     [super controlWasActivated];
 }

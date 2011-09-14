@@ -110,7 +110,8 @@
 	
     [ctrl addControl:self];
     [ctrl setFocusedControl:self];
-    [ctrl _setFocus:self];
+		//[ctrl _setControlFocused:TRUE];
+	[ctrl _setFocus:self];
 }
 
 
