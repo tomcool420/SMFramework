@@ -32,6 +32,7 @@
     NSObject<SMFListDropShadowDatasource>* cDatasource;
     BRListControl *list;
 	BOOL isAnimated;
+	id sender;
 }
 /*
  *  Simply calls [list reload]
@@ -57,4 +58,5 @@
 @property (retain) NSObject<SMFListDropShadowDatasource>* cDatasource;
 @property (retain) BRListControl *list;
 @property (readwrite, assign) BOOL isAnimated;
+@property (nonatomic, retain) id sender;
 @end

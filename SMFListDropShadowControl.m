@@ -7,13 +7,15 @@
 //
 
 #define ZOOM_TRANSFORM CATransform3DMakeScale(0.1, 0.1, 1.0);
+#define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
+#define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
 #import "SMFListDropShadowControl.h"
 #import "SMFThemeInfo.h"
 #import "SMFMenuItem.h"
 #import "SMFDefines.h"
 @implementation SMFListDropShadowControl
-@synthesize cDelegate, cDatasource, list, isAnimated;
+@synthesize cDelegate, cDatasource, list, isAnimated, sender;
 -(id)init
 {
     self =[super init];
@@ -43,9 +45,9 @@
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-	
+	LOG_SELF;
 	NSString *animationName = [anim valueForKey:@"Name"];
-	
+	NSLog(@"animationName: %@", animationName);
 	if ([animationName isEqualToString:@"removeFromParent"])
 	{
 
@@ -63,8 +65,11 @@
 	
 	if (self.isAnimated == TRUE)
 	{
+		NSLog(@"sender: %@", sender);
+		[self setZoomInPosition];
 		CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-		CABasicAnimation *zoomInAnimation = [self zoomInAnimation:zoomTransform];
+			//CABasicAnimation *zoomInAnimation = [self zoomInAnimation:zoomTransform];
+		CAAnimationGroup *zoomInAnimation = [self zoomInFadedAnimation];
 		[zoomInAnimation setValue:@"zoomInAnimation" forKey:@"Name"];
 		[zoomInAnimation setDelegate:self];
 		[self addAnimation:zoomInAnimation forKey:@"zoomInAnimation"];
@@ -147,14 +152,6 @@
 	
 }
 
-- (CABasicAnimation *)fadeOutAnimation
-{
-	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-	theAnimation.duration=.25;
-	theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:0.0];
-	return theAnimation;
-}
 
 - (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform
 {		
@@ -188,13 +185,15 @@
 
 - (void)removeFromParent
 {
+	LOG_SELF;
 	if (self.isAnimated == TRUE)
 	{
+		[self setZoomOutPosition];
 		CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
 		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation:zoomTransform];
 		[zoomOutAnimation setDelegate:self];
 		[zoomOutAnimation setValue:@"removeFromParent" forKey:@"Name"];
-		[self addAnimation:zoomOutAnimation forKey:@"removeFromParent"];
+		[[self layer] addAnimation:zoomOutAnimation forKey:@"removeFromParent"];
 
 	} else {
 		
@@ -242,6 +241,123 @@
     r.origin.x=(windowSize.width-r.size.width)/2.0f;
     return r;
 }
+
+- (void)setZoomInPosition
+{
+	CABasicAnimation *pos = [CABasicAnimation animationWithKeyPath:@"position"];
+	if (sender != nil)
+	{
+		pos.fromValue = [NSValue valueWithCGPoint:[sender position]];
+	} else {
+		pos.fromValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT]; //
+	}
+	
+	pos.beginTime = 0;
+	pos.duration = .25;
+	pos.toValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)];
+	pos.fillMode = kCAFillModeForwards;
+	[[self layer] addAnimation:pos forKey:@"position"];
+}
+
+- (void)setZoomOutPosition
+{
+	CABasicAnimation *pos = [CABasicAnimation animationWithKeyPath:@"position"];
+	pos.fromValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)]; //
+	pos.beginTime = 0;
+	pos.duration = .25;
+	if (sender != nil)
+	{
+		pos.toValue = [NSValue valueWithCGPoint:[sender position]];
+	} else {
+		pos.toValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT];
+	}
+	
+	pos.fillMode = kCAFillModeForwards;
+	[[self layer] addAnimation:pos forKey:@"position"];
+}
+
+
+- (CAAnimationGroup *)zoomOutFadedAnimation
+{
+	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
+	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomOutAnimation], [self fadeOutAnimation], nil]];
+	outAnimation.duration = .25;
+	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
+	outAnimation.removedOnCompletion = NO;
+	return outAnimation;
+	
+}
+
+- (CAAnimationGroup *)zoomInFadedAnimation
+{
+	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
+	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomInAnimation], [self fadeInAnimation], nil]];
+	outAnimation.duration = .25;
+	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
+	outAnimation.removedOnCompletion = NO;
+	return outAnimation;
+	
+}
+
+- (CABasicAnimation *)fadeInAnimation
+{
+	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
+		//theAnimation.duration=.25;
+	theAnimation.fromValue=[NSNumber numberWithFloat:0.0];
+	theAnimation.toValue=[NSNumber numberWithFloat:1.0];
+	return theAnimation;
+}
+
+- (CABasicAnimation *)fadeOutAnimation
+{
+	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
+		//theAnimation.duration=.25;
+	theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
+	theAnimation.toValue=[NSNumber numberWithFloat:0.0];
+	return theAnimation;
+}
+
+
+- (CABasicAnimation *)zoomOutAnimation
+{
+	CABasicAnimation *zoomOutAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+	zoomOutAnimation.beginTime = 0;
+	zoomOutAnimation.fromValue = [NSNumber numberWithInt:1.0];
+	if (sender != nil)
+	{
+		zoomOutAnimation.toValue = [NSValue valueWithCGRect:[sender bounds]];
+		
+	} else {
+		
+		zoomOutAnimation.toValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
+		
+	}
+	
+		//zoomOutAnimation.duration = 0.25f;
+	return zoomOutAnimation;
+}
+
+- (CABasicAnimation *)zoomInAnimation
+{
+	CABasicAnimation *zoomInAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+	zoomInAnimation.beginTime = 0;
+	if (sender != nil)
+	{
+		zoomInAnimation.fromValue = [NSValue valueWithCGRect:[sender bounds]];
+		
+	} else {
+		
+		zoomInAnimation.fromValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
+	}
+	
+	zoomInAnimation.toValue = [NSNumber numberWithInt:1.0];
+	zoomInAnimation.duration = 0.25f;
+	return zoomInAnimation;
+}
+
+
 -(void)dealloc
 {
     self.cDelegate=nil;
