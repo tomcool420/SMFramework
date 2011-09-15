@@ -12,8 +12,10 @@
 @interface SMFDropShadowControl : BRDropShadowControl {
 		
 	BOOL isAnimated;
+	id sender;
 	
 }
 
 @property (readwrite, assign) BOOL isAnimated;
+@property (nonatomic, retain) id sender;
 @end
