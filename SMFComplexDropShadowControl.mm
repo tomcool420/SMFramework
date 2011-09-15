@@ -129,20 +129,21 @@ void logFrame(CGRect frame)
 	}
 }
 
-- (CGRect)focusCursorFrame
-{
-		//right now i am just shrinking the rect down so its only noticable during its exit animation (which was a default animation that we have nothing to do w/)
-	return SHRINK_RECT;
-}
+
+//- (CGRect)focusCursorFrame
+//{
+//		//right now i am just shrinking the rect down so its only noticable during its exit animation (which was a default animation that we have nothing to do w/)
+//	return SHRINK_RECT;
+//}
 
 -(void)controlWasActivated
 {
     [super controlWasActivated];
-	NSArray *listControls = [_list controls];
-	if ([listControls count] > 1)
-	{
-		[self removeBlueLozenge];
-	}
+	//NSArray *listControls = [_list controls];
+//	if ([listControls count] > 1)
+//	{
+//		[self removeBlueLozenge];
+//	}
 		
     [self reload];
 }

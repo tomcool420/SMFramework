@@ -32,3 +32,5 @@ typedef enum {
 	kBREventRemoteActionHoldUp,
 	kBREventRemoteActionHoldDown,
 } BREventRemoteAction;
+
+#define LOG_SELF NSLog(@"%@ %s", self, _cmd)

@@ -20,7 +20,7 @@
     if (self!=nil) {
         self.list = [[[BRListControl alloc]init]autorelease];
         [self.list setDatasource:self];
-        self.isAnimated = TRUE; //up to you, can be false by default if you dont like it
+        self.isAnimated = FALSE; //up to you, can be false by default if you dont like it
 		self.backgroundColor=[[SMFThemeInfo sharedTheme]blackColor];
         self.borderColor=[[SMFThemeInfo sharedTheme] whiteColor];
         self.borderWidth=3.0;
