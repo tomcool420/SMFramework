@@ -10,6 +10,7 @@
 #define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
+
 #import "SMFListDropShadowControl.h"
 #import "SMFThemeInfo.h"
 #import "SMFMenuItem.h"
@@ -37,25 +38,7 @@
     [list reload];
 }
 
-- (void)animationDidStart:(CAAnimation *)anim
-{
 
-		//NSLog(@"animationDidStart: %@", anim);
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-	LOG_SELF;
-	NSString *animationName = [anim valueForKey:@"Name"];
-	NSLog(@"animationName: %@", animationName);
-	if ([animationName isEqualToString:@"removeFromParent"])
-	{
-
-			[super removeFromParent];
-	}
-	[self removeAnimationForKey:animationName];	
-		
-}
 
 -(void)addToController:(BRController *)ctrl
 {
@@ -65,10 +48,7 @@
 	
 	if (self.isAnimated == TRUE)
 	{
-		NSLog(@"sender: %@", sender);
-		[self setZoomInPosition];
-		CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-			//CABasicAnimation *zoomInAnimation = [self zoomInAnimation:zoomTransform];
+		[self setZoomInPosition]; //if we dont set this the position goes haywire
 		CAAnimationGroup *zoomInAnimation = [self zoomInFadedAnimation];
 		[zoomInAnimation setValue:@"zoomInAnimation" forKey:@"Name"];
 		[zoomInAnimation setDelegate:self];
@@ -141,56 +121,15 @@
     }
 }
 
-- (CAAnimationGroup *)zoomOutFadedAnimation:(CATransform3D)zoomTransform
-{
-	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
-	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomOutAnimation:zoomTransform], [self fadeOutAnimation], nil]];
-	outAnimation.duration = .25;
-	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
-	outAnimation.removedOnCompletion = NO;
-	return outAnimation;
-	
-}
-
-
-- (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform
-{		
-	
-	CABasicAnimation *zoomOutAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-		//[zoomOutAnimation setDelegate:self];
-	zoomOutAnimation.beginTime = 0;
-	zoomOutAnimation.repeatCount = 0;
-	zoomOutAnimation.timeOffset = 1;
-	zoomOutAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-	zoomOutAnimation.toValue = [NSValue valueWithCATransform3D:zoomTransform];
-	zoomOutAnimation.duration = 0.25f;
-	zoomOutAnimation.fillMode = kCAFillModeForwards;
-	zoomOutAnimation.removedOnCompletion = NO;
-	return zoomOutAnimation;
-	
-}
-
-- (CABasicAnimation *)zoomInAnimation:(CATransform3D)zoomTransform
-{
-	
-	CABasicAnimation *zoomInAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomInAnimation.beginTime = 0;
-	zoomInAnimation.fromValue = [NSValue valueWithCATransform3D:zoomTransform];
-	zoomInAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-	zoomInAnimation.duration = 0.25f;
-	return zoomInAnimation;
-	
-}
 
 
 - (void)removeFromParent
 {
-	LOG_SELF;
 	if (self.isAnimated == TRUE)
 	{
 		[self setZoomOutPosition];
-		CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation:zoomTransform];
+			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
+		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation];
 		[zoomOutAnimation setDelegate:self];
 		[zoomOutAnimation setValue:@"removeFromParent" forKey:@"Name"];
 		[[self layer] addAnimation:zoomOutAnimation forKey:@"removeFromParent"];
@@ -242,6 +181,27 @@
     return r;
 }
 
+# pragma mark animation stuff
+
+- (void)animationDidStart:(CAAnimation *)anim
+{
+	
+		//NSLog(@"animationDidStart: %@", anim);
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+	NSString *animationName = [anim valueForKey:@"Name"];
+	if ([animationName isEqualToString:@"removeFromParent"])
+	{
+		
+		[super removeFromParent];
+	}
+	[self removeAnimationForKey:animationName];	
+	
+}
+
+
 - (void)setZoomInPosition
 {
 	CABasicAnimation *pos = [CABasicAnimation animationWithKeyPath:@"position"];
@@ -267,6 +227,9 @@
 	pos.duration = .25;
 	if (sender != nil)
 	{
+			//NSString *senderClass = NSStringFromClass([sender class]);
+			//NSLog(@"class: %@", senderClass); //trying to do something different for BRMenuItems, doesnt appear to be working though :(
+		
 		pos.toValue = [NSValue valueWithCGPoint:[sender position]];
 	} else {
 		pos.toValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT];

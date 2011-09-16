@@ -18,4 +18,14 @@
 
 @property (readwrite, assign) BOOL isAnimated;
 @property (nonatomic, retain) id sender;
+
+- (void)setZoomInPosition;
+- (void)setZoomOutPosition;
+- (CAAnimationGroup *)zoomOutFadedAnimation;
+- (CAAnimationGroup *)zoomInFadedAnimation;
+- (CABasicAnimation *)fadeInAnimation;
+- (CABasicAnimation *)fadeOutAnimation;
+- (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform; //deprecated
+- (CABasicAnimation *)zoomOutAnimation;
+- (CABasicAnimation *)zoomInAnimation;
 @end

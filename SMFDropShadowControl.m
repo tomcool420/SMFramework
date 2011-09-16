@@ -62,7 +62,7 @@
 }
 
 
-- (CAAnimationGroup *)zoomOutFadedAnimation:(CATransform3D)zoomTransform
+- (CAAnimationGroup *)zoomOutFadedAnimation
 {
 	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
 	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomOutAnimation], [self fadeOutAnimation], nil]];
@@ -179,8 +179,8 @@
 {
 	if (self.isAnimated == TRUE)
 	{
-		CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation:zoomTransform];
+			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
+		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation];
 		[zoomOutAnimation setDelegate:self];
 		[self setZoomOutPosition];
 		[zoomOutAnimation setValue:@"removeFromParent" forKey:@"Name"];

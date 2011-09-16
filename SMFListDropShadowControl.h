@@ -52,8 +52,15 @@
  *  To remove it: you can call: -(void)removeFromParent
  */
 -(void)addToController:(BRController *)ctrl;
-- (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform;
-- (CABasicAnimation *)zoomInAnimation:(CATransform3D)zoomTransform;
+- (void)setZoomInPosition;
+- (void)setZoomOutPosition;
+- (CAAnimationGroup *)zoomOutFadedAnimation;
+- (CAAnimationGroup *)zoomInFadedAnimation;
+- (CABasicAnimation *)fadeInAnimation;
+- (CABasicAnimation *)fadeOutAnimation;
+- (CABasicAnimation *)zoomOutAnimation;
+- (CABasicAnimation *)zoomInAnimation;
+
 @property (retain) NSObject<SMFListDropShadowDelegate>* cDelegate;
 @property (retain) NSObject<SMFListDropShadowDatasource>* cDatasource;
 @property (retain) BRListControl *list;
