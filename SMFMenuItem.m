@@ -10,6 +10,9 @@
 
 
 @implementation SMFMenuItem
+
+@synthesize centered;
+
 +(SMFMenuItem *)folderMenuItem
 {
     SMFMenuItem *i = [[SMFMenuItem alloc] init];
@@ -66,7 +69,17 @@
 }
 -(void)setTitle:(NSString *)title
 {
-    [self setText:title withAttributes:[[BRThemeInfo sharedTheme]menuItemTextAttributes]];
+	if (centered == TRUE)
+	{
+		[self setText:title withAttributes:[self centeredTextAttributes]];
+		
+		
+	} else {
+		
+		[self setText:title withAttributes:[[BRThemeInfo sharedTheme]menuItemTextAttributes]];
+	}
+
+    
 }
 -(void)setRightText:(NSString *)txt
 {

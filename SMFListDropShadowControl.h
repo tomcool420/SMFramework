@@ -63,7 +63,7 @@
 
 - (void)updateSender;
 - (id)getListFromMenuItem:(id)menuItem;
-- (id)synthesizeMockItemFrom:(id)theSender;
+- (id)synthesizeMockItemFrom:(id)theSender withX:(float)xValue;
 - (id)synthesizeMockItem;
 
 @property (retain) NSObject<SMFListDropShadowDelegate>* cDelegate;
