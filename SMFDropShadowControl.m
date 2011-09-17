@@ -231,7 +231,11 @@
 	
 	if (self.isAnimated == TRUE)
 	{
-		[self updateSender];
+		if (sender != nil)
+		{
+			[self updateSender];
+		}
+		
 		[self setZoomInPosition];
 			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
 			//CABasicAnimation *zoomInAnimation = [self zoomInAnimation];
