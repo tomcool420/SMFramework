@@ -28,4 +28,10 @@
 - (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform; //deprecated
 - (CABasicAnimation *)zoomOutAnimation;
 - (CABasicAnimation *)zoomInAnimation;
+
+- (void)updateSender;
+- (id)getListFromMenuItem:(id)menuItem;
+- (id)synthesizeMockItemFrom:(id)theSender;
+- (id)synthesizeMockItem;
+
 @end

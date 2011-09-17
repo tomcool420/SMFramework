@@ -8,9 +8,12 @@
 
 #import "SMFDropShadowControl.h"
 #import "SMFDefines.h"
+#import "SMFMockMenuItem.h"
 
 #define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
+
+
 
 @implementation SMFDropShadowControl
 
@@ -201,6 +204,7 @@
 	
 	if (self.isAnimated == TRUE)
 	{
+		[self updateSender];
 		[self setZoomInPosition];
 			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
 			//CABasicAnimation *zoomInAnimation = [self zoomInAnimation];
@@ -239,6 +243,88 @@
 	
 }
 
+
+/*
+ 
+ if we are a BRMenuItem there are very minimal chances that you will get a usable position and bounds from it for zooming purposes
+ here are all the functions where i handle what is mentioned at the top (the comments about sender)
+ 
+ */
+
+- (void)updateSender
+{
+	if ([sender isKindOfClass:[BRMenuItem class]]) //is or descends from BRMenuItem
+	{
+		id newSender = [self synthesizeMockItem]; //create our stub menu item that has 2 variables total.
+		if (newSender != nil)
+		{
+				//	NSLog(@"setting new sender to: %@", newSender);
+			
+			sender = newSender;
+				//NSLog(@"sender check: %@", sender);
+		}
+		
+	}
+	
+}
+
+	// find the list given the BRMenuItem (or said subclass of BRMenuItem)
+
+- (id)getListFromMenuItem:(id)menuItem
+{
+	id listControl = [[[menuItem parent] parent] parent]; //parent = BRGridControl, grand parent = BRScrollControl, great grand parent = BRListControl
+	NSString *class = NSStringFromClass([listControl class]);
+	if (![class isEqualToString:@"BRListControl"])
+	{
+		NSLog(@"cant find list control!!!, found %@ instead!", class); //bail!!!
+		return nil;
+	}
+	return listControl;
+}
+
+	//given the BRBlueGlowSelectionLozengeLayer control, spit out our stub class with the proper positioning.
+
+- (id)synthesizeMockItemFrom:(id)theSender
+{
+	
+	SMFMockMenuItem *menuItem = [[SMFMockMenuItem alloc] init];
+	CGPoint newPosition = [theSender position];
+	newPosition.x = 948.0f; //said attitude adjustment, without setting this x variable properly, all hell breaks loose.
+	
+	[menuItem setBounds:[theSender bounds]];
+	[menuItem setPosition:newPosition];
+	
+	return menuItem;
+	
+}
+
+- (id)synthesizeMockItem
+{
+	id theList = [self getListFromMenuItem:sender];
+	if (theList == nil)
+		return nil;
+	NSEnumerator *controlEnum = [[theList controls] objectEnumerator];
+	id current = nil;
+	while ((current = [controlEnum nextObject]))
+	{
+		NSString *currentClass = NSStringFromClass([current class]);
+		if ([currentClass isEqualToString:@"BRBlueGlowSelectionLozengeLayer"])
+		{
+			
+			return [self synthesizeMockItemFrom:current];
+			
+		}
+	}
+	return nil;
+}
+
+
+-(void)dealloc
+{
+	[sender release];
+	self.sender = nil;
+    [super dealloc];
+}
 
 
 @end

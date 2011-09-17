@@ -16,7 +16,7 @@ SMFramework_FILES +=  SMFMoviePreviewController.m SMFControlFactory.m SMFAssetPr
 SMFramework_FILES += SMFBookcaseController.m  SMFComplexDropShadowControl.mm SMFComplexProcessDropShadowControl.m SMFPrefsMenuItem.m
 SMFramework_FILES += SMFDictionaryEditor.m SMFDictionaryObjectEditor.m SMFCustomQueryMenu.m SMFPrefsSelectionItem.m
 SMFramework_FILES += BRMediaShelfView_SMF.m
-SMFramework_FILES += SMFDropShadowControl.m
+SMFramework_FILES += SMFDropShadowControl.m SMFMockMenuItem.m
 
 SMFramework_FILES += Example/SMFExamples.m Example/SMFMoviePreviewDelegateAndDatasourceExample.m Example/SMFBookcaseDelegateAndDatasourceExample.m Example/SMFGridController.m
 

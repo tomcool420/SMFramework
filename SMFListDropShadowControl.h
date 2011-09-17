@@ -61,6 +61,11 @@
 - (CABasicAnimation *)zoomOutAnimation;
 - (CABasicAnimation *)zoomInAnimation;
 
+- (void)updateSender;
+- (id)getListFromMenuItem:(id)menuItem;
+- (id)synthesizeMockItemFrom:(id)theSender;
+- (id)synthesizeMockItem;
+
 @property (retain) NSObject<SMFListDropShadowDelegate>* cDelegate;
 @property (retain) NSObject<SMFListDropShadowDatasource>* cDatasource;
 @property (retain) BRListControl *list;

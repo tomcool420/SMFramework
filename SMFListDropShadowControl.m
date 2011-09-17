@@ -15,6 +15,17 @@
 #import "SMFThemeInfo.h"
 #import "SMFMenuItem.h"
 #import "SMFDefines.h"
+#import "SMFMockMenuItem.h"
+
+/*
+ 
+ sender is a new variable to determine the bounds and position for zoom animations, if it descends from BRMenuItem we synthesize a stub class 
+ that only has position and bounds variables, i can't figure out how to get the proper bounds/position from BRListControl from and standard BRMenuController
+ so what i do is take the blue lozenge from the list grab its position and modify the x value (the y variables are accurate here, only X needs an attitude adjustment) 
+ 
+ 
+ */
+
 @implementation SMFListDropShadowControl
 @synthesize cDelegate, cDatasource, list, isAnimated, sender;
 -(id)init
@@ -48,6 +59,10 @@
 	
 	if (self.isAnimated == TRUE)
 	{
+		if (sender != nil)
+		{
+			[self updateSender];
+		}
 		[self setZoomInPosition]; //if we dont set this the position goes haywire
 		CAAnimationGroup *zoomInAnimation = [self zoomInFadedAnimation];
 		[zoomInAnimation setValue:@"zoomInAnimation" forKey:@"Name"];
@@ -229,7 +244,6 @@
 	{
 			//NSString *senderClass = NSStringFromClass([sender class]);
 			//NSLog(@"class: %@", senderClass); //trying to do something different for BRMenuItems, doesnt appear to be working though :(
-		
 		pos.toValue = [NSValue valueWithCGPoint:[sender position]];
 	} else {
 		pos.toValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT];
@@ -321,8 +335,85 @@
 }
 
 
+/*
+ 
+if we are a BRMenuItem there are very minimal chances that you will get a usable position and bounds from it for zooming purposes
+here are all the functions where i handle what is mentioned at the top (the comments about sender)
+ 
+ */
+
+- (void)updateSender
+{
+	if ([sender isKindOfClass:[BRMenuItem class]]) //is or descends from BRMenuItem
+	{
+		id newSender = [self synthesizeMockItem]; //create our stub menu item that has 2 variables total.
+		if (newSender != nil)
+		{
+				//	NSLog(@"setting new sender to: %@", newSender);
+			
+			sender = newSender;
+				//NSLog(@"sender check: %@", sender);
+		}
+		
+	}
+	
+}
+
+	// find the list given the BRMenuItem (or said subclass of BRMenuItem)
+
+- (id)getListFromMenuItem:(id)menuItem
+{
+	id listControl = [[[menuItem parent] parent] parent]; //parent = BRGridControl, grand parent = BRScrollControl, great grand parent = BRListControl
+	NSString *class = NSStringFromClass([listControl class]);
+	if (![class isEqualToString:@"BRListControl"])
+	{
+		NSLog(@"cant find list control!!!, found %@ instead!", class); //bail!!!
+		return nil;
+	}
+	return listControl;
+}
+
+	//given the BRBlueGlowSelectionLozengeLayer control, spit out our stub class with the proper positioning.
+
+- (id)synthesizeMockItemFrom:(id)theSender
+{
+	
+	SMFMockMenuItem *menuItem = [[SMFMockMenuItem alloc] init];
+	CGPoint newPosition = [theSender position];
+	newPosition.x = 948.0f; //said attitude adjustment, without setting this x variable properly, all hell breaks loose.
+	
+	[menuItem setBounds:[theSender bounds]];
+	[menuItem setPosition:newPosition];
+	
+	return menuItem;
+	
+}
+
+- (id)synthesizeMockItem
+{
+	id theList = [self getListFromMenuItem:sender];
+	if (theList == nil)
+		return nil;
+	NSEnumerator *controlEnum = [[theList controls] objectEnumerator];
+	id current = nil;
+	while ((current = [controlEnum nextObject]))
+	{
+		NSString *currentClass = NSStringFromClass([current class]);
+		if ([currentClass isEqualToString:@"BRBlueGlowSelectionLozengeLayer"])
+		{
+			
+			return [self synthesizeMockItemFrom:current];
+			
+		}
+	}
+	return nil;
+}
+
+
 -(void)dealloc
 {
+	[sender release];
+	self.sender = nil;
     self.cDelegate=nil;
     self.cDatasource=nil;
     self.list=nil;
