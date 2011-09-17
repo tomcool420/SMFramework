@@ -375,12 +375,12 @@ here are all the functions where i handle what is mentioned at the top (the comm
 
 	//given the BRBlueGlowSelectionLozengeLayer control, spit out our stub class with the proper positioning.
 
-- (id)synthesizeMockItemFrom:(id)theSender
+- (id)synthesizeMockItemFrom:(id)theSender withX:(float)xValue
 {
 	
 	SMFMockMenuItem *menuItem = [[SMFMockMenuItem alloc] init];
 	CGPoint newPosition = [theSender position];
-	newPosition.x = 948.0f; //said attitude adjustment, without setting this x variable properly, all hell breaks loose.
+	newPosition.x = xValue; //said attitude adjustment, without setting this x variable properly, all hell breaks loose.
 	
 	[menuItem setBounds:[theSender bounds]];
 	[menuItem setPosition:newPosition];
@@ -394,6 +394,9 @@ here are all the functions where i handle what is mentioned at the top (the comm
 	id theList = [self getListFromMenuItem:sender];
 	if (theList == nil)
 		return nil;
+	
+	CGPoint listPosition = [theList position];
+	float xValue = listPosition.x;
 	NSEnumerator *controlEnum = [[theList controls] objectEnumerator];
 	id current = nil;
 	while ((current = [controlEnum nextObject]))
@@ -402,7 +405,7 @@ here are all the functions where i handle what is mentioned at the top (the comm
 		if ([currentClass isEqualToString:@"BRBlueGlowSelectionLozengeLayer"])
 		{
 			
-			return [self synthesizeMockItemFrom:current];
+			return [self synthesizeMockItemFrom:current withX:xValue];
 			
 		}
 	}
