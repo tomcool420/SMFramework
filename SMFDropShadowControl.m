@@ -13,7 +13,34 @@
 #define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
-
+/*
+ 
+ if you are sending from a BRMenuItem there is a proper way to get the current menu item selection
+ 
+ id selectedObject = [[self list] selectedObject];
+ 
+ (keeping in mind this is from your controller you are adding a pop over to)
+ 
+ you also need to set isAnimation to TRUE before adding the controller.
+ 
+ i.e.
+ 
+ SMFListDropShadowControl *c = [[SMFListDropShadowControl alloc]init];
+ 
+ [c setCDelegate:me]; (me being the controller attached to)
+ [c setSender:sender];
+ [c setCDatasource:me];
+ [c setIsAnimated:TRUE];
+ [c addToController:me];
+ 
+ 
+ note: there are a lot of repeat functions between here and SMFListDropShadowControl, hopefully at some point that can become a subclass of this as well
+ and that code can be pruned out.
+ 
+ 
+ this class should NEVER be called directly, its sole purpose is for all other SMFDropShadow subclasses to easily subclass and retain the animation goodness.
+ 
+ */
 
 @implementation SMFDropShadowControl
 
