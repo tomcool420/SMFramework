@@ -54,12 +54,6 @@
 -(void)addToController:(BRController *)ctrl;
 - (void)setZoomInPosition;
 - (void)setZoomOutPosition;
-- (CAAnimationGroup *)zoomOutFadedAnimation;
-- (CAAnimationGroup *)zoomInFadedAnimation;
-- (CABasicAnimation *)fadeInAnimation;
-- (CABasicAnimation *)fadeOutAnimation;
-- (CABasicAnimation *)zoomOutAnimation;
-- (CABasicAnimation *)zoomInAnimation;
 
 - (void)updateSender;
 - (id)getListFromMenuItem:(id)menuItem;

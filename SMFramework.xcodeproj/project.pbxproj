@@ -67,6 +67,8 @@
 /* Begin PBXBuildFile section */
 		3226AD541424897C0014943B /* SMFMockMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3226AD521424897C0014943B /* SMFMockMenuItem.m */; };
 		3226AD551424897C0014943B /* SMFMockMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3226AD531424897C0014943B /* SMFMockMenuItem.h */; };
+		32CCA6AE1425D45D00037D7D /* SMFAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCA6AC1425D45D00037D7D /* SMFAnimation.h */; };
+		32CCA6AF1425D45D00037D7D /* SMFAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCA6AD1425D45D00037D7D /* SMFAnimation.m */; };
 		32D6E288142053AD00325EBE /* SMFDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 32D6E286142053AD00325EBE /* SMFDropShadowControl.h */; };
 		32D6E289142053AD00325EBE /* SMFDropShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D6E287142053AD00325EBE /* SMFDropShadowControl.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
@@ -1217,6 +1219,8 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		3226AD521424897C0014943B /* SMFMockMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMockMenuItem.m; sourceTree = "<group>"; };
 		3226AD531424897C0014943B /* SMFMockMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMockMenuItem.h; sourceTree = "<group>"; };
+		32CCA6AC1425D45D00037D7D /* SMFAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFAnimation.h; sourceTree = "<group>"; };
+		32CCA6AD1425D45D00037D7D /* SMFAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFAnimation.m; sourceTree = "<group>"; };
 		32D6E286142053AD00325EBE /* SMFDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDropShadowControl.h; sourceTree = "<group>"; };
 		32D6E287142053AD00325EBE /* SMFDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFDropShadowControl.m; sourceTree = "<group>"; };
 		32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atvTwo_Prefix.pch; sourceTree = "<group>"; };
@@ -2625,6 +2629,8 @@
 		DD5FD68B131C8B9D004A6D5C /* ShadowPopups */ = {
 			isa = PBXGroup;
 			children = (
+				32CCA6AC1425D45D00037D7D /* SMFAnimation.h */,
+				32CCA6AD1425D45D00037D7D /* SMFAnimation.m */,
 				32D6E286142053AD00325EBE /* SMFDropShadowControl.h */,
 				32D6E287142053AD00325EBE /* SMFDropShadowControl.m */,
 				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
@@ -4822,6 +4828,7 @@
 				DDCC4AC613CE98AD0099DFED /* SMFCompatibility.h in Headers */,
 				32D6E288142053AD00325EBE /* SMFDropShadowControl.h in Headers */,
 				3226AD551424897C0014943B /* SMFMockMenuItem.h in Headers */,
+				32CCA6AE1425D45D00037D7D /* SMFAnimation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5042,6 +5049,7 @@
 				DDCC4AC713CE98AD0099DFED /* SMFCompatibility.m in Sources */,
 				32D6E289142053AD00325EBE /* SMFDropShadowControl.m in Sources */,
 				3226AD541424897C0014943B /* SMFMockMenuItem.m in Sources */,
+				32CCA6AF1425D45D00037D7D /* SMFAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

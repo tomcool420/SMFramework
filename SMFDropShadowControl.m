@@ -9,8 +9,8 @@
 #import "SMFDropShadowControl.h"
 #import "SMFDefines.h"
 #import "SMFMockMenuItem.h"
+#import "SMFAnimation.h"
 
-#define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
 /*
@@ -67,8 +67,6 @@
 		pos.fromValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT]; //
 	}
 	
-	pos.beginTime = 0;
-	pos.duration = .25;
 	pos.toValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)];
 	pos.fillMode = kCAFillModeForwards;
 	[[self layer] addAnimation:pos forKey:@"position"];
@@ -78,8 +76,6 @@
 {
 	CABasicAnimation *pos = [CABasicAnimation animationWithKeyPath:@"position"];
 	pos.fromValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)]; //
-	pos.beginTime = 0;
-	pos.duration = .25;
 	if (sender != nil)
 	{
 		pos.toValue = [NSValue valueWithCGPoint:[sender position]];
@@ -89,115 +85,6 @@
 
 	pos.fillMode = kCAFillModeForwards;
 	[[self layer] addAnimation:pos forKey:@"position"];
-}
-
-
-- (CAAnimationGroup *)zoomOutFadedAnimation
-{
-	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
-	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomOutAnimation], [self fadeOutAnimation], nil]];
-	outAnimation.duration = .25;
-	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
-	outAnimation.removedOnCompletion = NO;
-	return outAnimation;
-	
-}
-
-- (CAAnimationGroup *)zoomInFadedAnimation
-{
-	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
-	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomInAnimation], [self fadeInAnimation], nil]];
-	outAnimation.duration = .25;
-	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
-	outAnimation.removedOnCompletion = NO;
-	return outAnimation;
-	
-}
-
-- (CABasicAnimation *)fadeInAnimation
-{
-	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-		//theAnimation.duration=.25;
-	theAnimation.fromValue=[NSNumber numberWithFloat:0.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:1.0];
-	return theAnimation;
-}
-
-- (CABasicAnimation *)fadeOutAnimation
-{
-	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-		//theAnimation.duration=.25;
-	theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:0.0];
-	return theAnimation;
-}
-
-- (CABasicAnimation *)zoomOutAnimation:(CATransform3D)zoomTransform //edits the transform directly, so this cant be properly paired with other animations
-{		
-	
-	CABasicAnimation *zoomOutAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-		//[zoomOutAnimation setDelegate:self];
-	zoomOutAnimation.beginTime = 0;
-	zoomOutAnimation.repeatCount = 0;
-	zoomOutAnimation.timeOffset = 1;
-	zoomOutAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-	zoomOutAnimation.toValue = [NSValue valueWithCATransform3D:zoomTransform];
-	zoomOutAnimation.duration = 0.25f;
-	zoomOutAnimation.fillMode = kCAFillModeForwards;
-	zoomOutAnimation.removedOnCompletion = NO;
-	return zoomOutAnimation;
-	
-}
-
-- (CABasicAnimation *)zoomOutAnimation
-{
-	CABasicAnimation *zoomOutAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomOutAnimation.beginTime = 0;
-	zoomOutAnimation.fromValue = [NSNumber numberWithInt:1.0];
-	if (sender != nil)
-	{
-		zoomOutAnimation.toValue = [NSValue valueWithCGRect:[sender bounds]];
-		
-	} else {
-		
-		zoomOutAnimation.toValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
-		
-	}
-	
-		//zoomOutAnimation.duration = 0.25f;
-	return zoomOutAnimation;
-}
-
-- (CABasicAnimation *)zoomInAnimation
-{
-	CABasicAnimation *zoomInAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomInAnimation.beginTime = 0;
-	if (sender != nil)
-	{
-		zoomInAnimation.fromValue = [NSValue valueWithCGRect:[sender bounds]];
-		
-	} else {
-		
-		zoomInAnimation.fromValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
-	}
-	
-	zoomInAnimation.toValue = [NSNumber numberWithInt:1.0];
-	zoomInAnimation.duration = 0.25f;
-	return zoomInAnimation;
-}
-
-- (CABasicAnimation *)zoomInAnimation:(CATransform3D)zoomTransform
-{
-	
-	CABasicAnimation *zoomInAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomInAnimation.beginTime = 0;
-	zoomInAnimation.fromValue = [NSValue valueWithCATransform3D:zoomTransform];
-	zoomInAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-	zoomInAnimation.duration = 0.25f;
-	return zoomInAnimation;
-	
 }
 
 -(BOOL)avoidsCursor //of course it was easier than i was making it!!
@@ -210,7 +97,12 @@
 	if (self.isAnimated == TRUE)
 	{
 			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation];
+		CAAnimationGroup *zoomOutAnimation = nil;
+		if (sender != nil)
+			zoomOutAnimation = [SMFAnimation zoomOutFadedToRect:[sender	bounds]];
+		else
+			zoomOutAnimation = [SMFAnimation zoomOutFadedToRect:CGRectZero];
+
 		[zoomOutAnimation setDelegate:self];
 		[self setZoomOutPosition];
 		[zoomOutAnimation setValue:@"removeFromParent" forKey:@"Name"];
@@ -231,15 +123,19 @@
 	
 	if (self.isAnimated == TRUE)
 	{
+		CAAnimationGroup *zoomInAnimation = nil;
+		
 		if (sender != nil)
 		{
-			[self updateSender];
+			[self updateSender]; //fixes the sender to have a proper X value for purposes of zooming in and out
+			
+			zoomInAnimation = [SMFAnimation zoomInFadedToRect:[sender bounds]];
+		} else {
+			zoomInAnimation = [SMFAnimation zoomInFadedToRect:CGRectZero];
 		}
 		
-		[self setZoomInPosition];
-			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-			//CABasicAnimation *zoomInAnimation = [self zoomInAnimation];
-		CAAnimationGroup *zoomInAnimation = [self zoomInFadedAnimation];
+		
+		[self setZoomInPosition]; //wish there was some way for me to implement this into the animation class, but its specific to self
 		[zoomInAnimation setValue:@"zoomInAnimation" forKey:@"Name"];
 		[zoomInAnimation setDelegate:self];
 		

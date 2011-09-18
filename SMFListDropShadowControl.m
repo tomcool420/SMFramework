@@ -6,8 +6,6 @@
 //  Copyright 2011 tomcool.org. All rights reserved.
 //
 
-#define ZOOM_TRANSFORM CATransform3DMakeScale(0.1, 0.1, 1.0);
-#define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
 
@@ -16,6 +14,7 @@
 #import "SMFMenuItem.h"
 #import "SMFDefines.h"
 #import "SMFMockMenuItem.h"
+#import "SMFAnimation.h"
 
 /*
  
@@ -50,7 +49,6 @@
 }
 
 
-
 -(void)addToController:(BRController *)ctrl
 {
     CGRect f = [self rectForSize:CGSizeMake(528., 154.)];
@@ -59,12 +57,18 @@
 	
 	if (self.isAnimated == TRUE)
 	{
+		CAAnimationGroup *zoomInAnimation = nil;
+		
 		if (sender != nil)
 		{
 			[self updateSender];
+			zoomInAnimation = [SMFAnimation zoomInFadedToRect:[sender bounds]];
+		} else {
+			zoomInAnimation = [SMFAnimation zoomInFadedToRect:CGRectZero];
 		}
+		
 		[self setZoomInPosition]; //if we dont set this the position goes haywire
-		CAAnimationGroup *zoomInAnimation = [self zoomInFadedAnimation];
+		
 		[zoomInAnimation setValue:@"zoomInAnimation" forKey:@"Name"];
 		[zoomInAnimation setDelegate:self];
 		[self addAnimation:zoomInAnimation forKey:@"zoomInAnimation"];
@@ -136,15 +140,18 @@
     }
 }
 
-
-
 - (void)removeFromParent
 {
 	if (self.isAnimated == TRUE)
 	{
 		[self setZoomOutPosition];
-			//CATransform3D zoomTransform = CATransform3DMakeScale(0.1, 0.1, 1.0);
-		CAAnimationGroup *zoomOutAnimation = [self zoomOutFadedAnimation];
+		
+		CAAnimationGroup *zoomOutAnimation = nil;
+		if (sender != nil)
+			zoomOutAnimation = [SMFAnimation zoomOutFadedToRect:[sender bounds]];
+		else
+			zoomOutAnimation = [SMFAnimation zoomOutFadedToRect:CGRectZero];
+		
 		[zoomOutAnimation setDelegate:self];
 		[zoomOutAnimation setValue:@"removeFromParent" forKey:@"Name"];
 		[[self layer] addAnimation:zoomOutAnimation forKey:@"removeFromParent"];
@@ -227,8 +234,6 @@
 		pos.fromValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT]; //
 	}
 	
-	pos.beginTime = 0;
-	pos.duration = .25;
 	pos.toValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)];
 	pos.fillMode = kCAFillModeForwards;
 	[[self layer] addAnimation:pos forKey:@"position"];
@@ -237,13 +242,9 @@
 - (void)setZoomOutPosition
 {
 	CABasicAnimation *pos = [CABasicAnimation animationWithKeyPath:@"position"];
-	pos.fromValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)]; //
-	pos.beginTime = 0;
-	pos.duration = .25;
+	pos.fromValue = [NSValue valueWithCGPoint:CGPointMake(640.0, 360.0)];
 	if (sender != nil)
 	{
-			//NSString *senderClass = NSStringFromClass([sender class]);
-			//NSLog(@"class: %@", senderClass); //trying to do something different for BRMenuItems, doesnt appear to be working though :(
 		pos.toValue = [NSValue valueWithCGPoint:[sender position]];
 	} else {
 		pos.toValue = [NSValue valueWithCGPoint:ZOOM_TO_POINT];
@@ -252,88 +253,6 @@
 	pos.fillMode = kCAFillModeForwards;
 	[[self layer] addAnimation:pos forKey:@"position"];
 }
-
-
-- (CAAnimationGroup *)zoomOutFadedAnimation
-{
-	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
-	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomOutAnimation], [self fadeOutAnimation], nil]];
-	outAnimation.duration = .25;
-	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
-	outAnimation.removedOnCompletion = NO;
-	return outAnimation;
-	
-}
-
-- (CAAnimationGroup *)zoomInFadedAnimation
-{
-	CAAnimationGroup *outAnimation = [CAAnimationGroup animation];
-	[outAnimation setAnimations:[NSArray arrayWithObjects:[self zoomInAnimation], [self fadeInAnimation], nil]];
-	outAnimation.duration = .25;
-	outAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-	outAnimation.fillMode = kCAFillModeForwards; //if you dont set this it reverts to its old mode before removing and looks really stupid.
-	outAnimation.removedOnCompletion = NO;
-	return outAnimation;
-	
-}
-
-- (CABasicAnimation *)fadeInAnimation
-{
-	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-		//theAnimation.duration=.25;
-	theAnimation.fromValue=[NSNumber numberWithFloat:0.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:1.0];
-	return theAnimation;
-}
-
-- (CABasicAnimation *)fadeOutAnimation
-{
-	CABasicAnimation *theAnimation =[CABasicAnimation animationWithKeyPath:@"opacity"];
-		//theAnimation.duration=.25;
-	theAnimation.fromValue=[NSNumber numberWithFloat:1.0];
-	theAnimation.toValue=[NSNumber numberWithFloat:0.0];
-	return theAnimation;
-}
-
-
-- (CABasicAnimation *)zoomOutAnimation
-{
-	CABasicAnimation *zoomOutAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomOutAnimation.beginTime = 0;
-	zoomOutAnimation.fromValue = [NSNumber numberWithInt:1.0];
-	if (sender != nil)
-	{
-		zoomOutAnimation.toValue = [NSValue valueWithCGRect:[sender bounds]];
-		
-	} else {
-		
-		zoomOutAnimation.toValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
-		
-	}
-	
-		//zoomOutAnimation.duration = 0.25f;
-	return zoomOutAnimation;
-}
-
-- (CABasicAnimation *)zoomInAnimation
-{
-	CABasicAnimation *zoomInAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-	zoomInAnimation.beginTime = 0;
-	if (sender != nil)
-	{
-		zoomInAnimation.fromValue = [NSValue valueWithCGRect:[sender bounds]];
-		
-	} else {
-		
-		zoomInAnimation.fromValue = [NSValue valueWithCGRect:ZOOM_TO_BOUNDS];
-	}
-	
-	zoomInAnimation.toValue = [NSNumber numberWithInt:1.0];
-	zoomInAnimation.duration = 0.25f;
-	return zoomInAnimation;
-}
-
 
 /*
  
