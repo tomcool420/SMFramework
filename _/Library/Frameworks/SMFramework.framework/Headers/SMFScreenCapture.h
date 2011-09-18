@@ -18,5 +18,5 @@
 +(NSData *)pngScreenData;
 +(NSData *)controlPlaneData;
 -(NSArray *)reportIOSurfaces;
-
++ (BRImage *)imageScreenData;
 @end
