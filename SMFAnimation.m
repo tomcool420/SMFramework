@@ -11,6 +11,19 @@
 #define ZOOM_TO_BOUNDS CGRectMake(0, 0, 108, 108)
 #define ZOOM_TO_POINT CGPointMake(591.5999755859375, 284.39999389648438)
 
+/*
+ 
+ This class kind of a lazy convience "work in progress", the animations are geared solely to the SMFDropShadowControl classes/subclasses
+ 
+ you also need to account for - (void)setZoomInPosition when zooming in and out manually, to see an implementation of these animations take a look at SMFDropShadowControl in
+ 
+ -(void)addToController:(BRController *)ctrl and - (void)removeFromParent
+ 
+ this is far from elegant right now, but works quite nicely.
+ 
+ */
+
+
 @implementation SMFAnimation
 
 
