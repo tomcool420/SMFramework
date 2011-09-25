@@ -6,8 +6,9 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "Backrow/AppleTV.h"
-
+@class BRMenuItem;
 @interface SMFMenuItem : BRMenuItem {
 
 }
