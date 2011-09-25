@@ -36,9 +36,13 @@ after-install::
 after-SMFramework-stage::
 	rm -rf "Headers"
 	mkdir "Headers"
+	mkdir "Headers/Backrow"
 	cp *.h "Headers/"
+	cp Backrow/*.h "Headers/Backrow/"
 	mkdir "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers"
+	mkdir "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/Backrow"
 	cp *.h "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/"
+	cp Backrow/*.h "$(FW_SHARED_BUNDLE_RESOURCE_PATH)/Headers/Backrow/"
 	rm -rf ../ATV2Includes/SMFramework
 	mkdir ../ATV2Includes/SMFramework
 	cp -rf Headers/ ../ATV2Includes/SMFramework/
