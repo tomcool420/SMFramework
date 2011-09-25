@@ -69,9 +69,9 @@ void logFrame(CGRect frame)
                               @"",kSMFMoviePreviewPosterPath,
                               @"pg",kSMFMoviePreviewRating,
                               nil];
-    NSLog(@"get information %@",self.datasource);
+		//NSLog(@"get information %@",self.datasource);
     if (self.datasource!=nil /*&& [self.datasource conformsToProtocol:@protocol(SMFMoviePreviewControllerDatasource)]*/) {
-        NSLog(@"conforms to protocol");
+			//NSLog(@"conforms to protocol");
         NSString *t = [self.datasource title];
         if (t!=nil)  {[d setObject:t forKey:kSMFMoviePreviewTitle];}
         t = [self.datasource subtitle];
@@ -157,7 +157,7 @@ void checkNil(NSObject *ctrl)
     /*
      *  The Title
      */
-    NSLog(@"1");
+		// NSLog(@"1");
     checkNil(_metadataTitleControl);
     _metadataTitleControl=[[BRMetadataTitleControl alloc]init];
     [_metadataTitleControl setTitle:[_info objectForKey:kSMFMoviePreviewTitle]];
@@ -224,7 +224,7 @@ void checkNil(NSObject *ctrl)
     [_hideList addObject:div2];
     [div2 release];
     
-	NSLog(@"2");
+		//NSLog(@"2");
 	
     /*
      *  Headers for information
@@ -233,7 +233,7 @@ void checkNil(NSObject *ctrl)
     float increment = (mtcf.size.width/masterFrame.size.width)/(float)[headers count];
     //int counter=0;
     float lastOriginY=0.0f;
-    NSLog(@"obj: %@",headers);
+		//NSLog(@"obj: %@",headers);
     for(int counter=0;counter<[headers count];counter++)
     {
         BRTextControl *head = [[BRTextControl alloc]init];
@@ -253,7 +253,7 @@ void checkNil(NSObject *ctrl)
     /*
      *  Main Information
      */
-    NSLog(@"3");
+		//NSLog(@"3");
     NSArray *objects = [_info objectForKey:kSMFMoviePreviewColumns];
     for (int counter=0; counter<[objects count]; counter++) {
         NSArray *current = [objects objectAtIndex:counter];
@@ -373,7 +373,7 @@ void checkNil(NSObject *ctrl)
             
         }
     }
-    NSLog(@"buttons");
+		//NSLog(@"buttons");
     checkNil(_buttons);
 	
     _buttons=[[NSMutableArray alloc]init];
@@ -484,7 +484,7 @@ void checkNil(NSObject *ctrl)
 			}
 		}
 	}
-	NSLog(@"end buttons");
+		//NSLog(@"end buttons");
 	
     BRTextControl *moviesControl =[[BRTextControl alloc] init];
     NSString *title=@"";
@@ -549,7 +549,7 @@ void checkNil(NSObject *ctrl)
         _provider=[[self getProviderForShelf] retain];
         _adap = [[NSClassFromString(@"BRProviderDataSourceAdapter") alloc] init];
         [_adap setProviders:[NSArray arrayWithObject:_provider]];
-        NSLog(@"Provider: %@ %@",_provider,_provider.controlFactory);
+			//NSLog(@"Provider: %@ %@",_provider,_provider.controlFactory);
         [_provider.controlFactory setDefaultImage:[[BRThemeInfo sharedTheme]appleTVIcon]];
         [_adap setGridColumnCount:8];
         if ([_shelfControl respondsToSelector:@selector(setColumnCount:)]) {

@@ -8,8 +8,9 @@
 
 #import "Backrow/AppleTV.h"
 #import "SMFProgressBarControl.h"
+#import "SMFDropShadowControl.h"
 
-@interface SMFComplexDropShadowControl : BRDropShadowControl {
+@interface SMFComplexDropShadowControl : SMFDropShadowControl {
     BRControl *_bg;
     BRScrollingTextBoxControl *_scrolling;
     BRWaitSpinnerControl *_spinner;
@@ -35,7 +36,7 @@
 @property(readwrite,assign)NSObject *delegate;
 
 -(void)appendToText:(NSString *)t;
--(void)addToController:(BRController *)ctrl;
+	//-(void)addToController:(BRController *)ctrl;
 
 -(void)setShowsProgressBar:(BOOL)shows;
 -(void)setShowsWaitSpinner:(BOOL)spinner;
@@ -46,5 +47,6 @@
 -(BOOL)blocking;
 -(id)attributedStringForString:(NSString*)s;
 -(void)updateHeader;
+- (void)removeBlueLozenge;
 
 @end

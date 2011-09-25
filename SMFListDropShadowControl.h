@@ -31,6 +31,8 @@
     NSObject<SMFListDropShadowDelegate>  * cDelegate;
     NSObject<SMFListDropShadowDatasource>* cDatasource;
     BRListControl *list;
+	BOOL isAnimated;
+	id sender;
 }
 /*
  *  Simply calls [list reload]
@@ -50,7 +52,17 @@
  *  To remove it: you can call: -(void)removeFromParent
  */
 -(void)addToController:(BRController *)ctrl;
+- (void)setZoomInPosition;
+- (void)setZoomOutPosition;
+
+- (void)updateSender;
+- (id)getListFromMenuItem:(id)menuItem;
+- (id)synthesizeMockItemFrom:(id)theSender withX:(float)xValue;
+- (id)synthesizeMockItem;
+
 @property (retain) NSObject<SMFListDropShadowDelegate>* cDelegate;
 @property (retain) NSObject<SMFListDropShadowDatasource>* cDatasource;
 @property (retain) BRListControl *list;
+@property (readwrite, assign) BOOL isAnimated;
+@property (nonatomic, retain) id sender;
 @end

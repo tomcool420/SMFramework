@@ -39,14 +39,14 @@
     [ic autorelease];
     return self;
 }
--(void)addToController:(BRController *)ctrl
-{
-    CGRect f = CGRectMake(256.0,72.0,768.0,576.0);//(s.width*0.2, s.height*0.1, s.width*0.6, s.height*0.8);
-    [self setFrame:f];
-    [ctrl addControl:self];
-    [ctrl setFocusedControl:self];
-    [ctrl _setFocus:self];
-}
+//-(void)addToController:(BRController *)ctrl
+//{
+//    CGRect f = CGRectMake(256.0,72.0,768.0,576.0);//(s.width*0.2, s.height*0.1, s.width*0.6, s.height*0.8);
+//    [self setFrame:f];
+//    [ctrl addControl:self];
+//    [ctrl setFocusedControl:self];
+//    [ctrl _setFocus:self];
+//}
 -(void)dealloc
 {
     self.text=nil;

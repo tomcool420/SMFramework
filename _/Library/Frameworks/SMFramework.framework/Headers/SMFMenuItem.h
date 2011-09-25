@@ -6,9 +6,11 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 
 @interface SMFMenuItem : BRMenuItem {
+	
+	BOOL centered;
 
 }
 /*
@@ -40,4 +42,6 @@
  *  shift the text and looks like apple's
  */
 -(void)setSelectedImage:(BOOL)b;
+
+@property (assign) BOOL centered;
 @end

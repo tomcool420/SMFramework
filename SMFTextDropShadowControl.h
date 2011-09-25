@@ -7,9 +7,9 @@
 //
 
 #import "Backrow/AppleTV.h"
+#import "SMFDropShadowControl.h"
 
-
-@interface SMFTextDropShadowControl : BRDropShadowControl {
+@interface SMFTextDropShadowControl : SMFDropShadowControl {
     NSMutableString *_text;
     NSMutableAttributedString *_att;
     BRScrollingTextBoxControl *_scrolling;

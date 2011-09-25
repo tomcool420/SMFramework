@@ -85,6 +85,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFScreenCapture,sharedInstance)
     CGColorSpaceRelease(rgb);
     
 }
+
++ (BRImage *)imageScreenData
+{
+	NSData *png = [SMFScreenCapture pngScreenData];
+	return [BRImage imageWithData:png];
+}
+
 +(NSData *)pngScreenData
 {
     

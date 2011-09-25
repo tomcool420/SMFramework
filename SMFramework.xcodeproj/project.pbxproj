@@ -65,6 +65,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3226AD541424897C0014943B /* SMFMockMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3226AD521424897C0014943B /* SMFMockMenuItem.m */; };
+		3226AD551424897C0014943B /* SMFMockMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3226AD531424897C0014943B /* SMFMockMenuItem.h */; };
+		32CCA6AE1425D45D00037D7D /* SMFAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 32CCA6AC1425D45D00037D7D /* SMFAnimation.h */; };
+		32CCA6AF1425D45D00037D7D /* SMFAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CCA6AD1425D45D00037D7D /* SMFAnimation.m */; };
+		32D6E288142053AD00325EBE /* SMFDropShadowControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 32D6E286142053AD00325EBE /* SMFDropShadowControl.h */; };
+		32D6E289142053AD00325EBE /* SMFDropShadowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D6E287142053AD00325EBE /* SMFDropShadowControl.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		DD002E5D1301DD52003EA17E /* SMFAssetPreviewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD002E5B1301DD52003EA17E /* SMFAssetPreviewController.h */; };
 		DD002E5E1301DD52003EA17E /* SMFAssetPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD002E5C1301DD52003EA17E /* SMFAssetPreviewController.m */; };
@@ -1211,6 +1217,12 @@
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		3226AD521424897C0014943B /* SMFMockMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFMockMenuItem.m; sourceTree = "<group>"; };
+		3226AD531424897C0014943B /* SMFMockMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFMockMenuItem.h; sourceTree = "<group>"; };
+		32CCA6AC1425D45D00037D7D /* SMFAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFAnimation.h; sourceTree = "<group>"; };
+		32CCA6AD1425D45D00037D7D /* SMFAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFAnimation.m; sourceTree = "<group>"; };
+		32D6E286142053AD00325EBE /* SMFDropShadowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMFDropShadowControl.h; sourceTree = "<group>"; };
+		32D6E287142053AD00325EBE /* SMFDropShadowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMFDropShadowControl.m; sourceTree = "<group>"; };
 		32DBCF630370AF2F00C91783 /* atvTwo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atvTwo_Prefix.pch; sourceTree = "<group>"; };
 		875A8249126FFF1F00ECADC2 /* BackRowExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BackRowExtras.h; path = Classes/BackRowExtras.h; sourceTree = "<group>"; };
 		875A8425126FFF6500ECADC2 /* build.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
@@ -2582,6 +2594,8 @@
 		DD145D9F12B4A5AB00FA8984 /* MenuItems */ = {
 			isa = PBXGroup;
 			children = (
+				3226AD521424897C0014943B /* SMFMockMenuItem.m */,
+				3226AD531424897C0014943B /* SMFMockMenuItem.h */,
 				DDA302A71274EFD000B0AE9C /* BRMenuItem_SMF.h */,
 				DDA302A81274EFD000B0AE9C /* BRMenuItem_SMF.m */,
 				DD3136CB1277CFFC00042510 /* SMFMenuItem.h */,
@@ -2615,6 +2629,10 @@
 		DD5FD68B131C8B9D004A6D5C /* ShadowPopups */ = {
 			isa = PBXGroup;
 			children = (
+				32CCA6AC1425D45D00037D7D /* SMFAnimation.h */,
+				32CCA6AD1425D45D00037D7D /* SMFAnimation.m */,
+				32D6E286142053AD00325EBE /* SMFDropShadowControl.h */,
+				32D6E287142053AD00325EBE /* SMFDropShadowControl.m */,
 				DD57778912EA39B300449D5F /* SMFListDropShadowControl.h */,
 				DD57778A12EA39B300449D5F /* SMFListDropShadowControl.m */,
 				DDACF745131B2E9400D10DB7 /* SMFTextDropShadowControl.h */,
@@ -4808,6 +4826,9 @@
 				DDCC4AC013CE3D300099DFED /* SMFExamples.h in Headers */,
 				DDCC4AC213CE3D300099DFED /* SMFMoviePreviewDelegateAndDatasourceExample.h in Headers */,
 				DDCC4AC613CE98AD0099DFED /* SMFCompatibility.h in Headers */,
+				32D6E288142053AD00325EBE /* SMFDropShadowControl.h in Headers */,
+				3226AD551424897C0014943B /* SMFMockMenuItem.h in Headers */,
+				32CCA6AE1425D45D00037D7D /* SMFAnimation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5026,6 +5047,9 @@
 				DDCC4AC113CE3D300099DFED /* SMFExamples.m in Sources */,
 				DDCC4AC313CE3D300099DFED /* SMFMoviePreviewDelegateAndDatasourceExample.m in Sources */,
 				DDCC4AC713CE98AD0099DFED /* SMFCompatibility.m in Sources */,
+				32D6E289142053AD00325EBE /* SMFDropShadowControl.m in Sources */,
+				3226AD541424897C0014943B /* SMFMockMenuItem.m in Sources */,
+				32CCA6AF1425D45D00037D7D /* SMFAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

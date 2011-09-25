@@ -6,7 +6,7 @@
 //  Copyright 2010 tomcool.org. All rights reserved.
 //
 #import "SynthesizeSingleton.h"
-#import <Backrow/Backrow.h>
+#import "Backrow/AppleTV.h"
 #import "SMFEventManager.h"
 
 @interface SMFScreenCapture : NSObject<SMFEventDelegate> {
@@ -18,5 +18,5 @@
 +(NSData *)pngScreenData;
 +(NSData *)controlPlaneData;
 -(NSArray *)reportIOSurfaces;
-
++ (BRImage *)imageScreenData;
 @end
