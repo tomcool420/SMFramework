@@ -13,11 +13,13 @@
     BOOL _usingFourPointTwoPlus;
     BOOL _usingFourPointThreePlus;
     BOOL _usingFourPointFourPlus;
+	BOOL _usingFourPointFourGM;
 }
 +(SMFCompatibility *)compat;
 -(BOOL)usingFourPointTwoPlus;
 -(BOOL)usingFourPointThreePlus;
 -(BOOL)usingFourPointFourPlus;
+-(BOOL)usingFourPointFourGM;
 @end
 
 #define SMF_COMPAT [SMFCompatibility compat]

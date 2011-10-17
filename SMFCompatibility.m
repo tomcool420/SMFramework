@@ -25,7 +25,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCompatibility, compat)
         if (_usingFourPointTwoPlus && NSClassFromString(@"BRTableView")) {
             _usingFourPointThreePlus=YES;
         }
-        if (_usingFourPointThreePlus && NSClassFromString(@"BRProxyManager")) {
+        if (_usingFourPointThreePlus && NSClassFromString(@"ATVAudioOption"))
+		{
+			_usingFourPointFourGM=YES;
+		}
+		if (_usingFourPointThreePlus && NSClassFromString(@"BRProxyManager")) {
             _usingFourPointFourPlus=YES;
         }
     }
@@ -42,5 +46,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SMFCompatibility, compat)
 -(BOOL)usingFourPointFourPlus
 {
     return _usingFourPointFourPlus;
+}
+-(BOOL)usingFourPointFourGM
+{
+	return _usingFourPointFourGM;
 }
 @end

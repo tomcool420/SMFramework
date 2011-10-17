@@ -522,6 +522,7 @@ void checkNil(NSObject *ctrl)
 
 -(void)reloadShelf
 {
+	NSLog(@"reloadShelf");
 
     if (_shelfControl!=nil) {
         [_shelfControl release];
@@ -530,7 +531,7 @@ void checkNil(NSObject *ctrl)
 
     CGRect masterFrame=[BRWindow interfaceFrame];
     
-    if(![SMF_COMPAT usingFourPointFourPlus])
+    if(![SMF_COMPAT usingFourPointFourPlus] && ![SMF_COMPAT usingFourPointFourGM])
     {
         _shelfControl = [[NSClassFromString(@"BRMediaShelfControl") alloc] init];
         [_shelfControl setProvider:[self getProviderForShelf]];
